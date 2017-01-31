@@ -1,5 +1,6 @@
-const db = require('./models').sequelize;
+ const db = require('./models').sequelize;
 const Event = require('./models').Event;
+const Image = require('./models').Image;
 
 const events = [
 	{title:"Marilyn Minter: Pretty/Dirty", 
@@ -107,9 +108,49 @@ const events = [
 	 city:"", 
 	 zipCode: 10010, 
 	 type:'SCHOOL/GALLERY'}
+];
+
+const images = [
+	{title: '',
+	 url: 'https://www.brooklynmuseum.org/assets/system-images/made/assets/system-images/remote/https_d1lfxha3ugu3d4.cloudfront.net/exhibitions/images/2016_Pretty_Dirty_Marilyn_Minter_Blue_Poles_2000w_600_494.jpg',
+	 EventId: 1	
+	},
+	{title: '',
+	 url: 'http://www.minusspace.com/weathersby-500.jpg',
+	 EventId: 2	
+	},
+	{title: '',
+	 url: 'http://www.metmuseum.org/-/media/Images/Exhibitions/2017/Rei%20Kawakubo/ReiKawakubo_DetailPage_1200x1280_111016_v1.jpg',
+	 EventId: 3	
+	},
+	{title: '',
+	 url: 'http://iscp-nyc.org/event/ghazel-mismappings',
+	 EventId: 4	
+	},
+	{title: '',
+	 url: 'http://victorimo.com/secrets-of-leaves/',
+	 EventId: 5
+	},
+	{title: '',
+	 url: 'https://www.moma.org/d/assets/W1siZiIsIjIwMTYvMDkvMjcvN3doM25kbGZpYl9IYXR0aWVfTWNEYW5pZWwuanBnIl0sWyJwIiwiY29udmVydCIsIi1yZXNpemUgMjAwMHgyMDAwXiAtZ3Jhdml0eSBDZW50ZXIgLWV4dGVudCAyMDAweDIwMDAiXV0/Hattie_McDaniel.jpg?sha=9aec7879e65953f3',
+	 EventId: 6
+	},
+	{title: '',
+	 url: 'https://i0.wp.com/www.guggenheim.org/wp-content/uploads/1947/01/76.2553.150_ph_web.jpg?w=870',
+	 EventId: 7
+	},
+	{title: '',
+	 url: 'https://www.pratt.edu/tiny_mce/plugins/imagemanager/files/Heaton--Spent_Flower%2C_2015.jpg',
+	 EventId: 8	
+	},
+	{title: '',
+	 url: 'http://www.sva.edu/uploads/assets/headerslideitem/735x410/784ff9a855c180061315bceba5b8b3023761c923.jpeg',
+	 EventId: 9
+	},
 ]
 
 db.sync({force: true})
 .then(() => Event.bulkCreate(events))
+.then(() => Image.bulkCreate(images))
 
-module.exports = events
+module.exports = {events, images}

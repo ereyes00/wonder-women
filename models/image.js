@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Image = sequelize.define('Image', {
     title: {
@@ -12,12 +12,14 @@ module.exports = function(sequelize, DataTypes) {
         isUrl: true
       }
     }
-  }, {
+  }
+  , {
     classMethods: {
       associate: function(models) {
         Image.belongsTo(models.Event);
       }
     }
-  });
+  }
+  ); 
   return Image;
 };
