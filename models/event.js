@@ -3,8 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Event = sequelize.define('Event', {
     title: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      len: [20, 100]
+      allowNull: false
     },
     location: {
       type: DataTypes.STRING,
@@ -31,32 +30,33 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      len: [200, 2000]
+      type: DataTypes.TEXT,
+      allowNull: false
     },
     streetAddress: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     zipCode: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     type: {
       type: DataTypes.STRING,
       allowNull: false
     }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Event.hasMany(models.Image);
-      }
-    }
-  });
+  } 
+  // ,{
+  //   classMethods: {
+  //     associate: function(models) {
+  //       Event.hasMany(models.Image);
+  //     }
+  //   }
+  //}
+  );
   return Event;
 };
