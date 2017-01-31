@@ -34,5 +34,7 @@
     "sequelize": "^3.30.0",
     "sequelize-cli": "^2.5.1",
     "webpack": "^1.14.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }
