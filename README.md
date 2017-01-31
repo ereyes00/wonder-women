@@ -12,29 +12,29 @@ Install relevant packages <br/>
   `npm install` <br/>
 
 Add a config folder and a config.json file and copy this into it: <br/>
-  `{ <br/>
-  "development": { <br/>
-    "username": "root", <br/>
-    "password": null, <br/>
-    "database": "art-gal", <br/>
-    "host": "127.0.0.1", <br/>
-    "dialect": "postgres" <br/>
-  }, <br/>
-  "test": { <br/>
-    "username": "root", <br/>
-    "password": null, <br/>
-    "database": "database_test", <br/>
-    "host": "127.0.0.1", <br/>
-    "dialect": "postgres" <br/>
-  }, <br/>
-  "production": { <br/>
-    "username": "root", <br/>
-    "password": null, <br/>
-    "database": "database_production", <br/>
-    "host": "127.0.0.1", <br/>
-    "dialect": "postgres" <br/>
-  } <br/>
-  }` <br/>
+  `{` <br/>
+  `"development": {` <br/>
+    `"username": "root",` <br/>
+    `"password": null,` <br/>
+    `"database": "art-gal",` <br/>
+    `"host": "127.0.0.1",` <br/>
+    `"dialect": "postgres"` <br/>
+  `},` <br/>
+  `"test": {` <br/>
+    `"username": "root",` <br/>
+    `"password": null,` <br/>
+    `"database": "database_test",` <br/>
+    `"host": "127.0.0.1",` <br/>
+    `"dialect": "postgres"` <br/>
+  `},` <br/>
+  `"production": { `<br/>
+    `"username": "root",` <br/>
+    `"password": null,` <br/>
+    `"database": "database_production",` <br/>
+    `"host": "127.0.0.1",` <br/>
+    `"dialect": "postgres"` <br/>
+  `}` <br/>
+  `}` <br/>
 Make sure you make a database called 'art-gal' in Postgres, edit the 'username' field to the username registered on your computer. <br/>
 
 Run Postgres on your computer and connect through Postico. <br/>
