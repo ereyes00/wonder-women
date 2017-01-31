@@ -1,4 +1,4 @@
-# wonder-women
+# Art_gal
 
 With our app, we hope to provide a resource to users who are searching for art-related activities in particular areas. The app will have several components: calendar featuring gallery openings (great way to know where there’s free wine and bites), listings of exhibitions at museums, local galleries and art schools, as well as an up-to-date look at what art films are showing at IFC or Angelika (among others). <br/>
 We hope to utilize APIs from museums and scrape a lot of data from the bigger galleries. For smaller galleries, our team sees it as a crowdsourcing opportunity. Users have the option to bookmark events and showings they’re interested in, which will then populate the user’s account calendar.  <br/>
