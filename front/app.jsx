@@ -9,7 +9,7 @@ var App = withRouter(React.createClass({
   render: function() {
     return(
       <div>
-      <h1>ArtGal</h1>
+      <h1>Art Gal</h1>
         <Home />
         {this.props.children}
       </div>

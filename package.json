@@ -32,8 +32,10 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
+    "react-slick": "^0.14.5",
     "sequelize": "^3.30.0",
     "sequelize-cli": "^2.5.1",
+    "slick-carousel": "^1.6.0",
     "webpack": "^1.14.0"
   },
   "devDependencies": {},
