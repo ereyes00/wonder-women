@@ -1,7 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
-var OneListing = require('./OneListing.jsx');
+var Event = require('./event.jsx');
+var ListEvents = require('./listEvents.jsx')
 var Home = require('./home.jsx');
 import {withRouter, Router, Route, Link, browserHistory} from 'react-router';
 
@@ -20,7 +21,8 @@ var App = withRouter(React.createClass({
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}></Route>
-    <Route path='OneListing' component={OneListing}></Route>
+    <Route path='event' component={Event}></Route>
+    <Route path='events' component={ListEvents}></Route>
   </Router>,
   document.getElementById('root')
 )
