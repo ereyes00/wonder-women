@@ -1,11 +1,21 @@
-/**
+
+/*.container {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  background: #419be0;
+}*/
+
+
+/*/**
  * Carousel.sass
  * @author: Dang Van Thanh
  * @github: https://github.com/dangvanthanh/carousel.sass
  * @description: A Simple Carousel Pure CSS Using Sass
  * @version: 1.0.0
  */
-%animation-default {
+/*%animation-default {
   opacity: 1 !important;
   z-index: 3;
 }
@@ -218,4 +228,4 @@ body {
   margin: 50px auto;
 }
 
-@include carousel(5);
+@include carousel(5);*/
