@@ -1,14 +1,16 @@
 const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-//const session = require('express-session');
 var db = require('../models')
-//var router = require('./routes/api.js')
-const app = express();
+var router = require('../routes/index.js')
+
 
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(bodyParser.json());
 app.use(express.static('public'))
+
+app.use('/api', router)
 
 
 app.get('/*', function(req, res){

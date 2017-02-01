@@ -1,5 +1,5 @@
 var React = require('react');
-var $ = require('jquery');
+import $ from 'jquery';
 import {Link} from 'react-router';
 var Event = require('./event.jsx');
 
