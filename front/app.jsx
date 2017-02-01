@@ -5,6 +5,7 @@ import ListEvents from './listEvents.jsx';
 import Home from './home.jsx';
 import CreateEvent from './createEvent.jsx';
 import {withRouter, Router, Route, Link, browserHistory} from 'react-router';
+//import './style/home.css';
 
 var App = withRouter(React.createClass({
   render: function() {
