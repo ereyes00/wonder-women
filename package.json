@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --w & nodemon ./back/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,13 @@
     "babel-preset-react": "^6.22.0",
     "body-parser": "^1.16.0",
     "bootstrap-loader": "^2.0.0-beta.20",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "css-loader": "^0.26.1",
     "express": "^4.14.0",
     "file-loader": "^0.10.0",
+    "jquery": "^3.1.1",
+    "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
