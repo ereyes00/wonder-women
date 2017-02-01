@@ -2,34 +2,49 @@ import React from 'react';
 import $ from 'jquery';
 
 var CreateEvent = React.createClass({
+	getInitialState: function(){
+		return {title: '', location: '', address: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: ''}
+	},
+	
 	render: function(){
 		return(
 			<div>
 				<h2>Create An Event</h2>
 
 				<form>
-					<input type="text"
-					placeholder="Title of Event" />
+					Event Title:
+					<input type="text"/>
 					<br /><br />
 
-					<input type="text"
-					placeholder="Location" />
+					Event Location:
+					<input type="text"/>
 					<br /><br />
 
-					<input type="text"
-					placeholder="Address" />
+					<select>
+						<option value="Museum">Museum</option>
+						<option value="Gallery">Gallery</option>
+						<option value="School">School</option>
+					</select>
 					<br /><br />
 
-					<input type="text"
-					placeholder="City" />
+					Address:
+					<input type="text"/>
 					<br /><br />
 
-					<input type="text"
-					placeholder="Zip Code" />
+					City:
+					<input type="text"/>
 					<br /><br />
 
-					<input type="text"
-					placeholder="Price" />
+					Zip Code:
+					<input type="text" />
+					<br /><br />
+
+					Price:
+					<input type="text"/>
+					<br /><br />
+
+					Description:
+					<input type="text" />
 					<br /><br />
 
 					Opening Day:
@@ -46,29 +61,53 @@ var CreateEvent = React.createClass({
 						<input type="checkbox"
 						value="Monday" />Monday
 						<br />
+						Hours:
+						<input type="text" /> to <input type="text"/>
+						<br /><br />
 						
 						<input type="checkbox"
 						value="Tuesday" />Tuesday
 						<br />
+						Hours:
+						<input type="text" /> to <input type="text"/>
+						<br /><br />
 
 						<input type="checkbox"
 						value="Wednesday" />Wednesday
 						<br />
+						Hours:
+						<input type="text" /> to <input type="text"/>
+						<br /><br />
 
 						<input type="checkbox"
 						value="Thursday" />Thursday
 						<br />
+						Hours:
+						<input type="text" /> to <input type="text"/>
+						<br /><br />
 
 						<input type="checkbox"
 						value="Friday" />Friday
 						<br />
+						Hours:
+						<input type="text" /> to <input type="text"/>
+						<br /><br />
 
 						<input type="checkbox"
 						value="Saturday" />Saturday
 						<br />
+						Hours:
+						<input type="text" /> to <input type="text"/>
+						<br /><br />
 
 						<input type="checkbox"
 						value="Sunday" />Sunday
+						<br />
+						Hours:
+						<input type="text" /> to <input type="text"/>
+						<br /><br />
+
+						<input type="submit" value="Submit" />
 
 				</form>
 			</div>
