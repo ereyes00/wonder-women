@@ -13,13 +13,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   }
-  , {
-    classMethods: {
-      associate: function(models) {
-        Image.belongsTo(models.Event);
-      }
-    }
-  }
+  // , {
+  //   classMethods: {
+  //     associate: function(models) {
+  //       Image.belongsTo(models.Event);
+  //     }
+  //   }
+  // }
   ); 
   return Image;
 };
