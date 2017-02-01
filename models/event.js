@@ -50,13 +50,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   } 
-  ,{
-    classMethods: {
-      associate: function(models) {
-        Event.hasMany(models.Image);
-      }
-    }
-  }
+  // ,{
+  //   classMethods: {
+  //     associate: function(models) {
+  //       Event.hasMany(models.Image);
+  //     }
+  //   }
+  // }
   );
   return Event;
 };
