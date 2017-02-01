@@ -10,7 +10,13 @@ eventRouter.route('/')
         })
         
 });
-
+eventRouter.route('/:id')
+      .get(function(req, res){
+      	db.Event.findById(req.params.id)
+          .then(function(data){
+      	res.send(data)
+      })
+})
 
 
 module.exports = eventRouter
