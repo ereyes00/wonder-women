@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'test';
-
 let models = require('../models')
 let Event = models.Event;
 let Image = models.Image;
@@ -10,11 +8,16 @@ let chaiHttp = require('chai-http');
 let server = require('../back/server.js');
 let should = chai.should();
 
-//let restaurants = require('../seed/restaurant.js')
-let events = require('../seed.js').events
-//let reviews = require('../seed/review.js')
-let images = require('../seed.js').images
-//let seedFunction = require('../seed')
+let events = {
+  title: "Marilyn Minter: Pretty/Dirty",
+  location: "Brooklyn Museum",
+  closing: "4/2/2017",
+  hours: "Wednesday - Sunday 11am - 6pm | Thursday closes at 10pm",
+  price: "Suggested $16",
+  description: "Marilyn Minter’s sensual paintings, photographs, and videos vividly explore complex and contradictory emotions around beauty and the feminine body in American culture. She trains a critical eye on the power of desire, questioning the fashion industry’s commercialization of sex and the body. Marilyn Minter: Pretty/Dirty is the first retrospective of her work.",
+  zipCode: "11238",
+  type: "MUSEUM"
+};
 
 chai.use(chaiHttp);
 //Our parent block
@@ -46,7 +49,36 @@ chai.use(chaiHttp);
             .get('/api/events')
             .end((err, res) => {
                 res.body.should.be.a('array');
-                res.body.length.should.be.eql(4); //greater than 0
+                res.body.length.should.be.above(0);
+              done();
+            });
+      });
+  });
+
+    describe('/GET one event route', () => {
+      it('server should have a /api/events/:id GET route', (done) => {
+        chai.request(server)
+            .get('/api/events/1')
+            .end((err, res) => {
+                res.should.have.status(200);
+              done();
+            });
+      });
+  });
+
+  describe('/GET one event functionality', () => {
+      it('route should GET one event', (done) => {
+        chai.request(server)
+            .get('/api/events/1')
+            .end((err, res) => {
+                res.body.should.be.a('object');
+                res.body.should.have.property('title');
+                res.body.should.have.property('location');
+                res.body.should.have.property('closing');
+                res.body.should.have.property('hours');
+                res.body.should.have.property('price');
+                res.body.should.have.property('description');
+                res.body.should.have.property('type');
               done();
             });
       });
@@ -54,7 +86,6 @@ chai.use(chaiHttp);
 
   describe('/POST events route', () => {
       it('server should have a /api/events POST route', (done) => {
-        let events = //event info
         chai.request(server)
             .post('/api/events')
             .send(events)
@@ -67,7 +98,6 @@ chai.use(chaiHttp);
 
   describe('/POST events functionality', () => {
       it('route should POST events', (done) => {
-        let events = //event info
         chai.request(server)
             .post('/api/events')
             .send(events)
