@@ -6,20 +6,7 @@
  	getInitialState: function(){
  		return {createdEvents: [], firstName: '', lastName: '', email: '', bookmarks: []}
  	},
- 	showCreate: function(){
- 		var dialog=document.getElementById('window');
- 		document.getElementById('show').onClick = function(){
- 				dialog.show();
- 		};
- 		document.getElementById('submit').onClick = function(){
- 				dialog.close();
- 		};
- 	}(),
  	render: function(){
- 		<dialog id="window">
- 			<CreateEvent />
- 		</dialog>
-
  		return(
  			<div>
  				<h2 className="title">Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
@@ -33,11 +20,10 @@
 
  				<br /> <br />
 
- 				<button
+ 				<a href='createevent'><button
  				className="button" 
- 				id="show"
- 				onClick={this.showCreate}>Create An Event
- 				</button>
+ 				>Create An Event
+ 				</button></a>
 
  				<br /> <br />
 

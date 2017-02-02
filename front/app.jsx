@@ -10,13 +10,13 @@ import Login from './login.jsx';
 import Signup from './signUp.jsx';
 import Account from './account.jsx';
 import {withRouter, Router, Route, Link, browserHistory} from 'react-router';
-//import './style/home.css';
+import './style/home.css';
 
 var App = withRouter(React.createClass({
   render: function() {
     return(
       <div>
-      <h1>Art Gal</h1>
+        <img className="logo" src={require('./style/images/ArtGalLogo.png')} />
         <NavBar />
         <Search/>
         <Home />
