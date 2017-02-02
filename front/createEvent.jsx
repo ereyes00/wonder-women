@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 var CreateEvent = React.createClass({
 	getInitialState: function(){
-		return {title: '', location: '', type: '', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: ''}
+		return {title: '', location: '', type: 'Museum', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: ''}
 	},
 	addEvent: function(e){
 		e.preventDefault()
@@ -13,7 +13,7 @@ var CreateEvent = React.createClass({
 			data: this.state
 		})
 		.done((data) => {
-			console.log('Received the data')
+			console.log('Event has been created.')
 		})
 	},
 	handleChange: function(input, event){
@@ -21,7 +21,7 @@ var CreateEvent = React.createClass({
 			this.setState({title: event.target.value})
 		} else if (input === 'location'){
 			this.setState({location: event.target.value})
-		} else if (input === 'address'){
+		} else if (input === 'streetAddress'){
 			this.setState({streetAddress: event.target.value})
 		} else if (input === 'city'){
 			this.setState({city: event.target.value})
@@ -40,6 +40,26 @@ var CreateEvent = React.createClass({
 	updateType: function(event){
 		this.setState({type: event.target.value})
 	},
+	updateHours: function(event){
+		this.setState({hours: event.target.value})
+	},
+	// handleClick: function(input, event){
+	// 	if(input === 'monday'){
+	// 		this.setState({monday: event.target.value})
+	// 	} else if (input === 'tuesday'){
+	// 		this.setState({tuesday: event.target.value})
+	// 	} else if (input === 'wednesday'){
+	// 		this.setState({wednesday: event.target.value})
+	// 	} else if (input === 'thursday'){
+	// 		this.setState({thursday: event.target.value})
+	// 	} else if (input === 'friday'){
+	// 		this.setState({friday: event.target.value})
+	// 	} else if (input === 'saturday'){
+	// 		this.setState({saturday: event.target.value})
+	// 	} else if (input === 'sunday'){
+	// 		this.setState({sunday: event.target.value})
+	// 	}
+	// },
 	render: function(){
 		return(
 			<div>
@@ -47,13 +67,17 @@ var CreateEvent = React.createClass({
 
 				<form onSubmit={this.addEvent}>
 					Event Title:
+					<br />
 					<input type="text"
 					onChange={this.handleChange.bind(this, "title")}/>
+
 					<br /><br />
 
 					Event Location:
+					<br />
 					<input type="text"
 					onChange={this.handleChange.bind(this, "location")}/>
+
 					<br /><br />
 
 					<select value={this.state.type} onChange={this.updateType}>
@@ -61,93 +85,69 @@ var CreateEvent = React.createClass({
 						<option value="Gallery">Gallery</option>
 						<option value="School">School</option>
 					</select>
+
 					<br /><br />
 
 					Address:
+					<br />
 					<input type="text"
-					onChange={this.handleChange.bind(this, "address")}/>
+					onChange={this.handleChange.bind(this, "streetAddress")}/>
+
 					<br /><br />
 
 					City:
+					<br />
 					<input type="text"
 					onChange={this.handleChange.bind(this, "city")}/>
+
 					<br /><br />
 
 					Zip Code:
+					<br />
 					<input type="text"
 					onChange={this.handleChange.bind(this, "zipCode")} />
+
 					<br /><br />
 
 					Price:
+					<br />
 					<input type="text"
 					onChange={this.handleChange.bind(this, "price")}/>
+
 					<br /><br />
 
 					Description:
+					<br />
 					<input type="text"
 					onChange={this.handleChange.bind(this, "description")} />
+
 					<br /><br />
 
 					Opening Day:
+					<br />
 					<input type="date"
 					onChange={this.handleChange.bind(this, "opening")} />
+
 					<br /><br />
 
 					Closing Day:
+					<br />
 					<input type="date"
 					onChange={this.handleChange.bind(this, "closing")} />
+
+					<br /><br />
+
+					Hours:
 					<br />
-					<br />
-					Please check off the days you'll be open: 
-					<br />
-						<input type="checkbox"
-						value="Monday" />Monday
-						<br />
-						Hours:
-						<input type="text" /> to <input type="text"/>
-						<br /><br />
-						
-						<input type="checkbox"
-						value="Tuesday" />Tuesday
-						<br />
-						Hours:
-						<input type="text" /> to <input type="text"/>
-						<br /><br />
+					<input type="text"
+					placeholder="Monday-Friday 9:45AM - 5:45PM | Saturday-Sunday 11:45AM - 5:45PM"
+					onChange={this.updateHours} />
+					
+					
 
-						<input type="checkbox"
-						value="Wednesday" />Wednesday
-						<br />
-						Hours:
-						<input type="text" /> to <input type="text"/>
-						<br /><br />
+					<br /> <br />
 
-						<input type="checkbox"
-						value="Thursday" />Thursday
-						<br />
-						Hours:
-						<input type="text" /> to <input type="text"/>
-						<br /><br />
-
-						<input type="checkbox"
-						value="Friday" />Friday
-						<br />
-						Hours:
-						<input type="text" /> to <input type="text"/>
-						<br /><br />
-
-						<input type="checkbox"
-						value="Saturday" />Saturday
-						<br />
-						Hours:
-						<input type="text" /> to <input type="text"/>
-						<br /><br />
-
-						<input type="checkbox"
-						value="Sunday" />Sunday
-						<br />
-						Hours:
-						<input type="text" /> to <input type="text"/>
-						<br /><br />
+					
 
 						<input type="submit" value="Submit" />
 
@@ -158,3 +158,84 @@ var CreateEvent = React.createClass({
 })
 
 export default CreateEvent;
+
+// <div value={this.state.hours}>
+
+// 						// <div >
+// 						// 	<input type="checkbox"
+					// 		value="Monday"
+					// 		onClick={this.handleClick.bind(this, "monday")} />Monday
+					// 		<br />
+					// 		Hours:
+					// 		<input type="text" /> to <input type="text"/>
+					// 	</div>	
+
+					// 	<br /><br />
+						
+						
+					// 	<div>
+					// 		<input type="checkbox"
+					// 		value="Tuesday"
+					// 		onClick={this.handleClick.bind(this, "tuesday")} />Tuesday
+					// 		<br />
+					// 		Hours:
+					// 		<input type="text" /> to <input type="text"/>
+					// 	</div>
+
+					// 	<br /><br />
+
+					// 	<div>
+					// 		<input type="checkbox"
+					// 		value="Wednesday"
+					// 		onClick={this.handleClick.bind(this, "wednesday")} />Wednesday
+					// 		<br />
+					// 		Hours:
+					// 		<input type="text" /> to <input type="text"/>
+					// 	</div>
+
+					// 	<br /><br />
+
+					// 	<div>
+					// 		<input type="checkbox"
+					// 		value="Thursday"
+					// 		onClick={this.handleClick.bind(this, "thursday")} />Thursday
+					// 		<br />
+					// 		Hours:
+					// 		<input type="text" /> to <input type="text"/>
+					// 	</div>
+
+					// 	<br /><br />
+
+					// 	<div>
+					// 		<input type="checkbox"
+					// 		value="Friday"
+					// 		onClick={this.handleClick.bind(this, "friday")} />Friday
+					// 		<br />
+					// 		Hours:
+					// 		<input type="text" /> to <input type="text"/>
+					// 	</div>
+
+					// 	<br /><br />
+
+					// 	<div>
+					// 		<input type="checkbox"
+					// 		value="Saturday"
+					// 		onClick={this.handleClick.bind(this, "saturday")} />Saturday
+					// 		<br />
+					// 		Hours:
+					// 		<input type="text" /> to <input type="text"/>
+					// 	</div>
+
+					// 	<br /><br />
+
+					// 	<div>
+					// 		<input type="checkbox"
+					// 		value="Sunday"
+					// 		onClick={this.handleClick.bind(this, "sunday")} />Sunday
+					// 		<br />
+					// 		Hours:
+					// 		<input type="text" /> to <input type="text"/>
+					// 	</div>
+					// 	<br /><br />
+
+					// </div>
