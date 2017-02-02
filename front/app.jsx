@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Event from './event.jsx'
 import ListEvents from './listEvents.jsx';
 import Home from './home.jsx';
+import NavBar from './navbar.jsx';
+import Search from './search.jsx';
 import CreateEvent from './createEvent.jsx';
 import Login from './login.jsx';
 import Signup from './signUp.jsx';
@@ -15,6 +17,8 @@ var App = withRouter(React.createClass({
     return(
       <div>
       <h1>Art Gal</h1>
+        <NavBar />
+        <Search/>
         <Home />
         {this.props.children}
       </div>
