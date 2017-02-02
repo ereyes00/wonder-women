@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import './style/createEvent.css';
+import {browserHistory} from 'react-router';
 
 var CreateEvent = React.createClass({
 	getInitialState: function(){
@@ -14,7 +15,9 @@ var CreateEvent = React.createClass({
 			data: this.state
 		})
 		.done((data) => {
-			console.log('Event has been created.')
+			console.log('Event has been created.');
+			browserHistory.push('/account')
+			//after submitting new event, user will be brought back to their acct page.
 		})
 	},
 	handleChange: function(input, event){
@@ -44,23 +47,6 @@ var CreateEvent = React.createClass({
 	updateHours: function(event){
 		this.setState({hours: event.target.value})
 	},
-	// handleClick: function(input, event){
-	// 	if(input === 'monday'){
-	// 		this.setState({monday: event.target.value})
-	// 	} else if (input === 'tuesday'){
-	// 		this.setState({tuesday: event.target.value})
-	// 	} else if (input === 'wednesday'){
-	// 		this.setState({wednesday: event.target.value})
-	// 	} else if (input === 'thursday'){
-	// 		this.setState({thursday: event.target.value})
-	// 	} else if (input === 'friday'){
-	// 		this.setState({friday: event.target.value})
-	// 	} else if (input === 'saturday'){
-	// 		this.setState({saturday: event.target.value})
-	// 	} else if (input === 'sunday'){
-	// 		this.setState({sunday: event.target.value})
-	// 	}
-	// },
 	render: function(){
 		return(
 			<center><div>
@@ -164,7 +150,10 @@ var CreateEvent = React.createClass({
 
 					
 
-						<input type="submit" className="button" value="Submit" />
+						<input type="submit"
+						className="button"
+						id='submit'
+						value="Submit" />
 
 				</form>
 			</div></center>
