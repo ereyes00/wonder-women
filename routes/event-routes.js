@@ -41,8 +41,8 @@ eventRouter.route('/zip/:zip')
   .get(function (req, res) {
     db.Event.findAll({
       where: {
-      zipCode: req.params.zip,
-    },
+        zipCode: req.params.zip,
+      },
     })
     .then(function (data) {
       if (data.length === 0) {
