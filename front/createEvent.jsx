@@ -3,7 +3,7 @@ import $ from 'jquery';
 
 var CreateEvent = React.createClass({
 	getInitialState: function(){
-		return {title: '', location: '', type: '', address: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: []}
+		return {title: '', location: '', type: 'Museum', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: []}
 	},
 	addEvent: function(e){
 		e.preventDefault()
@@ -21,7 +21,7 @@ var CreateEvent = React.createClass({
 			this.setState({title: event.target.value})
 		} else if (input === 'location'){
 			this.setState({location: event.target.value})
-		} else if (input === 'address'){
+		} else if (input === 'streetAddress'){
 			this.setState({streetAddress: event.target.value})
 		} else if (input === 'city'){
 			this.setState({city: event.target.value})
@@ -75,7 +75,7 @@ var CreateEvent = React.createClass({
 					Address:
 					<br />
 					<input type="text"
-					onChange={this.handleChange.bind(this, "address")}/>
+					onChange={this.handleChange.bind(this, "streetAddress")}/>
 
 					<br /><br />
 

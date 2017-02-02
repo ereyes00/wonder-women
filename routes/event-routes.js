@@ -20,7 +20,7 @@ eventRouter.route('/')
 		price: req.body.price,
 		featuredArtist: req.body.featuredArtist,
 		description: req.body.description,
-		streetAddress: req.body.address,
+		streetAddress: req.body.streetAddress,
 		city: req.body.city,
 		zipCode: req.body.zipCode,
 		type: req.body.type
