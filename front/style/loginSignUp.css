@@ -1,0 +1,17 @@
+.input {
+	border: none;
+	border-bottom: 2px solid black;
+	width: 300px;
+	padding: 12px 20px;
+	left: 20%;
+	right: 20%;
+}
+
+.button {
+	background-color: blue;
+	border: none;
+	color: white;
+	padding: 10px 25px;
+	margin: 10px;
+	cursor: pointer;
+}
