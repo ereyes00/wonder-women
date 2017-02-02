@@ -2,6 +2,7 @@ var React = require('react');
 var Slider = require('react-slick');
 // var Carousel = require('react-responsive-carousel').Carousel;
 
+/////// carousel not working yet!!
 var CarouselHome = React.createClass({
     render() {
 
