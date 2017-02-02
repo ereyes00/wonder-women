@@ -1,4 +1,4 @@
-var userRouter = require('express').Router();
-var db = require('../models');
+const userRouter = require('express').Router();
+const db = require('../models');
 
-module.exports = userRouter
+module.exports = userRouter;

@@ -1,11 +1,31 @@
 var React = require('react');
+var Slider = require('react-slick');
 // var Carousel = require('react-responsive-carousel').Carousel;
 
+/////// carousel not working yet!!
 var CarouselHome = React.createClass({
     render() {
+
+        var settings = {
+            dots: true
+        }
+        var style = {  
+          margin: 0,
+          padding: 40,
+          //width: '80%',
+          color: '#333',
+          background: '#419be0'
+        }
         return (
+        
           <div>
-            <h1>Carousel fk</h1>
+            
+            <Slider {...settings}>
+              <div><img src='http://placekitten.com/g/400/200' /></div>
+              <div><img src='http://placekitten.com/g/400/200' /></div>
+              <div><img src='http://placekitten.com/g/400/200' /></div>
+              <div><img src='http://placekitten.com/g/400/200' /></div>
+            </Slider>
           </div>
         );
     }

@@ -1,0 +1,26 @@
+.event {
+	border: none;
+	border-bottom: 2px solid black;
+	width: 600px;
+	padding: 12px 20px;
+	left: 20%;
+	right: 20%;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}

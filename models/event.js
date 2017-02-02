@@ -1,61 +1,62 @@
 'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var Event = sequelize.define('Event', {
+
+module.exports = function (sequelize, DataTypes) {
+  const Event = sequelize.define('Event', {
     title: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     opening: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
     closing: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     hours: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
     price: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     featuredArtist: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
     },
     streetAddress: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
     zipCode: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     type: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
-  } 
-  ,{
+      allowNull: false,
+    },
+  }
+  , {
     classMethods: {
-      associate: function(models) {
+      associate: function (models) {
         Event.hasMany(models.Image);
-      }
-    }
+      },
+    },
   }
   );
   return Event;
