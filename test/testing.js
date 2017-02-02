@@ -1,28 +1,30 @@
-let models = require('../models')
-let Event = models.Event;
-let Image = models.Image;
+const models = require('../models');
 
-//Require the dev-dependencies
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-let server = require('../back/server.js');
-let should = chai.should();
+const Event = models.Event;
+const Image = models.Image;
 
-let events = {
-  title: "Marilyn Minter: Pretty/Dirty",
-  location: "Brooklyn Museum",
-  closing: "4/2/2017",
-  hours: "Wednesday - Sunday 11am - 6pm | Thursday closes at 10pm",
-  price: "Suggested $16",
-  description: "Marilyn Minter’s sensual paintings, photographs, and videos vividly explore complex and contradictory emotions around beauty and the feminine body in American culture. She trains a critical eye on the power of desire, questioning the fashion industry’s commercialization of sex and the body. Marilyn Minter: Pretty/Dirty is the first retrospective of her work.",
-  zipCode: "11238",
-  type: "MUSEUM"
+// Require the dev-dependencies
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+
+const server = require('../back/server.js');
+
+const should = chai.should();
+
+const events = {
+  title: 'Marilyn Minter: Pretty/Dirty',
+  location: 'Brooklyn Museum',
+  closing: '4/2/2017',
+  hours: 'Wednesday - Sunday 11am - 6pm | Thursday closes at 10pm',
+  price: 'Suggested $16',
+  description: 'Marilyn Minter’s sensual paintings, photographs, and videos vividly explore complex and contradictory emotions around beauty and the feminine body in American culture. She trains a critical eye on the power of desire, questioning the fashion industry’s commercialization of sex and the body. Marilyn Minter: Pretty/Dirty is the first retrospective of her work.',
+  zipCode: '11238',
+  type: 'MUSEUM',
 };
 
 chai.use(chaiHttp);
-//Our parent block
- describe('Art-Gal', () => {
-  
+// Our parent block
+describe('Art-Gal', () => {
 //     beforeEach((done) => { //Before each test we empty the database
 //       models.sequelize.sync({force: true}).then(function() {
 //         seedFunction()
@@ -33,86 +35,86 @@ chai.use(chaiHttp);
   * Test the /GET route
   */
   describe('/GET events route', () => {
-      it('server should have a /api/events GET route', (done) => {
-        chai.request(server)
-            .get('/api/events')
-            .end((err, res) => {
-                res.should.have.status(200);
-              done();
-            });
-      });
+    it('server should have a /api/events GET route', (done) => {
+      chai.request(server)
+          .get('/api/events')
+          .end((err, res) => {
+            res.should.have.status(200);
+            done();
+          });
+    });
   });
 
   describe('/GET events functionality', () => {
-      it('route should GET all the events', (done) => {
-        chai.request(server)
-            .get('/api/events')
-            .end((err, res) => {
-                res.body.should.be.a('array');
-                res.body.length.should.be.above(0);
-              done();
-            });
-      });
+    it('route should GET all the events', (done) => {
+      chai.request(server)
+          .get('/api/events')
+          .end((err, res) => {
+            res.body.should.be.a('array');
+            res.body.length.should.be.above(0);
+            done();
+          });
+    });
   });
 
-    describe('/GET one event route', () => {
-      it('server should have a /api/events/:id GET route', (done) => {
-        chai.request(server)
-            .get('/api/events/1')
-            .end((err, res) => {
-                res.should.have.status(200);
-              done();
-            });
-      });
+  describe('/GET one event route', () => {
+    it('server should have a /api/events/:id GET route', (done) => {
+      chai.request(server)
+          .get('/api/events/1')
+          .end((err, res) => {
+            res.should.have.status(200);
+            done();
+          });
+    });
   });
 
   describe('/GET one event functionality', () => {
-      it('route should GET one event', (done) => {
-        chai.request(server)
-            .get('/api/events/1')
-            .end((err, res) => {
-                res.body.should.be.a('object');
-                res.body.should.have.property('title');
-                res.body.should.have.property('location');
-                res.body.should.have.property('closing');
-                res.body.should.have.property('hours');
-                res.body.should.have.property('price');
-                res.body.should.have.property('description');
-                res.body.should.have.property('type');
-              done();
-            });
-      });
+    it('route should GET one event', (done) => {
+      chai.request(server)
+          .get('/api/events/1')
+          .end((err, res) => {
+            res.body.should.be.a('object');
+            res.body.should.have.property('title');
+            res.body.should.have.property('location');
+            res.body.should.have.property('closing');
+            res.body.should.have.property('hours');
+            res.body.should.have.property('price');
+            res.body.should.have.property('description');
+            res.body.should.have.property('type');
+            done();
+          });
+    });
   });
 
   describe('/POST events route', () => {
-      it('server should have a /api/events POST route', (done) => {
-        chai.request(server)
-            .post('/api/events')
-            .send(events)
-            .end((err, res) => {
-                res.should.have.status(200);
-              done();
-            });
-      });
+    it('server should have a /api/events POST route', (done) => {
+      chai.request(server)
+          .post('/api/events')
+          .send(events)
+          .end((err, res) => {
+            res.should.have.status(200);
+            done();
+          });
+    });
   });
 
   describe('/POST events functionality', () => {
-      it('route should POST events', (done) => {
-        chai.request(server)
-            .post('/api/events')
-            .send(events)
-            .end((err, res) => {
-                res.body.should.be.a('object');
-                res.body.should.have.property('title');
-                res.body.should.have.property('location');
-                res.body.should.have.property('closing');
-                res.body.should.have.property('hours');
-                res.body.should.have.property('price');
-                res.body.should.have.property('description');
-                res.body.should.have.property('type');
-              done();
-            });
-      });
+    it('route should POST events', (done) => {
+      chai.request(server)
+          .post('/api/events')
+          .send(events)
+          .end((err, res) => {
+            res.body.should.be.a('object');
+            res.body.should.have.property('title');
+            res.body.should.have.property('location');
+            res.body.should.have.property('closing');
+            res.body.should.have.property('hours');
+            res.body.should.have.property('price');
+            res.body.should.have.property('description');
+            res.body.should.have.property('type');
+            done();
+          });
+    });
   });
 
   // describe('/POST review route', () => {
@@ -173,5 +175,4 @@ chai.use(chaiHttp);
   //           });
   //     });
   // });
-
 });
