@@ -6,6 +6,7 @@ import Home from './home.jsx';
 import CreateEvent from './createEvent.jsx';
 import Login from './login.jsx';
 import Signup from './signUp.jsx';
+import Account from './account.jsx';
 import {withRouter, Router, Route, Link, browserHistory} from 'react-router';
 //import './style/home.css';
 
@@ -26,6 +27,7 @@ ReactDOM.render(
     <Route path='/' component={App}></Route>
     <Route path='login' component={Login}></Route>
     <Route path='signup' component={Signup}></Route>
+    <Route path='account' component={Account}></Route>
     <Route path='createevent' component={CreateEvent}></Route>
     <Route path='events/:id' component={Event}></Route>
     <Route path='events' component={ListEvents}></Route>

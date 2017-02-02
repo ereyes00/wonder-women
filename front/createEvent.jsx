@@ -164,7 +164,10 @@ var CreateEvent = React.createClass({
 
 					
 
-						<input type="submit" className="button" value="Submit" />
+						<input type="submit"
+						className="button"
+						id='submit'
+						value="Submit" />
 
 				</form>
 			</div></center>
