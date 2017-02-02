@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import './style/createEvent.css';
 
 var CreateEvent = React.createClass({
 	getInitialState: function(){
@@ -62,13 +63,14 @@ var CreateEvent = React.createClass({
 	// },
 	render: function(){
 		return(
-			<div>
+			<center><div>
 				<h2>Create An Event</h2>
 
 				<form onSubmit={this.addEvent}>
 					Event Title:
 					<br />
 					<input type="text"
+					className="input"
 					onChange={this.handleChange.bind(this, "title")}/>
 
 					<br /><br />
@@ -76,6 +78,7 @@ var CreateEvent = React.createClass({
 					Event Location:
 					<br />
 					<input type="text"
+					className="input"
 					onChange={this.handleChange.bind(this, "location")}/>
 
 					<br /><br />
@@ -91,6 +94,7 @@ var CreateEvent = React.createClass({
 					Address:
 					<br />
 					<input type="text"
+					className="input"
 					onChange={this.handleChange.bind(this, "streetAddress")}/>
 
 					<br /><br />
@@ -98,6 +102,7 @@ var CreateEvent = React.createClass({
 					City:
 					<br />
 					<input type="text"
+					className="input"
 					onChange={this.handleChange.bind(this, "city")}/>
 
 					<br /><br />
@@ -105,6 +110,7 @@ var CreateEvent = React.createClass({
 					Zip Code:
 					<br />
 					<input type="text"
+					className="input"
 					onChange={this.handleChange.bind(this, "zipCode")} />
 
 					<br /><br />
@@ -112,6 +118,7 @@ var CreateEvent = React.createClass({
 					Price:
 					<br />
 					<input type="text"
+					className="input"
 					onChange={this.handleChange.bind(this, "price")}/>
 
 					<br /><br />
@@ -119,27 +126,35 @@ var CreateEvent = React.createClass({
 					Description:
 					<br />
 					<input type="text"
+					className="input"
 					onChange={this.handleChange.bind(this, "description")} />
 
 					<br /><br />
 
+					<div>
 					Opening Day:
 					<br />
 					<input type="date"
+					className="cal"
 					onChange={this.handleChange.bind(this, "opening")} />
+					</div>
 
 					<br /><br />
 
+					<div>
 					Closing Day:
 					<br />
 					<input type="date"
+					className="cal"
 					onChange={this.handleChange.bind(this, "closing")} />
+					</div>
 
 					<br /><br />
 
 					Hours:
 					<br />
 					<input type="text"
+					className="input"
 					placeholder="Monday-Friday 9:45AM - 5:45PM | Saturday-Sunday 11:45AM - 5:45PM"
 					onChange={this.updateHours} />
 					
@@ -149,10 +164,10 @@ var CreateEvent = React.createClass({
 
 					
 
-						<input type="submit" value="Submit" />
+						<input type="submit" className="button" value="Submit" />
 
 				</form>
-			</div>
+			</div></center>
 		)
 	}
 })
