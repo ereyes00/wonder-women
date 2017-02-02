@@ -2,6 +2,7 @@ var React = require('react');
 import $ from 'jquery';
 import {Link} from 'react-router';
 var Event = require('./event.jsx');
+import './style/listEvents.css';
 
 var ListEvents = React.createClass({
   getInitialState: function() {
@@ -9,7 +10,7 @@ var ListEvents = React.createClass({
   },
   componentDidMount: function() {
     $.ajax({
-      url: '/api/events', //might be different?
+      url: '/api/events',
       type: 'GET'
     })
     .done((data) => {
@@ -19,16 +20,17 @@ var ListEvents = React.createClass({
   render: function() {
   if(this.state.events) {
       return(
-        <div>
-        <ul>
+        <center><div>
+        <h1>Events</h1>
+        <ul >
           {this.state.events.map(function(event){
             return (
-              <li key={event.id}>
-              <Link to={'/events/' + event.id}> {event.title}</Link>
-              </li>
+              <p key={event.id} className="event">
+              <Link to={'/events/' + event.id}>{event.title}</Link>
+              </p>
               )})}
           </ul>
-        </div>
+        </div></center>
       )
     } else {
       return (<div>Loading...</div>)
