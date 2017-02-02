@@ -29,7 +29,6 @@ eventRouter.route('/')
     });
   });
 
-
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id)
