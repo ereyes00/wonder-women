@@ -17,6 +17,7 @@ var ListEvents = React.createClass({
       this.setState({events: data});
     })
   },
+  ///onClick event for button ajax call to save to user's bookmarks here
   render: function() {
   if(this.state.events) {
       return(
@@ -27,7 +28,9 @@ var ListEvents = React.createClass({
             return (
               <p key={event.id} className="event">
               <Link to={'/events/' + event.id}>{event.title}</Link>
+              <button>Save</button>
               </p>
+
               )})}
           </ul>
         </div></center>
