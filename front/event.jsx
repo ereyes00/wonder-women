@@ -1,5 +1,6 @@
 var React = require('react');
 import $ from 'jquery';
+import './style/event.css';
 
 var Event = React.createClass({
   getInitialState: function() {
@@ -20,7 +21,7 @@ var Event = React.createClass({
   render: function() {
       return(
         <div>
-           <div><h1>{this.state.title}</h1></div>
+           <div><h1 className="event">{this.state.title}</h1></div>
            <p>Description: {this.state.description}</p>
 
         </div>
