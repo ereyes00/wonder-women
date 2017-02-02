@@ -4,7 +4,7 @@ var Slider = require('react-slick');
 
 var CarouselHome = React.createClass({
     render() {
-        debugger;
+
         var settings = {
             dots: true
         }
