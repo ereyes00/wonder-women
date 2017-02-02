@@ -14,7 +14,7 @@ var Event = React.createClass({
     })
     .done((data) => {
       //console.log('this is the response from the get call on single',data)
-      this.setState({ title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, feauredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, zipcode:data.zipcode, type:data.type});
+      this.setState({ title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, zipCode:data.zipcode, type:data.type});
     })
   },  
   render: function() {

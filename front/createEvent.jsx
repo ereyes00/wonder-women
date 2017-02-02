@@ -3,23 +3,26 @@ import $ from 'jquery';
 
 var CreateEvent = React.createClass({
 	getInitialState: function(){
-		return {title: '', location: '', type: '', address: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: ''}
+		return {title: '', location: '', type: '', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: ''}
 	},
-	// addEvent: function(){
-	// 	e.preventDefault()
-	// 	$.ajax({
-	// 		url: '/api/event',
-	// 		method: 'POST'
-	// 		data: this.state
-	// 	})
-	// },
+	addEvent: function(e){
+		e.preventDefault()
+		$.ajax({
+			url: '/api/events',
+			method: 'POST',
+			data: this.state
+		})
+		.done((data) => {
+			console.log('Received the data')
+		})
+	},
 	handleChange: function(input, event){
 		if(input === 'title'){
 			this.setState({title: event.target.value})
 		} else if (input === 'location'){
 			this.setState({location: event.target.value})
 		} else if (input === 'address'){
-			this.setState({address: event.target.value})
+			this.setState({streetAddress: event.target.value})
 		} else if (input === 'city'){
 			this.setState({city: event.target.value})
 		} else if (input === 'zipCode'){
