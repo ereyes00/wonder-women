@@ -23,7 +23,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}></Route>
     <Route path='createevent' component={CreateEvent}></Route>
-    <Route path='event' component={Event}></Route>
+    <Route path='events/:id' component={Event}></Route>
     <Route path='events' component={ListEvents}></Route>
   </Router>,
   document.getElementById('root')
