@@ -5,6 +5,8 @@ import ListEvents from './listEvents.jsx';
 import Home from './home.jsx';
 import NavBar from './navbar.jsx';
 import Search from './search.jsx';
+import About from './about.jsx';
+import ContactUs from './contactUs.jsx';
 import CreateEvent from './createEvent.jsx';
 import Login from './login.jsx';
 import Signup from './signUp.jsx';
@@ -35,6 +37,8 @@ ReactDOM.render(
     <Route path='createevent' component={CreateEvent}></Route>
     <Route path='events/:id' component={Event}></Route>
     <Route path='events' component={ListEvents}></Route>
+    <Route path='about' component={About}></Route>
+    <Route path='contactus' component={ContactUs}></Route>
   </Router>,
   document.getElementById('root')
 ) 
