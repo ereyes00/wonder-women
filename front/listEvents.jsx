@@ -30,7 +30,7 @@ var ListEvents = React.createClass({
               <Link to={'/events/' + event.id}>{event.title}</Link>
               <br />
               <br />
-              <button>Save</button>
+              
               </p>
 
               )})}

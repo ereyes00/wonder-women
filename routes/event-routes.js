@@ -26,17 +26,28 @@ eventRouter.route('/')
       type: req.body.type,
     })
     .then(function (data) {
-      res.send('Event created');
+    	if (data){ 
+    		db.Image.create({
+    			EventId: data.id,
+    			title: req.body.titles,
+    			url: req.body.url,
+
+    		})
+    		res.send('Event created');
+    }
+      
     })
     .catch(function (err) {
-	  res.send('Unable to create the recrod in database');
+	  res.send(err.message);
 	})  
     
   });
 
 eventRouter.route('/:id')
   .get(function (req, res) {
-    db.Event.findById(req.params.id)
+    db.Event.findById(req.params.id, {
+    	include: db.Image
+    })
       .then(function (data) {
       	if (!data){
           	  res.send('no record found');
