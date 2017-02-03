@@ -14,7 +14,7 @@ public
 
 *.DS_Store
 
-front/slick
+
 
 models/index.js
 
