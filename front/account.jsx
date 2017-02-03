@@ -6,6 +6,29 @@
  	getInitialState: function(){
  		return {createdEvents: [], firstName: '', lastName: '', email: '', bookmarks: []}
  	},
+ 	componentDidMount: function(){
+ 		$.ajax({
+ 			url: '/api/users/id',
+ 			type: 'GET',
+ 			data: this.state
+ 		})
+ 		.then((user)=> {
+ 			this.setState({firstName: user.firstName, lastName: user.lastName, email: user.email})
+	 		$.ajax({
+	 			url: '/api/events',
+	 			type: 'GET',
+	 			data: this.state
+	 		}) 
+	 		.then((events)=> {
+	 			console.log(events)
+	 			this.setState({createdEvents: events})
+	 		})
+	 		.then((bookmarks) => {
+	 			console.log(bookmarks)
+	 			this.setState({bookmarks: bookmarks})
+	 		})
+	 	})
+ 	},
  	render: function(){
  		return(
  			<div>
