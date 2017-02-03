@@ -165,81 +165,81 @@ export default CreateEvent;
 
 // <div value={this.state.hours}>
 
-// 						// <div >
-// 						// 	<input type="checkbox"
-					// 		value="Monday"
-					// 		onClick={this.handleClick.bind(this, "monday")} />Monday
-					// 		<br />
-					// 		Hours:
-					// 		<input type="text" /> to <input type="text"/>
-					// 	</div>	
+//          // <div >
+//          // 	<input type="checkbox"
+          // 		value="Monday"
+          // 		onClick={this.handleClick.bind(this, "monday")} />Monday
+          // 		<br />
+          // 		Hours:
+          // 		<input type="text" /> to <input type="text"/>
+          // 	</div>	
 
-					// 	<br /><br />
-						
-						
-					// 	<div>
-					// 		<input type="checkbox"
-					// 		value="Tuesday"
-					// 		onClick={this.handleClick.bind(this, "tuesday")} />Tuesday
-					// 		<br />
-					// 		Hours:
-					// 		<input type="text" /> to <input type="text"/>
-					// 	</div>
+          // 	<br /><br />
+            
+            
+          // 	<div>
+          // 		<input type="checkbox"
+          // 		value="Tuesday"
+          // 		onClick={this.handleClick.bind(this, "tuesday")} />Tuesday
+          // 		<br />
+          // 		Hours:
+          // 		<input type="text" /> to <input type="text"/>
+          // 	</div>
 
-					// 	<br /><br />
+          // 	<br /><br />
 
-					// 	<div>
-					// 		<input type="checkbox"
-					// 		value="Wednesday"
-					// 		onClick={this.handleClick.bind(this, "wednesday")} />Wednesday
-					// 		<br />
-					// 		Hours:
-					// 		<input type="text" /> to <input type="text"/>
-					// 	</div>
+          // 	<div>
+          // 		<input type="checkbox"
+          // 		value="Wednesday"
+          // 		onClick={this.handleClick.bind(this, "wednesday")} />Wednesday
+          // 		<br />
+          // 		Hours:
+          // 		<input type="text" /> to <input type="text"/>
+          // 	</div>
 
-					// 	<br /><br />
+          // 	<br /><br />
 
-					// 	<div>
-					// 		<input type="checkbox"
-					// 		value="Thursday"
-					// 		onClick={this.handleClick.bind(this, "thursday")} />Thursday
-					// 		<br />
-					// 		Hours:
-					// 		<input type="text" /> to <input type="text"/>
-					// 	</div>
+          // 	<div>
+          // 		<input type="checkbox"
+          // 		value="Thursday"
+          // 		onClick={this.handleClick.bind(this, "thursday")} />Thursday
+          // 		<br />
+          // 		Hours:
+          // 		<input type="text" /> to <input type="text"/>
+          // 	</div>
 
-					// 	<br /><br />
+          // 	<br /><br />
 
-					// 	<div>
-					// 		<input type="checkbox"
-					// 		value="Friday"
-					// 		onClick={this.handleClick.bind(this, "friday")} />Friday
-					// 		<br />
-					// 		Hours:
-					// 		<input type="text" /> to <input type="text"/>
-					// 	</div>
+          // 	<div>
+          // 		<input type="checkbox"
+          // 		value="Friday"
+          // 		onClick={this.handleClick.bind(this, "friday")} />Friday
+          // 		<br />
+          // 		Hours:
+          // 		<input type="text" /> to <input type="text"/>
+          // 	</div>
 
-					// 	<br /><br />
+          // 	<br /><br />
 
-					// 	<div>
-					// 		<input type="checkbox"
-					// 		value="Saturday"
-					// 		onClick={this.handleClick.bind(this, "saturday")} />Saturday
-					// 		<br />
-					// 		Hours:
-					// 		<input type="text" /> to <input type="text"/>
-					// 	</div>
+          // 	<div>
+          // 		<input type="checkbox"
+          // 		value="Saturday"
+          // 		onClick={this.handleClick.bind(this, "saturday")} />Saturday
+          // 		<br />
+          // 		Hours:
+          // 		<input type="text" /> to <input type="text"/>
+          // 	</div>
 
-					// 	<br /><br />
+          // 	<br /><br />
 
-					// 	<div>
-					// 		<input type="checkbox"
-					// 		value="Sunday"
-					// 		onClick={this.handleClick.bind(this, "sunday")} />Sunday
-					// 		<br />
-					// 		Hours:
-					// 		<input type="text" /> to <input type="text"/>
-					// 	</div>
-					// 	<br /><br />
+          // 	<div>
+          // 		<input type="checkbox"
+          // 		value="Sunday"
+          // 		onClick={this.handleClick.bind(this, "sunday")} />Sunday
+          // 		<br />
+          // 		Hours:
+          // 		<input type="text" /> to <input type="text"/>
+          // 	</div>
+          // 	<br /><br />
 
-					// </div>
+          // </div>
