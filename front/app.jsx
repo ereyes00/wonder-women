@@ -14,18 +14,18 @@ import Account from './account.jsx';
 import {withRouter, Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import './style/home.css';
 
-var App = withRouter(React.createClass({
-  render: function() {
-    return(
+const App = withRouter(React.createClass({
+  render: function () {
+    return (
       <div>
         <Link to='/'><img className="logo" src={require('./style/images/ArtGalLogo.png')} /></Link>
         <br />
         <NavBar />
         {this.props.children}
       </div>
-    )
+    );
   }
-}))
+}));
 
 ReactDOM.render(
   <Router history={browserHistory}>
@@ -40,4 +40,4 @@ ReactDOM.render(
     </Route>
   </Router>,
   document.getElementById('root')
-) 
+)
