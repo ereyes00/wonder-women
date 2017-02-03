@@ -36,7 +36,9 @@ eventRouter.route('/')
 
 eventRouter.route('/:id')
   .get(function (req, res) {
-    db.Event.findById(req.params.id)
+    db.Event.findById(req.params.id, {
+    	include: db.Image
+    })
       .then(function (data) {
       	if (!data){
           	  res.send('no record found');
