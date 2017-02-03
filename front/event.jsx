@@ -1,13 +1,14 @@
-var React = require('react');
 import $ from 'jquery';
 
-var Event = React.createClass({
-  getInitialState: function() {
+const React = require('react');
+
+const Event = React.createClass({
+  getInitialState: function () {
     return ({
-      title: '', location:'', opening:"", closing:"", hours:"" , price: "", feauredArtist:"", description: "", streetAddress: '', city:"", zipcode:0, type:''
+      title: '', location: '', opening: "", closing: "", hours: "" , price: "", feauredArtist: "", description: "", streetAddress: '', city: "", zipcode: 0, type:''
     });
   },
-  componentDidMount: function() {
+  componentDidMount: function () {
       $.ajax({
       url: '/api/events/' + this.props.params.id,
       type: 'GET'
@@ -17,7 +18,7 @@ var Event = React.createClass({
       this.setState({ title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, zipCode:data.zipcode, type:data.type});
     })
   },  
-  render: function() {
+  render: function () {
       return(
         <div>
            <div><h1>{this.state.title}</h1></div>
@@ -26,6 +27,6 @@ var Event = React.createClass({
         </div>
       )
   }
-})
+});
 
-module.exports = Event
+module.exports = Event;

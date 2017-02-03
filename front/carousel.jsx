@@ -1,14 +1,14 @@
-var React = require('react');
-// var Carousel = require('react-responsive-carousel').Carousel;
+const React = require('react');
+// const Carousel = require('react-responsive-carousel').Carousel;
 
-var CarouselHome = React.createClass({
-    render() {
-        return (
-          <div>
-            <h1>Carousel fk</h1>
-          </div>
-        );
-    }
+const CarouselHome = React.createClass({
+  render() {
+    return (
+      <div>
+        <h1>Carousel fk</h1>
+      </div>
+    );
+  }
 });
 
 export default CarouselHome;
