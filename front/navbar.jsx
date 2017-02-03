@@ -1,9 +1,19 @@
 import React from 'react';
+import {Link} from 'react-router';
+import './style/home.css';
 
 var NavBar = React.createClass({
 	render: function() {
 		return (
-			<h1>Hello from NavBar</h1>
+			<div className="Nav">
+				<Link to ='events'>The Week Ahead</Link>
+				<br />
+		    <Link to='CreateEvent'>Create Event</Link>
+		    <br />
+		    <Link to='Login'>Login</Link>
+		    <br />
+		    <Link to='Signup'>Sign Up</Link>
+      </div>
 		)
 	}
 })
