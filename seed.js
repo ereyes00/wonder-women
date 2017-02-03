@@ -1,6 +1,7 @@
 const db = require('./models').sequelize;
 const Event = require('./models').Event;
 const Image = require('./models').Image;
+const ExhibitionHours = require('./models').ExhibitionHours;
 
 const events = [
   {
@@ -179,8 +180,156 @@ const images = [
   },
 ];
 
+const exhibitionHours = [
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '11:00 AM',
+    closeTime: '10:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '10:00 AM',
+    closeTime: '09:00 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:00 AM',
+    closeTime: '09:00 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: '',
+    openTime: '',
+    closeTime: '',
+    EventId: ,
+  },
+  {
+    dayOfWeek: '',
+    openTime: '',
+    closeTime: '',
+    EventId: ,
+  },
+  {
+    dayOfWeek: '',
+    openTime: '',
+    closeTime: '',
+    EventId: ,
+  },
+  {
+    dayOfWeek: '',
+    openTime: '',
+    closeTime: '',
+    EventId: ,
+  },
+]
+
 db.sync({ force: true })
 .then(() => Event.bulkCreate(events))
-.then(() => Image.bulkCreate(images));
+.then(() => Image.bulkCreate(images))
+.then(() => ExhibitionHours.bulkCreate(exhibitionHours))
 
-module.exports = { events, images };
+module.exports = { events, images, exhibitionHours };
