@@ -302,34 +302,184 @@ const exhibitionHours = [
     EventId: 4,
   },
   {
-    dayOfWeek: '',
-    openTime: '',
-    closeTime: '',
-    EventId: ,
+    dayOfWeek: 'Thursday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
   },
   {
-    dayOfWeek: '',
-    openTime: '',
-    closeTime: '',
-    EventId: ,
+    dayOfWeek: 'Friday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
   },
   {
-    dayOfWeek: '',
-    openTime: '',
-    closeTime: '',
-    EventId: ,
+    dayOfWeek: 'Saturday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
   },
   {
-    dayOfWeek: '',
-    openTime: '',
-    closeTime: '',
-    EventId: ,
+    dayOfWeek: 'Sunday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
   },
-]
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '10:30 AM',
+    closeTime: '08:00 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:00 AM',
+    closeTime: '07:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '11:00 AM',
+    closeTime: '08:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 9,
+  },
+];
 
 db.sync({ force: true })
 .then(() => Event.bulkCreate(events))
 .then(() => Image.bulkCreate(images))
-.then(() => ExhibitionHours.bulkCreate(exhibitionHours))
+.then(() => ExhibitionHours.bulkCreate(exhibitionHours));
 
 module.exports = { events, images, exhibitionHours };
