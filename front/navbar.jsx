@@ -19,3 +19,6 @@ var NavBar = React.createClass({
 })
 
 export default NavBar;
+
+//<Link to='SignUp'>Sign Up</Link>
+//<Link to='Login'>Login</Link>
