@@ -3,8 +3,9 @@ const db = require('../models');
 
 
 eventRouter.route('/')
+
   .get(function (req, res) {
-    db.Event.findAll()
+    db.Event.findAll({include: db.Image})
       .then(function (data) {
         res.send(data);
       });
@@ -26,16 +27,26 @@ eventRouter.route('/')
     })
     .then(function (data) {
       res.send('Event created');
-    });
+    })
+    .catch(function (err) {
+	  res.send('Unable to create the recrod in database');
+	})  
+    
   });
 
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id)
       .then(function (data) {
-        res.send(data);
-      });
+      	if (!data){
+          	  res.send('no record found');
+          	} else { 
+      			res.send(data)
+      		}
+       
+    })
   });
+
 
 eventRouter.route('/zip/:zip')
   .get(function (req, res) {
