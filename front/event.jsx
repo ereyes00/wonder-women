@@ -23,22 +23,33 @@ const Event = React.createClass({
   render: function () {
       return(
         <div>
-           <div><h1 className="event">{this.state.title}</h1></div>
+          <div>
+            <h1 className="event">{this.state.title}</h1>
+          </div>
+
            <p><img src={this.state.images}/></p>
-           <p>Location: {this.state.location}</p>
+
+           <p><strong>Location:</strong> {this.state.location}</p>
            
-           <p>Adress: {this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
-           <p>Opening: {this.state.opening}</p>
-           <p>Closing: {this.state.closing}</p>
-           <p>Hours: {this.state.hours}</p>
-           <p>Price: {this.state.price}</p>
-           <p>Artist: {this.state.featuredArtist}</p>
-           <p>Description: </p>
+           <p><strong>Address:</strong> {this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
+
+           <p><strong>Opening:</strong> {this.state.opening}</p>
+
+           <p><strong>Closing:</strong> {this.state.closing}</p>
+
+           <p><strong>Hours:</strong> {this.state.hours}</p>
+
+           <p><strong>Price: </strong>{this.state.price}</p>
+
+           <p><strong>Artist:</strong> {this.state.featuredArtist}</p>
+
+           <p><strong>Description: </strong></p>
            <p>{this.state.description}</p>
+
            <button>Bookmark</button>
         </div>
       )
   }
 });
 
-module.exports = Event;
+export default Event;
