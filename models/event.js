@@ -55,6 +55,7 @@ module.exports = function (sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         Event.hasMany(models.Image);
+        Event.hasMany(models.ExhibitionHours);
       },
     },
   }

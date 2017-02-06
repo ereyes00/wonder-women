@@ -5,7 +5,7 @@ const db = require('../models');
 eventRouter.route('/')
 
   .get(function (req, res) {
-    db.Event.findAll({include: db.Image})
+    db.Event.findAll({include: [db.Image, db.ExhibitionHours]})
       .then(function (data) {
         res.send(data);
       });
@@ -46,7 +46,7 @@ eventRouter.route('/')
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id, {
-    	include: db.Image
+    	include: [db.Image, db.ExhibitionHours]
     })
       .then(function (data) {
       	if (!data){
