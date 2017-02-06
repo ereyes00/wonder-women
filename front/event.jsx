@@ -44,6 +44,7 @@ const Event = React.createClass({
            <p><strong>Artist:</strong> {this.state.featuredArtist}</p>
 
            <p><strong>Description: </strong></p>
+
            <p>{this.state.description}</p>
 
            <button>Bookmark</button>
