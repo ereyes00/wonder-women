@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 var CreateEvent = React.createClass({
 	getInitialState: function(){
-		return {title: '', location: '', type: 'Museum', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: ''}
+		return {title: '', location: '', type: 'Museum', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: '', image: ''}
 	},
 	addEvent: function(e){
 		e.preventDefault()
@@ -14,11 +14,11 @@ var CreateEvent = React.createClass({
 			method: 'POST',
 			data: this.state
 		})
-		.done((data) => {
-			console.log('Event has been created.');
-			browserHistory.push('/account')
-			//after submitting new event, user will be brought back to their acct page.
-		})
+			.done((data) => {
+				console.log('Event has been created.');
+				browserHistory.push('/account')
+				//after submitting new event, user will be brought back to their acct page.
+			})
 	},
 	handleChange: function(input, event){
 		if(input === 'title'){
@@ -39,6 +39,8 @@ var CreateEvent = React.createClass({
 			this.setState({opening: event.target.value})
 		} else if (input === 'closing'){
 			this.setState({closing: event.target.value})
+		} else if (input === 'image'){
+			this.setState({image: event.target.value})
 		}
 	},
 	updateType: function(event){
@@ -66,6 +68,14 @@ var CreateEvent = React.createClass({
 					<input type="text"
 					className="input"
 					onChange={this.handleChange.bind(this, "location")}/>
+
+					<br /><br />
+
+					Event Image Link:
+					<br />
+					<input type="text"
+					className="input"
+					onChange={this.handleChange.bind(this, "image")} />
 
 					<br /><br />
 
