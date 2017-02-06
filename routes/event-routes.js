@@ -30,7 +30,7 @@ eventRouter.route('/')
     		db.Image.create({
     			EventId: data.id,
     			title: req.body.titles,
-    			url: req.body.url,
+    			url: req.body.image,
 
     		})
     		res.send('Event created');

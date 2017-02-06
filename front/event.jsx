@@ -27,7 +27,7 @@ const Event = React.createClass({
            <p><img src={this.state.images}/></p>
            <p>Location: {this.state.location}</p>
            
-           <p>Adress: {this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
+           <p>Address: {this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
            <p>Opening: {this.state.opening}</p>
            <p>Closing: {this.state.closing}</p>
            <p>Hours: {this.state.hours}</p>
