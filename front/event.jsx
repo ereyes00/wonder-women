@@ -1,4 +1,4 @@
-import $ from 'jquery';
+ import $ from 'jquery';
 import './style/event.css';
 
 const React = require('react');

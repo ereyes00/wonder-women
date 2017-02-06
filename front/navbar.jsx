@@ -8,12 +8,12 @@ var NavBar = React.createClass({
 			<div className="Nav">
 				<Link to ='events'>The Week Ahead</Link>
 				<br />
-		    <Link to='CreateEvent'>Create Event</Link>
-		    <br />
-		    <Link to='Login'>Login</Link>
-		    <br />
-		    <Link to='Signup'>Sign Up</Link>
-      </div>
+			    <Link to='CreateEvent'>Create Event</Link>
+			    <br />
+			    <Link to='Login'>Login</Link>
+			    <br />
+			    <Link to='Signup'>Sign Up</Link>
+      		</div>
 		)
 	}
 })
