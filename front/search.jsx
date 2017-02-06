@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router'
 import {browserHistory} from 'react-router';
 
+import './style/searchBar.css';
+
 const SearchBar = React.createClass({
 	getInitialState: function(){
 		return {zipCode: 0, dateStart: '', dateEnd: '', type: "SearchAll"}
@@ -9,6 +11,9 @@ const SearchBar = React.createClass({
 	render: function(){
 		return(
 			<div>
+
+			<h2>Find your next art escape.</h2>
+			<br />			
 				<form className="SearchForm">
 					<div className="Zip_Locate">
 						<label className="SearchForm_Label">
@@ -47,6 +52,8 @@ const SearchBar = React.createClass({
 							</select>
 						</div>
 					</div>
+
+					<button className="button">Search</button>
 				</form>
 			</div>
 		)

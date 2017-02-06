@@ -6,14 +6,12 @@ import NukaCarousel from './nuka-carousel.jsx'
 var Home = React.createClass({
   render: function() {
     return (
+	    <div >
+	    	<NukaCarousel />
+	    	<SearchBar />
+	    		<br /> <br /> 
 
-    	<center>
-	    	<div >
-	    		<SearchBar />
-	    		<NukaCarousel />
-	      </div>
-      </center>
-
+	    </div>
     )
   }
 })

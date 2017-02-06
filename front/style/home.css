@@ -1,35 +1,39 @@
 .logo {
   width: 15%;
-  margin-top: 15%;
+  margin-top: 2%;
   margin-left: 2%;
   margin-right:2%;
   display: inline-block;
   float: left
 }
 
-.Nav {
-  margin-right: 5%;
-  margin top: 2%;
-  display: inline-block;
-  align-content: right;
-  float: right;
-  font-family: 'Archivo Black', sans-serif;
+.hr {
+  height: 30px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 1px 0 0 0; 
+  border-radius: 20px;
+  margin-top: 3%;
+}
+
+.hr:before {
+  display: block; 
+  content: ""; 
+  height: 30px; 
+  margin-top: -31px; 
+  border-style: solid; 
+  border-color: #8c8b8b; 
+  border-width: 0 0 1px 0; 
+  border-radius: 20px; 
 }
 
 a:link {
-  align: right;
+  margin-right: 5%;
+  margin-top: 3%;
+  font-family: 'Archivo Black', sans-serif;
 }
 
-.homeImg {
-  width: 500px;
-  display: inline-block;
-}
 
-.homeImg1 {
-  width: 500px;
-  display: inline-block;
-  margin-left: 5px;
-}
 /*.container {
   margin: 0 auto;
   padding: 40px;

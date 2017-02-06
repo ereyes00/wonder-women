@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Event from './event.jsx'
 import ListEvents from './listEvents.jsx';
 import Home from './home.jsx';
-import NavBar from './navbar.jsx';
 import Search from './search.jsx';
 import About from './about.jsx';
 import ContactUs from './contactUs.jsx';
@@ -19,10 +18,28 @@ const App = withRouter(React.createClass({
   render: function () {
     return (
       <div>
-        <Link to='/'><img className="logo" src={require('./style/images/ArtGalLogo.png')} /></Link>
+        <div className="logo-class">
+          <Link to='/'><img className="logo" src={require('./style/images/ArtGalLogo.png')} /></Link>
+        </div>
+
+        <nav className="navbar navbar-inverse">
+          <div className="container-fluid">
+            <div className="nav navbar-nav">
+              <Link to ='events'>The Week Ahead</Link>
+              <br />
+              <Link to='CreateEvent'>Create Event</Link>
+              <br />
+              <Link to='Login'>Login</Link>
+              <br />
+              <Link to='Signup'>Sign Up</Link>
+            </div>
+          </div>
+        </nav>
+
+        <hr className="hr"/>
+
         <br />
-        <NavBar />
-        <Home />
+
         {this.props.children}
       </div>
     );
@@ -32,6 +49,7 @@ const App = withRouter(React.createClass({
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}>
+      <IndexRoute component={Home} />
       <Route path='login' component={Login}></Route>
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>

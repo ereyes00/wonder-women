@@ -1,8 +1,19 @@
-.event {
-	border: none;
-	border-bottom: 2px solid black;
-	width: 600px;
-	padding: 12px 20px;
-	left: 20%;
-	right: 20%;
+
+
+.title {
+	float: right;
+}
+
+.heroImg {
+	height: 50%;
+	width: 50%;
+	float: left;
+}
+
+.EventInfo {
+	float: right;
+}
+
+.bookmark {
+	float: right;
 }

@@ -1,0 +1,23 @@
+.Zip_Locate {
+	float: left;
+	width: 25%;
+}
+
+.DateStartPicker {
+	float: left;
+	width: 15%;
+}
+
+.DateEndPicker {
+	float: left;
+	width: 15%;
+}
+
+.LocationType {
+	float: left;
+	width: 15%;
+}
+
+.button {
+	float: left;
+}

@@ -1,14 +1,13 @@
 'use strict';
 
 var React = require('react');
-
 var Carousel = require('nuka-carousel');
-
 import $ from 'jquery';
+import './style/carousel.css';
 //import {Link} from 'react-router';
 
 const NukaCarousel = React.createClass({
-  mixins: [Carousel.ControllerMixin],
+  // mixins: [Carousel.ControllerMixin],
   getInitialState: function() {
     return ({image1: '', image2:'', image3:'', image4:'', image5:'', image6: ''})
   },
@@ -25,16 +24,16 @@ const NukaCarousel = React.createClass({
   
   render() {
     return (
-        <Carousel>
-          <img src={this.state.image1}/>
-          <img src={this.state.image2}/>
-          <img src={this.state.image3}/>
-          <img src={this.state.image4}/>
-          <img src={this.state.image5}/>
-          <img src={this.state.image6}/>
+        <Carousel slideWidth={0.35} cellSpacing={20}>
+          <img className="carouselImg" src={this.state.image1}/>
+          <img className="carouselImg"  src={this.state.image2}/>
+          <img className="carouselImg"  src={this.state.image3}/>
+          <img className="carouselImg"  src={this.state.image4}/>
+          <img className="carouselImg"  src={this.state.image5}/>
+          <img className="carouselImg"  src={this.state.image6}/>
         </Carousel>
     )
   }
 });
 
-module.exports = NukaCarousel;
+export default NukaCarousel;
