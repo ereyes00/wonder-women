@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 var CreateEvent = React.createClass({
 	getInitialState: function(){
-		return {title: '', location: '', type: 'Museum', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: '', image: ''}
+		return {title: '', featuredArtist:"",location: '', type: 'Museum', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: '', image: ''}
 	},
 	addEvent: function(e){
 		e.preventDefault()
@@ -25,6 +25,8 @@ var CreateEvent = React.createClass({
 			this.setState({title: event.target.value})
 		} else if (input === 'location'){
 			this.setState({location: event.target.value})
+		} else if (input === 'featuredArtist'){
+			this.setState({featuredArtist: event.target.value})
 		} else if (input === 'streetAddress'){
 			this.setState({streetAddress: event.target.value})
 		} else if (input === 'city'){
@@ -60,6 +62,14 @@ var CreateEvent = React.createClass({
 					<input type="text"
 					className="input"
 					onChange={this.handleChange.bind(this, "title")}/>
+
+					<br /><br />
+
+					Featured Artist:
+					<br />
+					<input type="text"
+					className="input"
+					onChange={this.handleChange.bind(this, "featuredArtist")}/>
 
 					<br /><br />
 
