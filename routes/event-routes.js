@@ -20,8 +20,9 @@ eventRouter.route('/')
       price: req.body.price,
       featuredArtist: req.body.featuredArtist,
       description: req.body.description,
-      streetAddress: req.body.address,
+      streetAddress: req.body.streetAddress,
       city: req.body.city,
+      state: req.body.state,
       zipCode: req.body.zipCode,
       type: req.body.type,
     })
@@ -39,6 +40,22 @@ eventRouter.route('/')
       res.send(err.message);
     });
   });
+
+eventRouter.route('/images')
+
+  .get(function(req, res){
+    db.Image.findAll({
+      attributes: [ 'url' ]
+    })
+      .then(function (data){
+        res.send(data)
+      })
+      .catch(function (err){
+        res.send('no record found');
+      })
+  });
+
+
 
 eventRouter.route('/:id')
   .get(function (req, res) {
@@ -72,5 +89,23 @@ eventRouter.route('/zip/:zip')
     });
   });
 
+eventRouter.route('/date/:date')
+  .get(function (req, res) {
+    db.Event.findAll({
+      where: {
+        opening: {
+            $gte: req.params.date,
+          }
+      }
+
+    })
+    .then(function (data) {
+      console.log('title', data.title)
+      res.send(data)
+    })
+    .catch(function (err) {
+      res.send(err)
+    })
+  })
 
 module.exports = eventRouter;

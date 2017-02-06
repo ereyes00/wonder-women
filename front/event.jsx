@@ -1,4 +1,5 @@
- import $ from 'jquery';
+import $ from 'jquery';
+ //import Map from './map.jsx';
 import './style/event.css';
 
 const React = require('react');
@@ -6,7 +7,7 @@ const React = require('react');
 const Event = React.createClass({
   getInitialState: function () {
     return ({
-      title: '', location: '', opening: "", closing: "", hours: "" , price: "", feauredArtist: "", description: "", streetAddress: '', city: "", zipcode: 0, type:'', images:[]
+      title: '', location: '', opening: "", closing: "", hours: "" , price: "", feauredArtist: "", description: "", streetAddress: '', city: "", state:'', zipcode: 0, type:'', images:[]
     });
   },
   componentDidMount: function () {
@@ -17,9 +18,12 @@ const Event = React.createClass({
     .done((data) => {
       console.log('image', data.Images[0].url)
       //console.log('this is the response from the get call on single',data)
-      this.setState({ images: data.Images[0].url,title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, zipCode:data.zipCode, type:data.type});
+      this.setState({ images: data.Images[0].url,title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, state: data.state, zipCode:data.zipCode, type:data.type});
     })
-  },  
+  },
+  mapDisplay: function(){
+
+  }, 
   render: function () {
       return(
         <div>
@@ -27,7 +31,7 @@ const Event = React.createClass({
            <p><img src={this.state.images}/></p>
            <p>Location: {this.state.location}</p>
            
-           <p>Address: {this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
+           <p>Address: {this.state.streetAddress}, {this.state.city},{this.state.state},{this.state.zipCode}</p>
            <p>Opening: {this.state.opening}</p>
            <p>Closing: {this.state.closing}</p>
            <p>Hours: {this.state.hours}</p>
@@ -35,6 +39,7 @@ const Event = React.createClass({
            <p>Artist: {this.state.featuredArtist}</p>
            <p>Description: </p>
            <p>{this.state.description}</p>
+           
            <button>Bookmark</button>
         </div>
       )
@@ -42,3 +47,4 @@ const Event = React.createClass({
 });
 
 module.exports = Event;
+//<Map coords={this.state.location} name={this.state.location} />

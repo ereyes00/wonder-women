@@ -5,7 +5,7 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return { title: '', location: '', type: 'Museum', streetAddress: '', city: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: '', image: '' };
+    return { title: '', featuredArtist: '', location: '', type: 'Museum', streetAddress: '', city: '', state: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: '', image: '' };
   },
   addEvent: function (e) {
     e.preventDefault();
@@ -25,10 +25,14 @@ const CreateEvent = React.createClass({
       this.setState({ title: event.target.value });
     } else if (input === 'location') {
       this.setState({ location: event.target.value });
+    } else if (input === 'featuredArtist') {
+      this.setState({ featuredArtist: event.target.value });
     } else if (input === 'streetAddress') {
       this.setState({ streetAddress: event.target.value });
     } else if (input === 'city') {
       this.setState({ city: event.target.value });
+    } else if (input === 'state'){
+      this.setState({ state: event.target.value });
     } else if (input === 'zipCode') {
       this.setState({ zipCode: event.target.value });
     } else if (input === 'price') {
@@ -60,6 +64,14 @@ const CreateEvent = React.createClass({
           <input type="text"
             className="input"
             onChange={this.handleChange.bind(this, 'title')} />
+
+          <br /><br />
+
+        Featured Artist:
+        <br />
+          <input type="text"
+            className="input"
+            onChange={this.handleChange.bind(this, 'featuredArtist')} />
 
           <br /><br />
 
@@ -100,6 +112,14 @@ const CreateEvent = React.createClass({
           <input type="text"
             className="input"
             onChange={this.handleChange.bind(this, 'city')} />
+
+          <br /><br />
+
+          State:
+          <br />
+            <input type="text"
+              className="input"
+              onChange={this.handleChange.bind(this, 'state')} />
 
           <br /><br />
 
