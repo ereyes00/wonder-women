@@ -11,6 +11,7 @@ import CreateEvent from './createEvent.jsx';
 import Login from './login.jsx';
 import Signup from './signUp.jsx';
 import Account from './account.jsx';
+import NukaCarousel from './nuka-carousel.jsx'
 import {withRouter, Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import './style/home.css';
 
@@ -21,6 +22,7 @@ const App = withRouter(React.createClass({
         <Link to='/'><img className="logo" src={require('./style/images/ArtGalLogo.png')} /></Link>
         <br />
         <NavBar />
+        <Home />
         {this.props.children}
       </div>
     );
@@ -30,7 +32,6 @@ const App = withRouter(React.createClass({
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}>
-      <IndexRoute component = {Home} />
       <Route path='login' component={Login}></Route>
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>

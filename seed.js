@@ -150,12 +150,12 @@ const images = [
   },
   {
     title: '',
-    url: 'http://iscp-nyc.org/event/ghazel-mismappings',
+    url: 'http://iscp-nyc.org/wp-content/uploads/2017/01/G-2.jpeg',
     EventId: 4,
   },
   {
     title: '',
-    url: 'http://victorimo.com/secrets-of-leaves/',
+    url: 'http://victorimo.com/wp-content/uploads/2017/01/Secrets-of-Leaves-1.jpg',
     EventId: 5,
   },
   {
