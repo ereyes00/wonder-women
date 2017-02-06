@@ -1,5 +1,6 @@
 import React from 'react';
 import CarouselHome from './carousel.jsx'
+import SearchBar from './search.jsx';
 //var Slider = require('react-slick');
 
 // import Slider from '../src/slider'
@@ -9,6 +10,7 @@ var Home = React.createClass({
   render: function() {
     return (
     	<center><div >
+    		<SearchBar />
     		<CarouselHome />
       </div></center>
     )
