@@ -22,6 +22,7 @@ eventRouter.route('/')
       description: req.body.description,
       streetAddress: req.body.streetAddress,
       city: req.body.city,
+      state: req.body.state,
       zipCode: req.body.zipCode,
       type: req.body.type,
     })

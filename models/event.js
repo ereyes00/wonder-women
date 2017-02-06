@@ -36,16 +36,20 @@ module.exports = function (sequelize, DataTypes) {
     },
     streetAddress: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
+    },
+    state: {
+    type:DataTypes.STRING,
+    allowNull: false
     },
     zipCode: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    },
+    }, 
     type: {
       type: DataTypes.STRING,
       allowNull: false,
