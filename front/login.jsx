@@ -32,7 +32,7 @@ var Login = React.createClass({
 	// },
 	render: function(){
 		return(
-			<center><div>
+			<center><div className="loginForm">
 			
 				<h2 className="title">Log In to Art Gal</h2>
 
