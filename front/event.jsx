@@ -1,4 +1,4 @@
- import $ from 'jquery';
+import $ from 'jquery';
 import './style/event.css';
 
 const React = require('react');
@@ -29,16 +29,12 @@ const Event = React.createClass({
 
           <button className="bookmark">Bookmark</button>
 
-           <img className="heroImg" src={this.state.images}/>
-
            <div className="EventInfo">
-             <strong>{this.state.location}</strong> 
+             <h3>{this.state.location}</h3> 
              
              <p>{this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
 
-             <p><strong>Opening:</strong> {this.state.opening}</p>
-
-             <p><strong>Closing:</strong> {this.state.closing}</p>
+             <p><b>Opening:</b> {this.state.opening} | <b>  Closing:</b>{this.state.closing}</p>
 
              <p><strong>Hours:</strong> {this.state.hours}</p>
 
@@ -50,6 +46,12 @@ const Event = React.createClass({
 
              <p>{this.state.description}</p>
            </div>
+
+          <div className="hero">
+           <img className="heroImg" src={this.state.images}/>
+          </div>
+
+          
            
         </div>
       )

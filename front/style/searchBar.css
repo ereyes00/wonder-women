@@ -1,23 +1,35 @@
-.Zip_Locate {
-	float: left;
-	width: 25%;
+.SearchForm_Label {
+  font-family: Helvetica;
+  font-size: 10px;
 }
 
-.DateStartPicker {
-	float: left;
-	width: 15%;
+input, label, select {
+  float: left;
+  margin: 5px;
 }
 
-.DateEndPicker {
-	float: left;
-	width: 15%;
+input {
+  border: none;
+  font-size: 12px; 
+  padding: 12px 20px;
 }
 
-.LocationType {
-	float: left;
-	width: 15%;
+select {
+  width: 10%;
+  border: none;
+  font-size: 16px;
+  padding: 12px 20px;
 }
 
-.button {
-	float: left;
+.Form {
+  display: block;
+}
+
+.SearchForm {
+  margin-top: -1%;
+  margin-right: 2%;
+  margin-left: 20%;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 #dce0e0;
+  border: 1px solid #dce0e0;
 }

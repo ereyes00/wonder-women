@@ -26,11 +26,8 @@ const App = withRouter(React.createClass({
           <div className="container-fluid">
             <div className="nav navbar-nav">
               <Link to ='events'>The Week Ahead</Link>
-              <br />
               <Link to='CreateEvent'>Create Event</Link>
-              <br />
               <Link to='Login'>Login</Link>
-              <br />
               <Link to='Signup'>Sign Up</Link>
             </div>
           </div>

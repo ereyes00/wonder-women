@@ -24,14 +24,16 @@ const NukaCarousel = React.createClass({
   
   render() {
     return (
+      <div className="Carousel">
         <Carousel slideWidth={0.35} cellSpacing={20}>
-          <img className="carouselImg" src={this.state.image1}/>
-          <img className="carouselImg"  src={this.state.image2}/>
-          <img className="carouselImg"  src={this.state.image3}/>
-          <img className="carouselImg"  src={this.state.image4}/>
-          <img className="carouselImg"  src={this.state.image5}/>
-          <img className="carouselImg"  src={this.state.image6}/>
+          <img src={this.state.image1}/>
+          <img src={this.state.image2}/>
+          <img src={this.state.image3}/>
+          <img src={this.state.image4}/>
+          <img src={this.state.image5}/>
+          <img src={this.state.image6}/>
         </Carousel>
+      </div>
     )
   }
 });

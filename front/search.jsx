@@ -8,34 +8,57 @@ const SearchBar = React.createClass({
 	getInitialState: function(){
 		return {zipCode: 0, dateStart: '', dateEnd: '', type: "SearchAll"}
 	},
+	updateType: function(event){
+		this.setState({type: event.target.value})
+	},
+	handleChange: function(input, event){
+		if(input === 'zipCode'){
+			this.setState({zipCode: event.target.value})
+		} else if (input === 'dateStart'){
+			this.setState({dateStart: event.target.value})
+		} else if (input === 'dateEnd'){
+			this.setState({dateEnd: event.target.value})
+		}
+	},
+	searchEvents: function(e){
+		e.preventDefault()
+		$.ajax({
+			url: '/api/events',
+			method: 'GET',
+			data: this.state
+		})
+		.done((results)=>{
+			console.log("Search is successful.")
+		})
+	},
 	render: function(){
 		return(
-			<div>
-
-			<h2>Find your next art escape.</h2>
-			<br />			
-				<form className="SearchForm">
+			<div className="Form">
+				<form className="SearchForm" onSubmit={this.searchEvents}>
 					<div className="Zip_Locate">
 						<label className="SearchForm_Label">
-								<span>Zip Code</span>
+								<span>Where</span>
 						</label>
 						<div>
-							<input type="text" className="Zip_Input" placeholder= "Zip Code" />
+							<input type="text" className="Zip_Input" placeholder= "Zip Code" onChange={this.handleChange.bind(this, "zipCode")} />
 						</div>
 					</div>
 
-					<div className="DateRangePicker">
+					<div className="DateStartPicker">
 						<label className="SearchForm_Label">
 							<span>Start Date</span>
 						</label>
 						<div>
-							<input type="date" className="Date_Input" />
+							<input type="date" className="Date_Input" onChange={this.handleChange.bind(this, "dateStart")} />
 						</div>
+					</div>
+
+					<div className="DateEndPicker">
 						<label className="SearchForm_Label">
 							<span>End Date</span>
 						</label>
 						<div>
-							<input type="date" className="Date_Input" />
+							<input type="date" className="Date_Input" onChange={this.handleChange.bind(this, "dateEnd")} />
 						</div>
 					</div>
 
@@ -44,7 +67,7 @@ const SearchBar = React.createClass({
 							<span>Type</span>
 						</label>
 						<div className="TypeSelection">
-							<select value={this.state.type}>
+							<select value={this.state.type} onChange={this.updateType}>
 								<option value="SearchAll">All</option>
 								<option value="Museum">Museum</option>
 								<option value="Gallery">Gallery</option>
