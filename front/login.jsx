@@ -4,37 +4,37 @@ import './style/loginSignUp.css';
 import {Link, browserHistory} from 'react-router';
 
 var Login = React.createClass({
-  getInitialState: function(){
-   return {email: '', password: null, msg: ""}
-  },
-  handleChange: function(input, event){
-   if(input === "email"){
-     this.setState({email: event.target.value})
-   } else if (input === "password"){
-     this.setState({password: event.target.value})
-   }
-  },
-  // userLogin: function(event){
-  //   event.preventDefault()
-  //   $.ajax({
-  //    method: 'POST',
-  //    url: '/api/login/',
-  //    data: this.state,
-  //    error: ((data) => {
-  //      console.log(typeof data.responseText)
-  //      this.setState({msg: data.responseText})
-  //    }).bind(this)
-  //   })
-  //   .done((data) => {
-  //    console.log("Received User Data", data);
-  //    browserHistory.push('/account')
-  //   })
-  // },
-  render: function(){
-   return(
-     <center><div>
-     
-      <h2 className="title">Log In to Art Gal</h2>
+	getInitialState: function(){
+		return {email: '', password: null, msg: ""}
+	},
+	handleChange: function(input, event){
+		if(input === "email"){
+			this.setState({email: event.target.value})
+		} else if (input === "password"){
+			this.setState({password: event.target.value})
+		}
+	},
+	// userLogin: function(event){
+	// 	event.preventDefault()
+	// 	$.ajax({
+	// 		method: 'POST',
+	// 		url: '/api/login/',
+	// 		data: this.state,
+	// 		error: ((data) => {
+	// 			console.log(typeof data.responseText)
+	// 			this.setState({msg: data.responseText})
+	// 		}).bind(this)
+	// 	})
+	// 	.done((data) => {
+	// 		console.log("Received User Data", data);
+	// 		browserHistory.push('/account')
+	// 	})
+	// },
+	render: function(){
+		return(
+			<center><div className="loginForm">
+			
+				<h2 className="title">Log In to Art Gal</h2>
 
       <p>New to Art Gal? <Link to={'/signup'}>Sign Up!</Link></p>
 

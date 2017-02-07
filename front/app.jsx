@@ -1,28 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { withRouter, Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
-import Event from './event';
-import ListEvents from './listEvents';
-import Home from './home';
-import NavBar from './navbar';
-import Search from './search';
-import About from './about';
-import ContactUs from './contactUs';
-import CreateEvent from './createEvent';
-import Login from './login';
-import Signup from './signUp';
-import Account from './account';
-import NukaCarousel from './nuka-carousel';
+import Event from './event.jsx'
+import ListEvents from './listEvents.jsx';
+import Home from './home.jsx';
+import Search from './search.jsx';
+import About from './about.jsx';
+import ContactUs from './contactUs.jsx';
+import CreateEvent from './createEvent.jsx';
+import Login from './login.jsx';
+import Signup from './signUp.jsx';
+import Account from './account.jsx';
+import NukaCarousel from './nuka-carousel.jsx'
+import {withRouter, Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import './style/home.css';
 
 const App = withRouter(React.createClass({
   render: function () {
     return (
       <div>
-        <Link to="/"><img className='logo' src={require('./style/images/ArtGalLogo.png')} alt="Logo" /></Link>
+        <div className="logo-class">
+          <Link to='/'><img className="logo" src={require('./style/images/ArtGalLogo.png')} /></Link>
+        </div>
+
+        <nav className="navbar navbar-inverse">
+          <div className="container-fluid">
+            <div className="nav navbar-nav">
+              <Link to ='events'>The Week Ahead</Link>
+              <Link to='CreateEvent'>Create Event</Link>
+              <Link to='Login'>Login</Link>
+              <Link to='Signup'>Sign Up</Link>
+            </div>
+          </div>
+        </nav>
+
+        <hr className="hr"/>
+
         <br />
-        <NavBar />
-        <Home />
+
         {this.props.children}
       </div>
     );
@@ -31,13 +45,14 @@ const App = withRouter(React.createClass({
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={App}>
-      <Route path="login" component={Login}></Route>
-      <Route path="signup" component={Signup}></Route>
-      <Route path="account" component={Account}></Route>
-      <Route path="createevent" component={CreateEvent}></Route>
-      <Route path="events/:id" component={Event}></Route>
-      <Route path="events" component={ListEvents}></Route>
+    <Route path='/' component={App}>
+      <IndexRoute component={Home} />
+      <Route path='login' component={Login}></Route>
+      <Route path='signup' component={Signup}></Route>
+      <Route path='account' component={Account}></Route>
+      <Route path='createevent' component={CreateEvent}></Route>
+      <Route path='events/:id' component={Event}></Route>
+      <Route path='events' component={ListEvents}></Route>
     </Route>
   </Router>,
   document.getElementById('root')

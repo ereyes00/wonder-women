@@ -1,7 +1,5 @@
 import $ from 'jquery';
-
 import './style/event.css';
-
 const React = require('react');
 
 const Event = React.createClass({
@@ -48,26 +46,40 @@ const Event = React.createClass({
     };
       return(
         <div>
-           <div><h1 className="event">{this.state.title}</h1></div>
-           <p><img src={this.state.images}/></p>
-           <p>Location: {this.state.location}</p>
-           
-           <p>Address: {this.state.streetAddress}, {this.state.city},{this.state.state},{this.state.zipCode}</p>
-           <p>Opening: {this.state.opening}</p>
-           <p>Closing: {this.state.closing}</p>
-           <p>Hours: {this.state.hours}</p>
-           <p>Price: {this.state.price}</p>
-           <p>Artist: {this.state.featuredArtist}</p>
-           <p>Description: </p>
-           <p>{this.state.description}</p>
+          <div className="title">
+            <h1 className="event">{this.state.title}</h1>
+          </div>
+
+          <button className="bookmark">Bookmark</button>
+
+           <div className="EventInfo">
+             <h3>{this.state.location}</h3> 
+             
+             <p>{this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
+
+             <p><b>Opening:</b> {this.state.opening} | <b>  Closing:</b>{this.state.closing}</p>
+
+             <p><strong>Hours:</strong> {this.state.hours}</p>
+
+             <p><strong>Price: </strong>{this.state.price}</p>
+
+             <p><strong>Artist:</strong> {this.state.featuredArtist}</p>
+
+             <p><strong>Description: </strong></p>
+
+             <p>{this.state.description}</p>
+           </div>
 
            <div style={mapStyle} id="map">{this.initMap}</div>
 
-           <button>Bookmark</button>
+          <div className="hero">
+           <img className="heroImg" src={this.state.images}/>
+          </div>
+
+        
         </div>
       )
   }
 });
 
-module.exports = Event;
-
+export default Event;
