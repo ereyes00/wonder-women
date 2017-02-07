@@ -5,38 +5,38 @@ import Event from './event.jsx';
 import Carousel from 'nuka-carousel';
 import './style/listEvents.css';
 
-const WeekCarousel = React.createClass({
+const TodayCarousel = React.createClass({
   getInitialState: function(){
-    return{today: []}
+    return({today: null})
     // , tomorrow: [], dayAfterTomorrow: [], weekend: []
   },
   componentDidMount: function(){
+    var that = this
     $.ajax({
-      url: '/api/events',
-      type: 'GET'
-    })
-    .done((data) => {
-      console.log(data)
-      var today = new Date(Date());
-      if(data.opening === today.toISOString().split('T')[0]){
-        this.setState({today: today})
+      url: '/api/events/date/opening',
+      type: 'GET',
+      success: function(data) {
+        that.setState({today: data})
       }
     })
+  
   },
   render: function(){
-    if (this.state.events){
+    console.log(this.state)
+    if (this.state.today){
+      var images = []
+      this.state.today.forEach((val) => {                
+                images.push( 
+                  <img id={val.id} src={val.Images[0].url}/>
+                )
+
+              })
       return(
         <div className="week">
           <div className = "today">
             <h2>Opening Today:</h2>
             <Carousel slideWidth={0.20} cellSpacing={10}>
-              {this.state.events.map(function(event){
-                return(
-                  <Link to = {'/events/' + event.id}>
-                    <img key= {event.id} src={this.state.image} />
-                  </Link>
-                )
-              })}
+             {images}
             </Carousel>
           </div>
         </div>
@@ -47,7 +47,7 @@ const WeekCarousel = React.createClass({
   }
 })
 
-export default WeekCarousel;
+export default TodayCarousel;
 
 // var ListEvents = React.createClass({
 //   getInitialState: function() {
