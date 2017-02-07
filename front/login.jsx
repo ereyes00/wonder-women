@@ -4,7 +4,6 @@ import './style/loginSignUp.css';
 import {Link, browserHistory} from 'react-router';
 
 var Login = React.createClass({
-<<<<<<< HEAD
 	getInitialState: function(){
 		return {email: '', password: null, msg: ""}
 	},
