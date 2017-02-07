@@ -5,7 +5,7 @@ const db = require('../models');
 eventRouter.route('/')
 
   .get(function (req, res) {
-    db.Event.findAll({include: db.Image})
+    db.Event.findAll({ include: [db.Image, db.ExhibitionHours] })
       .then(function (data) {
         res.send(data);
       });
@@ -20,42 +20,55 @@ eventRouter.route('/')
       price: req.body.price,
       featuredArtist: req.body.featuredArtist,
       description: req.body.description,
-      streetAddress: req.body.address,
+      streetAddress: req.body.streetAddress,
       city: req.body.city,
+      state: req.body.state,
       zipCode: req.body.zipCode,
       type: req.body.type,
     })
     .then(function (data) {
-    	if (data){ 
-    		db.Image.create({
-    			EventId: data.id,
-    			title: req.body.titles,
-    			url: req.body.image,
-
-    		})
-    		res.send('Event created');
-    }
-      
+      if (data) {
+        db.Image.create({
+          EventId: data.id,
+          title: req.body.titles,
+          url: req.body.image,
+        });
+        res.send('Event created');
+      }
     })
     .catch(function (err) {
-	  res.send(err.message);
-	})  
-    
+      res.send(err.message);
+    });
   });
+
+eventRouter.route('/images')
+
+  .get(function(req, res){
+    db.Image.findAll({
+      attributes: [ 'url' ]
+    })
+      .then(function (data){
+        res.send(data)
+      })
+      .catch(function (err){
+        res.send('no record found');
+      })
+  });
+
+
 
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id, {
-    	include: db.Image
+      include: [db.Image, db.ExhibitionHours],
     })
       .then(function (data) {
-      	if (!data){
-          	  res.send('no record found');
-          	} else { 
-      			res.send(data)
-      		}
-       
-    })
+        if (!data) {
+          res.send('no record found');
+        } else {
+          res.send(data);
+        }
+      });
   });
 
 
@@ -65,6 +78,7 @@ eventRouter.route('/zip/:zip')
       where: {
         zipCode: req.params.zip,
       },
+      include: [db.Image, db.ExhibitionHours],
     })
     .then(function (data) {
       if (data.length === 0) {
@@ -75,5 +89,23 @@ eventRouter.route('/zip/:zip')
     });
   });
 
+eventRouter.route('/date/:date')
+  .get(function (req, res) {
+    db.Event.findAll({
+      where: {
+        opening: {
+            $gte: req.params.date,
+          }
+      }
+
+    })
+    .then(function (data) {
+      console.log('title', data.title)
+      res.send(data)
+    })
+    .catch(function (err) {
+      res.send(err)
+    })
+  })
 
 module.exports = eventRouter;

@@ -1,6 +1,7 @@
 const db = require('./models').sequelize;
 const Event = require('./models').Event;
 const Image = require('./models').Image;
+const ExhibitionHours = require('./models').ExhibitionHours;
 
 const events = [
   {
@@ -14,6 +15,7 @@ const events = [
     description: 'Marilyn Minter’s sensual paintings, photographs, and videos vividly explore complex and contradictory emotions around beauty and the feminine body in American culture. She trains a critical eye on the power of desire, questioning the fashion industry’s commercialization of sex and the body. Marilyn Minter: Pretty/Dirty is the first retrospective of her work.',
     streetAddress: '200 Eastern Pkwy',
     city: 'Brooklyn',
+    state: "NY",
     zipCode: 11238,
     type: 'MUSEUM',
   },
@@ -28,6 +30,7 @@ const events = [
     description: 'Ken Weathersby makes abstract paintings that play with and against the conventions of both painting and abstraction. His new paintings combine graphic geometric patterns with representational, printed images of art works cut out of discarded art history books. The images Weathersby employs often depict a sculpture of a single human or animal figure and stem primarily from the periods of ancient Greece, Rome, and medieval Europe.',
     streetAddress: '16 Main St',
     city: 'Brooklyn',
+    state: "NY",
     zipCode: 11201,
     type: 'GALLERY',
   },
@@ -42,6 +45,7 @@ const events = [
     description: 'The Costume Institute\'s spring 2017 exhibition will examine the work of Japanese fashion designer Rei Kawakubo, known for her avant-garde designs and ability to challenge conventional notions of beauty, good taste, and fashionability. The thematic show will feature approximately 120 examples of Kawakubo\'s womenswear for Comme des Garçons, from her first Paris runway show in 1981 to her most recent collection.',
     streetAddress: '1000 5th Ave',
     city: 'New York',
+    state: "NY",
     zipCode: 10028,
     type: 'MUSEUM',
   },
@@ -56,6 +60,7 @@ const events = [
     description: 'A presentation of work by Ghazel, Mismappings is the artist’s first solo exhibition in the United States. Since her 2001 ISCP residency, Ghazel has lived in both Paris and Tehran. The exhibition focuses on Ghazel’s recent Marée Noire and Dyslexiaseries—drawings with ink on printed Farsi maps—that evoke the politics of representation on a geopolitical scale in an era of ongoing ecological and migratory crises.',
     streetAddress: '1040 Metropolitan Ave',
     city: 'Brooklyn',
+    state: "NY",
     zipCode: 11211,
     type: 'GALLERY',
   },
@@ -70,6 +75,7 @@ const events = [
     description: 'Secrets of Leaves, consists of caulking paintings on wire mesh and sculptures of varying scale, affixed to the gallery walls and hung from the ceiling throughout the space. The walls will be painted with flora motifs, interspersed with leaf sculptures protruding at various intervals creating the sense of not only viewing a jungle, but being in one.',
     streetAddress: '56 Bogart St',
     city: 'Brooklyn',
+    state: "NY",
     zipCode: 11206,
     type: 'GALLERY',
   },
@@ -84,6 +90,7 @@ const events = [
     description: 'Making Faces is a study of screen characters and the performers who embodied them. Focusing on popular American films from the 1910s to the 1970s—from the era of silent movies to that of blaxploitation—this exhibition traces the attempts of commercial film studios to depict difference onscreen. Drawn from MoMA’s extensive collection of film stills, Making Faces presents images that Hollywood studios used to sell their vision—how they thought people should look, dress, and behave—to audiences. Explicitly created for distribution to newspapers, magazines, and other media outlets to advertise upcoming releases, film stills are highly constructed images that functioned as templates for these Hollywood ideals. Rather than simply highlighting major stars in iconic roles, Making Faces focuses on Hollywood’s portrayals of “outsiders” in films, and the various—sometimes contentious—ways in which race and gender were represented onscreen. The selected images showcase performers who rebelled against the accepted cultural norms of the time as well as those who found ways to work within a system that exploited them.',
     streetAddress: '11 W 53rd St',
     city: 'New York',
+    state: "NY",
     zipCode: 10019,
     type: 'MUSEUM',
   },
@@ -98,6 +105,7 @@ const events = [
     description: 'Jackson Pollock’s Alchemy (1947), a celebrated icon of postwar abstraction that Peggy Guggenheim acquired through her financial support of the artist, is on view for the first time in the United States since 1969. A team of conservators from the Guggenheim and Italian organizations has completed scientific analysis and treatment of the painting in Florence. In the Sackler Center for Arts Education, video footage and interactive kiosks display three-dimensional imaging, elemental mapping, x-radiography, and non-destructive analytical techniques to identify the painting’s pigments and binders. This didactic exhibition on one of Pollock’s earliest poured paintings draws visitors into the world of an art conservator, allowing them to comprehend the physical properties of the materials the artist used to create Alchemy and how he applied them to the canvas.',
     streetAddress: '1071 5th Ave',
     city: 'New York',
+    state: "NY",
     zipCode: 10128,
     type: 'MUSEUM',
   },
@@ -112,6 +120,7 @@ const events = [
     description: 'Pratt Manhattan Gallery presents Nectar: War Upon the Bees, a visual essay centered on the way that disregard for bees and the “faster, bigger, cheaper” approach to modern food production is leading to severe consequences for human survival. Through various artistic mediums, the work of nine artists speaks to the way that bees are representative of today’s growing environmental threats and creates a rich compilation of imagery that evokes an important and socially engaged mission.',
     streetAddress: '144 West 14th Street',
     city: 'New York',
+    state: "NY",
     zipCode: 10011,
     type: 'SCHOOL',
   },
@@ -126,6 +135,7 @@ const events = [
     description: 'For this exhibition, Vecchio called upon the 100 year anniversary of World War I to explore the relationship between war and the artifice of nation-state building and the creation of borders on the landscape of the Italian Dolomites. He explored the typography and transformation of this former battlefront along the former borders between the reign of Italy and the Austro-Hungarian Empire, creating plein-air paintings and drawings of the starkly elegant yet unnatural forms in ice and rock that were the result of scarred mountain peaks and bomb craters blown up 100 years ago.',
     streetAddress: '209 East 23rd Street',
     city: 'New York',
+    state: "NY",
     zipCode: 10010,
     type: 'SCHOOL/GALLERY',
   }
@@ -179,8 +189,306 @@ const images = [
   },
 ];
 
+const exhibitionHours = [
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '11:00 AM',
+    closeTime: '10:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 1,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '11:00 AM',
+    closeTime: '05:00 PM',
+    EventId: 2,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '10:00 AM',
+    closeTime: '05:30 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '10:00 AM',
+    closeTime: '09:00 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:00 AM',
+    closeTime: '09:00 PM',
+    EventId: 3,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
+    EventId: 4,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '01;00 PM',
+    closeTime: '06:00 PM',
+    EventId: 5,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '10:30 AM',
+    closeTime: '08:00 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:30 AM',
+    closeTime: '05:30 PM',
+    EventId: 6,
+  },
+  {
+    dayOfWeek: 'Sunday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '10:00 AM',
+    closeTime: '05:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:00 AM',
+    closeTime: '07:45 PM',
+    EventId: 7,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '11:00 AM',
+    closeTime: '08:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 8,
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    EventId: 9,
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '10:00 AM',
+    closeTime: '06:00 PM',
+    EventId: 9,
+  },
+];
+
 db.sync({ force: true })
 .then(() => Event.bulkCreate(events))
-.then(() => Image.bulkCreate(images));
+.then(() => Image.bulkCreate(images))
+.then(() => ExhibitionHours.bulkCreate(exhibitionHours));
 
-module.exports = { events, images };
+module.exports = { events, images, exhibitionHours };

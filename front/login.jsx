@@ -4,6 +4,7 @@ import './style/loginSignUp.css';
 import {Link, browserHistory} from 'react-router';
 
 var Login = React.createClass({
+<<<<<<< HEAD
 	getInitialState: function(){
 		return {email: '', password: null, msg: ""}
 	},
@@ -36,45 +37,45 @@ var Login = React.createClass({
 			
 				<h2 className="title">Log In to Art Gal</h2>
 
-				<p>New to Art Gal? <Link to={'/signup'}>Sign Up!</Link></p>
+      <p>New to Art Gal? <Link to={'/signup'}>Sign Up!</Link></p>
 
-				<div className="form">
+      <div className="form">
 
-				<br />
+      <br />
 
-					<form onSubmit={this.userLogin}>
-						<input
-						className="input"
-						type="text"
-						placeholder="email"
-						onChange={this.handleChange.bind(this, "email")}
-						/>
+        <form onSubmit={this.userLogin}>
+         <input
+         className="input"
+         type="text"
+         placeholder="email"
+         onChange={this.handleChange.bind(this, "email")}
+         />
 
-						<br /><br />
+         <br /><br />
 
-						<input
-						className="input"
-						type="password"
-						placeholder="password"
-						onChange={this.handleChange.bind(this, "password")}
-						/>
+         <input
+         className="input"
+         type="password"
+         placeholder="password"
+         onChange={this.handleChange.bind(this, "password")}
+         />
 
-						<br /><br />
+         <br /><br />
 
-						<button
-						className="button"
-						type="submit"
-						>Sign In</button>
+         <button
+         className="button"
+         type="submit"
+         >Sign In</button>
 
-					</form>
-				</div>
+        </form>
+      </div>
 
-				<p className="error">{this.state.msg}</p>
+      <p className="error">{this.state.msg}</p>
 
 
-			</div></center>
-		)
-	}
+     </div></center>
+   )
+  }
 })
 
 export default Login;
