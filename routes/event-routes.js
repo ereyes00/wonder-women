@@ -89,6 +89,26 @@ eventRouter.route('/zip/:zip')
     });
   });
 
+eventRouter.route('/price/:price')
+  .get(function (req, res) {
+    db.Event.findAll({
+      where: {
+        price: { $like: '$' + req.params.price,
+                 $eq: req.params.price
+                }
+      },
+      include: [db.Image, db.ExhibitionHours]
+    })
+    .then(function (data) {
+      if ( data.length === 0 ) { 
+        console.log('data :' , data);
+        res.send("Nothing found")
+     } else { res.send(data);
+     }
+    });
+    
+  }); 
+
 eventRouter.route('/date/:date')
   .get(function (req, res) {
     db.Event.findAll({
