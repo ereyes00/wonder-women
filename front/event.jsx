@@ -55,7 +55,7 @@ const Event = React.createClass({
            <div className="EventInfo">
              <h3>{this.state.location}</h3> 
              
-             <p>{this.state.streetAddress}, {this.state.city}, {this.state.zipCode}</p>
+             <p>{this.state.streetAddress}, {this.state.city}, {this.state.state}, {this.state.zipCode}</p>
 
              <p><b>Opening:</b> {this.state.opening} | <b>  Closing:</b>{this.state.closing}</p>
 
