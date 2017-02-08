@@ -14,10 +14,10 @@ const CreateEvent = React.createClass({
              state: 'Triangle',
              zipCode: 16661,
              price: 'Your soul',
-             description: 'THe best exhibit you will never see',
+             description: 'The best exhibit you will never see',
              opening: '2017-02-30',
              closing: '2017-02-31',
-             hours: {
+             hours: { 
               Sunday:{
                 openTime: "12:00 AM",
                 closeTime: "05:00 PM" },
@@ -28,7 +28,7 @@ const CreateEvent = React.createClass({
                 openTime: "12:00 AM",
                 closeTime: "05:00 PM" },
              },
-             image: 'http://randommization.com/wp-content/uploads/2011/11/Couture-Art-by-Iris-van-Herpen_2.jpg' }
+            image: 'http://randommization.com/wp-content/uploads/2011/11/Couture-Art-by-Iris-van-Herpen_2.jpg' };
   },
   addEvent: function (e) {
     e.preventDefault();
@@ -72,130 +72,472 @@ const CreateEvent = React.createClass({
   },
   updateType: function (event) {
     this.setState({ type: event.target.value });
-  },
+  }, 
   updateHours: function (event) {
     this.setState({ hours: event.target.value });
   },
+  handleClick: function (event) {
+    console.log(event.target);
+  },
   render: function () {
     return (
-      <center><div>
-        <h2>Create An Event</h2>
-
-        <form onSubmit={this.addEvent}>
-        Event Title:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'title')} />
-
-          <br /><br />
-
-        Featured Artist:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'featuredArtist')} />
-
-          <br /><br />
-
-        Event Location:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'location')} />
-
-          <br /><br />
-
-        Event Image Link:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'image')} />
-
-          <br /><br />
-
-          <select value={this.state.type} onChange={this.updateType}>
-            <option value="Museum">Museum</option>
-            <option value="Gallery">Gallery</option>
-            <option value="School">School</option>
-          </select>
-
-          <br /><br />
-
-        Address:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'streetAddress')} />
-
-          <br /><br />
-
-        City:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'city')} />
-
-          <br /><br />
-
-          State:
-          <br />
+      <center>
+        <div className="createEventForm">
+          
+           <h2 className='headerCreate'>Create An Event</h2>
+          
+          <form onSubmit={this.addEvent} className='createEvent'>
+            <br /><br />
+            Event Title:
+            <br />
             <input type="text"
-              className="input"
-              onChange={this.handleChange.bind(this, 'state')} />
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'title')} 
+            />
+            <br /><br />
+            Featured Artist:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'featuredArtist')} 
+            />
+            <br /><br />
+            Event Location:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'location')} 
+            />
+            <br /><br />
+            Event Image Link:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'image')} 
+            />
+            <br /><br />
+            <select value={this.state.type} onChange={this.updateType}>
+              <option value="Museum">Museum</option>
+              <option value="Gallery">Gallery</option>
+              <option value="School">School</option>
+            </select>
+            <br /><br />
+            Address:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'streetAddress')} 
+            />
+            <br /><br />
+            City:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'city')} 
+            />
+            <br /><br />
+            State:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'state')} 
+            />
+            <br /><br />
+            Zip Code:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'zipCode')} 
+            />
+            <br /><br />
+            Price:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'price')} 
+            />
+            <br /><br />
+            Description:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'description')} 
+            />
+            <br /><br />
+            <div>
+              Opening Day:
+              <br />
+              <input type="date"
+                className="cal"
+                onChange={this.handleChange.bind(this, 'opening')} 
+              />
+            </div>
+            <br /><br />
+            <div>
+              Closing Day:
+              <br />
+              <input type="date"
+                className="cal"
+                onChange={this.handleChange.bind(this, 'closing')} 
+              />
+            </div>
+            <br /><br />
 
-          <br /><br />
+        {
+        //Hours:
+        //<br />
+        //  <input type="text"
+        //    className="input"
+        //    placeholder="Monday-Friday 9:45AM - 5:45PM | Saturday-Sunday 11:45AM - 5:45PM"
+        //    onChange={this.updateHours} />
+      }
 
-        Zip Code:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'zipCode')} />
-
-          <br /><br />
-
-        Price:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'price')} />
-
-          <br /><br />
-
-        Description:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'description')} />
-
-          <br /><br />
-
-          <div>
-        Opening Day:
-        <br />
-            <input type="date"
-              className="cal"
-              onChange={this.handleChange.bind(this, 'opening')} />
-          </div>
-
-          <br /><br />
-
-          <div>
-        Closing Day:
-        <br />
-            <input type="date"
-              className="cal"
-              onChange={this.handleChange.bind(this, 'closing')} />
-          </div>
-
-          <br /><br />
-
+        <div value={this.state.hours}>
         Hours:
         <br />
-          <input type="text"
-            className="input"
-            placeholder="Monday-Friday 9:45AM - 5:45PM | Saturday-Sunday 11:45AM - 5:45PM"
-            onChange={this.updateHours} />
+         <div className="dayBox">
+
+          <input type="checkbox"
+             value="Monday"
+             onClick={this.handleClick.bind(this, "monday")} />
+             <label>Monday</label>
+
+          <div>
+             <label>From</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+
+            <label>To</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+          </div>
+
+        </div>
+
+           <br /><br />
+
+           <div className="dayBox">
+
+             <input type="checkbox"
+             value="Tuesday"
+             onClick={this.handleClick.bind(this, "tuesday")} />
+             <label>Tuesday</label>
+
+             <div>
+             <label>From</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+
+            <label>To</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+            </div>
+
+           </div>
+
+           <br /><br />
+
+           <div className="dayBox">
+
+             <input type="checkbox"
+             value="Wednesday"
+             onClick={this.handleClick.bind(this, "wednesday")} />
+             <label>Wednesday</label>
+
+             <div>
+             <label>From</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+
+            <label>To</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+            </div>
+
+           </div>
+
+           <br /><br />
+
+           <div className="dayBox">
+
+             <input type="checkbox"
+             value="Thursday"
+             onClick={this.handleClick.bind(this, "thursday")} />
+             <label>Thursday</label>
+
+             <div>
+             <label>From</label> 
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+
+            <label>To</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+            </div>
+
+           </div>
+
+           <br /><br />
+
+           <div className="dayBox">
+
+             <input type="checkbox"
+             value="Friday"
+             onClick={this.handleClick.bind(this, "friday")} />
+             <label>Friday</label>
+
+             <div>
+             <label>From</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+
+            <label>To</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+            </div>
+
+           </div>
+
+           <br /><br />
+
+           <div className="dayBox">
+
+             <input type="checkbox"
+             value="Saturday"
+             onClick={this.handleClick.bind(this, "saturday")} />
+             <label>Saturday</label>
+
+             <div>
+             <label>From</label> 
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+
+            <label>To</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+            </div>
+
+           </div>
+
+           <br /><br />
+
+           <div className="dayBox">
+
+             <input type="checkbox"
+             value="Sunday"
+             onClick={this.handleClick.bind(this, "sunday")} />
+             <label>Sunday</label>
+
+             <div>
+             <label>From</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+
+            <label>To</label>
+               <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+                <option value="School">School</option>
+              </select>
+
+              <select>
+                <option value="Museum">Museum</option>
+                <option value="Gallery">Gallery</option>
+              </select>
+            </div>
+
+           </div>
+           <br /><br />
+
+</div>
 
           <br /> <br />
 
@@ -212,82 +554,3 @@ const CreateEvent = React.createClass({
 
 export default CreateEvent;
 
-// <div value={this.state.hours}>
-
-//          // <div >
-//          //  <input type="checkbox"
-          //    value="Monday"
-          //    onClick={this.handleClick.bind(this, "monday")} />Monday
-          //    <br />
-          //    Hours:
-          //    <input type="text" /> to <input type="text"/>
-          //  </div>
-
-          //  <br /><br />
-
-          //  <div>
-          //    <input type="checkbox"
-          //    value="Tuesday"
-          //    onClick={this.handleClick.bind(this, "tuesday")} />Tuesday
-          //    <br />
-          //    Hours:
-          //    <input type="text" /> to <input type="text"/>
-          //  </div>
-
-          //  <br /><br />
-
-          //  <div>
-          //    <input type="checkbox"
-          //    value="Wednesday"
-          //    onClick={this.handleClick.bind(this, "wednesday")} />Wednesday
-          //    <br />
-          //    Hours:
-          //    <input type="text" /> to <input type="text"/>
-          //  </div>
-
-          //  <br /><br />
-
-          //  <div>
-          //    <input type="checkbox"
-          //    value="Thursday"
-          //    onClick={this.handleClick.bind(this, "thursday")} />Thursday
-          //    <br />
-          //    Hours:
-          //    <input type="text" /> to <input type="text"/>
-          //  </div>
-
-          //  <br /><br />
-
-          //  <div>
-          //    <input type="checkbox"
-          //    value="Friday"
-          //    onClick={this.handleClick.bind(this, "friday")} />Friday
-          //    <br />
-          //    Hours:
-          //    <input type="text" /> to <input type="text"/>
-          //  </div>
-
-          //  <br /><br />
-
-          //  <div>
-          //    <input type="checkbox"
-          //    value="Saturday"
-          //    onClick={this.handleClick.bind(this, "saturday")} />Saturday
-          //    <br />
-          //    Hours:
-          //    <input type="text" /> to <input type="text"/>
-          //  </div>
-
-          //  <br /><br />
-
-          //  <div>
-          //    <input type="checkbox"
-          //    value="Sunday"
-          //    onClick={this.handleClick.bind(this, "sunday")} />Sunday
-          //    <br />
-          //    Hours:
-          //    <input type="text" /> to <input type="text"/>
-          //  </div>
-          //  <br /><br />
-
-          // </div>

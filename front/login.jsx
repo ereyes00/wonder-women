@@ -32,48 +32,37 @@ var Login = React.createClass({
 	// },
 	render: function(){
 		return(
-			<center><div className="loginForm">
-			
-				<h2 className="title">Log In to Art Gal</h2>
-
-      <p>New to Art Gal? <Link to={'/signup'}>Sign Up!</Link></p>
-
-      <div className="form">
-
-      <br />
-
-        <form onSubmit={this.userLogin}>
-         <input
-         className="input"
-         type="text"
-         placeholder="email"
-         onChange={this.handleChange.bind(this, "email")}
-         />
-
-         <br /><br />
-
-         <input
-         className="input"
-         type="password"
-         placeholder="password"
-         onChange={this.handleChange.bind(this, "password")}
-         />
-
-         <br /><br />
-
-         <button
-         className="button"
-         type="submit"
-         >Sign In</button>
-
-        </form>
-      </div>
-
-      <p className="error">{this.state.msg}</p>
-
-
-     </div></center>
-   )
+			<center>
+				<div className="loginForm">
+					<h2 >Log In to Art Gal</h2>
+          <p>New to Art Gal? <Link to={'/signup'}>Sign Up!</Link></p>
+		      <div >
+	      		<br />
+	        	<form onSubmit={this.userLogin}>
+		          <input
+		            className="inputLogin"
+		            type="text"
+		            placeholder="email"
+		            onChange={this.handleChange.bind(this, "email")}
+		          />
+		          <br /><br />
+			        <input
+				        className="inputLogin"
+				        type="password"
+				        placeholder="password"
+				        onChange={this.handleChange.bind(this, "password")}
+			        />
+		          <br /><br />
+		          <button
+		           className="button"
+		           type="submit">Sign In
+		          </button>
+	          </form>
+          </div>
+          <p className="error">{this.state.msg}</p>
+        </div>
+      </center>
+    )
   }
 })
 

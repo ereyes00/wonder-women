@@ -6,7 +6,7 @@ import './style/searchBar.css';
 
 const SearchBar = React.createClass({
 	getInitialState: function(){
-		return {zipCode: 0, dateStart: '', dateEnd: '', type: "SearchAll"}
+		return {zipCode: '', dateStart: '', dateEnd: '', type: "SearchAll"}
 	},
 	updateType: function(event){
 		this.setState({type: event.target.value})
@@ -23,17 +23,17 @@ const SearchBar = React.createClass({
 	searchEvents: function(e){
 		e.preventDefault()
 		$.ajax({
-			url: '/api/events',
+			url: '/api/events/search' ,
 			method: 'GET',
 			data: this.state
 		})
 		.done((results)=>{
 			console.log("Search is successful.")
-		})
+        })
 	},
 	render: function(){
 		return(
-			<div className="Form">
+			<div className="Search">
 				<form className="SearchForm" onSubmit={this.searchEvents}>
 					<div className="Zip_Locate">
 						<label className="SearchForm_Label">
@@ -67,7 +67,7 @@ const SearchBar = React.createClass({
 							<span>Type</span>
 						</label>
 						<div className="TypeSelection">
-							<select value={this.state.type} onChange={this.updateType}>
+							<select value={this.state.type} onChange={this.updateType} className='selectType'>
 								<option value="SearchAll">All</option>
 								<option value="Museum">Museum</option>
 								<option value="Gallery">Gallery</option>
