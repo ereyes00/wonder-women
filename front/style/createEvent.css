@@ -33,3 +33,13 @@
 	margin: 10px;
 	cursor: pointer;
 }*/
+
+h2 {
+	font-family: 'Archivo Black', sans-serif;
+}
+
+/* Hours form styling*/
+
+.dayBox {
+	height: 70px;
+}
