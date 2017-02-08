@@ -1,4 +1,4 @@
-.input {
+.inputLogin {
     border: none;
     border-bottom: 2px solid black;
     width: 300px;
@@ -6,6 +6,19 @@
     left: 20%;
     right: 20%;
 }
+
+.inputSignup {
+    border: none;
+    border-bottom: 2px solid black;
+    width: 300px;
+    padding: 12px 20px;
+    left: 20%;
+    right: 20%;
+}
+
+/*.titleSignUp {
+    margin-left: 20%
+}*/
 
 .button {
     background-color: #373A3B;
@@ -15,6 +28,12 @@
     padding: 10px 25px;
     margin: 10px;
     cursor: pointer;
+}
+
+.signUpForm {
+   /* float:center;*/
+    margin-top: 10%;
+    margin-left: 50%;
 }
 
 .loginForm {

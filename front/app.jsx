@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Event from './event.jsx'
-import ListEvents from './listEvents.jsx';
+import TodayCarousel from './listEvents.jsx';
 import Home from './home.jsx';
 import Search from './search.jsx';
 import About from './about.jsx';
@@ -25,7 +25,7 @@ const App = withRouter(React.createClass({
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
             <div className="nav navbar-nav">
-              <Link to ='events'>The Week Ahead</Link>
+              <Link to ='events'>Opening This Week</Link>
               <Link to='CreateEvent'>Create Event</Link>
               <Link to='Login'>Login</Link>
               <Link to='Signup'>Sign Up</Link>
@@ -52,7 +52,7 @@ ReactDOM.render(
       <Route path='account' component={Account}></Route>
       <Route path='createevent' component={CreateEvent}></Route>
       <Route path='events/:id' component={Event}></Route>
-      <Route path='events' component={ListEvents}></Route>
+      <Route path='events' component={TodayCarousel}></Route>
     </Route>
   </Router>,
   document.getElementById('root')
