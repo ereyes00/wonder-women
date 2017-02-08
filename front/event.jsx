@@ -39,6 +39,13 @@ const Event = React.createClass({
       map: map
     });
   },
+  // bookmark: function(){
+  //   $.ajax({
+  //     url: '/api/' + this.props.userID + '/bookmarks',
+  //     type: 'POST',
+  //     data: this.state
+  //   })
+  // },
   render: function () {
     var mapStyle= {
       height: "400px",
@@ -50,7 +57,10 @@ const Event = React.createClass({
             <h1 className="event">{this.state.title}</h1>
           </div>
 
-          <button className="bookmark">Bookmark</button>
+          <button 
+          className="bookmark" 
+          // onClick={this.bookmark}
+          >Bookmark</button>
 
            <div className="EventInfo">
              <h3>{this.state.location}</h3> 

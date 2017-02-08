@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import $ from 'jquery';
 import Event from './event.jsx';
 import Carousel from 'nuka-carousel';
@@ -16,21 +16,23 @@ const TodayCarousel = React.createClass({
       url: '/api/events/date/opening',
       type: 'GET',
       success: function(data) {
+        console.log('data', data)
         that.setState({today: data})
       }
-    })
-  
+    })  
+  },
+  handleClick: function(){
+    browserHistory.push('/events/' + this.state.today.id)
   },
   render: function(){
     console.log(this.state)
     if (this.state.today){
       var images = []
       this.state.today.forEach((val) => {                
-                images.push( 
-                  <img id={val.id} src={val.Images[0].url}/>
-                )
-
-              })
+        images.push( 
+          <img key={val.id} src={val.Images[0].url} onClick={this.handleClick}/>
+        )
+      })
       return(
         <div className="week">
           <div className = "today">
