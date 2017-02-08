@@ -6,7 +6,7 @@ import './style/searchBar.css';
 
 const SearchBar = React.createClass({
 	getInitialState: function(){
-		return {zipCode: 0, dateStart: '', dateEnd: '', type: "SearchAll"}
+		return {zipCode: '', dateStart: '', dateEnd: '', type: "SearchAll"}
 	},
 	updateType: function(event){
 		this.setState({type: event.target.value})
@@ -23,13 +23,13 @@ const SearchBar = React.createClass({
 	searchEvents: function(e){
 		e.preventDefault()
 		$.ajax({
-			url: '/api/events',
+			url: '/api/events/search' ,
 			method: 'GET',
 			data: this.state
 		})
 		.done((results)=>{
 			console.log("Search is successful.")
-		})
+        })
 	},
 	render: function(){
 		return(
