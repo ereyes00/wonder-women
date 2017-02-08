@@ -3,22 +3,16 @@
 module.exports = function (sequelize, DataTypes) {
   const ExhibitionHours = sequelize.define('ExhibitionHours', {
     dayOfWeek: {
-      type: DataTypes.TEXT,
+      type: DataTypes.ENUM('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
       allowNull: false,
     },
     openTime: {
-      type: DataTypes.STRING,
+      type: DataTypes.TIME,
       allowNull: false,
-      validate: {
-        len: [8, 8],
-      },
     },
     closeTime: {
-      type: DataTypes.STRING,
+      type: DataTypes.TIME,
       allowNull: false,
-      validate: {
-        len: [8, 8],
-      },
     },
   }
   , {
