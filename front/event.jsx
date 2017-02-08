@@ -24,7 +24,7 @@ const Event = React.createClass({
   //     type: 'POST',
   //     data: this.state
   //   })
-  // },
+  // }, 
   render: function () {
       return(
         <div>
