@@ -18,6 +18,13 @@ const Event = React.createClass({
       this.setState({ images: data.Images[0].url,title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, state: data.state, zipCode:data.zipCode, type:data.type});
     })
   },
+  // bookmark: function(){
+  //   $.ajax({
+  //     url: '/api/' + this.props.userID + '/bookmarks',
+  //     type: 'POST',
+  //     data: this.state
+  //   })
+  // },
   render: function () {
       return(
         <div>
@@ -25,7 +32,10 @@ const Event = React.createClass({
             <h1 className="event">{this.state.title}</h1>
           </div>
 
-          <button className="bookmark">Bookmark</button>
+          <button 
+          className="bookmark" 
+          // onClick={this.bookmark}
+          >Bookmark</button>
 
            <div className="EventInfo">
              <h3>{this.state.location}</h3> 
@@ -44,7 +54,6 @@ const Event = React.createClass({
 
              <p>{this.state.description}</p>
            </div>
-
 
           <div className="hero">
            <img className="heroImg" src={this.state.images}/>
