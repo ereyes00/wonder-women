@@ -72,141 +72,130 @@ const CreateEvent = React.createClass({
   },
   updateType: function (event) {
     this.setState({ type: event.target.value });
-  },
+  }, 
   updateHours: function (event) {
     this.setState({ hours: event.target.value });
   },
   render: function () {
     return (
-      <center><div>
-        <h2>Create An Event</h2>
-
-        <form onSubmit={this.addEvent}>
-        Event Title:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'title')} />
-
-          <br /><br />
-
-        Featured Artist:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'featuredArtist')} />
-
-          <br /><br />
-
-        Event Location:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'location')} />
-
-          <br /><br />
-
-        Event Image Link:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'image')} />
-
-          <br /><br />
-
-          <select value={this.state.type} onChange={this.updateType}>
-            <option value="Museum">Museum</option>
-            <option value="Gallery">Gallery</option>
-            <option value="School">School</option>
-          </select>
-
-          <br /><br />
-
-        Address:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'streetAddress')} />
-
-          <br /><br />
-
-        City:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'city')} />
-
-          <br /><br />
-
-          State:
-          <br />
+      <center>
+        <div className="createEventForm">
+          
+           <h2 className='headerCreate'>Create An Event</h2>
+          
+          <form onSubmit={this.addEvent} className='createEvent'>
+            <br /><br />
+            Event Title:
+            <br />
             <input type="text"
-              className="input"
-              onChange={this.handleChange.bind(this, 'state')} />
-
-          <br /><br />
-
-        Zip Code:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'zipCode')} />
-
-          <br /><br />
-
-        Price:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'price')} />
-
-          <br /><br />
-
-        Description:
-        <br />
-          <input type="text"
-            className="input"
-            onChange={this.handleChange.bind(this, 'description')} />
-
-          <br /><br />
-
-          <div>
-        Opening Day:
-        <br />
-            <input type="date"
-              className="cal"
-              onChange={this.handleChange.bind(this, 'opening')} />
-          </div>
-
-          <br /><br />
-
-          <div>
-        Closing Day:
-        <br />
-            <input type="date"
-              className="cal"
-              onChange={this.handleChange.bind(this, 'closing')} />
-          </div>
-
-          <br /><br />
-
-        Hours:
-        <br />
-          <input type="text"
-            className="input"
-            placeholder="Monday-Friday 9:45AM - 5:45PM | Saturday-Sunday 11:45AM - 5:45PM"
-            onChange={this.updateHours} />
-
-          <br /> <br />
-
-          <input type="submit"
-            className="button"
-            id="submit"
-            value="Submit" />
-
-        </form>
-      </div></center>
-    );
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'title')} 
+            />
+            <br /><br />
+            Featured Artist:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'featuredArtist')} 
+            />
+            <br /><br />
+            Event Location:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'location')} 
+            />
+            <br /><br />
+            Event Image Link:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'image')} 
+            />
+            <br /><br />
+            <select value={this.state.type} onChange={this.updateType}>
+              <option value="Museum">Museum</option>
+              <option value="Gallery">Gallery</option>
+              <option value="School">School</option>
+            </select>
+            <br /><br />
+            Address:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'streetAddress')} 
+            />
+            <br /><br />
+            City:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'city')} 
+            />
+            <br /><br />
+            State:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'state')} 
+            />
+            <br /><br />
+            Zip Code:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'zipCode')} 
+            />
+            <br /><br />
+            Price:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'price')} 
+            />
+            <br /><br />
+            Description:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              onChange={this.handleChange.bind(this, 'description')} 
+            />
+            <br /><br />
+            <div>
+              Opening Day:
+              <br />
+              <input type="date"
+                className="cal"
+                onChange={this.handleChange.bind(this, 'opening')} 
+              />
+            </div>
+            <br /><br />
+            <div>
+              Closing Day:
+              <br />
+              <input type="date"
+                className="cal"
+                onChange={this.handleChange.bind(this, 'closing')} 
+              />
+            </div>
+            <br /><br />
+            Hours:
+            <br />
+            <input type="text"
+              className="inputEvent"
+              placeholder="Monday-Friday 9:45AM - 5:45PM | Saturday-Sunday 11:45AM - 5:45PM"
+              onChange={this.updateHours} 
+            />
+            <br /> <br />
+            <input type="submit"
+              className="button"
+              id="submit"
+              value="Submit" 
+            />
+          </form>
+        </div>
+      </center>
+    )
   }
 });
 

@@ -37,79 +37,63 @@ var Signup = React.createClass({
 	// },
 	render: function(){
 		return(
-			<center><div>
-				
-				<h2 className="title">Sign Up for Art Gal</h2>
-
-				<p>Find amazing art events in New York City</p>
-				
-				<div className="form">
-
-				<br />
-
-					<form onSubmit={this.acctSignUp}>
-
-						<input
-						className="input"
-						type="text"
-						placeholder="first name"
-						onChange={this.handleChange.bind(this, "firstName")}
-						/>
-						<br /><br />
-
-						<input
-						className="input"
-						type="text"
-						placeholder="last name"
-						onChange={this.handleChange.bind(this, "lastName")}
-						/>
-
-						<br /><br />
-
-						<input
-						className="input"
-						type="text"
-						placeholder="email"
-						onChange={this.handleChange.bind(this, "email")}
-						/>
-
-						<br /><br />
-
-						<input
-						className="input"
-						type="password"
-						placeholder="password"
-						onChange={this.handleChange.bind(this, "password")}
-						/>
-
-						<br /><br />
-
-						<input
-						className="input"
-						type="text"
-						placeholder="zip code"
-						onChange={this.handleChange.bind(this, "zipCode")}
-						/>
-
-						<br /><br />
-
-						<select value={this.state.type} onChange={this.updateType}>
-							<option value="Individual">Individual</option>
-							<option value="Museum">Museum</option>
-							<option value="Gallery">Gallery</option>
-							<option value="School">School</option>
-						</select>
-
-						<br /><br />
-
-						<button
-						className="button"
-						type="submit"
-						>Create Account</button>
-					</form>
-				</div>
-
-			</div></center>
+			<center>
+			  <div className="signUpForm">
+				  <h2 >Sign Up for Art Gal</h2>
+				  <p>Find amazing art events in New York City</p>
+				  <div >
+				    <br />
+					  <form onSubmit={this.acctSignUp}>
+							<input
+							  className="inputSignup"
+							  type="text"
+							  placeholder="first name"
+							  onChange={this.handleChange.bind(this, "firstName")}
+							/>
+						  <br /><br />
+							<input
+								className="inputSignup"
+								type="text"
+								placeholder="last name"
+								onChange={this.handleChange.bind(this, "lastName")}
+							/>
+						  <br /><br />
+							<input
+								className="inputSignup"
+								type="text"
+								placeholder="email"
+								onChange={this.handleChange.bind(this, "email")}
+							/>
+						  <br /><br />
+							<input
+								className="inputSignup"
+								type="password"
+								placeholder="password"
+								onChange={this.handleChange.bind(this, "password")}
+							/>
+						  <br /><br />
+							<input
+								className="inputSignup"
+								type="text"
+								placeholder="zip code"
+								onChange={this.handleChange.bind(this, "zipCode")}
+							/>
+						  <br /><br />
+							<select value={this.state.type} onChange={this.updateType}>
+								<option value="Individual">Individual</option>
+								<option value="Museum">Museum</option>
+								<option value="Gallery">Gallery</option>
+								<option value="School">School</option>
+							</select>
+						  <br /><br />
+							<button
+								className="button"
+								type="submit">Create Account
+							</button>
+					  </form>
+				  </div>
+			  </div>
+			</center>
 		)
 	}
 })

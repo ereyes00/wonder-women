@@ -32,7 +32,7 @@ const TodayCarousel = React.createClass({
         images.push( 
           <img key={val.id} src={val.Images[0].url} onClick={this.handleClick}/>
         )
-      })
+      }) 
       return(
         <div className="week">
           <div className = "today">
