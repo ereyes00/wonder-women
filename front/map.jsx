@@ -1,64 +1,72 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import $ from 'jquery';
 
+const React = require('react');
 
-const coords = {
-  lat: 51.5258541,
-  lng: -0.08040660000006028
-};
+const MapDisplay = React.createClass({
+  componentDidMount: function () {
+  	 const {streetAddress, city, state } = this.props
 
-const Map = React.createClass({
- onMapCreated(map) {
-    map.setOptions({
-      disableDefaultUI: true
+  	 this.initMap(streetAddress, city, state)
+  }, 
+  componentDidUpdate: function(){
+  	const {streetAddress, city, state } = this.props
+  	this.initMap(streetAddress, city, state)
+  },
+  initMap: function(streetAddress, city, state) {
+  	 
+  	 if(streetAddress === ''  || !this.mapDiv) {
+  	 	console.log('returning null')
+  	 	console.log('street: ', streetAddress)
+  	 	  	 	console.log('mapDiv: ', this.mapDiv)
+
+  	 	return
+  	 } 
+  	 	// this.didDraw = true
+  	 console.log('drawing map')
+      $.ajax({
+        url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + streetAddress +','+ city +','+ state + '&' + 'key=AIzaSyDcWNv7pwJQQuPEeMdAXALbn-xbRVd8yIo'
+      })
+      .done((data) => {
+        var lat = data.results[0].geometry.location.lat;
+        var lng= data.results[0].geometry.location.lng;
+      
+    var mapOptions = {
+      center:{lat: lat, lng: lng},
+      zoom: 11
+    };
+    //console.log('mapOptions',mapOptions)
+
+    var map = new google.maps.Map(this.mapDiv, mapOptions);
+
+    //console.log('map',map)
+
+    var marker = new google.maps.Marker({
+      position: mapOptions.center,
+      map: map
     });
-  },
 
-  onDragEnd(e) {
-    console.log('onDragEnd', e);
+    //console.log('marker',marker)
+    })
+    // return Object.assign({}, state, {map, marker});
   },
-
-  onCloseClick() {
-    console.log('onCloseClick');
-  },
-
-  onClick(e) {
-    console.log('onClick', e);
-  },
-
-  render() {
-    return (
-      <Gmaps
-        width={'800px'}
-        height={'600px'}
-        lat={coords.lat}
-        lng={coords.lng}
-        zoom={12}
-        loadingMessage={'Be happy'}
-        params={{v: '3.exp', key: 'AIzaSyDcWNv7pwJQQuPEeMdAXALbn-xbRVd8yIo'}}
-        onMapCreated={this.onMapCreated}>
-        <Marker
-          lat={coords.lat}
-          lng={coords.lng}
-          draggable={true}
-          onDragEnd={this.onDragEnd} />
-        <InfoWindow
-          lat={coords.lat}
-          lng={coords.lng}
-          content={'Hello, React :)'}
-          onCloseClick={this.onCloseClick} />
-        <Circle
-          lat={coords.lat}
-          lng={coords.lng}
-          radius={500}
-          onClick={this.onClick} />
-      </Gmaps>
-    );
+  render: function () {
+    //this.initMap();
+    var mapStyle= {
+      height: "400px",
+      width: '400px'
+    };
+      return(
+           <div style={mapStyle} ref={(el)=>{if(el)
+            this.mapDiv = el}}></div>
+      )
   }
-
 });
 
+MapDisplay.defaultProps = {
+	height: '500px'
+}
+
+export default MapDisplay;
 
 
-export default Map;
+
