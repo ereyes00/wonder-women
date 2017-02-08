@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import './style/event.css';
+import MapDisplay from './map'
 const React = require('react');
 
 const Event = React.createClass({
@@ -16,41 +17,19 @@ const Event = React.createClass({
     .done((data) => {
       this.setState({ images: data.Images[0].url,title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, state: data.state, zipCode:data.zipCode, type:data.type});
     })
-    .then(()=>{
-      $.ajax({
-        url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.state.streetAddress +','+ this.state.city +','+ this.state.state + '&' + 'key=AIzaSyDcWNv7pwJQQuPEeMdAXALbn-xbRVd8yIo'
-      })
-      .done((data) => {
-        console.log('info from map call', data)
-        //console.log('lat', data.results[0].geometry.location.lat )
-        this.setState({lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng})
-      })
-    }) 
-  }, 
-  initMap: function() {
-    console.log('lat', this.state.lat )
-    var location = {lat: this.state.lat, lng: this.state.long};
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: location
-    });
-    var marker = new google.maps.Marker({
-      position: location,
-      map: map
-    });
   },
+
   // bookmark: function(){
   //   $.ajax({
   //     url: '/api/' + this.props.userID + '/bookmarks',
   //     type: 'POST',
   //     data: this.state
   //   })
+
+
   // },
   render: function () {
-    var mapStyle= {
-      height: "400px",
-      width: '100%'
-    };
+
       return(
         <div>
           <div className="title">
@@ -80,7 +59,12 @@ const Event = React.createClass({
              <p>{this.state.description}</p>
            </div>
 
-           <div style={mapStyle} id="map">{this.initMap}</div>
+
+           <MapDisplay
+            streetAddress={this.state.streetAddress} 
+            city={this.state.city}  
+            state={this.state.state}/>
+
 
           <div className="hero">
            <img className="heroImg" src={this.state.images}/>
@@ -93,3 +77,4 @@ const Event = React.createClass({
 });
 
 export default Event;
+
