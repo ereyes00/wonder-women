@@ -5,7 +5,30 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return { title: '', featuredArtist: '', location: '', type: 'Museum', streetAddress: '', city: '', state: '', zipCode: 0, price: '', description: '', opening: '', closing: '', hours: '', image: '' };
+    return { title: 'Despair',
+             featuredArtist: 'Ursula',
+             location: 'Hell',
+             type: 'Museum',
+             streetAddress: '24 Vwio Av',
+             city: 'Bremuda',
+             state: 'Triangle',
+             zipCode: 16661,
+             price: 'Your soul',
+             description: 'THe best exhibit you will never see',
+             opening: '2017-02-30',
+             closing: '2017-02-31',
+             hours: {
+              Sunday:{
+                openTime: "12:00 AM",
+                closeTime: "05:00 PM" },
+              Monday: { 
+                openTime: "12:00 AM",
+                closeTime: "05:00 PM" },
+              Tuesday: { 
+                openTime: "12:00 AM",
+                closeTime: "05:00 PM" },
+             },
+             image: 'http://randommization.com/wp-content/uploads/2011/11/Couture-Art-by-Iris-van-Herpen_2.jpg' }
   },
   addEvent: function (e) {
     e.preventDefault();
