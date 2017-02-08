@@ -6,11 +6,10 @@ const React = require('react');
 const Event = React.createClass({
   getInitialState: function () {
     return ({
-      title: '', location: '', opening: "", closing: "", hours: "" , price: "", feauredArtist: "", description: "", streetAddress: '', city: "", state:'', zipcode: 0, type:'', images:[], lat: '', lng:'' 
+      title: '', location: '', opening: "", closing: "", hours: "" , price: "", feauredArtist: "", description: "", streetAddress: '', city: "", state:'', zipCode: 0, type:'', images:[], lat: '', lng:'' 
     });
   },
   componentDidMount: function () {
-    // this.initMap()
     $.ajax({
       url: '/api/events/' + this.props.params.id,
       type: 'GET'
@@ -19,45 +18,7 @@ const Event = React.createClass({
       this.setState({ images: data.Images[0].url,title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, state: data.state, zipCode:data.zipCode, type:data.type});
     })
   },
-  //   .then(()=>{
-  //     $.ajax({
-  //       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.state.streetAddress +','+ this.state.city +','+ this.state.state + '&' + 'key=AIzaSyDcWNv7pwJQQuPEeMdAXALbn-xbRVd8yIo'
-  //     })
-  //     .done((data) => {
-  //       console.log('info from map call all data', data)
-        
-  //       console.log('lat from ajax call', data.results[0].geometry.location.lat )
-  //       this.initMap(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
-  //       this.setState({lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng})
-  //     })
-  //   }) 
-  // }, 
-  // initMap: function(lat,lng) {
-  //   console.log('lat from init func', this.state.lat )
-  //   //var mapDOMNode = this.refs.map;
-  //   var mapOptions = {
-  //     center:{lat: lat, lng: lng},
-  //     zoom: 4
-  //   };
-  //   console.log('mapOptions',mapOptions)
-
-  //   var map = new google.maps.Map(document.getElementById('mapDisplay'), mapOptions);
-
-  //   console.log('map',map)
-
-  //   var marker = new google.maps.Marker({
-  //     position: mapOptions.center,
-  //     map: map
-  //   });
-  //   console.log('marker',marker)
-  //   // return Object.assign({}, state, {map, marker});
-  // },
   render: function () {
-    //this.initMap();
-    // var mapStyle= {
-    //   height: "400px",
-    //   width: '400px'
-    // };
       return(
         <div>
           <div className="title">
@@ -83,19 +44,22 @@ const Event = React.createClass({
 
              <p>{this.state.description}</p>
            </div>
-         {/*<div style={mapStyle} id="mapDisplay"></div>*/}
-
-           <MapDisplay
-            streetAddress={this.state.streetAddress} 
-            city={this.state.city}  
-            state={this.state.state}/>
 
 
           <div className="hero">
            <img className="heroImg" src={this.state.images}/>
           </div>
 
-        
+
+           <div>
+             <MapDisplay
+              streetAddress={this.state.streetAddress} 
+              city={this.state.city}  
+              state={this.state.state}
+              zipCode={this.state.zipCode}
+              location={this.state.location}/>
+           </div>
+
         </div>
       )
   }
