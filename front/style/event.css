@@ -1,10 +1,10 @@
 .event {
 	float: right;
 }
-
+ 
 .heroImg {
-	margin-top: -85%;
-	margin-left: 3%;
+/*	margin-top: -85%;
+	margin-left: 3%;*/
 	height: 60%;
 	width: 500px;
 }
@@ -12,7 +12,8 @@
 .hero {
 	float: left;
 	margin: 10px;
-	margin-top: 0px;
+/*	margin-top: 10px;
+	margin-bottom: 10px;*/
 }
 
 .EventInfo {
