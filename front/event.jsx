@@ -89,20 +89,6 @@ const Event = React.createClass({
             streetAddress={this.state.streetAddress} 
             city={this.state.city}  
             state={this.state.state}/>
-                       <MapDisplay
-            streetAddress={this.state.streetAddress} 
-            city={this.state.city}  
-            state={this.state.state}/>
-
-           <MapDisplay
-            streetAddress={this.state.streetAddress} 
-            city={this.state.city}  
-            state={this.state.state}/>
-
-           <MapDisplay
-            streetAddress={this.state.streetAddress} 
-            city={this.state.city}  
-            state={this.state.state}/>
 
 
           <div className="hero">
