@@ -1,10 +1,13 @@
 const eventRouter = require('express').Router();
 const db = require('../models');
 
+var today = new Date(Date());
+var date = today.toISOString().split('T')[0];
 
 eventRouter.route('/')
 
   .get(function (req, res) {
+    console.log('IN GET events')
     db.Event.findAll({ include: [db.Image, db.ExhibitionHours] })
       .then(function (data) {
         res.send(data);
@@ -16,7 +19,6 @@ eventRouter.route('/')
       location: req.body.location,
       opening: req.body.opening,
       closing: req.body.closing,
-      hours: req.body.hours,
       price: req.body.price,
       featuredArtist: req.body.featuredArtist,
       description: req.body.description,
@@ -26,6 +28,9 @@ eventRouter.route('/')
       zipCode: req.body.zipCode,
       type: req.body.type,
     })
+    .catch(function (err) {
+      console.log('After first section in catch handler of event POST', err)
+    })
     .then(function (data) {
       if (data) {
         db.Image.create({
@@ -33,11 +38,34 @@ eventRouter.route('/')
           title: req.body.titles,
           url: req.body.image,
         });
-        res.send('Event created');
+
+        let rawHours = req.body.hours;
+
+         for (key in rawHours) {
+        //   console.log("key", key);
+        //   console.log('would save: ', {
+        //     EventId: data.id,
+        //     dayOfWeek: key,
+        //     openTime: rawHours[key].openTime,
+        //     closeTime: rawHours[key].closeTime,
+        //   })
+
+          db.ExhibitionHours.create({
+            EventId: data.id,
+            dayOfWeek: key,
+            openTime: rawHours[key].openTime,
+            closeTime: rawHours[key].closeTime,
+          })
+        };
       }
     })
+    .then(function (data) {
+      console.log("After exhibition hours creation", data);
+        res.send('Event created');
+    })
     .catch(function (err) {
-      res.send(err.message);
+      console.log('in catch handler of event POST', err)
+      res.status(500).send(err.message);
     });
   });
 
@@ -116,7 +144,5 @@ eventRouter.route('/:id')
         }
       });
   });
-
-
 
 module.exports = eventRouter;

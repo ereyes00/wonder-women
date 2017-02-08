@@ -33,7 +33,7 @@ const SearchBar = React.createClass({
 	},
 	render: function(){
 		return(
-			<div className="Form">
+			<div className="Search">
 				<form className="SearchForm" onSubmit={this.searchEvents}>
 					<div className="Zip_Locate">
 						<label className="SearchForm_Label">
@@ -67,7 +67,7 @@ const SearchBar = React.createClass({
 							<span>Type</span>
 						</label>
 						<div className="TypeSelection">
-							<select value={this.state.type} onChange={this.updateType}>
+							<select value={this.state.type} onChange={this.updateType} className='selectType'>
 								<option value="SearchAll">All</option>
 								<option value="Museum">Museum</option>
 								<option value="Gallery">Gallery</option>
