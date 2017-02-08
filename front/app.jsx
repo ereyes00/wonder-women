@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Event from './event.jsx'
-import ListEvents from './listEvents.jsx';
+import TodayCarousel from './listEvents.jsx';
 import Home from './home.jsx';
 import Search from './search.jsx';
 import About from './about.jsx';
@@ -52,7 +52,7 @@ ReactDOM.render(
       <Route path='account' component={Account}></Route>
       <Route path='createevent' component={CreateEvent}></Route>
       <Route path='events/:id' component={Event}></Route>
-      <Route path='events' component={ListEvents}></Route>
+      <Route path='events' component={TodayCarousel}></Route>
     </Route>
   </Router>,
   document.getElementById('root')

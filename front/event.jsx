@@ -10,7 +10,6 @@ const Event = React.createClass({
     });
   },
   componentDidMount: function () {
-    // this.initMap()
     $.ajax({
       url: '/api/events/' + this.props.params.id,
       type: 'GET'
@@ -19,52 +18,28 @@ const Event = React.createClass({
       this.setState({ images: data.Images[0].url,title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, state: data.state, zipCode:data.zipCode, type:data.type});
     })
   },
-  //   .then(()=>{
-  //     $.ajax({
-  //       url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.state.streetAddress +','+ this.state.city +','+ this.state.state + '&' + 'key=AIzaSyDcWNv7pwJQQuPEeMdAXALbn-xbRVd8yIo'
-  //     })
-  //     .done((data) => {
-  //       console.log('info from map call all data', data)
-        
-  //       console.log('lat from ajax call', data.results[0].geometry.location.lat )
-  //       this.initMap(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng)
-  //       this.setState({lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng})
-  //     })
-  //   }) 
-  // }, 
-  // initMap: function(lat,lng) {
-  //   console.log('lat from init func', this.state.lat )
-  //   //var mapDOMNode = this.refs.map;
-  //   var mapOptions = {
-  //     center:{lat: lat, lng: lng},
-  //     zoom: 4
-  //   };
-  //   console.log('mapOptions',mapOptions)
 
-  //   var map = new google.maps.Map(document.getElementById('mapDisplay'), mapOptions);
+  // bookmark: function(){
+  //   $.ajax({
+  //     url: '/api/' + this.props.userID + '/bookmarks',
+  //     type: 'POST',
+  //     data: this.state
+  //   })
 
-  //   console.log('map',map)
 
-  //   var marker = new google.maps.Marker({
-  //     position: mapOptions.center,
-  //     map: map
-  //   });
-  //   console.log('marker',marker)
-  //   // return Object.assign({}, state, {map, marker});
   // },
   render: function () {
-    //this.initMap();
-    // var mapStyle= {
-    //   height: "400px",
-    //   width: '400px'
-    // };
+
       return(
         <div>
           <div className="title">
             <h1 className="event">{this.state.title}</h1>
           </div>
 
-          <button className="bookmark">Bookmark</button>
+          <button 
+          className="bookmark" 
+          // onClick={this.bookmark}
+          >Bookmark</button>
 
            <div className="EventInfo">
              <h3>{this.state.location}</h3> 
@@ -83,7 +58,7 @@ const Event = React.createClass({
 
              <p>{this.state.description}</p>
            </div>
-         {/*<div style={mapStyle} id="mapDisplay"></div>*/}
+
 
            <MapDisplay
             streetAddress={this.state.streetAddress} 
