@@ -6,7 +6,7 @@ const React = require('react');
 const Event = React.createClass({
   getInitialState: function () {
     return ({
-      title: '', location: '', opening: "", closing: "", hours: "" , price: "", feauredArtist: "", description: "", streetAddress: '', city: "", state:'', zipcode: 0, type:'', images:[], lat: '', lng:'' 
+      title: '', location: '', opening: "", closing: "", hours: "" , price: "", feauredArtist: "", description: "", streetAddress: '', city: "", state:'', zipCode: 0, type:'', images:[], lat: '', lng:'' 
     });
   },
   componentDidMount: function () {
@@ -18,18 +18,14 @@ const Event = React.createClass({
       this.setState({ images: data.Images[0].url,title: data.title, location: data.location, opening: data.opening, closing: data.closing, hours: data.hours , price: data.price, featuredArtist: data.featuredArtist, description: data.description, streetAddress: data.streetAddress, city: data.city, state: data.state, zipCode:data.zipCode, type:data.type});
     })
   },
-
   // bookmark: function(){
   //   $.ajax({
   //     url: '/api/' + this.props.userID + '/bookmarks',
   //     type: 'POST',
   //     data: this.state
   //   })
-
-
   // },
   render: function () {
-
       return(
         <div>
           <div className="title">
@@ -59,18 +55,20 @@ const Event = React.createClass({
              <p>{this.state.description}</p>
            </div>
 
-
-           <MapDisplay
-            streetAddress={this.state.streetAddress} 
-            city={this.state.city}  
-            state={this.state.state}/>
-
-
           <div className="hero">
            <img className="heroImg" src={this.state.images}/>
           </div>
 
-        
+
+           <div>
+             <MapDisplay
+              streetAddress={this.state.streetAddress} 
+              city={this.state.city}  
+              state={this.state.state}
+              zipCode={this.state.zipCode}
+              location={this.state.location}/>
+           </div>
+
         </div>
       )
   }
