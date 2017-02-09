@@ -35,13 +35,15 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: false,
     },
   } 
-  // ,{
-  //   classMethods: {
-  //     associate: function (models) {
-  //       User.belongsTo(models.Event);
-  //     },
-  //   },
-  // }
+  ,{
+    classMethods: {
+      associate: function (models) {
+        User.hasMany(models.Event);
+        User.belongsToMany(models.Event, { through: 'Bookmark' });
+        models.Event.belongsToMany(User, { through: 'Bookmark' });
+      },
+    },
+  }
   );
   return User;
 };
