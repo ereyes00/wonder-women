@@ -203,40 +203,60 @@ const CreateEvent = React.createClass({
              <label>Monday</label>
 
           <div>
-             <label>From</label>
+             <label>From </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
 
-            <label>To</label>
+            <label> To </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
           </div>
 
@@ -252,40 +272,60 @@ const CreateEvent = React.createClass({
              <label>Tuesday</label>
 
              <div>
-             <label>From</label>
+             <label>From </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
 
-            <label>To</label>
+            <label> To </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+               <option value="01">1</option>
+                <option value="02">:</option>
+                <option value="03">:</option>
+                <option value="04">:</option>
+                <option value="05">:</option>
+                <option value="06">:</option>
+                <option value="07">:</option>
+                <option value="08">:</option>
+                <option value="09">:</option>
+                <option value="10">1:</option>
+                <option value="11">1:</option>
+                <option value="12">1:</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
             </div>
 
@@ -301,40 +341,60 @@ const CreateEvent = React.createClass({
              <label>Wednesday</label>
 
              <div>
-             <label>From</label>
+             <label>From </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
 
-            <label>To</label>
+            <label> To </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
             </div>
 
@@ -350,40 +410,60 @@ const CreateEvent = React.createClass({
              <label>Thursday</label>
 
              <div>
-             <label>From</label> 
+             <label>From </label> 
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
 
-            <label>To</label>
+            <label> To </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
             </div>
 
@@ -399,40 +479,60 @@ const CreateEvent = React.createClass({
              <label>Friday</label>
 
              <div>
-             <label>From</label>
+             <label>From </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
 
-            <label>To</label>
+            <label> To </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
             </div>
 
@@ -448,40 +548,60 @@ const CreateEvent = React.createClass({
              <label>Saturday</label>
 
              <div>
-             <label>From</label> 
+             <label>From </label> 
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
 
-            <label>To</label>
+            <label> To </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
             </div>
 
@@ -497,40 +617,60 @@ const CreateEvent = React.createClass({
              <label>Sunday</label>
 
              <div>
-             <label>From</label>
+             <label>From </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
 
-            <label>To</label>
+            <label> To </label>
                <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
-                <option value="School">School</option>
+                <option value=":00">00</option>
+                <option value=":15">15</option>
+                <option value=":30">30</option>
+                <option value=":45">45</option>
               </select>
 
               <select>
-                <option value="Museum">Museum</option>
-                <option value="Gallery">Gallery</option>
+                <option value=" AM">AM</option>
+                <option value=" PM">PM</option>
               </select>
             </div>
 
