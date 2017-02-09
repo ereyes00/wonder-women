@@ -26,16 +26,32 @@ const TodayCarousel = React.createClass({
         <div className="week">
           <div className = "today">
             <h2>Opening Today, {Date()}:</h2>
+
+            <br /><br />
              <ul>
                 {this.state.today.map((val) => {
                   return (
-                    <Link to={"/events/" + val.id}><p>
-                      <img className="dayEvent" key={val.id}src={val.Images[0].url} />
-                      <hr />
-                    </p></Link>
+                    <div>
+                    
+                      <div className="todayImg">                
+                        <img className="dayEvent" key={val.id}src={val.Images[0].url} />         
+                      </div>
+
+                      <br />
+
+                      <div className="details">
+                        <h3 key={val.id}>{val.title}</h3>
+                        <p><b>{val.location}</b></p>
+                        <p>{val.featuredArtist}</p> 
+                        <p>{val.description.split('.')[0]}.</p>
+                        <Link to={"/events/" + val.id}><p>MORE...</p></Link>
+                      </div>
+
+                    </div>
                   )
                 })}
              </ul>
+                    
           </div>
         </div>
       )

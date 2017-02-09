@@ -2,14 +2,39 @@
 	width: 300px;
 }
 
+.todayBR {
+	top: 10px;
+}
+
+/*this is the img div*/
+.todayImg {
+  float: left;
+  display: inline-block;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+/*this is the img class*/
+.dayEvent {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.details {
+  float: left;
+/*  display: inline-block;*/
+  align-content: justify;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 10%
+}
+
 a:link {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 a:visited {
     text-decoration: none;
-
 }
 
 a:hover {
