@@ -19,11 +19,9 @@ const TodayCarousel = React.createClass({
       }
     })  
   },
-  // handleClick: function(){
-  //   browserHistory.push('/events/' + this.state.today.id)
-  // },
   render: function(){
     if (this.state.today){
+      console.log(this.state.today)
       return(
         <div className="week">
           <div className = "today">
@@ -31,9 +29,10 @@ const TodayCarousel = React.createClass({
              <ul>
                 {this.state.today.map((val) => {
                   return (
-                    <p>
-                      <img className="dayEvent" key={val.id} src={val.Images[0].url} />
-                    </p>
+                    <Link to={"/events/" + val.id}><p>
+                      <img className="dayEvent" key={val.id}src={val.Images[0].url} />
+                      <hr />
+                    </p></Link>
                   )
                 })}
              </ul>
