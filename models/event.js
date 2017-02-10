@@ -11,11 +11,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
     opening: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATEONLY,
       allowNull: true,
     },
     closing: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     hours: {
