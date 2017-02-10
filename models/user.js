@@ -10,28 +10,20 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    email: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    museum: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
+    zipCode: {
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
-    gallery: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    artist: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    school: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    individual: {
-      type: DataTypes.BOOLEAN,
+    role: {
+      type: DataTypes.ENUM('Individual', 'Museum', 'Gallery', 'School', 'Artist'),
       defaultValue: false,
     },
   } 

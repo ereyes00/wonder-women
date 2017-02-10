@@ -84,6 +84,7 @@ var Signup = React.createClass({
 								<option value="Museum">Museum</option>
 								<option value="Gallery">Gallery</option>
 								<option value="School">School</option>
+								<option value="Artist">Artist</option>
 							</select>
 						  <br /><br />
 							<button
