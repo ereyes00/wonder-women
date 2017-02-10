@@ -1,26 +1,32 @@
-.event {
+/*.event {
 	float: right;
-}
-
+}*/
+ 
 .heroImg {
-	margin-top: -85%;
-	margin-left: 3%;
-	height: 60%;
+ 	height: 60%;
 	width: 500px;
 }
 
 .hero {
-	float: left;
 	margin: 10px;
-	margin-top: 0px;
+	/*float: left;*/
+	display: block;
+/*	margin-left: 3%;
+	margin-right: 47%;*/
+
+	/*margin-top: -85%;*/
+
+/*	margin-top: 10px;
+	margin-bottom: 10px;*/
 }
 
 .EventInfo {
 	margin: 10px;
-	float: left;
+	float: right;
 	text-align: justify;
-	margin-left: 52%;
-	margin-right: 3%;
+	display: block;
+/*	margin-left: 47%;
+	margin-right: 3%;*/
 }
 
 .bookmark {
@@ -30,5 +36,6 @@
     border-radius: 4px;
     padding: 10px 25px;
     margin-left: 52%;
+    margin-bottom: 20px;
     cursor: pointer;
 }

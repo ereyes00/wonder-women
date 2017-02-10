@@ -28,16 +28,16 @@ const Event = React.createClass({
   render: function () {
       return(
         <div>
-          <div className="title">
-            <h1 className="event">{this.state.title}</h1>
-          </div>
 
-          <button 
-          className="bookmark" 
-          // onClick={this.bookmark}
-          >Bookmark</button>
 
            <div className="EventInfo">
+
+            <div className="hero">
+               <img className="heroImg" src={this.state.images}/>
+            </div>
+            
+             <h1 className="event">{this.state.title}</h1>
+
              <h3>{this.state.location}</h3> 
              
              <p>{this.state.streetAddress}, {this.state.city}, {this.state.state}, {this.state.zipCode}</p>
@@ -55,9 +55,12 @@ const Event = React.createClass({
              <p>{this.state.description}</p>
            </div>
 
-          <div className="hero">
-           <img className="heroImg" src={this.state.images}/>
-          </div>
+            <button 
+             className="bookmark" 
+               // onClick={this.bookmark}
+               >Bookmark
+            </button>
+
 
 
            <div>

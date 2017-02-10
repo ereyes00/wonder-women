@@ -2,7 +2,6 @@ import React from 'react';
 import {Link, browserHistory} from 'react-router';
 import $ from 'jquery';
 import Event from './event.jsx';
-import Carousel from 'nuka-carousel';
 import './style/listEvents.css';
 
 const TodayCarousel = React.createClass({
@@ -16,30 +15,43 @@ const TodayCarousel = React.createClass({
       url: '/api/events/date/opening',
       type: 'GET',
       success: function(data) {
-        console.log('data', data)
         that.setState({today: data})
       }
     })  
   },
-  handleClick: function(){
-    browserHistory.push('/events/' + this.state.today.id)
-  },
   render: function(){
-    console.log(this.state)
     if (this.state.today){
-      var images = []
-      this.state.today.forEach((val) => {                
-        images.push( 
-          <img key={val.id} src={val.Images[0].url} onClick={this.handleClick}/>
-        )
-      }) 
+      console.log(this.state.today)
       return(
         <div className="week">
           <div className = "today">
-            <h2>Opening Today:</h2>
-            <Carousel slideWidth={0.20} cellSpacing={10}>
-             {images}
-            </Carousel>
+            <h2>Opening Today, {Date()}:</h2>
+
+            <br /><br />
+             <ul>
+                {this.state.today.map((val) => {
+                  return (
+                    <div>
+                    
+                      <div className="todayImg">                
+                        <img className="dayEvent" key={val.id}src={val.Images[0].url} />         
+                      </div>
+
+                      <br />
+
+                      <div className="details">
+                        <h3 key={val.id}>{val.title}</h3>
+                        <p><b>{val.location}</b></p>
+                        <p>{val.featuredArtist}</p> 
+                        <p>{val.description.split('.')[0]}.</p>
+                        <Link to={"/events/" + val.id}><p>MORE...</p></Link>
+                      </div>
+
+                    </div>
+                  )
+                })}
+             </ul>
+                    
           </div>
         </div>
       )

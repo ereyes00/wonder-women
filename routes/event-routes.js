@@ -1,9 +1,29 @@
 const eventRouter = require('express').Router();
 const db = require('../models');
 
+// Purpose: to find events that are opening TODAY
 var today = new Date(Date());
 var date = today.toISOString().split('T')[0];
+
 //This route will be used to display all events
+eventRouter.route('/date/opening')
+  .get(function(req, res) {
+    db.Event.findAll({
+      where: {
+         opening: date
+       },
+       include: [db.Image]
+     })
+     .then(function(data) {
+       console.log('openingToday', data.title)
+       res.send(data)
+     })
+     .catch(function(err) {
+       res.send(err)
+     })
+   })
+//////////////////////////////////////////////////
+
 eventRouter.route('/')
 
   .get(function (req, res) {
