@@ -172,8 +172,8 @@ const events = [
   {
     title: 'Love and Jazz free with Museum admission'  ,
     location: 'The Metropolitan Museum of Art' ,
-    opening:  '2017-02-2017',
-    closing: '2017-02-2017',
+    opening:  '2017-02-17',
+    closing:  '2017-08-30',
     hours: '7:00 PM – 8:30 PM EST',
     price: 'Free',
     featuredArtist: 'Gerald Clayton Trio ',

@@ -6,7 +6,7 @@ import './style/searchBar.css';
 
 const SearchBar = React.createClass({
 	getInitialState: function(){
-		return {zipCode: '', dateStart: '', dateEnd: '', type: "SearchAll"}
+		return {zipCode: '', dateStart: '' , dateEnd: '', type: "SearchAll"}
 	},
 	updateType: function(event){
 		this.setState({type: event.target.value})

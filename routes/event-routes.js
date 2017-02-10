@@ -3,7 +3,7 @@ const db = require('../models');
 
 var today = new Date(Date());
 var date = today.toISOString().split('T')[0];
-
+//This route will be used to display all events
 eventRouter.route('/')
 
   .get(function (req, res) {
@@ -13,6 +13,7 @@ eventRouter.route('/')
         res.send(data);
       });
   })
+// This route will be used to create event with image, and hours  
   .post(function (req, res) {
     db.Event.create({
       title: req.body.title,
@@ -68,7 +69,7 @@ eventRouter.route('/')
       res.status(500).send(err.message);
     });
   });
-
+// This route will be used to display all images and only url attribute will avaiable
 eventRouter.route('/images')
 
   .get(function(req, res){
@@ -87,7 +88,7 @@ eventRouter.route('/images')
 
 
 
-
+// This is the route that will be used for search bar 
 eventRouter.route('/search')
   
   .get(function (req, res) {
@@ -99,23 +100,24 @@ eventRouter.route('/search')
 
     if(req.query.dateStart !== '') {
      console.log('type of dateStart :' , typeof req.query.dateStart)
-     //console.log('')
+     var newdate = new Date(req.query.dateStart)
+     console.log('newdate : ' + newdate)
       store['opening'] = {
-        $gte : req.query.dateStart.toDate()
+        $gte : newdate
       }
     }
     if(req.query.dateEnd !== '') {
       store['closing'] = {
-        $lte : req.query.dateEnd
+        $lte : new Date(req.query.dateEnd)
       }
     }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {
       store['type'] = {
-        $in: ['School', 'Museum', 'Gallery']
+        $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
       }
 
     } else {
-      store['type'] = req.query.type
+      store['type'] = req.query.type.toUpperCase()
     }
 
     db.Event.findAll({
@@ -124,13 +126,13 @@ eventRouter.route('/search')
     })
     .then(function (data) {
       if (data.length === 0) {
-        res.send('Nothing found');
+        res.send('No record found');
       } else {
         res.send(data);
       }
     });
   });
-
+//This is the route that will be used to display individaul event
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id, {
