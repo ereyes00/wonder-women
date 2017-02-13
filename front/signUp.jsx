@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 var Signup = React.createClass({
 	getInitialState: function(){
-		return {email: '', firstName: '', lastName: '', password: null, zipCode: 0, type: 'Individual'}
+		return {email: 'something@test.com', firstName: 'Hellow', lastName: 'World', password: 'password1', zipCode: 10001, type: 'Individual'}
 	},
 	handleChange: function(input, event){
 		if(input === "email"){
@@ -23,18 +23,18 @@ var Signup = React.createClass({
 	updateType: function(event){
 		this.setState({type: event.target.value})
 	},
-	// acctSignUp: function(event){
-	// 	event.preventDefault()
-	// 	$.ajax({
-	// 		method: 'POST',
-	// 		url: '/api/users',
-	// 		data: this.state
-	// 	})
-	// 	.done((data) => {
-	// 		console.log("Received User Data", data);
-	// 		browserHistory.push('/account')
-	// 	})
-	// },
+	acctSignUp: function(event){
+		event.preventDefault()
+		$.ajax({
+			method: 'POST',
+			url: '/api/user',
+			data: this.state
+		})
+		.done((data) => {
+			console.log("Received User Data", data);
+			browserHistory.push('/account')
+		})
+	},
 	render: function(){
 		return(
 			<center>
@@ -84,6 +84,7 @@ var Signup = React.createClass({
 								<option value="Museum">Museum</option>
 								<option value="Gallery">Gallery</option>
 								<option value="School">School</option>
+								<option value="Artist">Artist</option>
 							</select>
 						  <br /><br />
 							<button

@@ -23,7 +23,7 @@ const SearchBar = React.createClass({
 	searchEvents: function(e){
 		e.preventDefault()
 		$.ajax({
-			url: '/api/events/search' ,
+			url: '/api/event/search' ,
 			method: 'GET',
 			data: this.state
 		})

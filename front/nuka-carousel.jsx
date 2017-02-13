@@ -13,7 +13,7 @@ const NukaCarousel = React.createClass({
   },
   componentDidMount: function() {
     $.ajax({
-      url: '/api/events',
+      url: '/api/event',
       type: 'GET'
     })
     .done((data) => {

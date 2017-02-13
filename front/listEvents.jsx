@@ -12,7 +12,7 @@ const TodayCarousel = React.createClass({
   componentDidMount: function(){
     var that = this
     $.ajax({
-      url: '/api/events/date/opening',
+      url: '/api/event/date/opening',
       type: 'GET',
       success: function(data) {
         that.setState({today: data})
