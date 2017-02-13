@@ -14,6 +14,8 @@ import NukaCarousel from './nuka-carousel.jsx'
 import {withRouter, Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import './style/home.css';
 
+// make sure Route paths do not duplicate those on the back end '/api/user' and '/api/event'
+
 const App = withRouter(React.createClass({
   render: function () {
     return (

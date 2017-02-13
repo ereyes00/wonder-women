@@ -9,9 +9,16 @@ userRouter.route('/')
       email: req.body.email,
       password: req.body.password,
       zipCode: req.body.zipCode,
-      role: req.body.role, // has to be included on front end
+      role: req.body.role,
     })
-  })
+    .then(function (data) {
+        res.send('User created');
+    })
+    .catch(function (err) {
+      console.log('in catch handler of user POST', err)
+      res.status(500).send(err.message);
+    });
+  });
 
 
 module.exports = userRouter;

@@ -33,7 +33,7 @@ const CreateEvent = React.createClass({
   addEvent: function (e) {
     e.preventDefault();
     $.ajax({
-      url: '/api/events',
+      url: '/api/event',
       method: 'POST',
       data: this.state,
     })

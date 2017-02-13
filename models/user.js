@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     role: {
       type: DataTypes.ENUM('Individual', 'Museum', 'Gallery', 'School', 'Artist'),
-      defaultValue: false,
+      defaultValue: 'Individual',
     },
   } 
   ,{

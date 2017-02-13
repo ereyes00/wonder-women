@@ -1,31 +1,8 @@
 const eventRouter = require('express').Router();
 const db = require('../models');
 
-// Purpose: to find events that are opening TODAY
-var today = new Date(Date());
-var date = today.toISOString().split('T')[0];
-
-//This route will be used to display all events
-eventRouter.route('/date/opening')
-  .get(function(req, res) {
-    db.Event.findAll({
-      where: {
-         opening: date
-       },
-       include: [db.Image]
-     })
-     .then(function(data) {
-       console.log('openingToday', data.title)
-       res.send(data)
-     })
-     .catch(function(err) {
-       res.send(err)
-     })
-   })
-//////////////////////////////////////////////////
-
 eventRouter.route('/')
-
+// This route will be used to display all events
   .get(function (req, res) {
     console.log('IN GET events')
     db.Event.findAll({ include: [db.Image, db.ExhibitionHours] })
@@ -63,14 +40,6 @@ eventRouter.route('/')
         let rawHours = req.body.hours;
 
          for (key in rawHours) {
-        //   console.log("key", key);
-        //   console.log('would save: ', {
-        //     EventId: data.id,
-        //     dayOfWeek: key,
-        //     openTime: rawHours[key].openTime,
-        //     closeTime: rawHours[key].closeTime,
-        //   })
-
           db.ExhibitionHours.create({
             EventId: data.id,
             dayOfWeek: key,
@@ -89,6 +58,44 @@ eventRouter.route('/')
       res.status(500).send(err.message);
     });
   });
+  
+//This is the route that will be used to display individaul event
+eventRouter.route('/:id')
+  .get(function (req, res) {
+    db.Event.findById(req.params.id, {
+      include: [db.Image, db.ExhibitionHours],
+    })
+      .then(function (data) {
+        if (!data) {
+          res.send('no record found');
+        } else {
+          res.send(data);
+        }
+      });
+  });
+
+// Purpose: to find events that are opening TODAY
+var today = new Date(Date());
+var date = today.toISOString().split('T')[0];
+
+eventRouter.route('/date/opening')
+  .get(function(req, res) {
+    db.Event.findAll({
+      where: {
+         opening: date
+       },
+       include: [db.Image]
+     })
+     .then(function(data) {
+       console.log('openingToday', data.title)
+       res.send(data)
+     })
+     .catch(function(err) {
+       res.send(err)
+     })
+   })
+//////////////////////////////////////////////////
+
 // This route will be used to display all images and only url attribute will avaiable
 eventRouter.route('/images')
 
@@ -104,13 +111,9 @@ eventRouter.route('/images')
       })
   });
 
-
-
-
-
 // This is the route that will be used for search bar 
 eventRouter.route('/search')
-  
+
   .get(function (req, res) {
     console.log('data', req.query)
     var store = {};
@@ -152,19 +155,6 @@ eventRouter.route('/search')
       }
     });
   });
-//This is the route that will be used to display individaul event
-eventRouter.route('/:id')
-  .get(function (req, res) {
-    db.Event.findById(req.params.id, {
-      include: [db.Image, db.ExhibitionHours],
-    })
-      .then(function (data) {
-        if (!data) {
-          res.send('no record found');
-        } else {
-          res.send(data);
-        }
-      });
-  });
+
 
 module.exports = eventRouter;
