@@ -6,7 +6,7 @@ import './style/searchBar.css';
 
 const SearchBar = React.createClass({
   getInitialState: function(){
-    return ({zipCode: null, dateStart: null, dateEnd: null, type: "SearchAll"})
+    return ({zipCode: '', dateStart: '', dateEnd: '', type: "SearchAll"})
   },
   updateType: function(event){
     this.setState({type: event.target.value})
@@ -65,7 +65,7 @@ const SearchBar = React.createClass({
             </div>
           </div>
 
-          <Link to={`/results/${this.state.zipCode}/${this.state.type}/${this.state.dateStart}/${this.state.dateEnd}`}>
+          <Link to={`/results/${this.state.type}/${this.state.zipCode}/${this.state.dateStart}/${this.state.dateEnd}`}>
             <button className="button">Search</button>
           </Link>
         </form>

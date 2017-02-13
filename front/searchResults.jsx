@@ -4,7 +4,12 @@ import $ from 'jquery';
 
 const SearchResults = React.createClass({
   getInitialState: function(){
-    return({results: null, zipCode: this.props.params.zipCode, type: this.props.params.type, dateStart: this.props.params.dateStart || '', dateEnd: this.props.params.dateEnd || ''})
+    return({
+      results: null, 
+      zipCode: this.props.params.zipCode || '', 
+      type: "SearchAll" || this.props.params.type, 
+      dateStart: this.props.params.dateStart || '', 
+      dateEnd: this.props.params.dateEnd || ''})
   },
   searchData: function(){
     $.ajax({
@@ -18,7 +23,7 @@ const SearchResults = React.createClass({
       this.setState({results: results})
     }) 
   },
-  componentDidMount: function(e){
+  componentDidMount: function(){
     this.searchData()
   },
   render: function(){
@@ -30,9 +35,9 @@ const SearchResults = React.createClass({
             {this.state.results.map((val)=> {
               return(
                 <div key={val.id} >
-                <img className="imgGrid" src={val.Images[0].url} />
-                <h3>{val.title}</h3>
-                <h3>{val.location}</h3>
+                  <img className="imgGrid" src={val.Images[0].url} />
+                  <h3>{val.title}</h3>
+                  <h3>{val.location}</h3>
                 </div>
               )
             })}
