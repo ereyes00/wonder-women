@@ -5,15 +5,17 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return { title: '',
+    return { userId: null,
+             title: '',
              featuredArtist: '',
              price: '',
              description: '',
              opening: '',
              closing: '',
-             image: '' 
+             image: '',
+             location:''
     }
-  },
+  }, 
   addEvent: function (e) {
     e.preventDefault();
     $.ajax({

@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     lastName: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     email: {
       type: DataTypes.TEXT,
@@ -31,6 +31,7 @@ module.exports = function (sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         User.hasMany(models.Event);
+        User.hasMany(models.Location);
         // This will add methods getEvents, setEvents, addEvents,addEvents to User
         User.belongsToMany(models.Event, { as: 'Bookmark', through: 'Bookmarks' });
       },

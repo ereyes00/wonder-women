@@ -102,16 +102,23 @@ eventRouter.route('/date/opening')
      })
    })
 //////////////////////////////////////////////////
-// IN PROGRESS
-// eventRouter.route('/addBookmark')
-// // Route to add a bookmark
-//   .get(function(req, res) {
-//     // const user = req.user;
-//     db.User.findById(1)
-//     .then(function(data) {
-//       data.addEvent()
-//     }) 
-//   })
+
+eventRouter.route('/add/bookmark/:eventId/:userId')
+// Route to add a bookmark
+  .get(function(req, res) {
+    // const user = req.user;
+    db.User.findById(req.params.userId)
+    .then(function(data) {
+      console.log(data);
+      data.addBookmark(req.params.eventId)
+    })
+    .then(function (data){
+        res.send("Event bookmarked!")
+      })
+      .catch(function (err){
+        res.status(500).send(err.message);
+      })
+  })
 
 // This route will be used to display all images and only url attribute will avaiable
 eventRouter.route('/images')
