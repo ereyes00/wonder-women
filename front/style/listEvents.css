@@ -29,13 +29,15 @@
 }
 
 .imgGrid {
-height: 250px;
-width: 350px;
+  height: 250px;
+  width: 350px;
+
 }
 
 .imgResult {
-margin-left: 25px;
-float: left;
+  margin-left: 25px;
+  margin-top: 50px;
+  float: left;
 }
 
 a:link {

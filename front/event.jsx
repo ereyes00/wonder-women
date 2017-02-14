@@ -38,19 +38,20 @@ const Event = React.createClass({
             
              <h1 className="event">{this.state.title}</h1>
 
+             <p><b>Opening:</b> {this.state.opening}</p>
+             <p><b>Closing:</b></p>
+             <p>{this.state.closing}</p>
+
              <h3>{this.state.location}</h3> 
              
-             <p>{this.state.streetAddress}, {this.state.city}, {this.state.state}, {this.state.zipCode}</p>
+             <p>{this.state.streetAddress}</p>
+             <p>{this.state.city}, {this.state.state} {this.state.zipCode}</p>
 
-             <p><b>Opening:</b> {this.state.opening} | <b>  Closing:</b>{this.state.closing}</p>
-
-             <p><strong>Hours:</strong> {this.state.hours}</p>
+             <p>{this.state.hours}</p>
 
              <p><strong>Price: </strong>{this.state.price}</p>
 
-             <p><strong>Artist:</strong> {this.state.featuredArtist}</p>
-
-             <p><strong>Description: </strong></p>
+             <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
 
              <p>{this.state.description}</p>
            </div>
