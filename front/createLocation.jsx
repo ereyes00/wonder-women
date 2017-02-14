@@ -13,7 +13,7 @@ const CreateLocation = React.createClass({
             state:'',
             zipCode:'',
             type:'',
-            hours: { 
+            hours: {
               Sunday:{
                 openTime: "",
                 closeTime: "",
@@ -49,7 +49,7 @@ const CreateLocation = React.createClass({
                 closeTime: "",
                 closed:'' 
               }
-            }
+            }           
     }
   },
   addLocation: function (e) {
@@ -89,11 +89,50 @@ const CreateLocation = React.createClass({
   updateType: function (event) {
     this.setState({ type: event.target.value });
   }, 
-  updateHours: function (event) {
-    this.setState({ hours: event.target.value });
-  },
+  // updateHours: function (event) {
+  //   this.setState({ hours: event.target.value });
+  // },
   handleClick: function (event) {
     console.log(event.target);
+    this.setState({
+            hours: {
+              Sunday:{
+                openTime: event.target.value,
+                closeTime: event.target.value,
+                closed:event.target.value
+              },
+              Monday: { 
+                openTime: event.target.value,
+                closeTime: event.target.value,
+                closed:event.target.value 
+              },
+              Tuesday: { 
+                openTime: event.target.value,
+                closeTime: event.target.value,
+                closed:event.target.value
+              },
+              Wednesday: { 
+                openTime: event.target.value,
+                closeTime: event.target.value,
+                closed:event.target.value 
+              },
+              Thursday: { 
+                openTime: event.target.value,
+                closeTime: event.target.value,
+                closed:event.target.value 
+              },
+              Friday: { 
+                openTime: event.target.value,
+                closeTime: event.target.value,
+                closed:event.target.value 
+              },
+              Saturday: { 
+                openTime: event.target.value,
+                closeTime: event.target.value,
+                closed:event.target.value
+              }
+            }
+    })
   },
   render: function () {
     return (
@@ -116,6 +155,14 @@ const CreateLocation = React.createClass({
                 <option value="Gallery">Gallery</option>
                 <option value="School">School</option>
               </select>
+              <br /><br />
+              
+              Phone Number:
+              <br />
+              <input type="text"
+                className="inputEvent"
+                onChange={this.handleChange.bind(this, 'phoneNumber')} 
+              />
               <br /><br />
               
               Address:
@@ -149,16 +196,22 @@ const CreateLocation = React.createClass({
                 onChange={this.handleChange.bind(this, 'zipCode')} 
               />
               <br /><br />
+              
+              {
+              // Hours:
+              // <br />
+              // <input type="text"
+              //  className="input"
+              //  placeholder="hours"
+              //  onChange={this.updateHours} 
+              // />
+              }
 
-              Hours:
-              <br />
-              <input type="text"
-               className="input"
-               placeholder="hours"
-               onChange={this.updateHours} 
-              />
+              {
+                //value={this.state.hours} this was the value for following div
+              }
 
-              <div value={this.state.hours}>
+              <div value={this.state.hours}> 
                 
                 Hours:
                 <br />
@@ -166,10 +219,15 @@ const CreateLocation = React.createClass({
 
                   <input type="checkbox"
                    value="Monday"
-                   onClick={this.handleClick.bind(this, "monday")} 
+                   onClick={this.handleClick.bind(this, "Monday")} 
                   />
 
                   <label>Monday</label>
+
+                  <input type="checkbox"
+                   value="closed"
+                   onClick={this.handleClick.bind(this, "closed")} 
+                  />
 
                   <div>
                     <label>From </label>
@@ -235,10 +293,15 @@ const CreateLocation = React.createClass({
 
                   <input type="checkbox"
                    value="Tuesday"
-                   onClick={this.handleClick.bind(this, "tuesday")} 
+                   onClick={this.handleClick.bind(this, "Tuesday")} 
                   />
 
                   <label>Tuesday</label>
+
+                  <input type="checkbox"
+                   value="closed"
+                   onClick={this.handleClick.bind(this, "closed")} 
+                  />
 
                   <div>
                     <label>From </label>
@@ -304,10 +367,15 @@ const CreateLocation = React.createClass({
 
                  <input type="checkbox"
                     value="Wednesday"
-                    onClick={this.handleClick.bind(this, "wednesday")} 
+                    onClick={this.handleClick.bind(this, "Wednesday")} 
                   />
 
                  <label>Wednesday</label>
+                  
+                  <input type="checkbox"
+                   value="closed"
+                   onClick={this.handleClick.bind(this, "closed")} 
+                  />                 
 
                   <div>
 
@@ -374,10 +442,15 @@ const CreateLocation = React.createClass({
 
                   <input type="checkbox"
                    value="Thursday"
-                   onClick={this.handleClick.bind(this, "thursday")} 
+                   onClick={this.handleClick.bind(this, "Thursday")} 
                   />
                   
                   <label>Thursday</label>
+                  
+                  <input type="checkbox"
+                   value="closed"
+                   onClick={this.handleClick.bind(this, "closed")} 
+                  />
 
                   <div>
                     <label>From </label> 
@@ -439,220 +512,238 @@ const CreateLocation = React.createClass({
                 </div>
                 <br /><br />
 
-           <div className="dayBox">
+                <div className="dayBox">
+
+                  <input type="checkbox"
+                   value="Friday"
+                   onClick={this.handleClick.bind(this, "Friday")} 
+                  />
+                   
+                  <label>Friday</label>
+                  
+                  <input type="checkbox"
+                   value="closed"
+                   onClick={this.handleClick.bind(this, "closed")} 
+                  />
+
+                  <div>
+             
+                  <label>From </label>
+
+                  <select>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+
+                  <select>
+                    <option value=":00">00</option>
+                    <option value=":15">15</option>
+                    <option value=":30">30</option>
+                    <option value=":45">45</option>
+                  </select>
+
+                  <select>
+                    <option value=" AM">AM</option>
+                    <option value=" PM">PM</option>
+                  </select>
+
+                  <label> To </label>
+                  <select>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+
+                  <select>
+                    <option value=":00">00</option>
+                    <option value=":15">15</option>
+                    <option value=":30">30</option>
+                    <option value=":45">45</option>
+                  </select>
+
+                  <select>
+                    <option value=" AM">AM</option>
+                    <option value=" PM">PM</option>
+                  </select>
+              </div>
+            </div>
+            <br /><br />
+
+            <div className="dayBox">
 
              <input type="checkbox"
-             value="Friday"
-             onClick={this.handleClick.bind(this, "friday")} />
-             <label>Friday</label>
+               value="Saturday"
+               onClick={this.handleClick.bind(this, "Saturday")} 
+             />
 
-             <div>
-             <label>From </label>
-               <select>
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
+              <label>Saturday</label>
 
-              <select>
-                <option value=":00">00</option>
-                <option value=":15">15</option>
-                <option value=":30">30</option>
-                <option value=":45">45</option>
-              </select>
+              <input type="checkbox"
+               value="closed"
+               onClick={this.handleClick.bind(this, "closed")} 
+              />
 
-              <select>
-                <option value=" AM">AM</option>
-                <option value=" PM">PM</option>
-              </select>
+              <div>
+                <label>From </label> 
+                  <select>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
 
-            <label> To </label>
-               <select>
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
+                  <select>
+                    <option value=":00">00</option>
+                    <option value=":15">15</option>
+                    <option value=":30">30</option>
+                    <option value=":45">45</option>
+                  </select>
 
-              <select>
-                <option value=":00">00</option>
-                <option value=":15">15</option>
-                <option value=":30">30</option>
-                <option value=":45">45</option>
-              </select>
+                  <select>
+                    <option value=" AM">AM</option>
+                    <option value=" PM">PM</option>
+                  </select>
 
-              <select>
-                <option value=" AM">AM</option>
-                <option value=" PM">PM</option>
-              </select>
+                 <label> To </label>
+
+                  <select>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+
+                  <select>
+                    <option value=":00">00</option>
+                    <option value=":15">15</option>
+                    <option value=":30">30</option>
+                    <option value=":45">45</option>
+                  </select>
+
+                  <select>
+                    <option value=" AM">AM</option>
+                    <option value=" PM">PM</option>
+                  </select>
+              </div>
             </div>
+            <br /><br />
 
-           </div>
+            <div className="dayBox">
 
-           <br /><br />
+               <input type="checkbox"
+                 value="Sunday"
+                 onClick={this.handleClick.bind(this, "Sunday")} 
+               />
+             
+                <label>Sunday</label>
+                  
+                  <input type="checkbox"
+                   value="closed"
+                   onClick={this.handleClick.bind(this, "closed")} 
+                  />
 
-           <div className="dayBox">
+                <div>
+                  <label>From </label>
+                  <select>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
 
-             <input type="checkbox"
-             value="Saturday"
-             onClick={this.handleClick.bind(this, "saturday")} />
-             <label>Saturday</label>
+                  <select>
+                    <option value=":00">00</option>
+                    <option value=":15">15</option>
+                    <option value=":30">30</option>
+                    <option value=":45">45</option>
+                  </select>
 
-             <div>
-             <label>From </label> 
-               <select>
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
+                  <select>
+                    <option value=" AM">AM</option>
+                    <option value=" PM">PM</option>
+                  </select>
 
-              <select>
-                <option value=":00">00</option>
-                <option value=":15">15</option>
-                <option value=":30">30</option>
-                <option value=":45">45</option>
-              </select>
+                  <label> To </label>
+                  <select>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
 
-              <select>
-                <option value=" AM">AM</option>
-                <option value=" PM">PM</option>
-              </select>
+                  <select>
+                    <option value=":00">00</option>
+                    <option value=":15">15</option>
+                    <option value=":30">30</option>
+                    <option value=":45">45</option>
+                  </select>
 
-            <label> To </label>
-               <select>
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-
-              <select>
-                <option value=":00">00</option>
-                <option value=":15">15</option>
-                <option value=":30">30</option>
-                <option value=":45">45</option>
-              </select>
-
-              <select>
-                <option value=" AM">AM</option>
-                <option value=" PM">PM</option>
-              </select>
+                  <select>
+                    <option value=" AM">AM</option>
+                    <option value=" PM">PM</option>
+                  </select>
+                </div>
+              </div>
+              <br /><br />
             </div>
+            <br /> <br />
 
-           </div>
-
-           <br /><br />
-
-           <div className="dayBox">
-
-             <input type="checkbox"
-             value="Sunday"
-             onClick={this.handleClick.bind(this, "sunday")} />
-             <label>Sunday</label>
-
-             <div>
-             <label>From </label>
-               <select>
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-
-              <select>
-                <option value=":00">00</option>
-                <option value=":15">15</option>
-                <option value=":30">30</option>
-                <option value=":45">45</option>
-              </select>
-
-              <select>
-                <option value=" AM">AM</option>
-                <option value=" PM">PM</option>
-              </select>
-
-            <label> To </label>
-               <select>
-                <option value="01">1</option>
-                <option value="02">2</option>
-                <option value="03">3</option>
-                <option value="04">4</option>
-                <option value="05">5</option>
-                <option value="06">6</option>
-                <option value="07">7</option>
-                <option value="08">8</option>
-                <option value="09">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-              </select>
-
-              <select>
-                <option value=":00">00</option>
-                <option value=":15">15</option>
-                <option value=":30">30</option>
-                <option value=":45">45</option>
-              </select>
-
-              <select>
-                <option value=" AM">AM</option>
-                <option value=" PM">PM</option>
-              </select>
-            </div>
-
-           </div>
-           <br /><br />
-
-          </div>
-
-          <br /> <br />
-
-          <input type="submit"
-            className="button"
-            id="submit"
-            value="Submit" />
+            <input type="submit"
+              className="button"
+              id="submit"
+              value="Submit" 
+            />
 
           </form>
         </div>
