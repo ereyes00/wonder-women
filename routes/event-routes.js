@@ -1,30 +1,8 @@
 const eventRouter = require('express').Router();
 const db = require('../models');
 
-// Purpose: to find events that are opening TODAY
-var today = new Date(Date());
-var date = today.toISOString().split('T')[0];
-
-eventRouter.route('/date/opening')
-  .get(function(req, res) {
-    db.Event.findAll({
-      where: {
-         opening: date
-       },
-       include: [db.Image]
-     })
-     .then(function(data) {
-       console.log('openingToday', data.title)
-       res.send(data)
-     })
-     .catch(function(err) {
-       res.send(err)
-     })
-   })
-//////////////////////////////////////////////////
-
 eventRouter.route('/')
-
+// This route will be used to display all events
   .get(function (req, res) {
     console.log('IN GET events')
     db.Event.findAll({ include: [db.Image] })
@@ -32,6 +10,7 @@ eventRouter.route('/')
         res.send(data);
       });
   })
+// This route will be used to create event with image, and hours  
   .post(function (req, res) {
     db.Event.create({
       title: req.body.title,
@@ -53,7 +32,6 @@ eventRouter.route('/')
         });
 
         //let rawHours = req.body.hours;
-
         //  for (key in rawHours) {
         // //   console.log("key", key);
         // //   console.log('would save: ', {
@@ -81,7 +59,45 @@ eventRouter.route('/')
       res.status(500).send(err.message);
     });
   });
+  
+//This is the route that will be used to display individaul event
+eventRouter.route('/:id')
+  .get(function (req, res) {
+    db.Event.findById(req.params.id, {
+      include: [db.Image, db.ExhibitionHours],
+    })
+      .then(function (data) {
+        if (!data) {
+          res.send('no record found');
+        } else {
+          res.send(data);
+        }
+      });
+  });
 
+// Purpose: to find events that are opening TODAY
+var today = new Date(Date());
+var date = today.toISOString().split('T')[0];
+
+eventRouter.route('/date/opening')
+  .get(function(req, res) {
+    db.Event.findAll({
+      where: {
+         opening: date
+       },
+       include: [db.Image]
+     })
+     .then(function(data) {
+       console.log('openingToday', data.title)
+       res.send(data)
+     })
+     .catch(function(err) {
+       res.send(err)
+     })
+   })
+//////////////////////////////////////////////////
+
+// This route will be used to display all images and only url attribute will avaiable
 eventRouter.route('/images')
 
   .get(function(req, res){
@@ -96,13 +112,9 @@ eventRouter.route('/images')
       })
   });
 
-
-
-
-
-
+// This is the route that will be used for search bar 
 eventRouter.route('/search')
-  
+
   .get(function (req, res) {
     console.log('data', req.query)
     var store = {};
@@ -112,23 +124,24 @@ eventRouter.route('/search')
 
     if(req.query.dateStart !== '') {
      console.log('type of dateStart :' , typeof req.query.dateStart)
-     //console.log('')
+     var newdate = new Date(req.query.dateStart)
+     console.log('newdate : ' + newdate)
       store['opening'] = {
-        $gte : req.query.dateStart.toDate()
+        $gte : newdate
       }
     }
     if(req.query.dateEnd !== '') {
       store['closing'] = {
-        $lte : req.query.dateEnd
+        $lte : new Date(req.query.dateEnd)
       }
     }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {
       store['type'] = {
-        $in: ['School', 'Museum', 'Gallery']
+        $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
       }
 
     } else {
-      store['type'] = req.query.type
+      store['type'] = req.query.type.toUpperCase()
     }
 
     db.Event.findAll({
@@ -137,12 +150,13 @@ eventRouter.route('/search')
     })
     .then(function (data) {
       if (data.length === 0) {
-        res.send('Nothing found');
+        res.send('No record found');
       } else {
         res.send(data);
       }
     });
   });
+
 
 eventRouter.route('/:id')
   .get(function (req, res) {

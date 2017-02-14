@@ -86,7 +86,7 @@ const events = [
     featuredArtist: 'Riccardo Vecchio',
     description: 'For this exhibition, Vecchio called upon the 100 year anniversary of World War I to explore the relationship between war and the artifice of nation-state building and the creation of borders on the landscape of the Italian Dolomites. He explored the typography and transformation of this former battlefront along the former borders between the reign of Italy and the Austro-Hungarian Empire, creating plein-air paintings and drawings of the starkly elegant yet unnatural forms in ice and rock that were the result of scarred mountain peaks and bomb craters blown up 100 years ago.'
   },
-  {
+   {
     title: 'Bill Jacklin 1986-2016',
     LocationId:13,
     opening: '2017-02-08',
