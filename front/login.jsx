@@ -14,22 +14,22 @@ var Login = React.createClass({
 			this.setState({password: event.target.value})
 		}
 	},
-	// userLogin: function(event){
-	// 	event.preventDefault()
-	// 	$.ajax({
-	// 		method: 'POST',
-	// 		url: '/api/login/',
-	// 		data: this.state,
-	// 		error: ((data) => {
-	// 			console.log(typeof data.responseText)
-	// 			this.setState({msg: data.responseText})
-	// 		}).bind(this)
-	// 	})
-	// 	.done((data) => {
-	// 		console.log("Received User Data", data);
-	// 		browserHistory.push('/account')
-	// 	})
-	// },
+	userLogin: function(event){
+		event.preventDefault()
+		$.ajax({
+			method: 'POST',
+			url: '/api/user/login',
+			data: this.state,
+			error: ((data) => {
+				console.log(typeof data.responseText)
+				this.setState({msg: data.responseText})
+			}).bind(this)
+		})
+		.done((data) => {
+			console.log("Received User Data", data);
+			browserHistory.push('/account')
+		})
+	},
 	render: function(){
 		return(
 			<center>
