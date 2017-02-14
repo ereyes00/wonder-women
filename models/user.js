@@ -31,8 +31,8 @@ module.exports = function (sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         User.hasMany(models.Event);
-        User.belongsToMany(models.Event, { through: 'Bookmark' });
-        models.Event.belongsToMany(User, { through: 'Bookmark' });
+        // This will add methods getEvents, setEvents, addEvents,addEvents to User
+        User.belongsToMany(models.Event, { as: 'Bookmark', through: 'Bookmarks' });
       },
     },
   }

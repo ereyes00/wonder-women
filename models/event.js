@@ -31,6 +31,7 @@ module.exports = function (sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         Event.hasMany(models.Image);
+        Event.belongsToMany(models.User, { as: 'Bookmark', through: 'Bookmarks' });
         Event.belongsTo(models.Location);
       },
     },
