@@ -5,7 +5,7 @@ eventRouter.route('/')
 // This route will be used to display all events
   .get(function (req, res) {
     console.log('IN GET events')
-    db.Event.findAll({ include: [db.Image] })
+    db.Event.findAll({ include: [db.Image, db.Location] })
       .then(function (data) {
         res.send(data);
       });
@@ -31,22 +31,23 @@ eventRouter.route('/')
           url: req.body.image,
         });
 
-        //let rawHours = req.body.hours;
+        // let rawHours = req.body.hours;
         //  for (key in rawHours) {
-        // //   console.log("key", key);
-        // //   console.log('would save: ', {
-        // //     EventId: data.id,
-        // //     dayOfWeek: key,
-        // //     openTime: rawHours[key].openTime,
-        // //     closeTime: rawHours[key].closeTime,
-        // //   })
-
-        //   db.ExhibitionHours.create({
+        //   console.log("key", key);
+        //   console.log('would save: ', {
         //     EventId: data.id,
         //     dayOfWeek: key,
         //     openTime: rawHours[key].openTime,
         //     closeTime: rawHours[key].closeTime,
         //   })
+
+          // db.LocationHours.create({
+          //   LocationId: data.id,
+          //   dayOfWeek: key,
+          //   openTime: rawHours[key].openTime,
+          //   closeTime: rawHours[key].closeTime,
+          //   closed:
+          // })
         // };
       }
     })
@@ -64,7 +65,11 @@ eventRouter.route('/')
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id, {
-      include: [db.Image, db.ExhibitionHours],
+      include: [
+        db.Image, 
+        {model: db.Location,
+                include: db.LocationHours}
+      ],
     })
       .then(function (data) {
         if (!data) {
@@ -74,7 +79,7 @@ eventRouter.route('/:id')
         }
       });
   });
-
+  
 // Purpose: to find events that are opening TODAY
 var today = new Date(Date());
 var date = today.toISOString().split('T')[0];
@@ -157,23 +162,7 @@ eventRouter.route('/search')
     });
   });
 
-eventRouter.route('/:id')
-  .get(function (req, res) {
-    db.Event.findById(req.params.id, {
-      include: [
-        db.Image, 
-        {model: db.Location,
-                include: db.LocationHours}
-      ],
-    })
-      .then(function (data) {
-        if (!data) {
-          res.send('no record found');
-        } else {
-          res.send(data);
-        }
-      });
-  });
+
 
 
 module.exports = eventRouter;
