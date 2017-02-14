@@ -4,6 +4,7 @@ import Event from './event.jsx'
 import TodayCarousel from './listEvents.jsx';
 import Home from './home.jsx';
 import Search from './search.jsx';
+import SearchResults from './searchResults.jsx';
 import About from './about.jsx';
 import ContactUs from './contactUs.jsx';
 import CreateEvent from './createEvent.jsx';
@@ -49,6 +50,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={Home} />
+      <Route path='results/:type' component={SearchResults}></Route>
       <Route path='login' component={Login}></Route>
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>
