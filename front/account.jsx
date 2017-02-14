@@ -8,14 +8,14 @@ const Account = React.createClass({
   },
   componentDidMount: function () {
     $.ajax({
-      url: '/api/users/id',
+      url: '/api/user/id',
       type: 'GET',
       data: this.state,
     })
     .then((user) => {
       this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email });
       $.ajax({
-        url: '/api/events',
+        url: '/api/event',
         type: 'GET',
         data: this.state,
       })
