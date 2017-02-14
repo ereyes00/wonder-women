@@ -13,6 +13,7 @@ eventRouter.route('/')
 // This route will be used to create event with image, and hours  
   .post(function (req, res) {
     db.Event.create({
+      UserId: req.body.userId,
       title: req.body.title,
       location: req.body.location,
       opening: req.body.opening,
@@ -95,6 +96,16 @@ eventRouter.route('/date/opening')
      })
    })
 //////////////////////////////////////////////////
+
+eventRouter.route('/addBookmark')
+// Route to add a bookmark
+  .get(function(req, res) {
+    // const user = req.user;
+    db.User.findById(1)
+    .then(function(data) {
+      data.addEvent()
+    }) 
+  })
 
 // This route will be used to display all images and only url attribute will avaiable
 eventRouter.route('/images')

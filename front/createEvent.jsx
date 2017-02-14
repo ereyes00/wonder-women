@@ -6,6 +6,7 @@ import './style/createEvent.css';
 const CreateEvent = React.createClass({
   getInitialState: function () {
     return { title: 'Despair',
+             userId: 1,
              featuredArtist: 'Ursula',
              location: 'Hell',
              type: 'Museum',

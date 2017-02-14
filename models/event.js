@@ -60,6 +60,7 @@ module.exports = function (sequelize, DataTypes) {
       associate: function (models) {
         Event.hasMany(models.Image);
         Event.hasMany(models.ExhibitionHours);
+        Event.belongsToMany(models.User, { as: 'Bookmark', through: 'Bookmarks' });
       },
     },
   }

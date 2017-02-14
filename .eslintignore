@@ -16,3 +16,4 @@ public
 
 models/index.js
 
+front/slick/**/*
