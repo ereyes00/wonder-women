@@ -6,16 +6,27 @@ const SearchResults = React.createClass({
   getInitialState: function(){
     return({
       results: null, 
-      zipCode: this.props.params.zipCode || '', 
-      type: "SearchAll" || this.props.params.type, 
-      dateStart: this.props.params.dateStart || '', 
-      dateEnd: this.props.params.dateEnd || ''})
+       
+      type: "SearchAll" || this.props.params.type
+     })
   },
   searchData: function(){
+    if(this.props.location){
+      var query = this.props.location.query
+    var params = {
+      zipCode: query.zipCode,
+      type: this.state.type,
+      dateStart: query.dateStart,
+      dateEnd: query.dateEnd
+    }
+  } else {
+    params = {type: this.props.type}
+  }
+    
     $.ajax({
       url: '/api/events/search' ,
       method: 'GET',
-      data: this.state
+      data: params
     })
     .done((results)=>{
       console.log("Search is successful.")
@@ -28,14 +39,25 @@ const SearchResults = React.createClass({
   },
   render: function(){
     if(this.state.results){
+      var query = this.props.location.query
     return(
+
+      <div>
+      <SearchBar zipCode={query.zipCode}
+      type={this.state.type}
+      dateStart={query.dateStart}
+      dateEnd={query.dateEnd}
+      />
+
       <div className="results">
         <div className="imgResult">
           <ul>
             {this.state.results.map((val)=> {
               return(
                 <div key={val.id} >
-                  <img className="imgGrid" src={val.Images[0].url} />
+                  {val.Images.length ? 
+                    <img className="imgGrid" src={val.Images[0].url} /> 
+                    : null} 
                   <h3>{val.title}</h3>
                   <h3>{val.location}</h3>
                 </div>
@@ -44,6 +66,7 @@ const SearchResults = React.createClass({
           </ul>
 
         </div>
+      </div>
       </div>
     )
   } else {

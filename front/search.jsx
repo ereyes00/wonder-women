@@ -6,6 +6,11 @@ import './style/searchBar.css';
 
 const SearchBar = React.createClass({
   getInitialState: function(){
+    var props = this.props
+    console.log("props is: ", this.props)
+    return ({zipCode: props.zipCode, dateStart: props.dateStart, dateEnd: props.dateEnd, type: props.type})
+  },
+  getDefaultProps: function(){
     return ({zipCode: '', dateStart: '', dateEnd: '', type: "SearchAll"})
   },
   updateType: function(event){
@@ -21,6 +26,9 @@ const SearchBar = React.createClass({
     }
   },
   render: function(){
+    console.log("state: ", this.state)
+        console.log("props: ", this.props)
+
     return(
       <div className="Search">
         <form className="SearchForm" >
@@ -29,7 +37,7 @@ const SearchBar = React.createClass({
                 <span>Where</span>
             </label>
             <div>
-              <input type="text" className="Zip_Input" placeholder= "Zip Code" onChange={this.handleChange.bind(this, "zipCode")} />
+              <input type="text" value={this.state.zipCode} className="Zip_Input" placeholder= "Zip Code" onChange={this.handleChange.bind(this, "zipCode")} />
             </div>
           </div>
 
@@ -65,7 +73,8 @@ const SearchBar = React.createClass({
             </div>
           </div>
 
-          <Link to={`/results/${this.state.type}/${this.state.zipCode}/${this.state.dateStart}/${this.state.dateEnd}`}>
+
+          <Link to={{pathname: `/results/${this.state.type}`, query: {zipCode: this.state.zipCode, dateStart: this.state.dateStart, dateEnd: this.state.dateEnd}}}>
             <button className="button">Search</button>
           </Link>
         </form>

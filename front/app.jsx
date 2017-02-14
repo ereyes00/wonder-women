@@ -48,7 +48,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={Home} />
-      <Route path='results/:type(/:zipCode/:dateStart/:dateEnd)' component={SearchResults}></Route>
+      <Route path='results/:type' component={SearchResults}></Route>
       <Route path='login' component={Login}></Route>
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>
