@@ -20,7 +20,7 @@ const App = withRouter(React.createClass({
     return (
       <div>
         <div className="logo-class">
-          <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.jpg')} /></Link>
+          <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.png')} /></Link>
         </div>
 
         <nav className="navbar navbar-inverse">
