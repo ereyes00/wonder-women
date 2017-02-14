@@ -56,7 +56,9 @@ const MapDisplay = React.createClass({
       width: '100%'
     };
     return(
-         <div style={mapStyle} ref={(el)=>{if(el)
+         <div onScroll={(e)=>{e.stopPropagation()
+          e.preventDefault()
+         }} className={'text'} style={mapStyle} ref={(el)=>{if(el)
           this.mapDiv = el}}></div>
     )
   }
