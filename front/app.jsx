@@ -32,17 +32,31 @@ const App = withRouter(React.createClass({
               <Link to='CreateEvent'><b>Create Event</b></Link>
               <Link to='Login'><b>Login</b></Link>
               <Link to='Signup'><b>Sign Up</b></Link>
-            </div>
+            </div> 
           </div>
         </nav>
 
         <h2 className="homeTitle">Find your next art escape.</h2>
 
         <hr className="hr"/>
-
         <br /> <br />
 
         {this.props.children}
+
+        <br />
+        <hr className="footerHr" />
+
+        <center><footer>
+          <p><b>Art Gal</b></p>
+            <p>
+              <a href="https://github.com/ereyes00/wonder-women" target="_blank">Github</a> 
+              <a href="https://www.linkedin.com/in/esmeralda-reyes" target="_blank">Esmeralda</a>
+              <a href="https://www.linkedin.com/in/salinafu" target="_blank">Salina</a>
+              <a href="https://www.linkedin.com/in/shazia-anjum" target="_blank">Shazia</a>
+              <a href="https://www.linkedin.com/in/vanessa-montoya-webdev" target="_blank">Vanessa</a>
+            </p>
+          <p>© 2017 Team Wonder Women</p>
+        </footer></center>
       </div>
     );
   }

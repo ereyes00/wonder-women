@@ -17,7 +17,6 @@ const NukaCarousel = React.createClass({
       type: 'GET'
     })
     .done((data) => {
-      //console.log('data', data[0].Images[0].url)
       this.setState({image1: data[0].Images[0].url, image2: data[23].Images[0].url, image3: data[2].Images[0].url, image4: data[3].Images[0].url, image5: data[14].Images[0].url, image6: data[5].Images[0].url, image7: data[21].Images[0].url});
     })
   },
@@ -26,8 +25,9 @@ const NukaCarousel = React.createClass({
     return (
       <center>
         <div>
+        <hr className="carouselHr" />
           <div className="Carousel">
-            <h2>Featured Events</h2>
+            <h2><i>Featured Events</i></h2>
               <Carousel 
               width={"95%"} 
               wrapAround={true}
@@ -37,31 +37,31 @@ const NukaCarousel = React.createClass({
               autoplayInterval={2500}>
               <div className="eventItem">
                 <img className="caroImg" src={this.state.image1}/>
-                <p>title</p>
+                <p><i>Blue Poles</i></p>
               </div>
               <div className="eventItem">
                 <img className="caroImg" src={this.state.image2}/>
-                  <p>title</p>
+                  <p><i>Jones Street</i></p>
               </div>
               <div className="eventItem">
-                <img height={120} className="caroImg" src={this.state.image3}/>
-                  <p>title</p>
+                <img className="caroImg" src={this.state.image3}/>
+                  <p><i>Body Meets Dress - Dress Meets Body</i></p>
               </div>
               <div className="eventItem">
                 <img className="caroImg" src={this.state.image4}/>
-                  <p>title</p>
+                  <p><i>Dyslexia</i></p>
               </div>
               <div className="eventItem">
                 <img className="caroImg" src={this.state.image5}/>
-                  <p>title</p>
+                  <p><i>Steppenwolf</i></p>
               </div>
               <div className="eventItem">
                 <img className="caroImg" src={this.state.image6}/>
-                  <p>title</p>
+                  <p><i>Hattie_McDaniel</i></p>
               </div>
               <div className="eventItem">
                 <img className="caroImg" src={this.state.image7}/>
-                  <p>title</p>
+                  <p><i>Cotton Candy</i></p>
               </div>
               </Carousel>
           </div>

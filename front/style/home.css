@@ -16,7 +16,13 @@ a:link {
 .navbar{
   float: right;
   margin-top: 30px;
-  margin-right: 50px;
+  margin-right: 3%;
 }
 
+.hr {
+  margin-right: 2.5%;
+}
 
+.footerHr {
+  width: 95%;
+}
