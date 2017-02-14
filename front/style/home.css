@@ -7,39 +7,16 @@
   float: left
 }
 
-.hr {
-  height: 30px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 1px 0 0 0; 
-  border-radius: 20px;
-  margin-top: 3%;
-}
-
-.hr:before {
-  display: block; 
-  content: ""; 
-  height: 30px; 
-  margin-top: -31px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 0 0 1px 0; 
-  border-radius: 20px; 
-}
-
 a:link {
-/*  margin-right: 5%;*/
   margin-right: 20px;
-  margin-top: 3%;
-  font-family: 'Helvetica';
+/*  margin-top: 200px;*/
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar{
   float: right;
+  margin-top: 30px;
+  margin-right: 50px;
 }
 
-.homeTitle {
-/*  margin-top: 5%;*/
-
-}
 

@@ -7,8 +7,8 @@ var Home = React.createClass({
   render: function() {
     return (
 	    <div >
-	    <h2 className="homeTitle">Find your next art escape.</h2>
-	    	<SearchBar />				
+	    	<SearchBar />		
+        <br />		
 	    	<NukaCarousel />
 	    </div>
     )

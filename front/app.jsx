@@ -28,17 +28,19 @@ const App = withRouter(React.createClass({
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
             <div className="nav navbar-nav">
-              <Link to ='events'>Opening This Week</Link>
-              <Link to='CreateEvent'>Create Event</Link>
-              <Link to='Login'>Login</Link>
-              <Link to='Signup'>Sign Up</Link>
+              <Link to ='events'><b>Opening This Week</b></Link>
+              <Link to='CreateEvent'><b>Create Event</b></Link>
+              <Link to='Login'><b>Login</b></Link>
+              <Link to='Signup'><b>Sign Up</b></Link>
             </div>
           </div>
         </nav>
 
+        <h2 className="homeTitle">Find your next art escape.</h2>
+
         <hr className="hr"/>
 
-        <br />
+        <br /> <br />
 
         {this.props.children}
       </div>

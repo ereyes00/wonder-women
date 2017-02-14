@@ -69,31 +69,19 @@ const Event = React.createClass({
               
               <h1 className="event">{this.state.title}</h1>
 
-           <div className="EventInfo">
+              <button 
+                className="bookmark" 
+                // onClick={this.bookmark}
+               >Bookmark
+              </button>
 
-            <div className="hero">
-               <img className="heroImg" src={this.state.images}/>
-            </div>
-            
-             <h1 className="event">{this.state.title}</h1>
+              <h3>Location: {this.state.location}</h3> 
+               
+              <p>Address: {this.state.streetAddress}, {this.state.city}, {this.state.state}, {this.state.zipCode}</p>
 
-             <p><b>Opening:</b> {this.state.opening}</p>
-             <p><b>Closing:</b></p>
-             <p>{this.state.closing}</p>
+              <p><b>Opening:</b> {this.state.opening} | <b>  Closing:</b>{this.state.closing}</p>
 
-             <h3>{this.state.location}</h3> 
-             
-             <p>{this.state.streetAddress}</p>
-             <p>{this.state.city}, {this.state.state} {this.state.zipCode}</p>
-
-             <p>{this.state.hours}</p>
-
-             <p><strong>Price: </strong>{this.state.price}</p>
-
-             <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
-
-              <p><strong>Hours:</strong> </p>
-                 <br />
+              <p><strong>Location Hours:</strong> </p>
                   {this.state.hours.map((el,idx)=> {
                     if(el.closed){
                       return <div key={idx}> 
@@ -131,4 +119,3 @@ const Event = React.createClass({
 });
 
 export default Event;
-
