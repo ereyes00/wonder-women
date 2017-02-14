@@ -27,7 +27,7 @@ const SearchBar = React.createClass({
   },
   render: function(){
     console.log("state: ", this.state)
-        console.log("props: ", this.props)
+    console.log("props: ", this.props)
 
     return(
       <div className="Search">
@@ -37,7 +37,11 @@ const SearchBar = React.createClass({
                 <span>Where</span>
             </label>
             <div>
-              <input type="text" value={this.state.zipCode} className="Zip_Input" placeholder= "Zip Code" onChange={this.handleChange.bind(this, "zipCode")} />
+              <input type="text" 
+              value={this.state.zipCode} 
+              className="Zip_Input" 
+              placeholder= "Zip Code" 
+              onChange={this.handleChange.bind(this, "zipCode")} />
             </div>
           </div>
 
@@ -46,7 +50,10 @@ const SearchBar = React.createClass({
               <span>Start Date</span>
             </label>
             <div>
-              <input type="date" className="Date_Input" onChange={this.handleChange.bind(this, "dateStart")} />
+              <input type="date" 
+              value={this.state.dateStart} 
+              className="Date_Input" 
+              onChange={this.handleChange.bind(this, "dateStart")} />
             </div>
           </div>
 
@@ -55,7 +62,10 @@ const SearchBar = React.createClass({
               <span>End Date</span>
             </label>
             <div>
-              <input type="date" className="Date_Input" onChange={this.handleChange.bind(this, "dateEnd")} />
+              <input type="date" 
+              value={this.state.dateEnd} 
+              className="Date_Input" 
+              onChange={this.handleChange.bind(this, "dateEnd")} />
             </div>
           </div>
 
@@ -73,8 +83,14 @@ const SearchBar = React.createClass({
             </div>
           </div>
 
-
-          <Link to={{pathname: `/results/${this.state.type}`, query: {zipCode: this.state.zipCode, dateStart: this.state.dateStart, dateEnd: this.state.dateEnd}}}>
+          <Link to={{
+            pathname: `/results/${this.state.type}`, 
+            query: {
+              zipCode: this.state.zipCode, 
+              dateStart: this.state.dateStart, 
+              dateEnd: this.state.dateEnd
+            }
+          }}>
             <button className="button">Search</button>
           </Link>
         </form>
