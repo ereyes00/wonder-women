@@ -8,6 +8,7 @@ import SearchResults from './searchResults.jsx';
 import About from './about.jsx';
 import ContactUs from './contactUs.jsx';
 import CreateEvent from './createEvent.jsx';
+import CreateLocation from './createLocation.jsx';
 import Login from './login.jsx';
 import Signup from './signUp.jsx';
 import Account from './account.jsx';
@@ -30,6 +31,7 @@ const App = withRouter(React.createClass({
             <div className="nav navbar-nav">
               <Link to ='events'>Opening This Week</Link>
               <Link to='CreateEvent'>Create Event</Link>
+              <Link to='CreateLocation'>Create Location</Link>
               <Link to='Login'>Login</Link>
               <Link to='Signup'>Sign Up</Link>
             </div>
@@ -55,6 +57,7 @@ ReactDOM.render(
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>
       <Route path='createevent' component={CreateEvent}></Route>
+      <Route path='createlocation' component={CreateLocation}></Route>
       <Route path='events/:id' component={Event}></Route>
       <Route path='events' component={TodayCarousel}></Route>
     </Route>

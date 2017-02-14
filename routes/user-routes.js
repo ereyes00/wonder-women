@@ -94,4 +94,5 @@ userRouter.route('/get/bookmarks/:id')
     })
   });
 
+
 module.exports = userRouter;
