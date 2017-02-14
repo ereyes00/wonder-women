@@ -13,13 +13,15 @@ const CreateLocation = React.createClass({
             state:'',
             zipCode:'',
             type:'',
-            // hours: {
+            hours: {
               Sunday:{
+                dayOfWeek:'',
                 openTime: "",
                 closeTime: "",
                 closed:''
               },
               Monday: { 
+                dayOfWeek:'',
                 openTime: "",
                 closeTime: "",
                 closed:'' 
@@ -49,7 +51,7 @@ const CreateLocation = React.createClass({
                 closeTime: "",
                 closed:'' 
               }
-            //}           
+            }           
     }
   },
   addLocation: function (e) {
@@ -91,16 +93,46 @@ const CreateLocation = React.createClass({
   }, 
   // updateHours: function (event) {
   //   this.setState({ hours: event.target.value });
-  // },
+  // }, 
   handleClick: function (event) {
-    console.log(event.target);
-      if (input === 'Monday') {
-        this.setState({ Monday: event.target.value });
+    console.log("event",event);
+      if (event === 'Monday'){
+        this.setState({
+          hours:{ 
+            Monday: {
+              dayOfWeek:event.value,
+              // openTime:event.value, 
+              // closeTime:event.value,
+              // closed:event.value
+            } 
+          }  
+        });
       } 
-      else if (input === 'Tuesday') {
-        this.setState({ Tuesday: event.target.value });
-      }
+      // else if (event === 'Tuesday'){
+      //   this.setState({ 
+      //     hours:{ 
+      //       Tuesday: {
+      //         dayOfWeek:event.value,
+      //         openTime:event.value, 
+      //         closeTime:event.value,
+      //         closed:event.value
+      //       } 
+      //     } 
+      //   });
+      // }
 
+  },
+  handleFromChange: function(event){
+    this.setState({
+          hours:{ 
+            Monday: {
+              //dayOfWeek:event.value,
+              openTime:event.target.value, 
+              closeTime:event.target.value,
+              closed:event.target.value
+            } 
+          } 
+    })
   },
   render: function () {
     return (
@@ -183,23 +215,25 @@ const CreateLocation = React.createClass({
                 
                 Hours:
                 <br />
+                <br />
                 <div className="dayBox">
 
                   <input type="checkbox"
                    value="Monday"
                    onClick={this.handleClick.bind(this, "Monday")} 
                   />
-
                   <label>Monday</label>
+                  <br /><br />
 
+                  <label>Closed</label>
                   <input type="checkbox"
-                   value="closed"
+                   value="Monday"
                    onClick={this.handleClick.bind(this, "closed")} 
                   />
 
                   <div>
                     <label>From </label>
-                      <select>
+                      <select onChange={this.handleFromChange}>
                         <option value="01">1</option>
                         <option value="02">2</option>
                         <option value="03">3</option>
@@ -214,14 +248,14 @@ const CreateLocation = React.createClass({
                         <option value="12">12</option>
                       </select>
 
-                      <select>
+                      <select onChange={this.handleFromChange}>
                         <option value=":00">00</option>
                         <option value=":15">15</option>
                         <option value=":30">30</option>
                         <option value=":45">45</option>
                       </select>
 
-                      <select>
+                      <select onChange={this.handleFromChange}>
                         <option value=" AM">AM</option>
                         <option value=" PM">PM</option>
                       </select>
