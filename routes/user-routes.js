@@ -49,4 +49,20 @@ userRouter.route('/createdBy/:id')
     })
   });
 
+userRouter.route('/get/bookmarks/:id')
+// Route to get all events bookmarked by one user
+  .get(function(req, res) {
+    db.Bookmarks.findAll({
+      where: {
+        UserId : req.params.id
+      },
+    })
+    .then(function (data) {
+      res.send(data)
+    })
+    .catch(function (err) {
+      res.status(500).send(err.message);
+    })
+  });
+
 module.exports = userRouter;

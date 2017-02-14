@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     lastName: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     email: {
       type: DataTypes.TEXT,
