@@ -95,7 +95,7 @@ const location = [
     streetAddress: '29 East 4th Street',
     city: 'New York',
     state: "NY",
-    zipCode: '10003',
+    zipCode: 10003,
     type: 'MUSEUM' 
   },
   {//12
@@ -269,5 +269,6 @@ const location = [
     zipCode: 10002,
     type: 'GALLERY'
   }
-
 ]
+
+module.exports = location;

@@ -568,9 +568,14 @@ const location = [
     streetAddress: '29 East 4th Street',
     city: 'New York',
     state: "NY",
+<<<<<<< HEAD
+    zipCode: 10003,
+    type: 'MUSEUM' 
+=======
     zipCode: '10003',
     type: 'MUSEUM',
     UserId:2
+>>>>>>> master
   },
   {//12
     location: 'Galerie St. Etienne',
@@ -769,7 +774,7 @@ const location = [
 ///locatio hours seed
 
 const locationHours = [
-   {//brooklyn museum
+   { // brooklyn museum
     dayOfWeek: 'Sunday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',

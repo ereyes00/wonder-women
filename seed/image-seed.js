@@ -150,3 +150,5 @@ const images = [
     EventId: 30
   }
 ];
+
+module.exports = images;
