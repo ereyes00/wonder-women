@@ -11,9 +11,10 @@ const CreateEvent = React.createClass({
              description: '',
              opening: '',
              closing: '',
-             image: '' 
+             image: '',
+             location:''
     }
-  },
+  }, 
   addEvent: function (e) {
     e.preventDefault();
     $.ajax({

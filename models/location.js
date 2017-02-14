@@ -36,6 +36,7 @@ module.exports = function (sequelize, DataTypes) {
       associate: function (models) {
         Location.hasMany(models.Event);
         Location.hasMany(models.LocationHours);
+        Location.belongsTo(models.User)
       },
     },
   }
