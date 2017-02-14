@@ -13,7 +13,7 @@ const CreateLocation = React.createClass({
             state:'',
             zipCode:'',
             type:'',
-            hours: {
+            // hours: {
               Sunday:{
                 openTime: "",
                 closeTime: "",
@@ -49,7 +49,7 @@ const CreateLocation = React.createClass({
                 closeTime: "",
                 closed:'' 
               }
-            }           
+            //}           
     }
   },
   addLocation: function (e) {
@@ -94,45 +94,13 @@ const CreateLocation = React.createClass({
   // },
   handleClick: function (event) {
     console.log(event.target);
-    this.setState({
-            hours: {
-              Sunday:{
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value
-              },
-              Monday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Tuesday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value
-              },
-              Wednesday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Thursday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Friday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Saturday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value
-              }
-            }
-    })
+      if (input === 'Monday') {
+        this.setState({ Monday: event.target.value });
+      } 
+      else if (input === 'Tuesday') {
+        this.setState({ Tuesday: event.target.value });
+      }
+
   },
   render: function () {
     return (
@@ -211,7 +179,7 @@ const CreateLocation = React.createClass({
                 //value={this.state.hours} this was the value for following div
               }
 
-              <div value={this.state.hours}> 
+              <div > 
                 
                 Hours:
                 <br />
