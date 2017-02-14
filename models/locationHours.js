@@ -1,27 +1,33 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  const ExhibitionHours = sequelize.define('ExhibitionHours', {
+  const LocationHours = sequelize.define('LocationHours', {
     dayOfWeek: {
       type: DataTypes.ENUM('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
       allowNull: false,
     },
     openTime: {
-      type: DataTypes.TIME,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     closeTime: {
-      type: DataTypes.TIME,
-      allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    closed: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   }
   , {
     classMethods: {
       associate: function (models) {
-        ExhibitionHours.belongsTo(models.Event);
+        LocationHours.belongsTo(models.Location);
       },
     },
   }
   );
-  return ExhibitionHours;
+  return LocationHours;
 };
+
+//datatype time
