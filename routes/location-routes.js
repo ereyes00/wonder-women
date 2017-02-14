@@ -20,21 +20,21 @@ locationRouter.route('/')
       city: req.body.city,
       state: req.body.state,
       zipCode: req.body.zipCode,
-      type: req.body.type,
-      hours:req.body.hours
+      type: req.body.type
+      //hours:req.body.hours
     })
     .catch(function (err) {
       console.log('After first section in catch handler of event POST', err)
     })
     .then(function (data) {
       if (data) {
-         for (key in hours) {
+         for (key in req.body.hours) {
           db.LocationHours.create({
             LocationId: data.id,
-            dayOfWeek: key,
-            openTime: hours[key].openTime,
-            closeTime: hours[key].closeTime,
-            closed: hours[key].closed,
+            dayOfWeek: key, //req.body.hours.dayOfWeek,
+            openTime: req.body.hours[key].openTime,//req.body.hours.openTime,
+            closeTime: req.body.hours[key].closeTime,//req.body.hours.closeTime,
+            closed: req.body.hours[key].closed,//req.body.hours.closed
           })
         };
       }

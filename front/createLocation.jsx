@@ -15,11 +15,13 @@ const CreateLocation = React.createClass({
             type:'',
             hours: {
               Sunday:{
+                dayOfWeek:'',
                 openTime: "",
                 closeTime: "",
                 closed:''
               },
               Monday: { 
+                dayOfWeek:'',
                 openTime: "",
                 closeTime: "",
                 closed:'' 
@@ -91,47 +93,45 @@ const CreateLocation = React.createClass({
   }, 
   // updateHours: function (event) {
   //   this.setState({ hours: event.target.value });
-  // },
+  // }, 
   handleClick: function (event) {
-    console.log(event.target);
+    console.log("event",event);
+      if (event === 'Monday'){
+        this.setState({
+          hours:{ 
+            Monday: {
+              dayOfWeek:event.value,
+              // openTime:event.value, 
+              // closeTime:event.value,
+              // closed:event.value
+            } 
+          }  
+        });
+      } 
+      // else if (event === 'Tuesday'){
+      //   this.setState({ 
+      //     hours:{ 
+      //       Tuesday: {
+      //         dayOfWeek:event.value,
+      //         openTime:event.value, 
+      //         closeTime:event.value,
+      //         closed:event.value
+      //       } 
+      //     } 
+      //   });
+      // }
+
+  },
+  handleFromChange: function(event){
     this.setState({
-            hours: {
-              Sunday:{
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value
-              },
-              Monday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Tuesday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value
-              },
-              Wednesday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Thursday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Friday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value 
-              },
-              Saturday: { 
-                openTime: event.target.value,
-                closeTime: event.target.value,
-                closed:event.target.value
-              }
-            }
+          hours:{ 
+            Monday: {
+              //dayOfWeek:event.value,
+              openTime:event.target.value, 
+              closeTime:event.target.value,
+              closed:event.target.value
+            } 
+          } 
     })
   },
   render: function () {
@@ -211,9 +211,10 @@ const CreateLocation = React.createClass({
                 //value={this.state.hours} this was the value for following div
               }
 
-              <div value={this.state.hours}> 
+              <div > 
                 
                 Hours:
+                <br />
                 <br />
                 <div className="dayBox">
 
@@ -221,17 +222,18 @@ const CreateLocation = React.createClass({
                    value="Monday"
                    onClick={this.handleClick.bind(this, "Monday")} 
                   />
-
                   <label>Monday</label>
+                  <br /><br />
 
+                  <label>Closed</label>
                   <input type="checkbox"
-                   value="closed"
+                   value="Monday"
                    onClick={this.handleClick.bind(this, "closed")} 
                   />
 
                   <div>
                     <label>From </label>
-                      <select>
+                      <select onChange={this.handleFromChange}>
                         <option value="01">1</option>
                         <option value="02">2</option>
                         <option value="03">3</option>
@@ -246,14 +248,14 @@ const CreateLocation = React.createClass({
                         <option value="12">12</option>
                       </select>
 
-                      <select>
+                      <select onChange={this.handleFromChange}>
                         <option value=":00">00</option>
                         <option value=":15">15</option>
                         <option value=":30">30</option>
                         <option value=":45">45</option>
                       </select>
 
-                      <select>
+                      <select onChange={this.handleFromChange}>
                         <option value=" AM">AM</option>
                         <option value=" PM">PM</option>
                       </select>
