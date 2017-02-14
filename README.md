@@ -47,5 +47,5 @@ Open a browser tab to and navigate to  'localhost:3000' <br/>
 
 To run the seed files: <br/>
   In the terminal type: <br/>
-    `node seed.js` <br/>
+    `node seed/index.js` <br/>
 
