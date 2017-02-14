@@ -2,7 +2,8 @@ const db = require('./models').sequelize;
 const Event = require('./models').Event;
 const Image = require('./models').Image;
 const LocationHours = require('./models').LocationHours;
-const Location = require('./models').Location
+const Location = require('./models').Location;
+const User = require('./models').User;
 
 const events = [
   {
@@ -2423,10 +2424,54 @@ const locationHours = [
   }
 ];
 
+const user = [
+  {
+    firstName: 'Jane',
+    lastName: 'Doe',
+    email: 'test1@something.com',
+    password: 'password1',
+    zipCode: 11238,
+    role: 'Individual'
+  },
+  {
+    firstName: 'Brooklyn Museum',
+    lastName: null,
+    email: 'admin@brooklynmusuem.com',
+    password: 'password1',
+    zipCode: 11238,
+    role: 'Museum'
+  },
+  {
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'test2@something.com',
+    password: 'password1',
+    zipCode: 11238,
+    role: 'Artist'
+  },
+  {
+    firstName: 'Mary',
+    lastName: 'Doe',
+    email: 'test3@something.com',
+    password: 'password1',
+    zipCode: 11238,
+    role: 'Individual'
+  },
+  {
+    firstName: 'Karen',
+    lastName: 'Doe',
+    email: 'test4@something.com',
+    password: 'password1',
+    zipCode: 11238,
+    role: 'Individual'
+  },
+];
+
 db.sync({ force: true })
 .then(() => Location.bulkCreate(location))
 .then(() => LocationHours.bulkCreate(locationHours))
 .then(() => Event.bulkCreate(events))
-.then(() => Image.bulkCreate(images));
+.then(() => Image.bulkCreate(images))
+.then(() => User.bulkCreate(user));
 
 module.exports = { location, locationHours, events, images };

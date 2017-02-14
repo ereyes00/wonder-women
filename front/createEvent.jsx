@@ -5,7 +5,8 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return { title: '',
+    return { userId: null,
+             title: '',
              featuredArtist: '',
              price: '',
              description: '',
