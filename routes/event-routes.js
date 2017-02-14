@@ -5,7 +5,7 @@ eventRouter.route('/')
 // This route will be used to display all events
   .get(function (req, res) {
     console.log('IN GET events')
-    db.Event.findAll({ include: [db.Image, db.ExhibitionHours] })
+    db.Event.findAll({ include: [db.Image, db.Location] })
       .then(function (data) {
         res.send(data);
       });
@@ -15,17 +15,11 @@ eventRouter.route('/')
     db.Event.create({
       UserId: req.body.userId,
       title: req.body.title,
-      location: req.body.location,
       opening: req.body.opening,
       closing: req.body.closing,
       price: req.body.price,
       featuredArtist: req.body.featuredArtist,
       description: req.body.description,
-      streetAddress: req.body.streetAddress,
-      city: req.body.city,
-      state: req.body.state,
-      zipCode: req.body.zipCode,
-      type: req.body.type,
     })
     .catch(function (err) {
       console.log('After first section in catch handler of event POST', err)
@@ -38,20 +32,28 @@ eventRouter.route('/')
           url: req.body.image,
         });
 
-        let rawHours = req.body.hours;
+        // let rawHours = req.body.hours;
+        //  for (key in rawHours) {
+        //   console.log("key", key);
+        //   console.log('would save: ', {
+        //     EventId: data.id,
+        //     dayOfWeek: key,
+        //     openTime: rawHours[key].openTime,
+        //     closeTime: rawHours[key].closeTime,
+        //   })
 
-         for (key in rawHours) {
-          db.ExhibitionHours.create({
-            EventId: data.id,
-            dayOfWeek: key,
-            openTime: rawHours[key].openTime,
-            closeTime: rawHours[key].closeTime,
-          })
-        };
+          // db.LocationHours.create({
+          //   LocationId: data.id,
+          //   dayOfWeek: key,
+          //   openTime: rawHours[key].openTime,
+          //   closeTime: rawHours[key].closeTime,
+          //   closed:
+          // })
+        // };
       }
     })
     .then(function (data) {
-      console.log("After exhibition hours creation", data);
+      //console.log("After exhibition hours creation", data);
         res.send('Event created');
     })
     .catch(function (err) {
@@ -64,7 +66,11 @@ eventRouter.route('/')
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id, {
-      include: [db.Image, db.ExhibitionHours],
+      include: [
+        db.Image, 
+        {model: db.Location,
+                include: db.LocationHours}
+      ],
     })
       .then(function (data) {
         if (!data) {
@@ -74,7 +80,7 @@ eventRouter.route('/:id')
         }
       });
   });
-
+  
 // Purpose: to find events that are opening TODAY
 var today = new Date(Date());
 var date = today.toISOString().split('T')[0];
@@ -156,7 +162,7 @@ eventRouter.route('/search')
 
     db.Event.findAll({
       where:  store,
-      include: [db.Image, db.ExhibitionHours],
+      include: [db.Image],
     })
     .then(function (data) {
       if (data.length === 0) {
@@ -166,6 +172,8 @@ eventRouter.route('/search')
       }
     });
   });
+
+
 
 
 module.exports = eventRouter;
