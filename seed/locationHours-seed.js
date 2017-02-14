@@ -104,342 +104,293 @@ const locationHours = [
     openTime: '10:00 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 10
+    LocationId: 3
   },
   {
     dayOfWeek: 'Monday',
     openTime: '10:00 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 10
+    LocationId: 3
   },
   {
     dayOfWeek: 'Tuesday',
     openTime: '10:00 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 10
+    LocationId: 3
   },
   {
     dayOfWeek: 'Wednesday',
     openTime: '10:00 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 10
+    LocationId: 3
   },
   {
     dayOfWeek: 'Thursday',
     openTime: '10:00 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 10
+    LocationId: 3
   },
   {
     dayOfWeek: 'Friday',
     openTime: '10:00 AM',
     closeTime: '09:00 PM',
     closed: null,
-    LocationId: 10
+    LocationId: 3
   },
   {
     dayOfWeek: 'Saturday',
     openTime: '10:00 AM',
     closeTime: '09:00 PM',
     closed: null,
-    LocationId: 10
+    LocationId: 3
   },
   {//International Studio & Curatorial Program (ISCP)
     dayOfWeek: 'Sunday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 3
+    LocationId: 4
   },
   {
     dayOfWeek: 'Monday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 3
+    LocationId: 4
   },
   {
     dayOfWeek: 'Tuesday',
     openTime: '12:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 3
+    LocationId: 4
   },
   {
     dayOfWeek: 'Wednesday',
     openTime: '12:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 3
+    LocationId: 4
   },
   {
     dayOfWeek: 'Thursday',
     openTime: '12:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 3
+    LocationId: 4
   },
   {
     dayOfWeek: 'Friday',
     openTime: '12:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 3
+    LocationId: 4
   },
   {
     dayOfWeek: 'Saturday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 3
+    LocationId: 4
   },
   {//victo
     dayOfWeek: 'Sunday',
     openTime: '01:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 4
+    LocationId: 5
   },
   {
     dayOfWeek: 'Monday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 4
+    LocationId: 5
   },
   {
     dayOfWeek: 'Tuesday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 4
+    LocationId: 5
   },
   {
     dayOfWeek: 'Wednesday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 4
+    LocationId: 5
   },
   {
     dayOfWeek: 'Thursday',
     openTime: '01:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 4
+    LocationId: 5
   },
   {
     dayOfWeek: 'Friday',
     openTime: '01:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 4
+    LocationId: 5
   },
   {
     dayOfWeek: 'Saturday',
     openTime: '01:00 PM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 4
+    LocationId: 5
   },
   {//moma
     dayOfWeek: 'Sunday',
     openTime: '10:30 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 5
+    LocationId: 6
   },
   {
     dayOfWeek: 'Monday',
     openTime: '10:30 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 5
+    LocationId: 6
   },
   {
     dayOfWeek: 'Tuesday',
     openTime: '10:30 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 5
+    LocationId: 6
   },
   {
     dayOfWeek: 'Wednesday',
     openTime: '10:30 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 5
+    LocationId: 6
   },
   {
     dayOfWeek: 'Thursday',
     openTime: '10:30 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 5
+    LocationId: 6
   },
   {
     dayOfWeek: 'Friday',
     openTime: '10:30 AM',
     closeTime: '08:00 PM',
     closed: null,
-    LocationId: 5
+    LocationId: 6
   },
   {
     dayOfWeek: 'Saturday',
     openTime: '10:30 AM',
     closeTime: '05:30 PM',
     closed: null,
-    LocationId: 5
+    LocationId: 6
   },
   {//guggei
     dayOfWeek: 'Sunday',
     openTime: '10:00 AM',
     closeTime: '05:45 PM',
     closed: null,
-    LocationId: 6
+    LocationId: 7
   },
   {
     dayOfWeek: 'Monday',
     openTime: '10:00 AM',
     closeTime: '05:45 PM',
     closed: null,
-    LocationId: 6
+    LocationId: 7
   },
   {
     dayOfWeek: 'Tuesday',
     openTime: '10:00 AM',
     closeTime: '05:45 PM',
     closed: null,
-    LocationId: 6
+    LocationId: 7
   },
   {
     dayOfWeek: 'Wednesday',
     openTime: '10:00 AM',
     closeTime: '05:45 PM',
     closed: null,
-    LocationId: 6
+    LocationId: 7
   },
   {
     dayOfWeek: 'Thursday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 6
+    LocationId: 7
   },
   {
     dayOfWeek: 'Friday',
     openTime: '10:00 AM',
     closeTime: '05:45 PM',
     closed: null,
-    LocationId: 6
+    LocationId: 7
   },
   {
     dayOfWeek: 'Saturday',
     openTime: '10:00 AM',
     closeTime: '07:45 PM',
     closed: null,
-    LocationId: 6
+    LocationId: 7
   },
-  {
+  {//
     dayOfWeek: 'Sunday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 7
+    LocationId: 8
   },
   {
     dayOfWeek: 'Monday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 7
+    LocationId: 8
   },
   {
     dayOfWeek: 'Tuesday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 7
+    LocationId: 8
   },
   {
     dayOfWeek: 'Wednesday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 7
+    LocationId: 8
   },
   {
     dayOfWeek: 'Thursday',
     openTime: '11:00 AM',
     closeTime: '08:00 PM',
     closed: null,
-    LocationId: 7
+    LocationId: 8
   },
   {
     dayOfWeek: 'Friday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 7
+    LocationId: 8
   },
   {
     dayOfWeek: 'Saturday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',
     closed: null,
-    LocationId: 7
-  },
-  {
-    dayOfWeek: 'Sunday',
-    openTime: null,
-    closeTime: null,
-    closed: 'closed',
-    LocationId: 8
-  },
-  {
-    dayOfWeek: 'Monday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 8
-  },
-  {
-    dayOfWeek: 'Tuesday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 8
-  },
-  {
-    dayOfWeek: 'Wednesday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 8
-  },
-  {
-    dayOfWeek: 'Thursday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 8
-  },
-  {
-    dayOfWeek: 'Friday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 8
-  },
-  {
-    dayOfWeek: 'Saturday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
     LocationId: 8
   },
   {
@@ -451,93 +402,93 @@ const locationHours = [
   },
   {
     dayOfWeek: 'Monday',
-    openTime: null,
-    closeTime: null,
-    closed: 'closed',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
+    closed: null,
     LocationId: 9
   },
   {
     dayOfWeek: 'Tuesday',
-    openTime: '12:00 PM',
-    closeTime: '06:00 PM',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
     closed: null,
     LocationId: 9
   },
   {
     dayOfWeek: 'Wednesday',
-    openTime: '12:00 PM',
-    closeTime: '06:00 PM',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
     closed: null,
     LocationId: 9
   },
   {
     dayOfWeek: 'Thursday',
-    openTime: '12:00 PM',
-    closeTime: '06:00 PM',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
     closed: null,
     LocationId: 9
   },
   {
     dayOfWeek: 'Friday',
-    openTime: '12:00 PM',
-    closeTime: '06:00 PM',
+    openTime: '09:00 AM',
+    closeTime: '07:00 PM',
     closed: null,
     LocationId: 9
   },
   {
     dayOfWeek: 'Saturday',
+    openTime: '10:00 AM',
+    closeTime: '06:00 PM',
+    closed: null,
+    LocationId: 9
+  },
+  {
+    dayOfWeek: 'Sunday',
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 9
-  },
-  {//met
-    dayOfWeek: 'Sunday',
-    openTime: '10:00 AM',
-    closeTime: '05:30 PM',
-    closed: null,
     LocationId: 10
   },
   {
     dayOfWeek: 'Monday',
-    openTime: '10:00 AM',
-    closeTime: '05:30 PM',
-    closed: null,
+    openTime: null,
+    closeTime: null,
+    closed: 'closed',
     LocationId: 10
   },
   {
     dayOfWeek: 'Tuesday',
-    openTime: '10:00 AM',
-    closeTime: '05:30 PM',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
     closed: null,
     LocationId: 10
   },
   {
     dayOfWeek: 'Wednesday',
-    openTime: '10:00 AM',
-    closeTime: '05:30 PM',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
     closed: null,
     LocationId: 10
   },
   {
     dayOfWeek: 'Thursday',
-    openTime: '10:00 AM',
-    closeTime: '05:30 PM',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
     closed: null,
     LocationId: 10
   },
   {
     dayOfWeek: 'Friday',
-    openTime: '10:00 AM',
-    closeTime: '09:00 PM',
+    openTime: '12:00 PM',
+    closeTime: '06:00 PM',
     closed: null,
     LocationId: 10
   },
   {
     dayOfWeek: 'Saturday',
-    openTime: '10:00 AM',
-    closeTime: '09:00 PM',
-    closed: null,
+    openTime: null,
+    closeTime: null,
+    closed: 'closed',
     LocationId: 10
   },
   {
@@ -741,55 +692,6 @@ const locationHours = [
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 13
-  },
-  {
-    dayOfWeek: 'Monday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 13
-  },
-  {
-    dayOfWeek: 'Tuesday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 13
-  },
-  {
-    dayOfWeek: 'Wednesday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 13
-  },
-  {
-    dayOfWeek: 'Thursday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 13
-  },
-  {
-    dayOfWeek: 'Friday',
-    openTime: '09:00 AM',
-    closeTime: '07:00 PM',
-    closed: null,
-    LocationId: 13
-  },
-  {
-    dayOfWeek: 'Saturday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 13
-  },
-  {
-    dayOfWeek: 'Sunday',
-    openTime: null,
-    closeTime: null,
-    closed: 'closed',
     LocationId: 14
   },
   {
@@ -1035,55 +937,6 @@ const locationHours = [
     openTime: null,
     closeTime: null,
     closed: 'closed',
-    LocationId: 18
-  },
-  {
-    dayOfWeek: 'Monday',
-    openTime: null,
-    closeTime: null,
-    closed: 'closed',
-    LocationId: 18
-  },
-  {
-    dayOfWeek: 'Tuesday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 18
-  },
-  {
-    dayOfWeek: 'Wednesday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 18
-  },
-  {
-    dayOfWeek: 'Thursday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 18
-  },
-  {
-    dayOfWeek: 'Friday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 18
-  },
-  {
-    dayOfWeek: 'Saturday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 18
-  },
-  {
-    dayOfWeek: 'Sunday',
-    openTime: null,
-    closeTime: null,
-    closed: 'closed',
     LocationId: 19
   },
   {
@@ -1127,55 +980,6 @@ const locationHours = [
     closeTime: '06:00 PM',
     closed: null,
     LocationId: 19
-  },
-  {
-    dayOfWeek: 'Sunday',
-    openTime: null,
-    closeTime: null,
-    closed: 'closed',
-    LocationId: 20
-  },
-  {
-    dayOfWeek: 'Monday',
-    openTime: null,
-    closeTime: null,
-    closed: 'closed',
-    LocationId: 20
-  },
-  {
-    dayOfWeek: 'Tuesday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 20
-  },
-  {
-    dayOfWeek: 'Wednesday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 20
-  },
-  {
-    dayOfWeek: 'Thursday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 20
-  },
-  {
-    dayOfWeek: 'Friday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 20
-  },
-  {
-    dayOfWeek: 'Saturday',
-    openTime: '10:00 AM',
-    closeTime: '06:00 PM',
-    closed: null,
-    LocationId: 20
   },
   {
     dayOfWeek: 'Sunday',

@@ -49,6 +49,7 @@ userRouter.route('/createdBy/:id')
     })
   });
 
+
 userRouter.route('/get/bookmarks/:id')
 // Route to get all events bookmarked by one user
   .get(function(req, res) {
@@ -64,5 +65,6 @@ userRouter.route('/get/bookmarks/:id')
       res.status(500).send(err.message);
     })
   });
+
 
 module.exports = userRouter;
