@@ -157,7 +157,6 @@ eventRouter.route('/search')
     });
   });
 
-
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id, {
@@ -175,5 +174,6 @@ eventRouter.route('/:id')
         }
       });
   });
+
 
 module.exports = eventRouter;
