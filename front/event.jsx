@@ -67,7 +67,8 @@ const Event = React.createClass({
                  <img className="heroImg" src={this.state.images}/>
               </div>
               
-              <h1 className="event">{this.state.title}</h1>
+              <h1 className="event">{this.state.title}</h1>                           
+              <h2>{this.state.opening} - {this.state.closing}</h2>
 
               <button 
                 className="bookmark" 
@@ -75,29 +76,27 @@ const Event = React.createClass({
                >Bookmark
               </button>
 
-              <h3>Location: {this.state.location}</h3> 
-               
-              <p>Address: {this.state.streetAddress}, {this.state.city}, {this.state.state}, {this.state.zipCode}</p>
+              <ul >
+                <li><h2>{this.state.location}</h2></li>
+                <li>{this.state.streetAddress}</li>
+                <li>{this.state.city}, {this.state.state} {this.state.zipCode}</li>
+              </ul> 
 
-              <p><b>Opening:</b> {this.state.opening} | <b>  Closing:</b>{this.state.closing}</p>
-
-              <p><strong>Location Hours:</strong> </p>
+              <ul className="hours"><strong>Location Hours:</strong> </ul>
                   {this.state.hours.map((el,idx)=> {
                     if(el.closed){
-                      return <div key={idx}> 
-                        <p>{el.dayOfWeek}: {el.closed}</p>
-                      </div>
+                      return <li key={idx}> 
+                        <b>{el.dayOfWeek}:</b> {el.closed}
+                      </li>
                     } 
-                     return <div key={idx}> 
-                      <p>{el.dayOfWeek}: {el.openTime}-{el.closeTime}</p>
-                     </div>
+                     return <li key={idx}> 
+                      <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
+                     </li>
                   })}
    
               <p><strong>Price: </strong>{this.state.price}</p>
 
-              <p><strong>Artist:</strong> {this.state.featuredArtist}</p>
-
-              <p><strong>Description: </strong></p>
+              <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
 
               <p>{this.state.description}</p>
           </div>

@@ -25,4 +25,12 @@ a:link {
 
 .footerHr {
   width: 95%;
+
+}
+
+.footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

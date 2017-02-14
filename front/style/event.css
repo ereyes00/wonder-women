@@ -30,6 +30,14 @@
 	margin-right: 3%;*/
 }
 
+ul {
+	list-style-type: none;
+}
+
+.hours {
+	list-style-type: none;
+}
+
 .bookmark {
 	background-color: #373A3B;
     border: none;

@@ -4,7 +4,7 @@ var React = require('react');
 var Carousel = require('nuka-carousel');
 import $ from 'jquery';
 import './style/carousel.css';
-//import {Link} from 'react-router';
+import {Link} from 'react-router';
 
 const NukaCarousel = React.createClass({
   // mixins: [Carousel.ControllerMixin],
@@ -34,35 +34,43 @@ const NukaCarousel = React.createClass({
               slideWidth={0.35} 
               cellSpacing={20} 
               autoplay={true} 
-              autoplayInterval={2500}>
+              autoplayInterval={2000}>
+
               <div className="eventItem">
-                <img className="caroImg" src={this.state.image1}/>
-                <p><i>Blue Poles</i></p>
+                <p><i>"Blue Poles"</i></p>
+                <Link to={'/events/1'}><img className="caroImg" src={this.state.image1}/> </Link>
               </div>
+
               <div className="eventItem">
-                <img className="caroImg" src={this.state.image2}/>
-                  <p><i>Jones Street</i></p>
+              <p><i>"Jones Street"</i></p>
+                <Link to={'/events/24'}><img className="caroImg" src={this.state.image2}/> </Link>              
               </div>
+
               <div className="eventItem">
-                <img className="caroImg" src={this.state.image3}/>
-                  <p><i>Body Meets Dress - Dress Meets Body</i></p>
+              <p><i>"Body Meets Dress - Dress Meets Body"</i></p>
+                <Link to={'/events/3'}><img className="caroImg" src={this.state.image3}/></Link>   
               </div>
+
               <div className="eventItem">
-                <img className="caroImg" src={this.state.image4}/>
-                  <p><i>Dyslexia</i></p>
+               <p><i>"Dyslexia"</i></p>
+                <Link to={'/events/4'}><img className="caroImg" src={this.state.image4}/></Link>
               </div>
+
               <div className="eventItem">
-                <img className="caroImg" src={this.state.image5}/>
-                  <p><i>Steppenwolf</i></p>
+              <p><i>"Steppenwolf"</i></p>
+                <Link to={'/events/15'}><img className="caroImg" src={this.state.image5}/></Link>
               </div>
+
               <div className="eventItem">
-                <img className="caroImg" src={this.state.image6}/>
-                  <p><i>Hattie_McDaniel</i></p>
+                <p><i>"Hattie_McDaniel"</i></p>
+                <Link to={'/events/6'}><img className="caroImg" src={this.state.image6}/></Link>
               </div>
+
               <div className="eventItem">
-                <img className="caroImg" src={this.state.image7}/>
-                  <p><i>Cotton Candy</i></p>
+              <p><i>"Cotton Candy"</i></p>
+                <Link to={'/events/22'}><img className="caroImg" src={this.state.image7}/></Link>
               </div>
+
               </Carousel>
           </div>
         </div>

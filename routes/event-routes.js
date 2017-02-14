@@ -169,7 +169,7 @@ eventRouter.route('/search')
 
     db.Event.findAll({
       where:  store,
-      include: [db.Image],
+      include: [db.Image, db.Location],
     })
     .then(function (data) {
       if (data.length === 0) {
