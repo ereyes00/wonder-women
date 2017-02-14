@@ -11,7 +11,7 @@ const Event = React.createClass({
   },
   componentDidMount: function () {
     $.ajax({
-      url: '/api/events/' + this.props.params.id,
+      url: '/api/event/' + this.props.params.id,
       type: 'GET'
     })
     .done((data) => {
