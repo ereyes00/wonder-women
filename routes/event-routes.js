@@ -32,8 +32,6 @@ eventRouter.route('/')
         });
 
         //let rawHours = req.body.hours;
-
-<<<<<<< HEAD
         //  for (key in rawHours) {
         // //   console.log("key", key);
         // //   console.log('would save: ', {
@@ -50,16 +48,6 @@ eventRouter.route('/')
         //     closeTime: rawHours[key].closeTime,
         //   })
         // };
-=======
-         for (key in rawHours) {
-          db.ExhibitionHours.create({
-            EventId: data.id,
-            dayOfWeek: key,
-            openTime: rawHours[key].openTime,
-            closeTime: rawHours[key].closeTime,
-          })
-        };
->>>>>>> ad0868f402fbd9c7c55c2775fafbbec5c20a1e9b
       }
     })
     .then(function (data) {
@@ -169,7 +157,6 @@ eventRouter.route('/search')
     });
   });
 
-<<<<<<< HEAD
 eventRouter.route('/:id')
   .get(function (req, res) {
     db.Event.findById(req.params.id, {
@@ -187,7 +174,6 @@ eventRouter.route('/:id')
         }
       });
   });
-=======
->>>>>>> ad0868f402fbd9c7c55c2775fafbbec5c20a1e9b
+
 
 module.exports = eventRouter;
