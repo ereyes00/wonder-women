@@ -528,7 +528,7 @@ const location = [
     streetAddress: '29 East 4th Street',
     city: 'New York',
     state: "NY",
-    zipCode: '10003',
+    zipCode: 10003,
     type: 'MUSEUM' 
   },
   {//12
@@ -707,7 +707,7 @@ const location = [
 
 //need to change to location id instead of event id
 const locationHours = [
-   {//brooklyn museum
+   { // brooklyn museum
     dayOfWeek: 'Sunday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',

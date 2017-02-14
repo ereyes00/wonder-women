@@ -1717,3 +1717,5 @@ const locationHours = [
     LocationId: 30
   }
 ];
+
+module.exports = locationHours;
