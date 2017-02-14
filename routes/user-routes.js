@@ -1,6 +1,13 @@
 const userRouter = require('express').Router();
 const db = require('../models');
 
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+
+function validPassword(user, password) {
+  return true;
+}
+
 userRouter.route('/')
 // Route to make a user
   .post(function(req, res) {
@@ -48,5 +55,23 @@ userRouter.route('/createdBy/:id')
       res.status(500).send(err.message);
     })
   });
+
+// Route that will be used to confirm login
+userRouter.post('/login', function(req, res) {
+  db.User.findOne({ 
+    where: { email: req.email }
+  }).then(user) {
+    if (!user) {
+      res.status(401);
+    }
+    if (!validPassword(req.email, req.password)) {
+      res.status(401);
+    }
+    res.json({user: req.user});
+  })
+  .catch(err) {
+    done(err);
+  }
+});
 
 module.exports = userRouter;
