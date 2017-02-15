@@ -95,7 +95,7 @@ const CreateLocation = React.createClass({
   //   this.setState({ hours: event.target.value });
   // }, 
   handleClick: function (event) {
-    console.log("event",event);
+    console.log("this ====>",this);
       if (event === 'Monday'){
         this.setState({
           hours:{ 
