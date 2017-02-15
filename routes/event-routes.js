@@ -13,19 +13,19 @@ eventRouter.route('/search')
       store['zipCode'] = req.query.zipCode
     }
 
-    // if(req.query.dateStart !== '') {
-    //  console.log('type of dateStart :' , typeof req.query.dateStart)
-    //  var newdate = new Date(req.query.dateStart)
-    //  console.log('newdate : ' + newdate)
-    //   store['opening'] = {
-    //     $gte : newdate
-    //   }
-    // }
-    // if(req.query.dateEnd !== '') {
-    //   store['closing'] = {
-    //     $lte : new Date(req.query.dateEnd)
-    //   }
-    // }
+    if(req.query.dateStart !== '') {
+     console.log('type of dateStart :' , typeof req.query.dateStart)
+     var newdate = new Date(req.query.dateStart)
+     console.log('newdate : ' + newdate)
+      store['opening'] = {
+        $gte : newdate
+      }
+    }
+    if(req.query.dateEnd !== '') {
+      store['closing'] = {
+        $lte : new Date(req.query.dateEnd)
+      }
+    }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {
       store['type'] = {
         $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
@@ -35,11 +35,12 @@ eventRouter.route('/search')
       store['type'] = req.query.type.toUpperCase()
     }
     console.log('Data inside the store object', store)
+    
     db.Event.findAll({
-      
       include: [{model: db.Location,
                where: {
-                zipCode: store.zipCode
+                zipCode: store.zipCode,
+                type: store.type
                }}]
               
     })
