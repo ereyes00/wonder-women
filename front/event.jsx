@@ -21,7 +21,8 @@ const Event = React.createClass({
       type:'', 
       images:[], 
       lat: '', 
-      lng:'' 
+      lng:'',
+      userId: 1,
     });
   },
   componentDidMount: function () {
@@ -49,13 +50,12 @@ const Event = React.createClass({
       });
     })
   },
-  // bookmark: function(){
-  //   $.ajax({
-  //     url: '/api/' + this.props.userID + '/bookmarks',
-  //     type: 'POST',
-  //     data: this.state
-  //   })
-  // }, 
+  bookmark: function(){
+    $.ajax({
+      url: '/api/event/add/bookmark' + this.props.params.id + '/' + this.state.userId,
+      type: 'GET'
+    })
+  }, 
   render: function () {
     if(!this.state.hours)
       return null
@@ -72,7 +72,7 @@ const Event = React.createClass({
 
               <button 
                 className="bookmark" 
-                // onClick={this.bookmark}
+                 onClick={this.bookmark}
                >Bookmark
               </button>
 
