@@ -12,6 +12,7 @@ var router = require('../routes/index.js')
 
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json());
+
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(session({
@@ -30,6 +31,7 @@ app.get('/auth', (req, res) => {
 		res.send(null)
 	}
 });
+
 
 app.get('/logout', (req, res) => {
 	req.session.destroy();
