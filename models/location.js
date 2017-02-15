@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
   const Location = sequelize.define('Location', {
     location: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     phoneNumber:{
       type: DataTypes.STRING,
@@ -12,23 +12,23 @@ module.exports = function (sequelize, DataTypes) {
     },
     streetAddress: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     state: {
     type:DataTypes.STRING,
-    allowNull: false
+    allowNull: true,
     },
     zipCode: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     }, 
     type: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   }, 
   {
