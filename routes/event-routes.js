@@ -1,5 +1,52 @@
 const eventRouter = require('express').Router();
 const db = require('../models');
+var moment = require('moment');
+
+// This is the route that will be used for search bar 
+eventRouter.route('/search')
+
+  .get(function (req, res) {
+    console.log('data', req.query)
+    var store = {};
+    if(req.query.zipCode !== '' ) {
+      store['zipCode'] = req.query.zipCode
+    }
+
+    if(req.query.dateStart !== '') {
+     console.log('type of dateStart :' , typeof req.query.dateStart)
+     var newdate = new Date(req.query.dateStart)
+     console.log('newdate : ' + newdate)
+      store['opening'] = {
+        $gte : newdate
+      }
+    }
+    if(req.query.dateEnd !== '') {
+      store['closing'] = {
+        $lte : new Date(req.query.dateEnd)
+      }
+    }
+    if(req.query.type !== '' && req.query.type == 'SearchAll') {
+      store['type'] = {
+        $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
+      }
+
+    } else {
+      store['type'] = req.query.type.toUpperCase()
+    }
+
+    db.Event.findAll({
+      where:  store,
+      include: [db.Image, db.Location],
+    })
+    .then(function (data) {
+      if (data.length === 0) {
+        res.send('No record found');
+      } else {
+        res.send(data);
+      }
+    });
+  });
+
 
 eventRouter.route('/')
 // This route will be used to display all events
@@ -83,15 +130,20 @@ eventRouter.route('/:id')
   
 // Purpose: to find events that are opening TODAY
 var today = new Date(Date());
-var date = today.toISOString().split('T')[0];
+var date = today.toISOString().split('-', 1)[0];
 
 eventRouter.route('/date/opening')
   .get(function(req, res) {
     db.Event.findAll({
       where: {
-         opening: date
+         opening: {
+            $between: ["2017-02-01", "2017-02-28"]
+         }
        },
-       include: [db.Image]
+       include: [
+          db.Image,
+          {model: db.Location}
+       ]
      })
      .then(function(data) {
        console.log('openingToday', data.title)
@@ -133,51 +185,6 @@ eventRouter.route('/images')
       .catch(function (err){
         res.send('no record found');
       })
-  });
-
-// This is the route that will be used for search bar 
-eventRouter.route('/search')
-
-  .get(function (req, res) {
-    console.log('data', req.query)
-    var store = {};
-    if(req.query.zipCode !== '' ) {
-      store['zipCode'] = req.query.zipCode
-    }
-
-    if(req.query.dateStart !== '') {
-     console.log('type of dateStart :' , typeof req.query.dateStart)
-     var newdate = new Date(req.query.dateStart)
-     console.log('newdate : ' + newdate)
-      store['opening'] = {
-        $gte : newdate
-      }
-    }
-    if(req.query.dateEnd !== '') {
-      store['closing'] = {
-        $lte : new Date(req.query.dateEnd)
-      }
-    }
-    if(req.query.type !== '' && req.query.type == 'SearchAll') {
-      store['type'] = {
-        $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
-      }
-
-    } else {
-      store['type'] = req.query.type.toUpperCase()
-    }
-
-    db.Event.findAll({
-      where:  store,
-      include: [db.Image, db.Location],
-    })
-    .then(function (data) {
-      if (data.length === 0) {
-        res.send('No record found');
-      } else {
-        res.send(data);
-      }
-    });
   });
 
 

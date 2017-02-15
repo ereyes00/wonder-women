@@ -1,24 +1,3 @@
-.dayEvent {
-	width: 300px;
-}
-
-.todayBR {
-	top: 10px;
-}
-
-/*this is the img div*/
-.todayImg {
-  float: left;
-  display: inline-block;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-/*this is the img class*/
-.dayEvent {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
 .details {
   float: left;
 /*  display: inline-block;*/
@@ -31,13 +10,31 @@
 .imgGrid {
   height: 250px;
   width: 350px;
-
 }
 
 .imgResult {
   margin-left: 25px;
+  margin-right: -2%;
   margin-top: 50px;
   float: left;
+}
+
+.exTitle {
+  text-align: right;
+  word-wrap: break-word;
+}
+
+
+.exLocate {
+  color: grey;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.openingMonth {
+  text-align: right;
+  margin-right: 3%;
+  margin-top: -1%;
 }
 
 a:link {

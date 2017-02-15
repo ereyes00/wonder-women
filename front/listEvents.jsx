@@ -3,10 +3,11 @@ import {Link, browserHistory} from 'react-router';
 import $ from 'jquery';
 import Event from './event.jsx';
 import './style/listEvents.css';
+var moment = require('moment');
 
 const TodayCarousel = React.createClass({
   getInitialState: function(){
-    return({today: null})
+    return({eventMonth: null})
     // , tomorrow: [], dayAfterTomorrow: [], weekend: []
   },
   componentDidMount: function(){
@@ -15,45 +16,38 @@ const TodayCarousel = React.createClass({
       url: '/api/event/date/opening',
       type: 'GET',
       success: function(data) {
-        that.setState({today: data})
+        that.setState({eventMonth: data})
       }
     })  
   },
   render: function(){
-    if (this.state.today){
-      console.log(this.state.today)
+    if (this.state.eventMonth){
+      console.log(this.state.eventMonth)
       return(
-        <div className="week">
-          <div className = "today">
-            <h2>Opening Today, {Date()}:</h2>
+        <center><div className="week">
+          <div className = "eventMonth">
+            <h2 className="openingMonth">
+            {moment().format('MMMM YYYY')} Openings
+            </h2>
 
             <br /><br />
-             <ul>
-                {this.state.today.map((val) => {
+                {this.state.eventMonth.map((val) => {
                   return (
-                    <div>
-                    
-                      <div className="todayImg">                
-                        <img className="dayEvent" key={val.id}src={val.Images[0].url} />         
+                    <div>               
+                      <div key={val.id} className="imgResult">             
+                        <Link to={'/events/' + val.id}><img className="imgGrid" src={val.Images[0].url} /></Link>   
+
+                        <ul>
+                          <h2 className="extitle">{val.title}</h2>
+                          <h3 className="exLocate">{val.Location.location}</h3>
+                        </ul>
                       </div>
-
-                      <br />
-
-                      <div className="details">
-                        <h3 key={val.id}>{val.title}</h3>
-                        <p><b>{val.location}</b></p>
-                        <p>{val.featuredArtist}</p> 
-                        <p>{val.description.split('.')[0]}.</p>
-                        <Link to={"/events/" + val.id}><p>MORE...</p></Link>
-                      </div>
-
                     </div>
                   )
                 })}
-             </ul>
                     
           </div>
-        </div>
+        </div></center>
       )
     } else {
       return (<div>Loading...</div>)
