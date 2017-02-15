@@ -28,6 +28,11 @@ app.get('/aut', function(req, res) {
 	}
 });
 
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.send("logout success!");
+});
+
 app.use('/api', router)
 
 
