@@ -4,27 +4,28 @@ var moment = require('moment');
 
 // This is the route that will be used for search bar 
 eventRouter.route('/search')
-
+  
   .get(function (req, res) {
-    console.log('data', req.query)
+    console.log('Hitting the search route');
+    console.log('data from the front end', req.query)
     var store = {};
     if(req.query.zipCode !== '' ) {
       store['zipCode'] = req.query.zipCode
     }
 
-    if(req.query.dateStart !== '') {
-     console.log('type of dateStart :' , typeof req.query.dateStart)
-     var newdate = new Date(req.query.dateStart)
-     console.log('newdate : ' + newdate)
-      store['opening'] = {
-        $gte : newdate
-      }
-    }
-    if(req.query.dateEnd !== '') {
-      store['closing'] = {
-        $lte : new Date(req.query.dateEnd)
-      }
-    }
+    // if(req.query.dateStart !== '') {
+    //  console.log('type of dateStart :' , typeof req.query.dateStart)
+    //  var newdate = new Date(req.query.dateStart)
+    //  console.log('newdate : ' + newdate)
+    //   store['opening'] = {
+    //     $gte : newdate
+    //   }
+    // }
+    // if(req.query.dateEnd !== '') {
+    //   store['closing'] = {
+    //     $lte : new Date(req.query.dateEnd)
+    //   }
+    // }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {
       store['type'] = {
         $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
@@ -33,10 +34,14 @@ eventRouter.route('/search')
     } else {
       store['type'] = req.query.type.toUpperCase()
     }
-
+    console.log('Data inside the store object', store)
     db.Event.findAll({
-      where:  store,
-      include: [db.Image, db.Location],
+      
+      include: [{model: db.Location,
+               where: {
+                zipCode: store.zipCode
+               }}]
+              
     })
     .then(function (data) {
       if (data.length === 0) {
@@ -108,6 +113,10 @@ eventRouter.route('/')
       res.status(500).send(err.message);
     });
   });
+  
+
+
+
   
 //This is the route that will be used to display individaul event
 eventRouter.route('/:id')
@@ -187,6 +196,8 @@ eventRouter.route('/images')
       })
   });
 
+
+// This is the route that will be used for search bar 
 
 
 
