@@ -40,3 +40,5 @@ const user = [
     role: 'Individual'
   },
 ];
+
+module.exports = user;

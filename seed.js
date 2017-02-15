@@ -568,7 +568,7 @@ const location = [
     streetAddress: '29 East 4th Street',
     city: 'New York',
     state: "NY",
-    zipCode: '10003',
+    zipCode: 10003,
     type: 'MUSEUM',
     UserId:2
   },
@@ -762,14 +762,13 @@ const location = [
     type: 'GALLERY',
     UserId:5
   }
-
-]
+];
 
 //need to change to location id instead of event id
 ///locatio hours seed
 
 const locationHours = [
-   {//brooklyn museum
+   { // brooklyn museum
     dayOfWeek: 'Sunday',
     openTime: '11:00 AM',
     closeTime: '06:00 PM',

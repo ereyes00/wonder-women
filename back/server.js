@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy
+var expressSession = require('express-session')
 const path = require('path');
 var db = require('../models')
 var router = require('../routes/index.js')
@@ -9,6 +12,7 @@ var router = require('../routes/index.js')
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json());
 app.use(express.static('public'))
+
 
 app.use('/api', router)
 
