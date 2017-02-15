@@ -4,7 +4,7 @@ import CreateEvent from './createEvent';
 
 const Account = React.createClass({
   getInitialState: function () {
-    return { createdEvents: [], firstName: '', lastName: '', email: '', bookmarks: [] };
+    return { createdEvents: [], firstName: '', lastName: '', email: '', bookmarks: null };
   },
   componentDidMount: function () {
     $.ajax({
@@ -13,7 +13,8 @@ const Account = React.createClass({
       data: this.state,
     })
     .then((user) => {
-      this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email });
+      this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email })
+
       $.ajax({
         url: '/api/event',
         type: 'GET',
@@ -26,8 +27,8 @@ const Account = React.createClass({
       .then((bookmarks) => {
         console.log(bookmarks);
         this.setState({ bookmarks: bookmarks });
-      });
-    });
+      })
+    })
   },
   render: function () {
     return (
@@ -43,14 +44,24 @@ const Account = React.createClass({
 
         <br /><br />
 
+        <h3>Your Bookmarks:</h3>
+        <ul>
+          {!this.state.bookmarks ? null : this.state.bookmarks.map((val, idx) => {
+
+            let eventTitle = val.title
+
+            return (
+              <li key={idx}>{eventTitle}</li>
+            )
+          })}
+        </ul>
+
+        <h3>Your Created Events:</h3>
+        <br /><br />
+
         <a href="createevent"><button className="button">
          Create An Event</button>
         </a>
-
-        <br /><br />
-
-        <h3>Your Created Events:</h3>
-
 
       </div>
     );

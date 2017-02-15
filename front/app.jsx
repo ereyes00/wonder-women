@@ -12,13 +12,33 @@ import CreateLocation from './createLocation.jsx';
 import Login from './login.jsx';
 import Signup from './signUp.jsx';
 import Account from './account.jsx';
+import Footer from './footer.jsx';
 import NukaCarousel from './nuka-carousel.jsx'
 import {withRouter, Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 import './style/home.css';
+import $ from 'jquery';
 
 // make sure Route paths do not duplicate those on the back end '/api/user' and '/api/event'
 
 const App = withRouter(React.createClass({
+  getInitialState: function(){
+    return ({email: ''})
+  },
+  componentDidMount: function(){
+    $.ajax({
+      method: 'GET',
+      url: '/auth'
+    })
+    .done((email)=> {
+      console.log('email', email)
+      if(email){
+        console.log(email + 'is logged in.')
+        this.setState({email: email})
+      } else {
+        console.log("No one is logged in.")
+      }
+    })
+  },
   render: function () {
     return (
       <div>
@@ -32,8 +52,11 @@ const App = withRouter(React.createClass({
               <Link to ='events'>Opening This Month</Link>
               <Link to='CreateEvent'>Create Event</Link>
               <Link to='CreateLocation'>Create Location</Link>
+
+              {this.state.email ?
+                <Link to='Account'>Account</Link> :
               <Link to='Login'>Login</Link>
-              <Link to='Signup'>Sign Up</Link>
+              }
             </div>
           </div>
         </nav>
@@ -42,24 +65,11 @@ const App = withRouter(React.createClass({
 
         <hr className="hr"/>
         <br /> <br />
-
+ 
         {this.props.children}
 
         <br />
-        <hr className="footerHr" />
-
-        <center><footer className="footer">
-          <p><b>Art Gal</b></p>
-            <p>
-              <a href="https://github.com/ereyes00/wonder-women" target="_blank">Github</a> 
-              <a href="https://www.linkedin.com/in/esmeralda-reyes" target="_blank">Esmeralda</a>
-              <a href="https://www.linkedin.com/in/salinafu" target="_blank">Salina</a>
-              <a href="https://www.linkedin.com/in/shazia-anjum" target="_blank">Shazia</a>
-              <a href="https://www.linkedin.com/in/vanessa-montoya-webdev" target="_blank">Vanessa</a>
-            </p>
-            <Link to={'/contact'}>Contact Us</Link>
-          <p>© 2017 Team Wonder Women</p>
-        </footer></center>
+        <Footer />
       </div>
     );
   }
