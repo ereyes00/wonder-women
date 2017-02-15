@@ -152,7 +152,7 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleChange}//{this.handleChange.bind(this, 'openTime')}
+                  onChange={this.handleChange}//{this.fromChange.bind(this, 'openTime')}
                 />
 
                 <label>To</label>
