@@ -1,12 +1,13 @@
 const location = [
-	{//1
+    {//id:1
     location: 'Brooklyn Museum',
     phoneNumber: null,
     streetAddress: '200 Eastern Parkway',
     city: 'Brooklyn',
     state: "NY",
     zipCode: 11238,
-    type: 'MUSEUM'
+    type: 'MUSEUM',
+    UserId:1
   },
   {//2
     location: 'Minus Space',
@@ -15,79 +16,88 @@ const location = [
     city: 'Brooklyn',
     state: "NY",
     zipCode: 11201,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:1
   },
   {//3
-    location: 'International Studio & Curatorial Program (ISCP)',
-    phoneNumber: null,
-    streetAddress: '1040 Metropolitan Avenue',
-    city: 'Brooklyn',
-    state: "NY",
-    zipCode: 11211,
-    type: 'GALLERY'
-  },
-  {//4
-    location: 'VICTORI + MO',
-    phoneNumber: null,
-    streetAddress: '56 Bogart Street',
-    city: 'Brooklyn',
-    state: "NY",
-    zipCode: 11206,
-    type: 'GALLERY'
-  },
-  {//5
-    location: 'Museum of Modern Art',
-    phoneNumber: null,
-    streetAddress: '11 West 53rd Street',
-    city: 'New York',
-    state: "NY",
-    zipCode: 10019,
-    type: 'MUSEUM'
-  },
-  {//6
-    location: 'Solomon R. Guggenheim Musuem',
-    phoneNumber: null,
-    streetAddress: '1071 5th Avenue',
-    city: 'New York',
-    state: "NY",
-    zipCode: 10128,
-    type: 'MUSEUM'
-  },
-  {//7
-    location: 'Pratt',
-    phoneNumber: null,
-    streetAddress: '144 West 14th Street',
-    city: 'New York',
-    state: "NY",
-    zipCode: 10011,
-    type: 'SCHOOL'
-  },
-  {//8
-    location: 'School of Visual Arts',
-    phoneNumber: null,
-    streetAddress: '209 East 23rd Street',
-    city: 'New York',
-    state: "NY",
-    zipCode: 10010,
-    type: 'SCHOOL'
-  },
-  {//9
-    location:'Slate NY' ,
-    phoneNumber: null,
-    streetAddress: '54 West 21st Street',
-    city: 'New York',
-    state: "NY",
-    zipCode: 10010 ,
-    type: 'GALLERY'
-  },
-  {//10
     location: 'The Metropolitan Museum of Art' ,
     phoneNumber: null,
     streetAddress: '1000 Fifth Avenue',
     city: 'New York' ,
     state: "NY",
     zipCode: '10028' ,
-    type: 'MUSEUM'
+    type: 'MUSEUM',
+    UserId:2
+  },
+  {//4
+    location: 'International Studio & Curatorial Program (ISCP)',
+    phoneNumber: null,
+    streetAddress: '1040 Metropolitan Avenue',
+    city: 'Brooklyn',
+    state: "NY",
+    zipCode: 11211,
+    type: 'GALLERY',
+    UserId:1
+  },
+  {//5
+    location: 'VICTORI + MO',
+    phoneNumber: null,
+    streetAddress: '56 Bogart Street',
+    city: 'Brooklyn',
+    state: "NY",
+    zipCode: 11206,
+    type: 'GALLERY',
+    UserId:1
+  },
+  {//6
+    location: 'Museum of Modern Art',
+    phoneNumber: null,
+    streetAddress: '11 West 53rd Street',
+    city: 'New York',
+    state: "NY",
+    zipCode: 10019,
+    type: 'MUSEUM',
+    UserId:1
+  },
+  {//7
+    location: 'Solomon R. Guggenheim Musuem',
+    phoneNumber: null,
+    streetAddress: '1071 5th Avenue',
+    city: 'New York',
+    state: "NY",
+    zipCode: 10128,
+    type: 'MUSEUM',
+    UserId:1
+  },
+  {//8
+    location: 'Pratt',
+    phoneNumber: null,
+    streetAddress: '144 West 14th Street',
+    city: 'New York',
+    state: "NY",
+    zipCode: 10011,
+    type: 'SCHOOL',
+    UserId:2
+  },
+  {//9
+    location: 'School of Visual Arts',
+    phoneNumber: null,
+    streetAddress: '209 East 23rd Street',
+    city: 'New York',
+    state: "NY",
+    zipCode: 10010,
+    type: 'SCHOOL',
+    UserId:2
+  },
+  {//10
+    location:'Slate NY' ,
+    phoneNumber: null,
+    streetAddress: '54 West 21st Street',
+    city: 'New York',
+    state: "NY",
+    zipCode: 10010 ,
+    type: 'GALLERY',
+    UserId:2
   },
   {//11
     location:  'Merchant'+'s House Museum',
@@ -95,8 +105,9 @@ const location = [
     streetAddress: '29 East 4th Street',
     city: 'New York',
     state: "NY",
-    zipCode: '10003',
-    type: 'MUSEUM' 
+    zipCode: 10003,
+    type: 'MUSEUM',
+    UserId:2
   },
   {//12
     location: 'Galerie St. Etienne',
@@ -105,7 +116,8 @@ const location = [
     city: 'New York' ,
     state: "NY",
     zipCode: 10019,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:2
   },
   {//13
     location: 'Marlborough Gallery',
@@ -114,7 +126,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10019,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:3
   },
   {//14
     location: 'Jason Jacques Gallery',
@@ -123,7 +136,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10021,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:3
   },
   {//15
     location: 'DC Moore Gallery',
@@ -132,7 +146,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10011,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:3
   },
   {//16
     location: 'Berry Campbell',
@@ -141,7 +156,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10011,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:3
   },
   {//17
     location: 'Totah',
@@ -150,7 +166,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10002,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:3
   },
   {//18
     location: 'Matthew Marks Gallery',
@@ -159,16 +176,18 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10011,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:3
   },
-  {//19
+  {//19 
     location: 'Peter Blum',
     phoneNumber: null,
     streetAddress: '20 West 57th Street',
     city: 'New York',
     state: "NY",
     zipCode: 10019,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:4
   },
   {//20
     location: 'Ameringer | McEnery | Yohe',
@@ -177,7 +196,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10011,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:4
   },
   {//21
     location: 'P.P.O.W.',
@@ -186,7 +206,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10011,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:4
   },
    {//22
     location: 'Art100 Gallery',
@@ -195,7 +216,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10001,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:4
   },
   {//23
     location: 'Sundaram Tagore Gallery',
@@ -204,7 +226,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10001,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:4
   },
   {//24
     location: 'Louis K. Meisel Gallery',
@@ -213,7 +236,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10012,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:4
   },
   {//25
     location: 'Claire Oliver Gallery',
@@ -222,7 +246,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10001,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:5
   },
   {//26
     location: 'Flowers Gallery',
@@ -231,7 +256,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10011,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:5
   },
   {//27
     location: 'Hollis Taggart Galleries',
@@ -240,7 +266,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10001,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:5
   },
   {//28
     location: 'ACA Galleries',
@@ -249,7 +276,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10011,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:5
   },
   {//29
     location: 'Galerie Lelong - New York',
@@ -258,7 +286,8 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10001,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:5
   },
   {//30
     location: 'Lesley Heller Workspace',
@@ -267,7 +296,9 @@ const location = [
     city: 'New York',
     state: "NY",
     zipCode: 10002,
-    type: 'GALLERY'
+    type: 'GALLERY',
+    UserId:5
   }
+];
 
-]
+module.exports = location;

@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
   const LocationHours = sequelize.define('LocationHours', {
     dayOfWeek: {
       type: DataTypes.ENUM('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
-      allowNull: false,
+      allowNull: true,//change it to false
     },
     openTime: {
       type: DataTypes.STRING,
@@ -19,7 +19,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
   }
-  , {
+  , 
+  {
     classMethods: {
       associate: function (models) {
         LocationHours.belongsTo(models.Location);

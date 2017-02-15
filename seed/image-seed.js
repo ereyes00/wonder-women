@@ -21,7 +21,7 @@ const images = [
   },
   {
     title: 'Secrets of Leaves',
-    url: 'http://victorimo.com/wp-content/uploads/2017/01/Secrets-of-Leaves-1.jpg',
+    url: 'http://www.artfixdaily.com/images/cache/Feb2_tarver.jpg',
     EventId: 5,
   },
   {
@@ -150,3 +150,5 @@ const images = [
     EventId: 30
   }
 ];
+
+module.exports = images;

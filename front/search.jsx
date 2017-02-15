@@ -32,6 +32,7 @@ const SearchBar = React.createClass({
     return(
       <div className="Search">
         <form className="SearchForm" >
+          <div className="searchContent">
           <div className="Zip_Locate">
             <label className="SearchForm_Label">
                 <span>Where</span>
@@ -93,6 +94,7 @@ const SearchBar = React.createClass({
           }}>
             <button className="button">Search</button>
           </Link>
+          </div>
         </form>
       </div>
     )
