@@ -39,6 +39,14 @@ const CreateLocation = React.createClass({
     //console.log("event",e);
     this.setState({[e.target.name]: e.target.value})
   },
+  // fromChange(input, e){
+  //   if (input === 'openTime') {
+  //     this.setState({ [input.name]: event.target.value });
+  //   } 
+  // },
+  // toChange(e){
+
+  // },
   render: function () {
     //console.log('state', this.state)
     return (
@@ -125,11 +133,14 @@ const CreateLocation = React.createClass({
 
               <div className="dayBox">
 
-                <input 
-                  type="checkbox"
-                  name="Monday"
-                  onClick={this.handleClick} 
-                /><label>Monday</label><br /><br />
+                {
+                // <input 
+                //   type="checkbox"
+                //   name="Monday"
+                //   onClick={this.handleClick} 
+                // />
+                }
+                <label>Monday</label><br /><br />
 
                 <input 
                   type="checkbox"
@@ -141,15 +152,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleChange}//{this.handleChange.bind(this, 'openTime')}
                 />
-
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleChange}
                 /><br /><br />
  
               </div>
@@ -157,11 +167,15 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <input 
-                  type="checkbox"
-                  name="Tuesday"
-                  onClick={this.handleClick}
-                /><label>Tuesday</label><br /><br />
+              {
+                // <input 
+                //   type="checkbox"
+                //   name="Tuesday"
+                //   onClick={this.handleClick}
+                // />
+              }
+
+                <label>Tuesday</label><br /><br />
 
                 <input 
                   type="checkbox"
@@ -173,10 +187,8 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-
-                  onChange={this.handleClick}
+                  onChange={this.handleChange}
                 />
-
 
                 <label>To</label>
                 <input 
@@ -191,11 +203,15 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <input 
-                  type="checkbox"
-                  name="Wednesday"
-                  onClick={this.handleClick}
-                /><label>Wednesday</label><br /><br />
+                {
+                  // <input 
+                  //   type="checkbox"
+                  //   name="Wednesday"
+                  //   onClick={this.handleClick}
+                  // />
+                }
+
+                <label>Wednesday</label><br /><br />
 
                 <input 
                   type="checkbox"
@@ -223,11 +239,15 @@ const CreateLocation = React.createClass({
 
               <div className="dayBox">
 
-                <input 
-                  type="checkbox"
-                  name="Thursday"
-                  onClick={this.handleClick}
-                /><label>Thursday</label><br /><br />
+              {
+                // <input 
+                //   type="checkbox"
+                //   name="Thursday"
+                //   onClick={this.handleClick}
+                // />
+              }
+
+                <label>Thursday</label><br /><br />
 
                 <input 
                   type="checkbox"
@@ -239,14 +259,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 /><br /><br />
  
               </div>
@@ -254,11 +274,15 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <input 
-                  type="checkbox"
-                  name="Friday"
-                  onClick={this.handleClick} 
-                /><label>Friday</label><br /><br />
+              {
+                // <input 
+                //   type="checkbox"
+                //   name="Friday"
+                //   onClick={this.handleClick} 
+                // />
+              }
+
+                <label>Friday</label><br /><br />
 
                 <input 
                   type="checkbox"
@@ -270,14 +294,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 /><br /><br />
  
               </div>
@@ -285,11 +309,15 @@ const CreateLocation = React.createClass({
                             
               <div className="dayBox">
 
-                <input 
-                  type="checkbox"
-                  name="Saturday"
-                  onClick={this.handleClick}
-                /><label>Saturday</label><br /><br />
+              {
+                // <input 
+                //   type="checkbox"
+                //   name="Saturday"
+                //   onClick={this.handleClick}
+                // />
+              }
+
+                <label>Saturday</label><br /><br />
 
                 <input 
                   type="checkbox"
@@ -301,14 +329,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 /><br /><br />
  
               </div>
@@ -316,11 +344,15 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <input 
-                  type="checkbox"
-                  name="Sunday"
-                  onClick={this.handleClick} 
-                /><label>Sunday</label><br /><br />
+              {
+                // <input 
+                //   type="checkbox"
+                //   name="Sunday"
+                //   onClick={this.handleClick} 
+                // />
+              }
+
+                <label>Sunday</label><br /><br />
 
                 <input 
                   type="checkbox"
@@ -332,14 +364,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onClick={this.handleClick}
+                  onChange={this.handleClick}
                 /><br /><br />
  
               </div>
