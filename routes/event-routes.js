@@ -62,6 +62,52 @@ eventRouter.route('/')
     });
   });
   
+
+eventRouter.route('/search')
+
+  .get(function (req, res) {
+    console.log('data for search inside req query', req.query)
+    var store = {};
+    if(req.query.zipCode !== '' ) {
+      store['zipCode'] = req.query.zipCode
+    }
+
+    if(req.query.dateStart !== '') {
+     console.log('type of dateStart :' , typeof req.query.dateStart)
+     var newdate = new Date(req.query.dateStart)
+     console.log('newdate : ' + newdate)
+      store['opening'] = {
+        $gte : newdate
+      }
+    }
+    if(req.query.dateEnd !== '') {
+      store['closing'] = {
+        $lte : new Date(req.query.dateEnd)
+      }
+    }
+    if(req.query.type !== '' && req.query.type == 'SearchAll') {
+      store['type'] = {
+        $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
+      }
+
+    } else {
+      store['type'] = req.query.type.toUpperCase()
+    }
+    console.log('The values inside the store', store)
+    db.Event.findAll({
+      where: store
+    })
+    .then(function (data) {
+      console.log(data)
+      if (data.length === 0) {
+        res.send('No record found');
+      } else {
+        res.send(data);
+      }
+    });
+  });
+
+  
 //This is the route that will be used to display individaul event
 eventRouter.route('/:id')
   .get(function (req, res) {
@@ -136,49 +182,6 @@ eventRouter.route('/images')
   });
 
 // This is the route that will be used for search bar 
-eventRouter.route('/search')
-
-  .get(function (req, res) {
-    console.log('data', req.query)
-    var store = {};
-    if(req.query.zipCode !== '' ) {
-      store['zipCode'] = req.query.zipCode
-    }
-
-    if(req.query.dateStart !== '') {
-     console.log('type of dateStart :' , typeof req.query.dateStart)
-     var newdate = new Date(req.query.dateStart)
-     console.log('newdate : ' + newdate)
-      store['opening'] = {
-        $gte : newdate
-      }
-    }
-    if(req.query.dateEnd !== '') {
-      store['closing'] = {
-        $lte : new Date(req.query.dateEnd)
-      }
-    }
-    if(req.query.type !== '' && req.query.type == 'SearchAll') {
-      store['type'] = {
-        $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
-      }
-
-    } else {
-      store['type'] = req.query.type.toUpperCase()
-    }
-
-    db.Event.findAll({
-      where:  store,
-      include: [db.Image],
-    })
-    .then(function (data) {
-      if (data.length === 0) {
-        res.send('No record found');
-      } else {
-        res.send(data);
-      }
-    });
-  });
 
 
 

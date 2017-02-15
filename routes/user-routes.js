@@ -64,9 +64,9 @@ userRouter.route('/login')
     .then(function (user) {
        if (user) {
            console.log('Password is correct');
-           // req.session.email = user.email;
-           // req.session.user = user.id;
-           // req.session.save();
+           req.session.email = user.email;
+           req.session.userId = user.id;
+           req.session.save();
            console.log('updated session', req.session);
            res.send( user.email )
         } else {

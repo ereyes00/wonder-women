@@ -24,7 +24,7 @@ const SearchResults = React.createClass({
   }
     
     $.ajax({
-      url: '/api/events/search',
+      url: '/api/event/search',
       method: 'GET',
       data: params
     })
