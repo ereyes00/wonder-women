@@ -35,42 +35,9 @@ const CreateLocation = React.createClass({
     //console.log('event from handleChange', event)
     this.setState({[e.target.name]: e.target.value})
   }, 
-<<<<<<< HEAD
-  // updateHours: function (event) {
-  //   this.setState({ hours: event.target.value });
-  // }, 
-  handleClick: function (event) {
-    console.log("this ====>",this);
-      if (event === 'Monday'){
-        this.setState({
-          hours:{ 
-            Monday: {
-              dayOfWeek:event.value,
-              // openTime:event.value, 
-              // closeTime:event.value,
-              // closed:event.value
-            } 
-          }  
-        });
-      } 
-      // else if (event === 'Tuesday'){
-      //   this.setState({ 
-      //     hours:{ 
-      //       Tuesday: {
-      //         dayOfWeek:event.value,
-      //         openTime:event.value, 
-      //         closeTime:event.value,
-      //         closed:event.value
-      //       } 
-      //     } 
-      //   });
-      // }
-
-=======
   handleClick(e) {
     //console.log("event",e);
     this.setState({[e.target.name]: e.target.value})
->>>>>>> 2066863674adc73de6e17aa448c89044a45ca1b4
   },
   render: function () {
     //console.log('state', this.state)
