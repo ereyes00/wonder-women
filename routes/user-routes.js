@@ -59,7 +59,9 @@ userRouter.route('/createdBy/:id')
 // Route that will be used to confirm login
 userRouter.route('/login')
     .post(function(req, res) {
+
       console.log('Session', req.session)
+
       db.User.findOne({ 
         where: { email: req.body.email,
                  password: req.body.password 
@@ -74,9 +76,9 @@ userRouter.route('/login')
            console.log('updated session', req.session);
 
            res.send( user.email )
-           
+
         } else {
-          res.status(401).send('Invalid User name or password')
+          res.status(401).send('Invalid credentials. Please try again or sign up.')
         }
   })
   .catch(function (err) {

@@ -31,6 +31,11 @@ app.get('/auth', (req, res) => {
 	}
 });
 
+app.get('/logout', (req, res) => {
+	req.session.destroy();
+	res.send('You are logged out.')
+});
+
 db.sequelize.sync().then(() => {
 	app.use('/api', require('../routes'))
 	app.get('/*', (req, res) => {

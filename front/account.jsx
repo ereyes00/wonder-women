@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import CreateEvent from './createEvent';
+import {browserHistory} from 'react-router';
 
 const Account = React.createClass({
   getInitialState: function () {
@@ -30,6 +31,17 @@ const Account = React.createClass({
       })
     })
   },
+  userLogout: function(event){
+    event.preventDefault()
+    $.ajax({
+        url: '/logout',
+        type: 'GET'
+    })
+    .done(() => {
+      console.log("You have logged out.");
+      browserHistory.push('/')
+    })
+  },
   render: function () {
     return (
       <div>
@@ -41,6 +53,8 @@ const Account = React.createClass({
 
         <p>Name: {this.state.firstName}{this.state.lastName}</p>
         <p>Email: {this.state.email}</p>
+
+        <button onClick={this.userLogout}>Logout</button>
 
         <br /><br />
 
