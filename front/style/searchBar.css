@@ -1,43 +1,48 @@
 .SearchForm_Label {
   font-family: Helvetica;
-  font-size: 10px;
+  font-size: 15px;
   float: left;
   margin:5px;
 }
 
 .selectType {
   float:left;
-  margin:5px;
-  width: 10%;
   border: none;
+  margin:5px;
+  margin-top: 15px;
+  width: 10%;
   font-size: 16px;
-  padding: 12px 20px;
+/*  padding: 12px 20px;*/
 }
 
 .Zip_Input {
   margin:5px;
   float:left;
-  border: none;
   font-size: 12px; 
-  padding: 12px 20px;
+  padding: 10px ;
+  border-radius: 2px;
 }
 
 .Date_Input {
   margin:5px;
   float:left;
-  border: none;
   font-size: 12px; 
-  padding: 12px 20px;
+  padding: 8.5px;
+  border-radius: 2px;
 }
 
 .Search {
   display: block;
 }
 
+.searchContent {
+  margin-left: 35px;
+}
+
 .SearchForm {
   margin-top: -1%;
   margin-right: 2%;
-  margin-left: 20%;
+  margin-left: 16%;
   border-radius: 4px;
   box-shadow: 0 1px 3px 0 #dce0e0;
   border: 1px solid #dce0e0;

@@ -23,13 +23,13 @@ const App = withRouter(React.createClass({
     return (
       <div>
         <div className="logo-class">
-          <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.jpg')} /></Link>
+          <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.png')} /></Link>
         </div>
 
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
             <div className="nav navbar-nav">
-              <Link to ='events'>Opening This Week</Link>
+              <Link to ='events'>Opening This Month</Link>
               <Link to='CreateEvent'>Create Event</Link>
               <Link to='CreateLocation'>Create Location</Link>
               <Link to='Login'>Login</Link>
@@ -38,11 +38,28 @@ const App = withRouter(React.createClass({
           </div>
         </nav>
 
-        <hr className="hr"/>
+        <h2 className="homeTitle">Find your next art escape.</h2>
 
-        <br />
+        <hr className="hr"/>
+        <br /> <br />
 
         {this.props.children}
+
+        <br />
+        <hr className="footerHr" />
+
+        <center><footer className="footer">
+          <p><b>Art Gal</b></p>
+            <p>
+              <a href="https://github.com/ereyes00/wonder-women" target="_blank">Github</a> 
+              <a href="https://www.linkedin.com/in/esmeralda-reyes" target="_blank">Esmeralda</a>
+              <a href="https://www.linkedin.com/in/salinafu" target="_blank">Salina</a>
+              <a href="https://www.linkedin.com/in/shazia-anjum" target="_blank">Shazia</a>
+              <a href="https://www.linkedin.com/in/vanessa-montoya-webdev" target="_blank">Vanessa</a>
+            </p>
+            <Link to={'/contact'}>Contact Us</Link>
+          <p>© 2017 Team Wonder Women</p>
+        </footer></center>
       </div>
     );
   }
@@ -56,6 +73,7 @@ ReactDOM.render(
       <Route path='login' component={Login}></Route>
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>
+      <Route path="contact" component={ContactUs}></Route>
       <Route path='createevent' component={CreateEvent}></Route>
       <Route path='createlocation' component={CreateLocation}></Route>
       <Route path='events/:id' component={Event}></Route>

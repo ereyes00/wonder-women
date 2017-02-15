@@ -6,51 +6,15 @@ import { browserHistory } from 'react-router';
 const CreateLocation = React.createClass({
   getInitialState: function () {
     return {
-            location:'',
-            phoneNumber:'',
-            streetAddress:'',
-            city:'',
-            state:'',
-            zipCode:'',
-            type:'',
+            location:'', phoneNumber:'', streetAddress:'',city:'', state:'', zipCode:'', type:'',
             hours: {
-              Sunday:{
-                dayOfWeek:'',
-                openTime: "",
-                closeTime: "",
-                closed:''
-              },
-              Monday: { 
-                dayOfWeek:'',
-                openTime: "",
-                closeTime: "",
-                closed:'' 
-              },
-              Tuesday: { 
-                openTime: "",
-                closeTime: "",
-                closed:'' 
-              },
-              Wednesday: { 
-                openTime: "",
-                closeTime: "",
-                closed:'' 
-              },
-              Thursday: { 
-                openTime: "",
-                closeTime: "",
-                closed:'' 
-              },
-              Friday: { 
-                openTime: "",
-                closeTime: "",
-                closed:'' 
-              },
-              Saturday: { 
-                openTime: "",
-                closeTime: "",
-                closed:'' 
-              }
+              Sunday: {dayOfWeek:'', openTime: "", closeTime: "", closed:''},
+              Monday: {dayOfWeek:'', openTime: "",closeTime: "", closed:''},
+              Tuesday: {openTime: "", closeTime: "", closed:''},
+              Wednesday: {openTime: "", closeTime: "",closed:''},
+              Thursday: {openTime: "", closeTime: "",closed:''},
+              Friday: {openTime: "", closeTime: "", closed:''},
+              Saturday: {openTime: "", closeTime: "",closed:''}
             }           
     }
   },
@@ -67,30 +31,11 @@ const CreateLocation = React.createClass({
       // after submitting new location, user will be brought back to their acct page.
     });
   },
-  handleChange: function (input, event) {
-    //will be a drop down after the create location form is done
-    if (input === 'location') {
-      this.setState({ location: event.target.value });
-    } 
-    else if (input === 'phoneNumber') {
-      this.setState({ phoneNumber: event.target.value });
-    }
-    else if (input === 'streetAddress') {
-      this.setState({ streetAddress: event.target.value });
-    } 
-    else if (input === 'city') {
-      this.setState({ city: event.target.value });
-    } 
-    else if (input === 'state') {
-      this.setState({ state: event.target.value });
-    }
-    else if (input === 'zipCode') {
-      this.setState({ zipCode: event.target.value });
-    }    
-  },
-  updateType: function (event) {
-    this.setState({ type: event.target.value });
+  handleChange(e) {
+    //console.log('event from handleChange', event)
+    this.setState({[e.target.name]: e.target.value})
   }, 
+<<<<<<< HEAD
   // updateHours: function (event) {
   //   this.setState({ hours: event.target.value });
   // }, 
@@ -121,44 +66,14 @@ const CreateLocation = React.createClass({
       //   });
       // }
 
+=======
+  handleClick(e) {
+    //console.log("event",e);
+    this.setState({[e.target.name]: e.target.value})
+>>>>>>> 2066863674adc73de6e17aa448c89044a45ca1b4
   },
-  // handleHourChange: function(event){
-  //   this.setState({
-  //         hours:{ 
-  //           Monday: {
-  //             //dayOfWeek:event.value,
-  //             openTime:event.target.value, 
-  //             closeTime:event.target.value,
-  //             closed:event.target.value
-  //           } 
-  //         } 
-  //   })
-  // },
-  // handleMinuteChange: function(event){
-  //   this.setState({
-  //         hours:{ 
-  //           Monday: {
-  //             //dayOfWeek:event.value,
-  //             openTime:event.target.value, 
-  //             closeTime:event.target.value,
-  //             closed:event.target.value
-  //           } 
-  //         } 
-  //   })
-  // },
-  // handletTimeChange: function(event){
-  //   this.setState({
-  //         hours:{ 
-  //           Monday: {
-  //             //dayOfWeek:event.value,
-  //             openTime:event.target.value, 
-  //             closeTime:event.target.value,
-  //             closed:event.target.value
-  //           } 
-  //         } 
-  //   })
-  // },
   render: function () {
+    //console.log('state', this.state)
     return (
       <center>
         <div className="createLocationForm">
@@ -169,83 +84,139 @@ const CreateLocation = React.createClass({
               
             Location:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name='location'
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'location')} 
+              onChange={this.handleChange}
             />
             <br /><br />
-            <select value={this.state.type} onChange={this.updateType}>
+
+            
+            <select value={this.state.type} name="type"onChange={this.handleChange}>
               <option value="Museum">Museum</option>
               <option value="Gallery">Gallery</option>
               <option value="School">School</option>
             </select>
             <br /><br />
-              
+             
             Phone Number:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name='phoneNumber'
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'phoneNumber')} 
+              onChange={this.handleChange}
             />
             <br /><br />
             
             Address:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name='streetAddress'
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'streetAddress')} 
+              onChange={this.handleChange}
             />
             <br /><br />
             
             City:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name='city'
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'city')} 
+              onChange={this.handleChange} 
             />
             <br /><br />
             
             State:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name='state'
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'state')} 
+              onChange={this.handleChange} 
             />
             <br /><br />
 
             Zip Code:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name='zipCode'
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'zipCode')} 
+              onChange={this.handleChange} 
             />
             <br /><br />
-              
-            <div>    
+            
+            <div>  
+
               Hours:
               <br />
               <br />
+
               <div className="dayBox">
 
-                <input type="checkbox"
-                 value="Monday"
-                 onClick={this.handleClick.bind(this, "Monday")} 
-                />
-                <label>Monday</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="Monday"
+                  onClick={this.handleClick} 
+                /><label>Monday</label><br /><br />
 
-                <input type="checkbox"
-                 value="Monday"
-                 onClick={this.handleClick.bind(this, "closed")} 
-                />
-                <label>Closed</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="closed"
+                  onClick={this.handleClick} 
+                /><label>Closed</label><br /><br />
 
                 <label>From</label>
-                <input type="time" name="time"></input>
+                <input 
+                  type="time" 
+                  name="openTime"
+                  onChange={this.handleClick}
+                />
+
 
                 <label>To</label>
-                <input type="time" name="time"></input>
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onChange={this.handleClick}
+                /><br /><br />
+ 
+              </div>
+              <br /><br />
+              
+              <div className="dayBox">
+
+                <input 
+                  type="checkbox"
+                  name="Tuesday"
+                  onClick={this.handleClick}
+                /><label>Tuesday</label><br /><br />
+
+                <input 
+                  type="checkbox"
+                  name="closed"
+                  onClick={this.handleClick} 
+                /><label>Closed</label><br /><br />
+
+                <label>From</label>
+                <input 
+                  type="time" 
+                  name="openTime"
+
+                  onChange={this.handleClick}
+                />
+
+
+                <label>To</label>
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onChange={this.handleClick}
+                />
                 <br /><br />
  
               </div>
@@ -253,167 +224,166 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <input type="checkbox"
-                 value="Tuesday"
-                 onClick={this.handleClick.bind(this, "Tuesday")} 
-                />
-                <label>Tuesday</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="Wednesday"
+                  onClick={this.handleClick}
+                /><label>Wednesday</label><br /><br />
 
-                <input type="checkbox"
-                 value="Tuesday"
-                 onClick={this.handleClick.bind(this, "closed")} 
-                />
-                <label>Closed</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="closed"
+                  onClick={this.handleClick} 
+                /><label>Closed</label><br /><br />
 
                 <label>From</label>
-                <input type="time" name="time"></input>
+                <input 
+                  type="time" 
+                  name="openTime"
+                  onChange={this.handleClick}
+                />
 
                 <label>To</label>
-                <input type="time" name="time"></input>
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onChange={this.handleClick}
+                />
                 <br /><br />
  
               </div>
               <br /><br />
+
+              <div className="dayBox">
+
+                <input 
+                  type="checkbox"
+                  name="Thursday"
+                  onClick={this.handleClick}
+                /><label>Thursday</label><br /><br />
+
+                <input 
+                  type="checkbox"
+                  name="closed"
+                  onClick={this.handleClick} 
+                /><label>Closed</label><br /><br />
+
+                <label>From</label>
+                <input 
+                  type="time" 
+                  name="openTime"
+                  onClick={this.handleClick}
+                />
+
+                <label>To</label>
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onClick={this.handleClick}
+                /><br /><br />
+ 
+              </div>
+              <br /><br />              
               
               <div className="dayBox">
 
-                <input type="checkbox"
-                 value="Wednesday"
-                 onClick={this.handleClick.bind(this, "Wednesday")} 
-                />
-                <label>Wednesday</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="Friday"
+                  onClick={this.handleClick} 
+                /><label>Friday</label><br /><br />
 
-                <input type="checkbox"
-                 value="Wednesday"
-                 onClick={this.handleClick.bind(this, "closed")} 
-                />
-                <label>Closed</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="closed"
+                  onClick={this.handleClick} 
+                /><label>Closed</label><br /><br />
 
                 <label>From</label>
-                <input type="time" name="time"></input>
+                <input 
+                  type="time" 
+                  name="openTime"
+                  onClick={this.handleClick}
+                />
 
                 <label>To</label>
-                <input type="time" name="time"></input>
-                <br /><br />
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onClick={this.handleClick}
+                /><br /><br />
  
               </div>
               <br /><br />
                             
               <div className="dayBox">
 
-                <input type="checkbox"
-                 value="Thursday"
-                 onClick={this.handleClick.bind(this, "Thursday")} 
-                />
-                <label>Thursday</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="Saturday"
+                  onClick={this.handleClick}
+                /><label>Saturday</label><br /><br />
 
-                <input type="checkbox"
-                 value="Thursday"
-                 onClick={this.handleClick.bind(this, "closed")} 
-                />
-                <label>Closed</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="Saturday"
+                  onClick={this.handleClick} 
+                /><label>Closed</label><br /><br />
 
                 <label>From</label>
-                <input type="time" name="time"></input>
+                <input 
+                  type="time" 
+                  name="openTime"
+                  onClick={this.handleClick}
+                />
 
                 <label>To</label>
-                <input type="time" name="time"></input>
-                <br /><br />
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onClick={this.handleClick}
+                /><br /><br />
  
               </div>
               <br /><br />
               
               <div className="dayBox">
 
-                <input type="checkbox"
-                 value="Friday"
-                 onClick={this.handleClick.bind(this, "Friday")} 
-                />
-                <label>Friday</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="Sunday"
+                  onClick={this.handleClick} 
+                /><label>Sunday</label><br /><br />
 
-                <input type="checkbox"
-                 value="Friday"
-                 onClick={this.handleClick.bind(this, "closed")} 
-                />
-                <label>Closed</label>
-                <br /><br />
+                <input 
+                  type="checkbox"
+                  name="closed"
+                  onClick={this.handleClick} 
+                /><label>Closed</label><br /><br />
 
                 <label>From</label>
-                <input type="time" name="time"></input>
+                <input 
+                  type="time" 
+                  name="openTime"
+                  onClick={this.handleClick}
+                />
 
                 <label>To</label>
-                <input type="time" name="time"></input>
-                <br /><br />
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onClick={this.handleClick}
+                /><br /><br />
  
               </div>
-              <br /><br />
-                            
-              <div className="dayBox">
-
-                <input type="checkbox"
-                 value="Saturday"
-                 onClick={this.handleClick.bind(this, "Saturday")} 
-                />
-                <label>Saturday</label>
-                <br /><br />
-
-                <input type="checkbox"
-                 value="Saturday"
-                 onClick={this.handleClick.bind(this, "closed")} 
-                />
-                <label>Closed</label>
-                <br /><br />
-
-                <label>From</label>
-                <input type="time" name="time"></input>
-
-                <label>To</label>
-                <input type="time" name="time"></input>
-                <br /><br />
- 
-              </div>
-              <br /><br />
-              
-              <div className="dayBox">
-
-                <input type="checkbox"
-                 value="Sunday"
-                 onClick={this.handleClick.bind(this, "Sunday")} 
-                />
-                <label>Sunday</label>
-                <br /><br />
-
-                <input type="checkbox"
-                 value="Sunday"
-                 onClick={this.handleClick.bind(this, "closed")} 
-                />
-                <label>Closed</label>
-                <br /><br />
-
-                <label>From</label>
-                <input type="time" name="time"></input>
-
-                <label>To</label>
-                <input type="time" name="time"></input>
-                <br /><br />
- 
-              </div>
-              <br /><br />
-
-              <input type="submit"
+              <br /></div>
+            
+              <input 
+                type="submit"
                 className="button"
                 id="submit"
                 value="Submit" 
               />
-
-            </div>
           </form>
         </div>
       </center>
