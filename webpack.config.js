@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require('webpack');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
   context: __dirname,
@@ -31,5 +32,8 @@ module.exports = {
   devtool: 'source-maps',
   resolve: {
     extensions: ["", ".js", ".jsx"]
-  }
+  },
+  plugins: [
+    new LiveReloadPlugin()
+  ]
 };
