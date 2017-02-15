@@ -8,7 +8,7 @@ var Home = React.createClass({
     return (
 	    <div >
 	    	<SearchBar />		
-        <br />		
+	    	
 	    	<NukaCarousel />
 	    </div>
     )

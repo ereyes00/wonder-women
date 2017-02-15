@@ -6,3 +6,8 @@
 .carouselHr {
 	width: 95%;
 }
+
+.featuredEvents {
+	text-align: center;
+	margin-top: 20px;
+}

@@ -9,18 +9,33 @@
 
 a:link {
   margin-right: 20px;
+  color: black;
 /*  margin-top: 200px;*/
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a:hover {
+  color: #990000;
+}
+
+a:visted {
+  color: black;
+}
+
 .navbar{
   float: right;
-  margin-top: 30px;
+  margin-top: 5px;
   margin-right: 3%;
 }
 
 .hr {
   margin-right: 2.5%;
+  margin-left: 16%;
+}
+
+.carouselHr {
+  margin-right: 2.5%;
+  margin-left: 16%;
 }
 
 .footerHr {
@@ -33,4 +48,8 @@ a:link {
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.homeTitle {
+
 }
