@@ -24,7 +24,7 @@ const TodayCarousel = React.createClass({
     if (this.state.eventMonth){
       console.log(this.state.eventMonth)
       return(
-        <center><div className="week">
+        <div className="week">
           <div className = "eventMonth">
             <h2 className="openingMonth">
             {moment().format('MMMM YYYY')} Openings
@@ -33,11 +33,10 @@ const TodayCarousel = React.createClass({
             <br /><br />
                 {this.state.eventMonth.map((val) => {
                   return (
-                    <div>               
-                      <div key={val.id} className="imgResult">             
-                        <Link to={'/events/' + val.id}><img className="imgGrid" src={val.Images[0].url} /></Link>   
-
-                        <ul>
+                    <div className="eventResult">               
+                      <div key={val.id} className="imgResult">  
+                        <ul>           
+                          <Link to={'/events/' + val.id}><img className="imgGrid" src={val.Images[0].url} /></Link>   
                           <h2 className="extitle">{val.title}</h2>
                           <h3 className="exLocate">{val.Location.location}</h3>
                         </ul>
@@ -47,7 +46,7 @@ const TodayCarousel = React.createClass({
                 })}
                     
           </div>
-        </div></center>
+        </div>
       )
     } else {
       return (<div>Loading...</div>)
