@@ -29,6 +29,7 @@ const TodayCarousel = React.createClass({
             <h2 className="openingMonth">
             {moment().format('MMMM YYYY')} Openings
             </h2>
+          </div>
 
             <br /><br />
                 {this.state.eventMonth.map((val) => {
@@ -37,15 +38,14 @@ const TodayCarousel = React.createClass({
                       <div key={val.id} className="imgResult">  
                         <ul>           
                           <Link to={'/events/' + val.id}><img className="imgGrid" src={val.Images[0].url} /></Link>   
-                          <h2 className="extitle">{val.title}</h2>
+                          <Link to={'/events/' + val.id}><h2 className="extitle">{val.title}</h2></Link>
+
                           <h3 className="exLocate">{val.Location.location}</h3>
                         </ul>
                       </div>
                     </div>
                   )
                 })}
-                    
-          </div>
         </div>
       )
     } else {

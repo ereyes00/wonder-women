@@ -5,7 +5,7 @@ import './style/listEvents.css';
 
 const SearchResults = React.createClass({
   getInitialState: function(){
-    return({
+    return({ 
       results: null,   
       type: "SearchAll" || this.props.params.type
      })

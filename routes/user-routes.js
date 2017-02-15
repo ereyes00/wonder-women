@@ -2,8 +2,6 @@ const userRouter = require('express').Router();
 const db = require('../models');
 const session = require('express-session')
 
-
-
 userRouter.route('/')
 // Route to make a user
   .post(function(req, res) {
@@ -15,8 +13,11 @@ userRouter.route('/')
       zipCode: req.body.zipCode,
       role: req.body.role,
     })
-    .then(function (data) {
-        res.send('User created');
+    .then((user) => {
+      req.session.email = user.email;
+      req.session.userId = user.id;
+      req.session.save()
+      res.status(200).send(user)
     })
     .catch(function (err) {
       console.log('in catch handler of user POST', err)
@@ -30,7 +31,7 @@ userRouter.route('/')
 userRouter.route('/:id')
 // Route to get a user by id
   .get(function(req, res) {
-    db.User.findById(req.params.id)
+    db.User.findById(req.session.userId)
     .then(function (data) {
       res.send(data)
     })
@@ -58,7 +59,9 @@ userRouter.route('/createdBy/:id')
 // Route that will be used to confirm login
 userRouter.route('/login')
     .post(function(req, res) {
+
       console.log('Session', req.session)
+
       db.User.findOne({ 
         where: { email: req.body.email,
                  password: req.body.password 
@@ -71,9 +74,11 @@ userRouter.route('/login')
            req.session.userId = user.id;
            req.session.save();
            console.log('updated session', req.session);
+
            res.send( user.email )
+
         } else {
-          res.status(401).send('Invalid User name or password')
+          res.status(401).send('Invalid credentials. Please try again or sign up.')
         }
   })
   .catch(function (err) {
