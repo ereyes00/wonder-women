@@ -66,4 +66,48 @@ locationRouter.route('/:id')
       });
   });
 
+  locationRouter.route('/search')
+
+  .get(function (req, res) {
+    console.log('data', req.query)
+    var store = {};
+    if(req.query.zipCode !== '' ) {
+      store['zipCode'] = req.query.zipCode
+    }
+
+    if(req.query.dateStart !== '') {
+     console.log('type of dateStart :' , typeof req.query.dateStart)
+     var newdate = new Date(req.query.dateStart)
+     console.log('newdate : ' + newdate)
+      store['opening'] = {
+        $gte : newdate
+      }
+    }
+    if(req.query.dateEnd !== '') {
+      store['closing'] = {
+        $lte : new Date(req.query.dateEnd)
+      }
+    }
+    if(req.query.type !== '' && req.query.type == 'SearchAll') {
+      store['type'] = {
+        $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
+      }
+
+    } else {
+      store['type'] = req.query.type.toUpperCase()
+    }
+
+    db.Location.findAll({
+      where:  store,
+      include: [db.LocationHours, db.Event],
+    })
+    .then(function (data) {
+      if (data.length === 0) {
+        res.send('No record found');
+      } else {
+        res.send(data);
+      }
+    });
+  });
+
 module.exports = locationRouter;
