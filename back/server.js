@@ -1,44 +1,47 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy
-var session = require('express-session')
 const path = require('path');
+// var passport = require('passport');
+// var LocalStrategy = require('passport-local').Strategy
+const Sequelize = require('sequelize');
+var session = require('express-session')
 var db = require('../models')
 var router = require('../routes/index.js')
 
 
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json());
-app.use(express.static('public'))
+
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(session({
-	secret: 'what is session',
+	secret: 'whose line is it anyway?',
 	resave: false,
 	saveUninitialized: false,
-}))
+})) 
 
-app.get('/aut', function(req, res) {
+app.listen('8888', () => console.log("Listening to port 8888"));
+
+app.get('/auth', (req, res) => {
 	console.log(req.session);
 	if(req.session.email) {
-		res.send(req.session.email)
+		res.send(req.session.email);
 	} else {
 		res.send(null)
 	}
 });
 
-app.use('/api', router)
+app.get('/logout', (req, res) => {
+	req.session.destroy();
+	res.send('You are logged out.')
+});
 
-
-app.get('/*', function(req, res){
-	res.sendFile(path.join(__dirname,'../views/index.html'))
+db.sequelize.sync().then(() => {
+	app.use('/api', require('../routes'))
+	app.get('/*', (req, res) => {
+		res.sendFile(path.join(__dirname,'../views/index.html'));
+	});
 })
 
-
-db.sequelize.sync().then(function(){
-app.listen(8888, function(){
-	console.log('listening to port 8888');
-})
-})
-module.exports = app;
+// module.exports = app;
