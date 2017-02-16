@@ -64,9 +64,19 @@ let App = React.createClass({
               <Link to='CreateEvent'>Create Event</Link>
               <Link to='CreateLocation'>Create Location</Link>
 
-              {this.state.email ?
-                <Link to='Account'>Account</Link> :
-              <Link to='Login'>Login</Link>
+              {
+
+                this.state.isUserLoggedin ?
+                  <Link to='account'>Account</Link>
+                : 
+                  <Link to='login'>Login</Link>
+                
+              }
+
+              {
+              //   this.state.email ?
+              //   <Link to='Account'>Account</Link> :
+              // <Link to='Login'>Login</Link>
               }
 
             </div>
@@ -92,7 +102,7 @@ let App = React.createClass({
 App.childContextTypes = {
   currentUser: React.PropTypes.object,
   onSignUp: React.PropTypes.func,
-  isUserLoggedin: React.PropTypes.boolean
+  isUserLoggedin: React.PropTypes.boolean,
 }
 App = withRouter(App)
 
