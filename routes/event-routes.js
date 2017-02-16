@@ -2,51 +2,62 @@ const eventRouter = require('express').Router();
 const db = require('../models');
 var moment = require('moment');
 
+const queryFields = ['zipCode', 'opening', 'closing', 'type']
+
 // This is the route that will be used for search bar 
 eventRouter.route('/search')
   
   .get(function (req, res) {
     console.log('Hitting the search route');
     console.log('data from the front end', req.query)
-    var store = {};
+    var storeEvent = {};
+    var storeLocation = {}
+
     if(req.query.zipCode !== '' ) {
-      store['zipCode'] = req.query.zipCode
+      storeLocation['zipCode'] = req.query.zipCode
     }
 
-    // if(req.query.dateStart !== '') {
-    //  console.log('type of dateStart :' , typeof req.query.dateStart)
-    //  var newdate = new Date(req.query.dateStart)
-    //  console.log('newdate : ' + newdate)
-    //   store['opening'] = {
-    //     $gte : newdate
-    //   }
-    // }
-    // if(req.query.dateEnd !== '') {
-    //   store['closing'] = {
-    //     $lte : new Date(req.query.dateEnd)
-    //   }
-    // }
+    if(req.query.dateStart !== '') {
+     console.log('type of dateStart :' , typeof req.query.dateStart)
+     var newdate = new Date(req.query.dateStart)
+     console.log('newdate : ' + newdate)
+      storeEvent['opening'] = {
+        $gte : newdate
+      }
+    }
+    if(req.query.dateEnd !== '') {
+      storeEvent['closing'] = {
+        $lte : new Date(req.query.dateEnd)
+      }
+    }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {
-      store['type'] = {
+      storeLocation['type'] = {
         $in: ['SCHOOL', 'MUSEUM', 'GALLERY']
       }
 
     } else {
-      store['type'] = req.query.type.toUpperCase()
+      storeLocation['type'] = req.query.type.toUpperCase()
     }
-    console.log('Data inside the store object', store)
+    console.log('Data inside the store object', storeLocation )
+    
     db.Event.findAll({
-      
-      include: [{model: db.Location,
-               where: {
-                zipCode: store.zipCode
-               }}]
+       where: storeEvent,     
+      include: [{model: db.Location, where: storeLocation}]
+
+      // include: [{model: db.Location,
+      //          where: {
+      //           zipCode: store.zipCode,
+      //           type: store.type
+      //          }}]
+
+
               
     })
     .then(function (data) {
       if (data.length === 0) {
         res.send('No record found');
       } else {
+        
         res.send(data);
       }
     });
