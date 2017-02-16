@@ -146,6 +146,13 @@ eventRouter.route('/:id')
           res.send(data);
         }
       });
+  })
+  .delete(function(req,res) {
+    db.Event.findById(req.params.id)
+    .then(function(data) {
+      data.destroy();
+      res.send("Event deleted!")
+    })
   });
   
 // Purpose: to find events that are opening TODAY
@@ -175,11 +182,11 @@ eventRouter.route('/date/opening')
    })
 //////////////////////////////////////////////////
 
-eventRouter.route('/add/bookmark/:eventId/:userId')
+eventRouter.route('/add/bookmark/:eventId')
 // Route to add a bookmark
   .get(function(req, res) {
-    // const user = req.user;
-    db.User.findById(req.params.userId)
+    // const user = req.user.id;
+    db.User.findById(1)
     .then(function(data) {
       data.addBookmark(req.params.eventId)
     })

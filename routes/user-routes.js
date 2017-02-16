@@ -24,9 +24,7 @@ userRouter.route('/')
       res.status(500).send(err.message);
     });
   });
-  // .delete(function(req,res) {
-    
-  // })
+  
 
 userRouter.route('/:id')
 // Route to get a user by id

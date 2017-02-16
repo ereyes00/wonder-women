@@ -36,7 +36,7 @@ const CreateLocation = React.createClass({
     this.setState({[e.target.name]: e.target.value})
   }, 
   handleClick(e) {
-    //console.log("event",e);
+    console.log("event",e);
     this.setState({[e.target.name]: e.target.value})
   },
   // fromChange(input, e){
@@ -125,7 +125,7 @@ const CreateLocation = React.createClass({
             />
             <br /><br />
             
-            <div>  
+            <div onClick={this.handleClick}>  
 
               Hours:
               <br />

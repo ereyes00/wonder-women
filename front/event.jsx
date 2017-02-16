@@ -22,7 +22,6 @@ const Event = React.createClass({
       images:[], 
       lat: '', 
       lng:'',
-      userId: 1,
     });
   },
   componentDidMount: function () {
@@ -52,7 +51,7 @@ const Event = React.createClass({
   },
   bookmark: function(){
     $.ajax({
-      url: '/api/event/add/bookmark/' + this.props.params.id + '/' + this.state.userId,
+      url: '/api/event/add/bookmark/' + this.props.params.id,
       type: 'GET'
     })
   }, 
