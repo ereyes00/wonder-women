@@ -42,16 +42,7 @@ eventRouter.route('/search')
     
     db.Event.findAll({
        where: storeEvent,     
-      include: [{model: db.Location, where: storeLocation}]
-
-      // include: [{model: db.Location,
-      //          where: {
-      //           zipCode: store.zipCode,
-      //           type: store.type
-      //          }}]
-
-
-              
+      include: [db.Image, {model: db.Location, where: storeLocation}]
     })
     .then(function (data) {
       if (data.length === 0) {

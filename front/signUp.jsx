@@ -25,6 +25,7 @@ var Signup = React.createClass({
 	},
 	acctSignUp: function(event){
 		event.preventDefault()
+		this.props.onSignUp(this.state)
 		$.ajax({
 			method: 'POST',
 			url: '/api/user',
