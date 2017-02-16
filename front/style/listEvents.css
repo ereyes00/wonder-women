@@ -1,3 +1,8 @@
+.resultsTitle {
+  margin-right: 2%;
+  text-align: center;
+}
+
 .eventResult {
   width: 33%;
   height: 40%;

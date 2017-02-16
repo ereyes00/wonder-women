@@ -4,7 +4,7 @@ import $ from 'jquery';
 import './style/listEvents.css';
 
 const SearchResults = React.createClass({
-  getInitialState: function(){
+  getInitialState: function(){ 
     return({ 
       results: null,   
       type: this.props.params.type || "SearchAll"
@@ -53,7 +53,9 @@ const SearchResults = React.createClass({
       />
 
       <div className="results">
-        <ul>
+        <br />
+        <h2 className="resultsTitle"><i>Search Results</i></h2>
+        <br />
           {this.state.results.map((val)=> {
             return(
               <div key={val.id} className="imgResult" >
@@ -65,7 +67,7 @@ const SearchResults = React.createClass({
               </div>
             )
           })}
-        </ul>
+        
       </div>
 
       </div>) 

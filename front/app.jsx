@@ -50,6 +50,17 @@ let App = React.createClass({
     return {currentUser: this.state.currentUser, 
       onSignUp: this.onUserSignUp, isUserLoggedin: this.state.isUserLoggedin};
   },
+  userLogout: function(event){
+    event.preventDefault()
+    $.ajax({
+        url: '/logout',
+        type: 'GET'
+    })
+    .done(() => {
+      console.log("You have logged out.");
+      browserHistory.push('/')
+    })
+  },
   render: function () {
     return (
       <div>
@@ -66,8 +77,7 @@ let App = React.createClass({
 
               {this.state.email ?
                 <Link to='Account'>Account</Link> :
-              <Link to='Login'>Login</Link>
-              }
+                <Link to='Login'>Login</Link>}
 
             </div>
           </div>
