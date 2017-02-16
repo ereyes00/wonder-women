@@ -11,7 +11,7 @@ const SearchBar = React.createClass({
     return ({zipCode: props.zipCode, dateStart: props.dateStart, dateEnd: props.dateEnd, type: props.type})
   },
   getDefaultProps: function(){
-    return ({zipCode: '', dateStart: '', dateEnd: '', type: "SearchAll"})
+    return ({zipCode: '', dateStart: '', dateEnd: '', type: 'SearchAll'})
   },
   updateType: function(event){
     this.setState({type: event.target.value})

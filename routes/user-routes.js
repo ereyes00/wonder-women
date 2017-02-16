@@ -38,21 +38,61 @@ userRouter.route('/:id')
     })
   });
 
-userRouter.route('/createdBy/:id')
-// Route to get all events created by one user
+//Salina added: Route for user to create events (from account page)
+userRouter.route('/:id/createEvent')
+  .post(function(req, res) {
+    db.User.findById(req.session.userId)
+    .then(() => {
+      db.Event.create(req.body)
+    })
+    .catch((err) => {
+      console.log('error in user event creating', err)
+    })
+    .then((data) => {
+      if(data) {
+        db.Image.create({
+          EventId: data.id,
+          title: req.body.titles,
+          url: req.body.image
+        })
+      }
+    })
+    .then((event) => {
+      res.send(event)
+    })
+    .catch((err) => {
+      console.log('Post error', err)
+      res.status(500).send(err.message)
+    })
+  })
+
+//Salina added: Route for user to get all their created events on account page
+userRouter.route('/:id/createdEvents')
   .get(function(req, res) {
-    db.Event.findAll({
-      where: {
-        UserId : req.params.id
-      },
+    db.User.findById(req.session.userId)
+    .then(()=> {
+      db.Event.findAll()
     })
-    .then(function (data) {
-      res.send(data)
+    .then((events) => {
+      res.send(events)
     })
-    .catch(function (err) {
-      res.status(500).send(err.message);
-    })
-  });
+  })
+
+// userRouter.route('/createdBy/:id')
+// // Route to get all events created by one user
+//   .get(function(req, res) {
+//     db.Event.findAll({
+//       where: {
+//         UserId : req.params.id
+//       },
+//     })
+//     .then(function (data) {
+//       res.send(data)
+//     })
+//     .catch(function (err) {
+//       res.status(500).send(err.message);
+//     })
+//   });
 
 // Route that will be used to confirm login
 userRouter.route('/login')

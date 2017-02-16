@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 var Signup = React.createClass({
 	getInitialState: function(){
-		return {email: '', firstName: '', lastName: '', password: '', zipCode: 0, type: ''}
+		return {email: '', firstName: '', lastName: '', password: '', zipCode: 0, role: ''}
 	},
 	handleChange: function(input, event){
 		if(input === "email"){
@@ -20,8 +20,9 @@ var Signup = React.createClass({
 			this.setState({zipCode: event.target.value})
 		}
 	},
-	updateType: function(event){
-		this.setState({type: event.target.value})
+	updateRole: function(e){
+		// this.setState({type: event.target.value})
+		this.setState({[e.target.name]: e.target.value})
 	},
 	acctSignUp: function(event){
 		event.preventDefault()
@@ -81,7 +82,8 @@ var Signup = React.createClass({
 								onChange={this.handleChange.bind(this, "zipCode")}
 							/>
 						  <br /><br />
-							<select value={this.state.type} onChange={this.updateType}>
+							<select value={this.state.role} name="role" onChange={this.updateRole}//{this.updateType.bind(this, 'type')}
+							>
 								<option value="Individual">Individual</option>
 								<option value="Museum">Museum</option>
 								<option value="Gallery">Gallery</option>

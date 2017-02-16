@@ -2,13 +2,11 @@ const eventRouter = require('express').Router();
 const db = require('../models');
 var moment = require('moment');
 
-const queryFields = ['zipCode', 'opening', 'closing', 'type']
 
 // This is the route that will be used for search bar 
 eventRouter.route('/search')
   
   .get(function (req, res) {
-    console.log('Hitting the search route');
     console.log('data from the front end', req.query)
     var storeEvent = {};
     var storeLocation = {}
@@ -19,15 +17,22 @@ eventRouter.route('/search')
 
     if(req.query.dateStart !== '') {
      console.log('type of dateStart :' , typeof req.query.dateStart)
-     var newdate = new Date(req.query.dateStart)
-     console.log('newdate : ' + newdate)
+     var newStartDate = new Date(req.query.dateStart)
+     console.log('new Start date : ' + newStartDate)
+     console.log('Type of new statrt date for comparison', newStartDate)
       storeEvent['opening'] = {
-        $gte : newdate
+        $lte : newStartDate
       }
     }
+
     if(req.query.dateEnd !== '') {
+      console.log('type of dateEnd :', typeof req.query.dateEnd);
+      var newEndDate = new Date(req.query.dateEnd)
+      console.log('Type of new End date for comparison', newEndDate)
       storeEvent['closing'] = {
-        $lte : new Date(req.query.dateEnd)
+
+        $lte : newEndDate
+
       }
     }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {
@@ -38,7 +43,7 @@ eventRouter.route('/search')
     } else {
       storeLocation['type'] = req.query.type.toUpperCase()
     }
-    console.log('Data inside the store object', storeLocation )
+    console.log('Data inside the storeLocation object', storeLocation )
     
     db.Event.findAll({
        where: storeEvent,     

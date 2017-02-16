@@ -105,7 +105,8 @@ ReactDOM.render(
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>
       <Route path="contact" component={ContactUs}></Route>
-      <Route path='createevent' component={CreateEvent}></Route>
+      <Route path='user/:id/createevent' component={CreateEvent}></Route>
+      <Route path="createevent" component={CreateEvent}></Route>
       <Route path='createlocation' component={CreateLocation}></Route>
       <Route path='events/:id' component={Event}></Route>
       <Route path='events' component={TodayCarousel}></Route>

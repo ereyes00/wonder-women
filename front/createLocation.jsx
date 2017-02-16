@@ -47,16 +47,18 @@ const CreateLocation = React.createClass({
     var currentHours = this.state.hours
     if(open){
       currentDay.openTime = e.target.value
-    } else {
+    } 
+    else {
       currentDay.closeTime = e.target.value
     }
+    
     currentHours[day] = currentDay
     this.setState({hours: currentHours})
   },
-  handleClick(e) {
-    console.log("event",e);
-    this.setState({[e.target.name]: e.target.value})
-  },
+  // handleClick(e) {
+  //   //console.log("event",e);
+  //   this.setState({[e.target.name]: e.target.value})
+  // },
   // fromChange(input, e){
   //   if (input === 'openTime') {
   //     this.setState({ [input.name]: event.target.value });
@@ -148,24 +150,44 @@ const CreateLocation = React.createClass({
               Hours:
               <br />
               <br />
-
+              
               <div className="dayBox">
 
+                <label>Sunday</label><br /><br />
                 {
                 // <input 
                 //   type="checkbox"
-                //   name="Monday"
+                //   name="closed"
                 //   onClick={this.handleClick} 
-                // />
+                // /><label>Closed</label><br /><br />
                 }
-                <label>Monday</label><br /><br />
 
+                <label>From</label>
                 <input 
-                  type="checkbox"
-                  name="closed"
-                  onClick={this.handleClick} 
-                /><label>Closed</label><br /><br />
+                  type="time" 
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Sunday', true)}
+                />
 
+                <label>To</label>
+                <input 
+                  type="time" 
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Sunday', false)}
+                /><br /><br />
+ 
+              </div>
+
+              <div className="dayBox">
+
+                <label>Monday</label><br /><br />
+                {
+                // <input 
+                //   type="checkbox"
+                //   name="closed"
+                //   onClick={this.handleHour.bind(this, 'Closed', true)} 
+                // /><label>Closed</label><br /><br />
+                }
                 <label>From</label>
                 <input 
                   type="time" 
@@ -185,21 +207,15 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-              {
-                // <input 
-                //   type="checkbox"
-                //   name="Tuesday"
-                //   onClick={this.handleClick}
-                // />
-              }
 
                 <label>Tuesday</label><br /><br />
-
-                <input 
-                  type="checkbox"
-                  name="closed"
-                  onClick={this.handleClick} 
-                /><label>Closed</label><br /><br />
+                {
+                // <input 
+                //   type="checkbox"
+                //   name="closed"
+                //   onClick={this.handleHour.bind(this, 'Closed', true)} 
+                // /><label>Closed</label><br /><br />
+                }
 
                 <label>From</label>
                 <input 
@@ -221,21 +237,14 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                {
-                  // <input 
-                  //   type="checkbox"
-                  //   name="Wednesday"
-                  //   onClick={this.handleClick}
-                  // />
-                }
-
                 <label>Wednesday</label><br /><br />
-
-                <input 
-                  type="checkbox"
-                  name="closed"
-                  onClick={this.handleClick} 
-                /><label>Closed</label><br /><br />
+                {
+                // <input 
+                //   type="checkbox"
+                //   name="closed"
+                //   onClick={this.handleClick} 
+                // /><label>Closed</label><br /><br />
+                }
 
                 <label>From</label>
                 <input 
@@ -257,21 +266,14 @@ const CreateLocation = React.createClass({
 
               <div className="dayBox">
 
-              {
+                <label>Thursday</label><br /><br />
+                {
                 // <input 
                 //   type="checkbox"
-                //   name="Thursday"
-                //   onClick={this.handleClick}
-                // />
-              }
-
-                <label>Thursday</label><br /><br />
-
-                <input 
-                  type="checkbox"
-                  name="closed"
-                  onClick={this.handleClick} 
-                /><label>Closed</label><br /><br />
+                //   name="closed"
+                //   onClick={this.handleClick} 
+                // /><label>Closed</label><br /><br />
+                }
 
                 <label>From</label>
                 <input 
@@ -292,22 +294,14 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-              {
+                <label>Friday</label><br /><br />
+                {
                 // <input 
                 //   type="checkbox"
-                //   name="Friday"
+                //   name="closed"
                 //   onClick={this.handleClick} 
-                // />
-              }
-
-                <label>Friday</label><br /><br />
-
-                <input 
-                  type="checkbox"
-                  name="closed"
-                  onClick={this.handleClick} 
-                /><label>Closed</label><br /><br />
-
+                // /><label>Closed</label><br /><br />
+                }
                 <label>From</label>
                 <input 
                   type="time" 
@@ -327,21 +321,14 @@ const CreateLocation = React.createClass({
                             
               <div className="dayBox">
 
-              {
+                <label>Saturday</label><br /><br />
+                {
                 // <input 
                 //   type="checkbox"
                 //   name="Saturday"
-                //   onClick={this.handleClick}
-                // />
-              }
-
-                <label>Saturday</label><br /><br />
-
-                <input 
-                  type="checkbox"
-                  name="Saturday"
-                  onClick={this.handleClick} 
-                /><label>Closed</label><br /><br />
+                //   onClick={this.handleClick} 
+                // /><label>Closed</label><br /><br />
+                }
 
                 <label>From</label>
                 <input 
@@ -360,39 +347,7 @@ const CreateLocation = React.createClass({
               </div>
               <br /><br />
               
-              <div className="dayBox">
 
-              {
-                // <input 
-                //   type="checkbox"
-                //   name="Sunday"
-                //   onClick={this.handleClick} 
-                // />
-              }
-
-                <label>Sunday</label><br /><br />
-
-                <input 
-                  type="checkbox"
-                  name="closed"
-                  onClick={this.handleClick} 
-                /><label>Closed</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Sunday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Sunday', false)}
-                /><br /><br />
- 
-              </div>
               <br /></div>
             
               <input 
