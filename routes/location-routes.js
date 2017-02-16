@@ -27,7 +27,9 @@ locationRouter.route('/')
       console.log('After first section in catch handler of event POST', err)
     })
     .then(function (data) {
-      if (data) {
+      console.log(req.body.hours)
+      if (data) { 
+        console.log('\n\n\nabout to save hours', data)
          for (key in req.body.hours) {
           db.LocationHours.create({
             LocationId: data.id,

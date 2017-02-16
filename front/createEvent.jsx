@@ -5,15 +5,7 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return { userId: null,
-             title: '',
-             featuredArtist: '',
-             price: '',
-             description: '',
-             opening: '',
-             closing: '',
-             image: '',
-             location:''
+    return {  title: '', featuredArtist: '', price: '', description: '', opening: '', closing: '', image: '', imageTitle:'',location:''//userId: null,
     }
   }, 
   addEvent: function (e) {
@@ -29,32 +21,13 @@ const CreateEvent = React.createClass({
       // after submitting new event, user will be brought back to their acct page.
     });
   },
-  handleChange: function (input, event) {
-    if (input === 'title') {
-      this.setState({ title: event.target.value });
-    } 
-    else if (input === 'featuredArtist') {
-      this.setState({ featuredArtist: event.target.value });
-    }  
-    else if (input === 'price') {
-      this.setState({ price: event.target.value });
-    } 
-    else if (input === 'description') {
-      this.setState({ description: event.target.value });
-    } 
-    else if (input === 'opening') {
-      this.setState({ opening: event.target.value });
-    } 
-    else if (input === 'closing') {
-      this.setState({ closing: event.target.value });
-    } 
-    else if (input === 'image') {
-      this.setState({ image: event.target.value });
-    }
-  },
-  handleClick: function (event) {
-    console.log(event.target);
-  },
+  handleChange(e) {
+    //console.log('event from handleChange', e)
+    this.setState({[e.target.name]: e.target.value})
+  }, 
+
+// add a dropdown with the user's list of locations based on userId
+
   render: function () {
     return (
       <center>
@@ -64,61 +37,87 @@ const CreateEvent = React.createClass({
           
           <form onSubmit={this.addEvent} className='createEvent'>
             <br /><br />
+            
             Event Title:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name="title"
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'title')} 
+              onChange={this.handleChange} 
             />
             <br /><br />
 
             Featured Artist:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name='featuredArtist'
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'featuredArtist')} 
+              onChange={this.handleChange}
             />
             <br /><br />
 
             Event Image Link:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name="image"
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'image')} 
+              onChange={this.handleChange} 
             />
             <br /><br />
 
+            Image Title:
+            <br />
+            <input 
+              type="text"
+              name="imageTitle"
+              className="inputEvent"
+              onChange={this.handleChange} 
+            />
+            <br /><br />            
+
             Price:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name="price"
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'price')} 
+              onChange={this.handleChange} 
             />
             <br /><br />
 
             Description:
             <br />
-            <input type="text"
+            <input 
+              type="text"
+              name="description"
               className="inputEvent"
-              onChange={this.handleChange.bind(this, 'description')} 
+              onChange={this.handleChange}
             />
             <br /><br />
             
             <div>
               Opening Day:
               <br />
-              <input type="date"
+              <input 
+                type="date"
+                name="opening"
                 className="cal"
-                onChange={this.handleChange.bind(this, 'opening')} 
+                onChange={this.handleChange} 
               />
             </div>
             <br /><br />
+
             <div>
               Closing Day:
               <br />
-              <input type="date"
+              <input 
+                type="date"
+                name="closing"
                 className="cal"
-                onChange={this.handleChange.bind(this, 'closing')} 
+                onChange={this.handleChange} 
               />
             </div>
             <br /><br />

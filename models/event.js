@@ -7,11 +7,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
     opening: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     closing: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     price: {
@@ -39,3 +39,4 @@ module.exports = function (sequelize, DataTypes) {
   );
   return Event;
 };
+//DATEONLY
