@@ -24,7 +24,8 @@ let App = React.createClass({
   getInitialState: function(){
     return ({
       email: '', currentUser: 
-        { email: '', firstName: '', lastName: '', id: 0 }
+        {email: '', firstName: '', lastName: '', id: 0},
+        isUserLoggedin:false
     })
   },
   componentDidMount: function(){
@@ -43,11 +44,11 @@ let App = React.createClass({
     })
   },
   onUserSignUp: function(userData){
-    this.setState({currentUser: userData})
+    this.setState({currentUser: userData, isUserLoggedin:true})
   },
   getChildContext: function() {
     return {currentUser: this.state.currentUser, 
-      onSignUp: this.onUserSignUp};
+      onSignUp: this.onUserSignUp, isUserLoggedin: this.state.isUserLoggedin};
   },
   render: function () {
     return (
@@ -90,7 +91,8 @@ let App = React.createClass({
 
 App.childContextTypes = {
   currentUser: React.PropTypes.object,
-  onSignUp: React.PropTypes.func
+  onSignUp: React.PropTypes.func,
+  isUserLoggedin: React.PropTypes.boolean
 }
 App = withRouter(App)
 
