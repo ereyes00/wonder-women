@@ -365,7 +365,7 @@ const CreateLocation = React.createClass({
 
 CreateLocation.contextTypes = {
   currentUser: React.PropTypes.object,
-  isUserLoggedin: React.PropTypes.boolean
+  isUserLoggedin: React.PropTypes.func
 }
 
 export default CreateLocation;
