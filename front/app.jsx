@@ -20,9 +20,12 @@ import $ from 'jquery';
 
 // make sure Route paths do not duplicate those on the back end '/api/user' and '/api/event'
 
-const App = withRouter(React.createClass({
+let App = React.createClass({
   getInitialState: function(){
-    return ({email: ''})
+    return ({
+      email: '', currentUser: 
+        {email: '', firstName: '', lastName: '', id: 0}
+    })
   },
   componentDidMount: function(){
     $.ajax({
@@ -38,6 +41,13 @@ const App = withRouter(React.createClass({
         console.log("No one is logged in.")
       }
     })
+  },
+  onUserSignUp: function(userData){
+    this.setState({currentUser: userData})
+  },
+  getChildContext: function() {
+    return {currentUser: this.state.currentUser, 
+      onSignUp: this.onUserSignUp};
   },
   render: function () {
     return (
@@ -57,6 +67,7 @@ const App = withRouter(React.createClass({
                 <Link to='Account'>Account</Link> :
               <Link to='Login'>Login</Link>
               }
+
             </div>
           </div>
         </nav>
@@ -66,14 +77,22 @@ const App = withRouter(React.createClass({
         <hr className="hr"/>
         <br /> <br />
  
+
         {this.props.children}
+
 
         <br />
         <Footer />
       </div>
     );
   }
-}));
+});
+
+App.childContextTypes = {
+  currentUser: React.PropTypes.object,
+  onSignUp: React.PropTypes.func
+}
+App = withRouter(App)
 
 ReactDOM.render(
   <Router history={browserHistory}>
