@@ -79,6 +79,8 @@ eventRouter.route('/')
       price: req.body.price,
       featuredArtist: req.body.featuredArtist,
       description: req.body.description,
+      LocationId: req.body.chosenLocationId,
+      UserId: req.body.userId,
     })
     .catch(function (err) {
       console.log('After first section in catch handler of event POST', err)

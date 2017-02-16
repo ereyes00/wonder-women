@@ -25,7 +25,7 @@ let App = React.createClass({
     return ({
       email: '', currentUser: 
         {email: '', firstName: '', lastName: '', id: 0},
-        isUserLoggedin:false
+        isUserLoggedin: false
     })
   },
   componentDidMount: function(){
@@ -34,7 +34,7 @@ let App = React.createClass({
       url: '/auth'
     })
     .done((email)=> {
-      console.log('email', email)
+      //console.log('email', email)
       if(email){
         console.log(email + 'is logged in.')
         this.setState({email: email})

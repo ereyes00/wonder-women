@@ -5,7 +5,7 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return {  title: '', featuredArtist: '', price: '', description: '', opening: '', closing: '', image: '', imageTitle:'',location:[]//,userId: this.context.currentUser.id,
+    return {  title: '', featuredArtist: '', price: '', description: '', opening: '', closing: '', image: '', imageTitle:'',location:[], chosenLocationId:0,//,userId: this.context.currentUser.id,
     }
   },
   componentWillMount: function(){
@@ -18,17 +18,17 @@ const CreateEvent = React.createClass({
   componentDidMount: function(){
     //e.preventDefault();
     var userId = this.context.currentUser.id
-    console.log('userid from createEventForm', userId)
+    //console.log('userid from createEventForm', userId)
     // var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
     $.ajax({
       url: '/api/location/locationsby/'+ userId,
       type: 'GET'
     })
     .done((data)=> {
-      console.log('data from create event',data)
+      //console.log('data from create event', data)
       //if(data){}
       this.setState({location:data})
-
+      console.log('location', this.state.location)
     })
   },
   addEvent: function (e) {
@@ -45,6 +45,10 @@ const CreateEvent = React.createClass({
       // after submitting new event, user will be brought back to their acct page.
     });
   },
+  handleLocation: function(e){
+    console.log('EVENT', e.target.value);
+    this.setState({chosenLocationId: e.target.value})
+  },
   handleChange(e) {
     //console.log('event from handleChange', e)
     this.setState({[e.target.name]: e.target.value})
@@ -53,18 +57,17 @@ const CreateEvent = React.createClass({
 // add a dropdown with the user's list of locations based on userId
 
   render: function () {
-    if(this.state.location.length !== 0)
-    {
-      var rawLocation = this.state.location;
-      var locationName = rawLocation.map(function(val, index) {
-        return <option>{val.location}</option>
-        console.log("================>",locationName);
-      }); 
-    } else{
-        let locationName = [<option></option>];
-    }
-
-
+    // if(this.state.location.length !== 0){
+    //   var rawLocation = this.state.location;
+    //   var locationName = [];
+    //   rawLocation.forEach(function(val, index) {
+    //     locationName.push(<option>{val.location}</option>);
+    //     console.log("================>",locationName);
+    //   });        
+    // } 
+    // else {
+    //   let locationName = [<option></option>];
+    // }
     return (
       <center>
         <div className="createEventForm">
@@ -86,11 +89,30 @@ const CreateEvent = React.createClass({
             
 
             Location:
+            <br />
 
-            <select value={this.state.type} name="location" onChange={this.handleChange}
-            >
-              {locationName}
+            <select  name="location" onChange={this.handleLocation}
+            >    {
+              this.state.location ?
+              this.state.location.map((ele, idx)=> (<option value={ele.id}>{ele.location}</option>)) : <option></option>
+              }
+              {
+              // if(this.state.location.length !== 0){
+              //     var rawLocation = this.state.location;
+              //     var locationName = [];
+              //     rawLocation.forEach(function(val, index) {
+              //       locationName.push(<option>{val.location}</option>);
+              //       console.log("================>",locationName);
+              //     });        
+              //   } 
+              //   else {
+              //     let locationName = [<option></option>];
+              //   }
+              //{locationName}
+              }
+              
             </select>
+            <br /><br />
 
 
             Featured Artist:
