@@ -36,15 +36,21 @@ ul {
 
 .hours {
 	list-style-type: none;
-}
+} 
 
 .bookmark {
-	background-color: #373A3B;
+	background-color: white;
     border: none;
-    color: white;
+    color: black;
     border-radius: 4px;
+    border: 2px solid #373A3B;
     padding: 10px 25px;
     margin-left: 52%;
     margin-bottom: 20px;
     cursor: pointer;
+}
+
+.bookmark:hover {
+	background-color: #373A3B;
+	color: white;
 }

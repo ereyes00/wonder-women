@@ -5,6 +5,7 @@ import {Link, browserHistory} from 'react-router';
 
 var Login = React.createClass({
 	getInitialState: function(){
+		console.log(this.context)
 		return {email: '', password: null, msg: ""}
 	},
 	handleChange: function(input, event){
@@ -13,7 +14,7 @@ var Login = React.createClass({
 		} else if (input === "password"){
 			this.setState({password: event.target.value})
 		}
-	},
+	}, 
 	userLogin: function(event){
 		event.preventDefault()
 		$.ajax({
@@ -26,6 +27,7 @@ var Login = React.createClass({
 			}).bind(this)
 		})
 		.done((data) => {
+			this.context.onSignUp(data)
 			console.log("Received User Data", data);
 			browserHistory.push('/account')
 		})
@@ -65,5 +67,10 @@ var Login = React.createClass({
     )
   }
 })
+
+Login.contextTypes = {
+	currentUser: React.PropTypes.object,
+	onSignUp: React.PropTypes.func
+}
 
 export default Login;

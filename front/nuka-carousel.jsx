@@ -35,7 +35,7 @@ const NukaCarousel = React.createClass({
               slideWidth={0.35} 
               cellSpacing={20} 
               autoplay={true} 
-              autoplayInterval={2000}>
+              autoplayInterval={2500}>
 
               <div className="eventItem">
                 <p><i>"Blue Poles"</i></p>

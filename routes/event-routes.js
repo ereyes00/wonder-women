@@ -42,16 +42,7 @@ eventRouter.route('/search')
     
     db.Event.findAll({
        where: storeEvent,     
-      include: [{model: db.Location, where: storeLocation}]
-
-      // include: [{model: db.Location,
-      //          where: {
-      //           zipCode: store.zipCode,
-      //           type: store.type
-      //          }}]
-
-
-              
+      include: [db.Image, {model: db.Location, where: storeLocation}]
     })
     .then(function (data) {
       if (data.length === 0) {
@@ -76,7 +67,7 @@ eventRouter.route('/')
 // This route will be used to create event with image, and hours  
   .post(function (req, res) {
     db.Event.create({
-      UserId: req.body.userId,
+      //UserId: req.body.userId,
       title: req.body.title,
       opening: req.body.opening,
       closing: req.body.closing,
@@ -91,7 +82,7 @@ eventRouter.route('/')
       if (data) {
         db.Image.create({
           EventId: data.id,
-          title: req.body.titles,
+          title: req.body.imageTitle,
           url: req.body.image,
         });
 

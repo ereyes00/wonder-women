@@ -18,12 +18,19 @@ const CreateLocation = React.createClass({
             }           
     }
   },
+  componentWillMount: function(){
+    //debugger;
+    if(!this.context.isUserLoggedin){
+      browserHistory.push('/login')
+    }
+  },
   addLocation: function (e) {
     e.preventDefault();
+    var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
     $.ajax({
       url: '/api/location',
       method: 'POST',
-      data: this.state,
+      data: toSend,
     })
     .done((data) => {
       console.log('Location has been created.');
@@ -35,6 +42,17 @@ const CreateLocation = React.createClass({
     //console.log('event from handleChange', event)
     this.setState({[e.target.name]: e.target.value})
   }, 
+  handleHour(day, open, e){
+    var currentDay = this.state.hours[day]
+    var currentHours = this.state.hours
+    if(open){
+      currentDay.openTime = e.target.value
+    } else {
+      currentDay.closeTime = e.target.value
+    }
+    currentHours[day] = currentDay
+    this.setState({hours: currentHours})
+  },
   handleClick(e) {
     console.log("event",e);
     this.setState({[e.target.name]: e.target.value})
@@ -152,14 +170,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleChange}//{this.handleChange.bind(this, 'openTime')}
+                  onChange={this.handleHour.bind(this, 'Monday', true)}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleChange}
+                  onChange={this.handleHour.bind(this, 'Monday', false)}
                 /><br /><br />
  
               </div>
@@ -187,14 +205,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleChange}
+                  onChange={this.handleHour.bind(this, 'Tuesday', true)}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Tuesday', false)}
                 />
                 <br /><br />
  
@@ -223,14 +241,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Wednesday', true)}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Wednesday', false)}
                 />
                 <br /><br />
  
@@ -259,14 +277,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Thursday', true)}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Thursday', false)}
                 /><br /><br />
  
               </div>
@@ -294,14 +312,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Friday', true)}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Friday', false)}
                 /><br /><br />
  
               </div>
@@ -329,14 +347,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Saturday', true)}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Saturday', false)}
                 /><br /><br />
  
               </div>
@@ -364,14 +382,14 @@ const CreateLocation = React.createClass({
                 <input 
                   type="time" 
                   name="openTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Sunday', true)}
                 />
 
                 <label>To</label>
                 <input 
                   type="time" 
                   name="closeTime"
-                  onChange={this.handleClick}
+                  onChange={this.handleHour.bind(this, 'Sunday', false)}
                 /><br /><br />
  
               </div>
@@ -389,6 +407,11 @@ const CreateLocation = React.createClass({
     );
   }
 });
+
+CreateLocation.contextTypes = {
+  currentUser: React.PropTypes.object,
+  isUserLoggedin: React.PropTypes.boolean
+}
 
 export default CreateLocation;
 
