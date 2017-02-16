@@ -20,6 +20,7 @@
 
 /*image div*/
 .imgResult {
+  width: 350px;
   margin-left: 25px;
   margin-right: 25px;
   margin-top: 50px;

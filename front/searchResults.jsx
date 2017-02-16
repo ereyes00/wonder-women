@@ -52,7 +52,7 @@ const SearchResults = React.createClass({
       dateEnd={query.dateEnd}
       />
 
-      <div className="results">
+      <center><div className="results">
         <br />
         <h2 className="resultsTitle"><i>Search Results</i></h2>
         <br />
@@ -68,7 +68,7 @@ const SearchResults = React.createClass({
             )
           })}
         
-      </div>
+      </div></center>
 
       </div>) 
 
