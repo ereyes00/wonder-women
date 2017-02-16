@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import CreateEvent from './createEvent';
-import {browserHistory} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 
 const Account = React.createClass({
   getInitialState: function () {
@@ -85,7 +85,7 @@ const Account = React.createClass({
         <h3>Your Created Events:</h3>
         <ul>
           {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
-            return(<li key={idx}>{val.title}</li>)
+            return(<Link to={'/events/' + val.id}><li key={idx}>{val.title}</li></Link>)
 
           })}
         </ul>
