@@ -42,7 +42,7 @@ const SearchResults = React.createClass({
       var query = this.props.location.query
     
     return(
-
+ 
       <div>
 
       <SearchBar 
