@@ -49,10 +49,15 @@ const Event = React.createClass({
       });
     })
   },
-  bookmark: function(){
+  bookmark: function(e){
+    let whichUser = Object.assign({}, this.state, {userId: this.context.currentUser.id})
+    console.log(whichUser);
     $.ajax({
-      url: '/api/event/add/bookmark/' + this.props.params.id,
-      type: 'GET'
+      url: '/api/event/add/bookmark/' + this.props.params.id + '/' + whichUser,
+      method: 'GET'
+    })
+    .done((data) => {
+      console.log('Event bookmarked');
     })
   }, 
   render: function () {

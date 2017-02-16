@@ -7,7 +7,7 @@ import './style/searchBar.css';
 const SearchBar = React.createClass({
   getInitialState: function(){
     var props = this.props
-    console.log("props is: ", this.props)
+    //console.log("props is: ", this.props)
     return ({zipCode: props.zipCode, dateStart: props.dateStart, dateEnd: props.dateEnd, type: props.type})
   },
   getDefaultProps: function(){
@@ -26,8 +26,8 @@ const SearchBar = React.createClass({
     }
   },
   render: function(){
-    console.log("state: ", this.state)
-    console.log("props: ", this.props)
+    //console.log("state: ", this.state)
+    //console.log("props: ", this.props)
 
     return(
       <div className="Search">

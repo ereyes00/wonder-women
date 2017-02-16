@@ -22,7 +22,7 @@ const Account = React.createClass({
         data: this.state,
       })
       .then((events) => {
-        console.log(events);
+        //console.log(events);
         this.setState({ createdEvents: events });
       })
       .then((bookmarks) => {
