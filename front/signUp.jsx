@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 var Signup = React.createClass({
 	getInitialState: function(){
-		return {email: 'something@test.com', firstName: 'Hellow', lastName: 'World', password: 'password1', zipCode: 10001, type: 'Individual'}
+		return {email: '', firstName: '', lastName: '', password: '', zipCode: 0, type: ''}
 	},
 	handleChange: function(input, event){
 		if(input === "email"){
@@ -25,7 +25,7 @@ var Signup = React.createClass({
 	},
 	acctSignUp: function(event){
 		event.preventDefault()
-		this.props.onSignUp(this.state)
+		//this.props.onSignUp(this.state)
 		$.ajax({
 			method: 'POST',
 			url: '/api/user',
@@ -33,6 +33,7 @@ var Signup = React.createClass({
 		})
 		.done((data) => {
 			console.log("Received User Data", data);
+			this.context.onSignUp(data)
 			browserHistory.push('/account')
 		})
 	},
@@ -99,5 +100,10 @@ var Signup = React.createClass({
 		)
 	}
 })
+
+Signup.contextTypes = {
+	currentUser: React.PropTypes.object,
+	onSignUp: React.PropTypes.func
+}
 
 export default Signup;
