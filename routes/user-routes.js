@@ -75,7 +75,9 @@ userRouter.route('/login')
            req.session.save();
            console.log('updated session', req.session);
 
-           res.send( user.email )
+           var retVal = {email: user.email, firstName: user.firstName, lastName: user.lastName, id: user.id}
+
+           res.send( retVal )
 
         } else {
           res.status(401).send('Invalid credentials. Please try again or sign up.')
