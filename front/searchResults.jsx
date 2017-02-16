@@ -7,7 +7,7 @@ const SearchResults = React.createClass({
   getInitialState: function(){
     return({ 
       results: null,   
-      type:  this.props.params.type || "SearchAll"
+      type: this.props.params.type || "SearchAll"
      })
   },
   searchData: function(){

@@ -2,7 +2,6 @@ const eventRouter = require('express').Router();
 const db = require('../models');
 var moment = require('moment');
 
-const queryFields = ['zipCode', 'opening', 'closing', 'type']
 
 // This is the route that will be used for search bar 
 eventRouter.route('/search')
@@ -25,12 +24,15 @@ eventRouter.route('/search')
         $lte : newStartDate
       }
     }
+
     if(req.query.dateEnd !== '') {
       console.log('type of dateEnd :', typeof req.query.dateEnd);
       var newEndDate = new Date(req.query.dateEnd)
       console.log('Type of new End date for comparison', newEndDate)
       storeEvent['closing'] = {
+
         $lte : newEndDate
+
       }
     }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {

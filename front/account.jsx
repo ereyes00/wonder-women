@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 const Account = React.createClass({
   getInitialState: function () {
-    return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null };
+    return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null, id: 0 };
   },
   componentDidMount: function () {
     $.ajax({
@@ -14,10 +14,10 @@ const Account = React.createClass({
       data: this.state,
     })
     .then((user) => {
-      this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email })
+      this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email, id: user.id })
 
       $.ajax({
-        url: '/api/event',
+        url: '/api/user/id/createdEvents',
         type: 'GET',
         data: this.state,
       })
@@ -25,10 +25,10 @@ const Account = React.createClass({
         console.log(events);
         this.setState({ createdEvents: events });
       })
-      .then((bookmarks) => {
-        console.log(bookmarks);
-        this.setState({ bookmarks: bookmarks });
-      })
+      // .then((bookmarks) => {
+      //   console.log(bookmarks);
+      //   this.setState({ bookmarks: bookmarks });
+      // })
     })
   },
   userLogout: function(event){
@@ -40,6 +40,17 @@ const Account = React.createClass({
     .done(() => {
       console.log("You have logged out.");
       browserHistory.push('/')
+    })
+  },
+  userCreatesEvent: function(event){
+    event.preventDefault()
+    $.ajax({
+      url: '/api/user/createEvent',
+      type: 'POST'
+    })
+    .done(() => {
+      console.log("Event created.")
+      browserHistory.push('/account')
     })
   },
   render: function () {
@@ -73,7 +84,7 @@ const Account = React.createClass({
         <h3>Your Created Events:</h3>
         <br /><br />
 
-        <a href="createevent"><button className="button">
+        <a href={"user/" + this.state.id + "/createevent" }><button className="button">
          Create An Event</button>
         </a>
 
