@@ -69,12 +69,22 @@ userRouter.route('/:id/createEvent')
 //Salina added: Route for user to get all their created events on account page
 userRouter.route('/:id/createdEvents')
   .get(function(req, res) {
-    db.User.findById(req.session.userId)
-    .then(()=> {
-      db.Event.findAll()
-    })
+    // db.User.findById(req.session.userId)
+
+    // .then((data)=> {
+    //   console.log('data from session', data)
+      db.Event.findAll({
+        where: {
+          UserId: req.session.userId
+        }
+      })
+    
     .then((events) => {
+      console.log(events)
       res.send(events)
+    })
+    .catch((err) => {
+      res.status(500).send(err.message)
     })
   })
 

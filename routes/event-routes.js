@@ -147,6 +147,7 @@ eventRouter.route('/:id')
     })
   });
 
+
 // Purpose: to find events that are opening TODAY
 var today = new Date(Date());
 var date = today.toISOString().split('-', 1)[0];
