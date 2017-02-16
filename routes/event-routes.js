@@ -133,7 +133,7 @@ eventRouter.route('/:id')
           res.send(data);
         }
       });
-  })
+  }) //Route to delete an event
   .delete(function(req,res) {
     db.Event.findById(req.params.id)
     .then(function(data) {
@@ -173,7 +173,8 @@ eventRouter.route('/add/bookmark/:eventId/:userId')
 // Route to add a bookmark
   .get(function(req, res) {
     // const user = req.user.id;
-    db.User.findById(1)
+    console.log(typeof(req.params.userId));
+    db.User.findById(req.params.userId)
     .then(function(data) {
       data.addBookmark(req.params.eventId)
     })
