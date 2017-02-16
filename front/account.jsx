@@ -5,24 +5,34 @@ import {Link, browserHistory} from 'react-router';
 
 const Account = React.createClass({
   getInitialState: function () {
-    return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null, id: 0 };
+    return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null, //id: 0 
+    };
   },
+  componentWillMount: function(){
+    //debugger;
+    //console.log(currentUser)
+    if(!this.context.isUserLoggedin){
+      browserHistory.push('/login')
+    }
+  }, 
   componentDidMount: function () {
+    var userId = this.context.currentUser.id
     $.ajax({
-      url: '/api/user/id',
+      url: '/api/user/'+ userId,
       type: 'GET',
-      data: this.state,
+      //data: this.state,
     })
     .then((user) => {
-      this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email, id: user.id })
+      this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email, //id: user.id 
+      })
 
       $.ajax({
-        url: '/api/user/' + user.id + '/createdEvents',
+        url: '/api/user/' + userId + '/createdEvents',
         type: 'GET'
       })
       .then((events) => {
-        console.log("before setState")
-        console.log(events);
+        //console.log("before setState")
+        console.log('events',events);
         this.setState({ createdEvents: events });
         console.log("after setState")
       })
@@ -45,9 +55,11 @@ const Account = React.createClass({
   },
   userCreatesEvent: function(event){
     event.preventDefault()
+    var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
     $.ajax({
-      url: '/api/user/createEvent',
-      type: 'POST'
+      url: '/api/event',
+      type: 'POST',
+      data: toSend
     })
     .done(() => {
       console.log("Event created.")
@@ -100,5 +112,10 @@ const Account = React.createClass({
     );
   }
 });
+
+Account.contextTypes = {
+  currentUser: React.PropTypes.object,
+  isUserLoggedin: React.PropTypes.boolean
+}
 
  export default Account;
