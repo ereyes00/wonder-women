@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import './style/footer.css';
 
 var Footer = React.createClass({
   render: function(){
@@ -12,7 +13,7 @@ var Footer = React.createClass({
             <p><b>Art Gal</b></p>
 
             <p>
-              <a href="https://github.com/ereyes00/wonder-women" target="_blank">Github</a> 
+              <a href="https://github.com/ereyes00/wonder-women" target="_blank"><img className="github" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png" /></a> 
               <a href="https://www.linkedin.com/in/esmeralda-reyes" target="_blank">Esmeralda</a>
               <a href="https://www.linkedin.com/in/salinafu" target="_blank">Salina</a>
               <a href="https://www.linkedin.com/in/shazia-anjum" target="_blank">Shazia</a>
