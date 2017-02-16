@@ -32,6 +32,7 @@ app.get('/auth', (req, res) => {
 	}
 });
 
+
 app.get('/logout', (req, res) => {
 	req.session.destroy();
 	res.send('You are logged out.')
