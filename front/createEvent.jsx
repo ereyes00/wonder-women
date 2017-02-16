@@ -5,15 +5,39 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return {  title: '', featuredArtist: '', price: '', description: '', opening: '', closing: '', image: '', imageTitle:'',location:''//userId: null,
+    return {  title: '', featuredArtist: '', price: '', description: '', opening: '', closing: '', image: '', imageTitle:'',location:[]//,userId: this.context.currentUser.id,
+    }
+  },
+  componentWillMount: function(){
+    //debugger;
+    //console.log(currentUser)
+    if(!this.context.isUserLoggedin){
+      browserHistory.push('/login')
     }
   }, 
+  componentDidMount: function(){
+    //e.preventDefault();
+    var userId = this.context.currentUser.id
+    console.log('userid from createEventForm', userId)
+    // var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
+    $.ajax({
+      url: '/api/location/locationsby/'+ userId,
+      type: 'GET'
+    })
+    .done((data)=> {
+      console.log('data from create event',data)
+      //if(data){}
+      this.setState({location:data})
+
+    })
+  },
   addEvent: function (e) {
     e.preventDefault();
+    var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
     $.ajax({
       url: '/api/event',
       method: 'POST',
-      data: this.state,
+      data: toSend,
     })
     .done((data) => {
       console.log('Event has been created.');
@@ -29,6 +53,18 @@ const CreateEvent = React.createClass({
 // add a dropdown with the user's list of locations based on userId
 
   render: function () {
+    if(this.state.location.length !== 0)
+    {
+      var rawLocation = this.state.location;
+      var locationName = rawLocation.map(function(val, index) {
+        return <option>{val.location}</option>
+        console.log("================>",locationName);
+      }); 
+    } else{
+        let locationName = [<option></option>];
+    }
+
+
     return (
       <center>
         <div className="createEventForm">
@@ -47,6 +83,15 @@ const CreateEvent = React.createClass({
               onChange={this.handleChange} 
             />
             <br /><br />
+            
+
+            Location:
+
+            <select value={this.state.type} name="location" onChange={this.handleChange}
+            >
+              {locationName}
+            </select>
+
 
             Featured Artist:
             <br />
@@ -133,5 +178,10 @@ const CreateEvent = React.createClass({
     );
   }
 });
+
+CreateEvent.contextTypes = {
+  currentUser: React.PropTypes.object,
+  isUserLoggedin: React.PropTypes.boolean
+}
 
 export default CreateEvent;

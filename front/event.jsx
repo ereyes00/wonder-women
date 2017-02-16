@@ -22,7 +22,7 @@ const Event = React.createClass({
       images:[], 
       lat: '', 
       lng:'',
-      userId: 1,
+      userId: 0,
     });
   },
   componentDidMount: function () {

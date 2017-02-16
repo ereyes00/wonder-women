@@ -50,6 +50,20 @@ locationRouter.route('/')
       res.status(500).send(err.message);
     });
   });
+
+locationRouter.route('/locationsby/:UserId')
+// This route will be used to display all locations
+  .get(function (req, res) {
+    console.log('IN GET locations')
+    console.log('UserId',req.params.UserId)
+    db.Location.findAll({ 
+      where: {UserId: req.params.UserId},
+
+    })
+      .then(function (data) {
+        res.send(data);
+      });
+  })
   
 //This is the route that will be used to display individual location
 locationRouter.route('/:id')
