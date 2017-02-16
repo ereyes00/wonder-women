@@ -52,7 +52,7 @@ const Event = React.createClass({
   },
   bookmark: function(){
     $.ajax({
-      url: '/api/event/add/bookmark' + this.props.params.id + '/' + this.state.userId,
+      url: '/api/event/add/bookmark/' + this.props.params.id + '/' + this.state.userId,
       type: 'GET'
     })
   }, 

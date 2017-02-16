@@ -170,7 +170,6 @@ eventRouter.route('/add/bookmark/:eventId/:userId')
     // const user = req.user;
     db.User.findById(req.params.userId)
     .then(function(data) {
-      console.log(data);
       data.addBookmark(req.params.eventId)
     })
     .then(function (data){
