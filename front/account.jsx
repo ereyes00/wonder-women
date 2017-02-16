@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import CreateEvent from './createEvent';
-import {browserHistory} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 
 const Account = React.createClass({
   getInitialState: function () {
@@ -17,13 +17,14 @@ const Account = React.createClass({
       this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email, id: user.id })
 
       $.ajax({
-        url: '/api/user/id/createdEvents',
-        type: 'GET',
-        data: this.state,
+        url: '/api/user/' + user.id + '/createdEvents',
+        type: 'GET'
       })
       .then((events) => {
-        //console.log(events);
+        console.log("before setState")
+        console.log(events);
         this.setState({ createdEvents: events });
+        console.log("after setState")
       })
       // .then((bookmarks) => {
       //   console.log(bookmarks);
@@ -71,7 +72,7 @@ const Account = React.createClass({
 
         <h3>Your Bookmarks:</h3>
         <ul>
-          {!this.state.bookmarks ? null : this.state.bookmarks.map((val, idx) => {
+          {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {
 
             let eventTitle = val.title
 
@@ -82,6 +83,13 @@ const Account = React.createClass({
         </ul>
 
         <h3>Your Created Events:</h3>
+        <ul>
+          {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
+            return(<Link to={'/events/' + val.id}><li key={idx}>{val.title}</li></Link>)
+
+          })}
+        </ul>
+
         <br /><br />
 
         <a href={"user/" + this.state.id + "/createevent" }><button className="button">
