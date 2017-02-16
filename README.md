@@ -42,7 +42,7 @@ Run Postgres on your computer and connect through Postico. <br/>
 In your terminal run the command: <br/>
   `npm start` <br/>
 
-Open a browser tab to and navigate to  'localhost:3000' <br/>
+Open a browser tab to and navigate to  'localhost:8888' <br/>
 
 
 To run the seed files: <br/>
