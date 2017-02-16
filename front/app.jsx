@@ -57,6 +57,7 @@ const App = withRouter(React.createClass({
                 <Link to='Account'>Account</Link> :
               <Link to='Login'>Login</Link>
               }
+
             </div>
           </div>
         </nav>

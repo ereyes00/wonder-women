@@ -5,7 +5,7 @@ import {browserHistory} from 'react-router';
 
 const Account = React.createClass({
   getInitialState: function () {
-    return { createdEvents: [], firstName: '', lastName: '', email: '', bookmarks: null };
+    return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null };
   },
   componentDidMount: function () {
     $.ajax({
