@@ -90,25 +90,6 @@ eventRouter.route('/')
           title: req.body.imageTitle,
           url: req.body.image,
         });
-
-        // let rawHours = req.body.hours;
-        //  for (key in rawHours) {
-        //   console.log("key", key);
-        //   console.log('would save: ', {
-        //     EventId: data.id,
-        //     dayOfWeek: key,
-        //     openTime: rawHours[key].openTime,
-        //     closeTime: rawHours[key].closeTime,
-        //   })
-
-          // db.LocationHours.create({
-          //   LocationId: data.id,
-          //   dayOfWeek: key,
-          //   openTime: rawHours[key].openTime,
-          //   closeTime: rawHours[key].closeTime,
-          //   closed:
-          // })
-        // };
       }
     })
     .then(function (data) {
@@ -175,14 +156,14 @@ eventRouter.route('/date/opening')
    })
 //////////////////////////////////////////////////
 
-eventRouter.route('/add/bookmark/:eventId/:userId')
+eventRouter.route('/add/bookmark')
 // Route to add a bookmark
-  .get(function(req, res) {
+  .post(function(req, res) {
     // const user = req.user.id;
-    console.log(typeof(req.params.userId));
-    db.User.findById(req.params.userId)
+    console.log("USERID:", typeof(req.body.userId), "EVENTID", typeof(req.body.eventId))
+    db.User.findById(req.body.userId)
     .then(function(data) {
-      data.addBookmark(req.params.eventId)
+      data.addBookmark(parseInt(req.body.eventId))
     })
     .then(function (data){
         res.send("Event bookmarked!")

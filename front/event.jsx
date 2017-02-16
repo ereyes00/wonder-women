@@ -2,6 +2,8 @@ import $ from 'jquery';
 import './style/event.css';
 import MapDisplay from './map'
 const React = require('react');
+import { browserHistory } from 'react-router';
+
  
 const Event = React.createClass({
   getInitialState: function () {
@@ -25,6 +27,12 @@ const Event = React.createClass({
       userId: 0,
     });
   },
+  // componentWillMount: function(){
+  //   //debugger;
+  //   if(!this.context.isUserLoggedin){
+  //     browserHistory.push('/login')
+  //   }
+  // },
   componentDidMount: function () {
     $.ajax({
       url: '/api/event/' + this.props.params.id,
@@ -51,15 +59,19 @@ const Event = React.createClass({
   },
   bookmark: function(){
     console.log("=========== I WAS CLICKED ===========")
-    let whichUser = this.context.currentUser.id;
-    console.log(whichUser);
-    $.ajax({
-      url: '/api/event/add/bookmark/' + this.props.params.id + '/' + whichUser,
-      method: 'GET'
-    })
-    .done((data) => {
-      console.log('Event bookmarked');
-    })
+    if(!this.context.isUserLoggedin){
+      browserHistory.push('/login')
+    } else {
+      $.ajax({
+        url: '/api/event/add/bookmark',
+        method: 'POST',
+        data: { userId: this.context.currentUser.id, eventId: this.props.params.id }
+      })
+      .done((data) => {
+        console.log('Event bookmarked');
+        alert("Bookmark has been added!");
+      })
+    }
   }, 
   render: function () {
     if(!this.state.hours)
