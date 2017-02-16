@@ -24,7 +24,7 @@ let App = React.createClass({
   getInitialState: function(){
     return ({
       email: '', currentUser: 
-        {email: '', firstName: '', lastName: '', id: 0}
+        { email: '', firstName: '', lastName: '', id: 0 }
     })
   },
   componentDidMount: function(){
@@ -103,7 +103,8 @@ ReactDOM.render(
       <Route path='signup' component={Signup}></Route>
       <Route path='account' component={Account}></Route>
       <Route path="contact" component={ContactUs}></Route>
-      <Route path='createevent' component={CreateEvent}></Route>
+      <Route path='user/:id/createevent' component={CreateEvent}></Route>
+      <Route path="createevent" component={CreateEvent}></Route>
       <Route path='createlocation' component={CreateLocation}></Route>
       <Route path='events/:id' component={Event}></Route>
       <Route path='events' component={TodayCarousel}></Route>

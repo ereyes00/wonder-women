@@ -22,12 +22,12 @@ eventRouter.route('/search')
      var newdate = new Date(req.query.dateStart)
      console.log('newdate : ' + newdate)
       storeEvent['opening'] = {
-        $gte : newdate
+        $lte : newdate
       }
     }
     if(req.query.dateEnd !== '') {
       storeEvent['closing'] = {
-        $lte : new Date(req.query.dateEnd)
+        $gte : new Date(req.query.dateEnd)
       }
     }
     if(req.query.type !== '' && req.query.type == 'SearchAll') {
