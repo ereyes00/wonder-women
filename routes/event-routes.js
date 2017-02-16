@@ -69,7 +69,7 @@ eventRouter.route('/')
         res.send(data);
       });
   })
-// This route will be used to create event with image, and hours  
+// This route will be used to create event with image  
   .post(function (req, res) {
     db.Event.create({
       //UserId: req.body.userId,
@@ -112,7 +112,6 @@ eventRouter.route('/')
       }
     })
     .then(function (data) {
-      //console.log("After exhibition hours creation", data);
         res.send('Event created');
     })
     .catch(function (err) {
@@ -120,11 +119,8 @@ eventRouter.route('/')
       res.status(500).send(err.message);
     });
   });
-  
 
 
-
-  
 //This is the route that will be used to display individaul event
 eventRouter.route('/:id')
   .get(function (req, res) {
@@ -142,8 +138,15 @@ eventRouter.route('/:id')
           res.send(data);
         }
       });
+  }) //Route to delete an event
+  .delete(function(req,res) {
+    db.Event.findById(req.params.id)
+    .then(function(data) {
+      data.destroy();
+      res.send("Event deleted!")
+    })
   });
-  
+
 // Purpose: to find events that are opening TODAY
 var today = new Date(Date());
 var date = today.toISOString().split('-', 1)[0];
@@ -174,10 +177,10 @@ eventRouter.route('/date/opening')
 eventRouter.route('/add/bookmark/:eventId/:userId')
 // Route to add a bookmark
   .get(function(req, res) {
-    // const user = req.user;
+    // const user = req.user.id;
+    console.log(typeof(req.params.userId));
     db.User.findById(req.params.userId)
     .then(function(data) {
-      console.log(data);
       data.addBookmark(req.params.eventId)
     })
     .then(function (data){

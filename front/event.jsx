@@ -31,7 +31,6 @@ const Event = React.createClass({
       type: 'GET'
     })
     .done((data) => {
-      console.log('data: ', data)
       this.setState({ 
         title: data.title, 
         opening: data.opening, 
@@ -51,9 +50,15 @@ const Event = React.createClass({
     })
   },
   bookmark: function(){
+    console.log("=========== I WAS CLICKED ===========")
+    let whichUser = this.context.currentUser.id;
+    console.log(whichUser);
     $.ajax({
-      url: '/api/event/add/bookmark' + this.props.params.id + '/' + this.state.userId,
-      type: 'GET'
+      url: '/api/event/add/bookmark/' + this.props.params.id + '/' + whichUser,
+      method: 'GET'
+    })
+    .done((data) => {
+      console.log('Event bookmarked');
     })
   }, 
   render: function () {
@@ -116,5 +121,10 @@ const Event = React.createClass({
       )
   }
 });
+
+Event.contextTypes = {
+  currentUser: React.PropTypes.object,
+  isUserLoggedin: React.PropTypes.boolean
+}
 
 export default Event;

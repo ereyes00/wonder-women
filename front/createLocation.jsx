@@ -145,7 +145,7 @@ const CreateLocation = React.createClass({
             />
             <br /><br />
             
-            <div>  
+            <div onClick={this.handleClick}>  
 
               Hours:
               <br />
