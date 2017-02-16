@@ -104,9 +104,12 @@ const Account = React.createClass({
 
         <br /><br />
 
-        <a href={"user/" + this.state.id + "/createevent" }><button className="button">
-         Create An Event</button>
-        </a>
+        <Link to={'/createevent/'}><button className='button'>Create An Event</button></Link>
+        {
+        // <a href={"user/" + this.state.id + "/createevent" }><button className="button">
+        //  Create An Event</button>
+        // </a>
+        }
 
       </div>
     );
