@@ -46,6 +46,9 @@ let App = React.createClass({
   onUserSignUp: function(userData){
     this.setState({currentUser: userData, isUserLoggedin:true})
   },
+  // onUserLogOut: function(userData){
+  //   this.setState({currentUser: null, isUserLoggedin:false})
+  // },
   getChildContext: function() {
     return {currentUser: this.state.currentUser, 
       onSignUp: this.onUserSignUp, isUserLoggedin: this.state.isUserLoggedin};
@@ -68,15 +71,16 @@ let App = React.createClass({
 
                 this.state.isUserLoggedin ?
                   <Link to='account'>Account</Link>
-                : 
+                  :
+                  //browserHistory.push('/login')
                   <Link to='login'>Login</Link>
-                
-              }
 
+              }
               {
-              //   this.state.email ?
-              //   <Link to='Account'>Account</Link> :
-              // <Link to='Login'>Login</Link>
+                // this.state.onUserLogOut ?
+                //  <Link to='login'>Login</Link>
+                //  :
+                //  <Link to='account'>Account</Link>
               }
 
             </div>
@@ -87,7 +91,7 @@ let App = React.createClass({
 
         <hr className="hr"/>
         <br /> <br />
- 
+
 
         {this.props.children}
 

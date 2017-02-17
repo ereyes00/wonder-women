@@ -51,6 +51,7 @@ const Account = React.createClass({
     .done(() => {
       console.log("You have logged out.");
       browserHistory.push('/')
+
     })
   },
   userCreatesEvent: function(event){
@@ -110,6 +111,8 @@ const Account = React.createClass({
         //  Create An Event</button>
         // </a>
         }
+
+        <Link to={'/createlocation/'}><button className='button'>Create A Location</button></Link>
 
       </div>
     );
