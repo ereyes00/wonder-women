@@ -22,13 +22,13 @@ var Login = React.createClass({
 			url: '/api/user/login',
 			data: this.state,
 			error: ((data) => {
-				console.log(typeof data.responseText)
+				//console.log(typeof data.responseText)
 				this.setState({msg: data.responseText})
 			}).bind(this)
 		})
 		.done((data) => {
 			this.context.onSignUp(data)
-			console.log("Received User Data", data);
+			//console.log("Received User Data", data);
 			browserHistory.push('/account')
 		})
 	},

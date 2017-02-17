@@ -13,9 +13,9 @@ const MapDisplay = React.createClass({
   },
   initMap: function(streetAddress, city, state, zipCode, location) {	 
   	if(streetAddress === ''  || !this.mapDiv) {
-    	 	console.log('returning null')
-    	 	console.log('street: ', streetAddress)
-    	 	console.log('mapDiv: ', this.mapDiv)
+    	 	// console.log('returning null')
+    	 	// console.log('street: ', streetAddress)
+    	 	// console.log('mapDiv: ', this.mapDiv)
     	 	return
   	} 
   	console.log('drawing map')

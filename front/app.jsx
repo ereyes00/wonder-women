@@ -5,7 +5,7 @@ import TodayCarousel from './listEvents.jsx';
 import Home from './home.jsx';
 import Search from './search.jsx';
 import SearchResults from './searchResults.jsx';
-import About from './about.jsx';
+//import About from './about.jsx';
 import ContactUs from './contactUs.jsx';
 import CreateEvent from './createEvent.jsx';
 import CreateLocation from './createLocation.jsx';
