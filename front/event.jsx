@@ -58,7 +58,6 @@ const Event = React.createClass({
     })
   },
   bookmark: function(){
-    console.log("=========== I WAS CLICKED ===========")
     if(!this.context.isUserLoggedin){
       browserHistory.push('/login')
     } else {
@@ -68,7 +67,7 @@ const Event = React.createClass({
         data: { userId: this.context.currentUser.id, eventId: this.props.params.id }
       })
       .done((data) => {
-        console.log('Event bookmarked');
+        //console.log('Event bookmarked');
         alert("Bookmark has been added!");
       })
     }
