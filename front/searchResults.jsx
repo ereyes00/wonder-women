@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './search.jsx';
 import $ from 'jquery';
 import {Link} from 'react-router';
-import './style/listEvents.css';
+import './style/openingMonth.css';
 
 const SearchResults = React.createClass({
   getInitialState: function(){ 
