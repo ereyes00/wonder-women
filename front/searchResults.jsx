@@ -1,10 +1,11 @@
 import React from 'react';
 import SearchBar from './search.jsx';
 import $ from 'jquery';
-import './style/listEvents.css';
+import {Link} from 'react-router';
+import './style/openingMonth.css';
 
 const SearchResults = React.createClass({
-  getInitialState: function(){
+  getInitialState: function(){ 
     return({ 
       results: null,   
       type: this.props.params.type || "SearchAll"
@@ -52,21 +53,24 @@ const SearchResults = React.createClass({
       dateEnd={query.dateEnd}
       />
 
-      <div className="results">
-        <ul>
+      <center><div className="results">
+        <br />
+        <h2 className="resultsTitle"><i>Search Results</i></h2>
+        <br />
           {this.state.results.map((val)=> {
             return(
-              <div key={val.id} className="imgResult" >
+              <div key={val.id} className="imgDiv">
                 {val.Images.length ? 
-                  <img className="imgGrid" src={val.Images[0].url} /> 
+                  <Link to={'/events/' + val.id}><img className="image" src={val.Images[0].url} /> </Link>
                   : null} 
-                <h3>{val.title}</h3>
-                <h3>{val.location}</h3>
+                <h2>{val.Location.location}</h2>
+                <Link to={'/events/' + val.id}><h3>{val.title}</h3></Link>
+
               </div>
             )
           })}
-        </ul>
-      </div>
+        
+      </div></center>
 
       </div>) 
 

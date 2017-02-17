@@ -1,22 +1,28 @@
+.resultsTitle {
+  margin-right: 2%;
+  text-align: center;
+}
+/*
 .eventResult {
   width: 33%;
   height: 40%;
+  height: 400px;
   float: left;
   margin-top: 35px;
   margin-bottom: 35px;
-}
+}*/
 
 /*image class*/
-.imgGrid {
-/*  height: 450px;*/
+.image {
   width: 90%;
   float: left;
 }
 
 /*image div*/
-.imgResult {
-  margin-left: 25px;
-  margin-right: 25px;
+.imgDiv {
+  width: 350px;
+/*  margin-left: 5%;
+  margin-right: 5%;*/
   margin-top: 50px;
   float: left;
 }

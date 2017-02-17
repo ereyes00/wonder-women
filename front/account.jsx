@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import CreateEvent from './createEvent';
 import {Link, browserHistory} from 'react-router';
+import './style/account.css';
 
 const Account = React.createClass({
   getInitialState: function () {
@@ -76,10 +77,10 @@ const Account = React.createClass({
         <h3>Your Account Info:</h3>
         <br /><br />
 
-        <p>Name: {this.state.firstName}{this.state.lastName}</p>
-        <p>Email: {this.state.email}</p>
+        <p><b>Name:</b> {this.state.firstName}{this.state.lastName}</p>
+        <p><b>Email:</b> {this.state.email}</p>
 
-        <button onClick={this.userLogout}>Logout</button>
+        <button className="logout" onClick={this.userLogout}>Logout</button>
 
         <br /><br />
 
