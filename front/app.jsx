@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Event from './event.jsx'
-import TodayCarousel from './listEvents.jsx';
+import openingMonth from './openingMonth.jsx';
 import Home from './home.jsx';
 import Search from './search.jsx';
 import SearchResults from './searchResults.jsx';
@@ -50,6 +50,17 @@ let App = React.createClass({
     return {currentUser: this.state.currentUser, 
       onSignUp: this.onUserSignUp, isUserLoggedin: this.state.isUserLoggedin};
   },
+  userLogout: function(event){
+    event.preventDefault()
+    $.ajax({
+        url: '/logout',
+        type: 'GET'
+    })
+    .done(() => {
+      console.log("You have logged out.");
+      browserHistory.push('/')
+    })
+  },
   render: function () {
     return (
       <div>
@@ -63,6 +74,7 @@ let App = React.createClass({
               <Link to ='events'>Opening This Month</Link>
               <Link to='CreateEvent'>Create Event</Link>
               <Link to='CreateLocation'>Create Location</Link>
+
 
               {
 
@@ -119,7 +131,7 @@ ReactDOM.render(
       <Route path="createevent" component={CreateEvent}></Route>
       <Route path='createlocation' component={CreateLocation}></Route>
       <Route path='events/:id' component={Event}></Route>
-      <Route path='events' component={TodayCarousel}></Route>
+      <Route path='events' component={openingMonth}></Route>
     </Route>
   </Router>,
   document.getElementById('root')

@@ -96,6 +96,8 @@ const SearchBar = React.createClass({
           </Link>
           </div>
         </form>
+        <br />
+        <hr className="searchHr" />
       </div>
     )
   }

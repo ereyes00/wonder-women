@@ -2,13 +2,12 @@ import React from 'react';
 import {Link, browserHistory} from 'react-router';
 import $ from 'jquery';
 import Event from './event.jsx';
-import './style/listEvents.css';
+import './style/openingMonth.css';
 var moment = require('moment');
 
-const TodayCarousel = React.createClass({
+const openingMonth = React.createClass({
   getInitialState: function(){
     return({eventMonth: null})
-    // , tomorrow: [], dayAfterTomorrow: [], weekend: []
   },
   componentDidMount: function(){
     var that = this
@@ -34,13 +33,20 @@ const TodayCarousel = React.createClass({
             <br /><br />
                 {this.state.eventMonth.map((val) => {
                   return (
-                    <div className="eventResult">               
-                      <div key={val.id} className="imgResult">  
+                    <div className="eventResult">        
+                      <div key={val.id} className="imgDiv">  
                         <ul>           
-                          <Link to={'/events/' + val.id}><img className="imgGrid" src={val.Images[0].url} /></Link>   
-                          <Link to={'/events/' + val.id}><h2 className="extitle">{val.title}</h2></Link>
+
+                          <Link to={'/events/' + val.id}>
+                            <img className="image" src={val.Images[0].url} />
+                          </Link>   
+
+                          <Link to={'/events/' + val.id}>
+                            <h2 className="extitle">{val.title}</h2>
+                          </Link>
 
                           <h3 className="exLocate">{val.Location.location}</h3>
+
                         </ul>
                       </div>
                     </div>
@@ -54,4 +60,4 @@ const TodayCarousel = React.createClass({
   }
 })
 
-export default TodayCarousel;
+export default openingMonth;
