@@ -139,15 +139,23 @@ userRouter.route('/login')
 userRouter.route('/get/bookmarks/:id')
 // Route to get all events bookmarked by one user
   .get(function(req, res) {
-    db.Bookmarks.findAll({
-      where: {
-        UserId : req.params.id
-      },
+    // db.Bookmarks.findAll({
+    //   where: {
+    //     UserId : req.params.id,
+    //     include : [{model: db.event}],
+    //   },
+    // })
+    db.User.findById(req.params.id)
+    .then(function (user) {
+      console.log('===== USER ======', user)
+      return user.getBookmark();
     })
-    .then(function (data) {
-      res.send(data)
+    .then(function (bookmarks) {
+      console.log("==== BOOKMARKS ====", bookmarks)
+      res.send(bookmarks);
     })
     .catch(function (err) {
+      console.log("BOOKMARK ERROR ===>", err)
       res.status(500).send(err.message);
     })
   });
