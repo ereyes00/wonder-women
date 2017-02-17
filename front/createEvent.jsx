@@ -5,7 +5,7 @@ import './style/createEvent.css';
 
 const CreateEvent = React.createClass({
   getInitialState: function () {
-    return {  title: '', featuredArtist: '', price: '', description: '', opening: '', closing: '', image: '', imageTitle:'',location:[], chosenLocationId:0,//,userId: this.context.currentUser.id,
+    return {  title: '', featuredArtist: '', price: '', description: '', opening: '', closing: '', image: '', imageTitle:'',location:[], chosenLocationId:0
     }
   },
   componentWillMount: function(){
@@ -16,17 +16,14 @@ const CreateEvent = React.createClass({
     }
   }, 
   componentDidMount: function(){
-    //e.preventDefault();
     var userId = this.context.currentUser.id
     //console.log('userid from createEventForm', userId)
-    // var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
     $.ajax({
       url: '/api/location/locationsby/'+ userId,
       type: 'GET'
     })
     .done((data)=> {
       //console.log('data from create event', data)
-      //if(data){}
       this.setState({location:data})
       console.log('location', this.state.location)
     })
@@ -53,21 +50,7 @@ const CreateEvent = React.createClass({
     //console.log('event from handleChange', e)
     this.setState({[e.target.name]: e.target.value})
   }, 
-
-// add a dropdown with the user's list of locations based on userId
-
   render: function () {
-    // if(this.state.location.length !== 0){
-    //   var rawLocation = this.state.location;
-    //   var locationName = [];
-    //   rawLocation.forEach(function(val, index) {
-    //     locationName.push(<option>{val.location}</option>);
-    //     console.log("================>",locationName);
-    //   });        
-    // } 
-    // else {
-    //   let locationName = [<option></option>];
-    // }
     return (
       <center>
         <div className="createEventForm">
@@ -95,20 +78,6 @@ const CreateEvent = React.createClass({
             >    {
               this.state.location ?
               this.state.location.map((ele, idx)=> (<option value={ele.id}>{ele.location}</option>)) : <option></option>
-              }
-              {
-              // if(this.state.location.length !== 0){
-              //     var rawLocation = this.state.location;
-              //     var locationName = [];
-              //     rawLocation.forEach(function(val, index) {
-              //       locationName.push(<option>{val.location}</option>);
-              //       console.log("================>",locationName);
-              //     });        
-              //   } 
-              //   else {
-              //     let locationName = [<option></option>];
-              //   }
-              //{locationName}
               }
               
             </select>

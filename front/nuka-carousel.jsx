@@ -25,7 +25,6 @@ const NukaCarousel = React.createClass({
     return (
       <center>
         <div>
-        <hr className="carouselHr" />
           <div className="Carousel">
             <h2 className="featuredEvents"><i>Featured Events</i></h2>
             <br />
