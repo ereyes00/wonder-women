@@ -43,7 +43,7 @@ var Signup = React.createClass({
 			<center>
 			  <div className="signUpForm">
 				  <h2 >Sign Up for Art Gal</h2>
-				  <p>Find amazing art events in New York City</p>
+				  <p className="tagline">Find amazing art events in New York City</p>
 				  <div >
 				    <br />
 					  <form onSubmit={this.acctSignUp}>
@@ -82,7 +82,7 @@ var Signup = React.createClass({
 								onChange={this.handleChange.bind(this, "zipCode")}
 							/>
 						  <br /><br />
-							<select value={this.state.role} name="role" onChange={this.updateRole}//{this.updateType.bind(this, 'type')}
+							<select id="soflow" value={this.state.role} name="role" onChange={this.updateRole}//{this.updateType.bind(this, 'type')}
 							>
 								<option value="Individual">Individual</option>
 								<option value="Museum">Museum</option>

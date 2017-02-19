@@ -35,8 +35,7 @@ const openingMonth = React.createClass({
                   return (
                     <div className="eventResult">        
                       <div key={val.id} className="imgDiv">  
-                        <ul>           
-
+                      
                           <Link to={'/events/' + val.id}>
                             <img className="image" src={val.Images[0].url} />
                           </Link>   
@@ -47,7 +46,7 @@ const openingMonth = React.createClass({
 
                           <h3 className="exLocate">{val.Location.location}</h3>
 
-                        </ul>
+                        
                       </div>
                     </div>
                   )

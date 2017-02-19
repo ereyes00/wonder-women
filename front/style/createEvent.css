@@ -1,44 +1,53 @@
 .headerCreate {
-	font-family: 'Archivo Black', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .createEventForm {
-	margin-top: 10%;
-    margin-left: 50%;
+	margin-top: 5%;
 }
 
-
+.createLocationForm {
+	margin-top: 5%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+ 
 .inputEvent {
 	border: none;
-	border-bottom: 2px solid black;
-	width: 400px;
+	border: 2px solid black;
+	width: 300px;
 	padding: 12px 20px;
 	float: center;
 }
 
 .cal {
 	border: none;
-	border-bottom: 2px solid black;
+	border: 2px solid black;
 	width: 300px;
 	padding: 12px 20px;
 	left: 20%;
 	right: 20%;
 }
 
-/*.button {
-	background-color: blue;
-	border: none;
-	color: white;
-	padding: 10px 25px;
-	margin: 10px;
-	cursor: pointer;
-}*/
+.timeInput {
+	border: 2px solid black;
+	width: 100px;
+	padding: 6px 10px;
+}
 
 h2 {
-	font-family: 'Archivo Black', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Hours form styling*/
+
+.regularInput {
+	float: left;
+}
+
+.hours {
+	float: right;
+}
 
 .dayBox {
 	height: 70px;

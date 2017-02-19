@@ -58,24 +58,21 @@ const CreateEvent = React.createClass({
           <h2 className='headerCreate'>Create An Event</h2>
           
           <form onSubmit={this.addEvent} className='createEvent'>
-            <br /><br />
-            
-            Event Title:
             <br />
+            
             <input 
               type="text"
               name="title"
               className="inputEvent"
+              placeholder="Event Title"
               onChange={this.handleChange} 
             />
             <br /><br />
             
-
-            Location:
-            <br />
-
-            <select  name="location" onChange={this.handleLocation}
-            >    {
+            <select  name="location" 
+            placeholder=""
+            onChange={this.handleLocation}>    
+              {
               this.state.location ?
               this.state.location.map((ele, idx)=> (<option value={ele.id}>{ele.location}</option>)) : <option></option>
               }
@@ -83,53 +80,47 @@ const CreateEvent = React.createClass({
             </select>
             <br /><br />
 
-
-            Featured Artist:
-            <br />
             <input 
               type="text"
               name='featuredArtist'
               className="inputEvent"
+              placeholder="Featured Artist"
               onChange={this.handleChange}
             />
             <br /><br />
 
-            Event Image Link:
-            <br />
             <input 
               type="text"
               name="image"
               className="inputEvent"
+              placeholder="Event Image Link"
               onChange={this.handleChange} 
             />
             <br /><br />
 
-            Image Title:
-            <br />
             <input 
               type="text"
               name="imageTitle"
               className="inputEvent"
+              placeholder="Image Title"
               onChange={this.handleChange} 
             />
             <br /><br />            
 
-            Price:
-            <br />
             <input 
               type="text"
               name="price"
               className="inputEvent"
+              placeholder="Entry Fee"
               onChange={this.handleChange} 
             />
             <br /><br />
 
-            Description:
-            <br />
             <input 
               type="text"
               name="description"
               className="inputEvent"
+              placeholder="Description"
               onChange={this.handleChange}
             />
             <br /><br />
@@ -144,7 +135,7 @@ const CreateEvent = React.createClass({
                 onChange={this.handleChange} 
               />
             </div>
-            <br /><br />
+            <br />
 
             <div>
               Closing Day:
@@ -156,7 +147,7 @@ const CreateEvent = React.createClass({
                 onChange={this.handleChange} 
               />
             </div>
-            <br /><br />
+            <br />
 
             <input type="submit"
             className="button"
