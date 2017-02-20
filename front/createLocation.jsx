@@ -60,8 +60,9 @@ const CreateLocation = React.createClass({
     return (
         <div className="createLocationForm">
           
-          <center><h2>Create A Location</h2></center>
+          <h2 className="directory">Add Location to Directory</h2>
           
+          <h4>Location</h4><br />
           <form onSubmit={this.addLocation} className='createLocation'>
             <div>
               <div className="regularInput">
@@ -139,23 +140,23 @@ const CreateLocation = React.createClass({
             <div className="hours">
             <div onClick={this.handleClick}>  
 
-              <h4>Hours</h4>
-              <p>Leave time blank if location will be closed.</p>
+              <h4 className="hoursHead">Hours</h4>
+              <p className="closed">Leave time blank if location will be closed.</p>
               
               <div className="dayBox">
 
-                <b>Sunday:</b> From
+                <b>Sunday</b><br />
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeFromInput"
                   name="openTime"
                   onChange={this.handleHour.bind(this, 'Sunday', true)}
                 />
 
-                To 
+                 &nbsp; - &nbsp; 
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeToInput"
                   name="closeTime"
                   onChange={this.handleHour.bind(this, 'Sunday', false)}
                 />
@@ -164,18 +165,18 @@ const CreateLocation = React.createClass({
 
               <div className="dayBox">
                 
-                <b>Monday:</b> From
+                <b>Monday</b><br />                 
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeFromInput"
                   name="openTime"
                   onChange={this.handleHour.bind(this, 'Monday', true)}
                 />
-
-                <label>To</label>
+                
+                &nbsp; - &nbsp;
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeToInput"
                   name="closeTime"
                   onChange={this.handleHour.bind(this, 'Monday', false)}
                 />
@@ -184,18 +185,18 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <b>Tuesday:</b> From
+                <b>Tuesday</b><br />                 
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeFromInput"
                   name="openTime"
                   onChange={this.handleHour.bind(this, 'Tuesday', true)}
                 />
 
-                <label>To</label>
+                &nbsp; - &nbsp;
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeToInput"
                   name="closeTime"
                   onChange={this.handleHour.bind(this, 'Tuesday', false)}
                 />
@@ -205,18 +206,18 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <b>Wednesday:</b> From
+                <b>Wednesday</b> <br />                
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeFromInput"
                   name="openTime"
                   onChange={this.handleHour.bind(this, 'Wednesday', true)}
                 />
 
-                <label>To</label>
+                &nbsp; - &nbsp;
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeToInput"
                   name="closeTime"
                   onChange={this.handleHour.bind(this, 'Wednesday', false)}
                 />
@@ -227,18 +228,18 @@ const CreateLocation = React.createClass({
 
               <div className="dayBox">
 
-                <b>Thursday:</b> From:
+                <b>Thursday</b> <br />
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeFromInput"
                   name="openTime"
                   onChange={this.handleHour.bind(this, 'Thursday', true)}
                 />
 
-                <label>To</label>
+                &nbsp; - &nbsp;
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeToInput"
                   name="closeTime"
                   onChange={this.handleHour.bind(this, 'Thursday', false)}
                 />
@@ -247,18 +248,18 @@ const CreateLocation = React.createClass({
               
               <div className="dayBox">
 
-                <b>Friday:</b> From:
+                <b>Friday</b> <br />
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeFromInput"
                   name="openTime"
                   onChange={this.handleHour.bind(this, 'Friday', true)}
                 />
 
-                <label>To</label>
+                &nbsp; - &nbsp;
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeToInput"
                   name="closeTime"
                   onChange={this.handleHour.bind(this, 'Friday', false)}
                 />
@@ -267,18 +268,18 @@ const CreateLocation = React.createClass({
 
               <div className="dayBox">
 
-                <b>Saturday:</b> From:
+                <b>Saturday</b> <br />
                 <input 
                   type="time"
-                  className="timeInput" 
+                  className="timeFromInput" 
                   name="openTime"
                   onChange={this.handleHour.bind(this, 'Saturday', true)}
                 />
 
-                <label>To</label>
+                &nbsp; - &nbsp;
                 <input 
                   type="time" 
-                  className="timeInput"
+                  className="timeToInput"
                   name="closeTime"
                   onChange={this.handleHour.bind(this, 'Saturday', false)}/>
  
