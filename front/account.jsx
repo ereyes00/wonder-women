@@ -41,7 +41,8 @@ const Account = React.createClass({
       })
 
       $.ajax({
-        url: '/api/user/get/bookmarks/' + userId,
+        url: '/api/user/' + userId + '/bookmarks',
+        type:'GET'
       })
       .then((bookmarks) => {
         //console.log("BOOKMARKS", bookmarks);
@@ -49,31 +50,31 @@ const Account = React.createClass({
       })
     })
   },
-  userLogout: function(event){
-    event.preventDefault()
-    $.ajax({
-        url: '/logout',
-        type: 'GET'
-    })
-    .done(() => {
-      console.log("You have logged out.");
-      browserHistory.push('/')
+  // userLogout: function(event){
+  //   event.preventDefault()
+  //   $.ajax({
+  //       url: '/logout',
+  //       type: 'GET'
+  //   })
+  //   .done(() => {
+  //     console.log("You have logged out.");
+  //     browserHistory.push('/')
 
-    })
-  },
-  userCreatesEvent: function(event){
-    event.preventDefault()
-    var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
-    $.ajax({
-      url: '/api/event',
-      type: 'POST',
-      data: toSend
-    })
-    .done(() => {
-      console.log("Event created.")
-      browserHistory.push('/account')
-    })
-  },
+  //   })
+  // },
+  // userCreatesEvent: function(event){
+  //   event.preventDefault()
+  //   var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
+  //   $.ajax({
+  //     url: '/api/event',
+  //     type: 'POST',
+  //     data: toSend
+  //   })
+  //   .done(() => {
+  //     console.log("Event created.")
+  //     browserHistory.push('/account')
+  //   })
+  // },
   render: function () {
     return (
       <div className="acctDiv">
@@ -91,8 +92,18 @@ const Account = React.createClass({
             </p>
 
           <hr />
+          {//<UserBookmarks />
+          }
 
-          <UserBookmarks />
+          <h3>Your Bookmarked Events:</h3>
+            <ul>
+              {!this.state.bookmarks ? "You have not Bookmarked any events." : this.state.bookmarks.map((val, idx) => {
+                return(
+                  <Link to={'/events/' + val.id}><li key={idx}>{val.title}</li>
+                  </Link>)
+              })}
+            </ul>
+          
 
           <h3>Your Created Events:</h3>
             <ul>
@@ -102,17 +113,20 @@ const Account = React.createClass({
                   </Link>)
               })}
             </ul>
-
-        </div>
-
-        <br /><br />
+          </div>
+            <br /><br />
         <div className="acctButtons">
+        
           <Link to={'/createlocation/'}><button className='button'>Create A Location</button></Link>
           <br />
           <Link to={'/createevent/'}><button className='button'>Create An Event</button></Link>
+        
+
           <br />
           <br />
-          <button className="logout" onClick={this.userLogout}>Logout</button>
+          {
+            //<button className="logout" onClick={this.userLogout}>Logout</button>
+          }
         </div>
       </div>
     );
@@ -126,14 +140,3 @@ Account.contextTypes = {
 
  export default Account;
 
-          // <h3>Your Bookmarks:</h3>
-          //   <ul>
-          //     {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {
-
-          //       let eventTitle = val.title
-
-          //       return (
-          //         <li key={idx}>{eventTitle}</li>
-          //       )
-          //     })}
-          //   </ul>
