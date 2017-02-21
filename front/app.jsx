@@ -18,6 +18,7 @@ import {withRouter, Router, Route, Link, browserHistory, IndexRoute} from 'react
 import './style/home.css';
 import $ from 'jquery';
 
+
 // make sure Route paths do not duplicate those on the back end '/api/user' and '/api/event'
 
 let App = React.createClass({

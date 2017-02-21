@@ -3,6 +3,8 @@ import './style/event.css';
 import MapDisplay from './map'
 const React = require('react');
 import { browserHistory } from 'react-router';
+import Popup from './lightBox'
+const basicLightbox = require('basiclightbox');
 
  
 const Event = React.createClass({
