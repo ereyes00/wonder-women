@@ -42,6 +42,7 @@ const Account = React.createClass({
 
       $.ajax({
         url: '/api/user/get/bookmarks/' + userId,
+        type:'GET'
       })
       .then((bookmarks) => {
         //console.log("BOOKMARKS", bookmarks);
@@ -102,10 +103,8 @@ const Account = React.createClass({
                   </Link>)
               })}
             </ul>
-
-        </div>
-
-        <br /><br />
+          </div>
+            <br /><br />
         <div className="acctButtons">
           <Link to={'/createlocation/'}><button className='button'>Create A Location</button></Link>
           <br />
@@ -126,14 +125,3 @@ Account.contextTypes = {
 
  export default Account;
 
-          // <h3>Your Bookmarks:</h3>
-          //   <ul>
-          //     {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {
-
-          //       let eventTitle = val.title
-
-          //       return (
-          //         <li key={idx}>{eventTitle}</li>
-          //       )
-          //     })}
-          //   </ul>

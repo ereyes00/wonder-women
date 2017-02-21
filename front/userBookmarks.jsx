@@ -5,7 +5,7 @@ import './style/userBookmarks.css';
 const UserBookmarks = React.createClass({
 	render: function(){
 		return(
-			<div class="container">
+			<div className="container">
 
 <h2>Your Bookmarks</h2>
     <div className="agenda">
@@ -20,7 +20,7 @@ const UserBookmarks = React.createClass({
                 </thead>
                 <tbody>
                     <tr>
-                        <td classNameName="agenda-date" className="active" rowspan="1">
+                        <td className="agenda-date" className="active" rowSpan="1">
                             <div className="dayofmonth">26</div>
                             <div className="dayofweek">Saturday</div>
                             <div className="shortdate text-muted">July, 2014</div>
@@ -37,7 +37,7 @@ const UserBookmarks = React.createClass({
                     </tr>
                     
                     <tr>
-                        <td className="agenda-date" className="active" rowspan="3">
+                        <td className="agenda-date" className="active" rowSpan="3">
                             <div className="dayofmonth">24</div>
                             <div className="dayofweek">Thursday</div>
                             <div className="shortdate text-muted">July, 2014</div>
