@@ -40,6 +40,7 @@ const Account = React.createClass({
 
       $.ajax({
         url: '/api/user/get/bookmarks/' + userId,
+        type:'GET'
       })
       .then((bookmarks) => {
         //console.log("BOOKMARKS", bookmarks);
@@ -90,18 +91,12 @@ const Account = React.createClass({
 
         <h3>Your Bookmarks:</h3>
         <ul>
-          {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {
-
-            let eventTitle = val.title
-            //let eventImages = val.Images[0].url
-            //let openingDate = val.opening
-            //let closingDate = val.closing
-
-            return (
-              <Link to={'/events/' + val.id}><li key={idx}>{eventTitle}</li></Link>
-            )
+          {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {//let eventImages = val.Images[0].url
+            return (<Link to={'/events/' + val.id}><li key={idx}>{val.title}</li></Link>)
           })}
         </ul>
+
+        <br /><br />
 
         <h3>Your Created Events:</h3>
         <ul>
