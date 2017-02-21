@@ -70,7 +70,8 @@ const Event = React.createClass({
       })
       .done((data) => {
         //console.log('Event bookmarked');
-        alert("Bookmark has been added!");
+        //alert("Bookmark has been added!");
+        Popup.show();
       })
     }
   }, 
