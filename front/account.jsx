@@ -42,7 +42,7 @@ const Account = React.createClass({
         url: '/api/user/get/bookmarks/' + userId,
       })
       .then((bookmarks) => {
-        console.log("BOOKMARKS", bookmarks);
+        //console.log("BOOKMARKS", bookmarks);
         this.setState({ bookmarks: bookmarks });
       })
     })
@@ -93,9 +93,12 @@ const Account = React.createClass({
           {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {
 
             let eventTitle = val.title
+            //let eventImages = val.Images[0].url
+            //let openingDate = val.opening
+            //let closingDate = val.closing
 
             return (
-              <li key={idx}>{eventTitle}</li>
+              <Link to={'/events/' + val.id}><li key={idx}>{eventTitle}</li></Link>
             )
           })}
         </ul>
