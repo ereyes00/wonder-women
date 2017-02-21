@@ -26,6 +26,7 @@
     "babel-preset-react": "^6.22.0",
     "basiclightbox": "^3.0.2",
     "body-parser": "^1.16.0",
+    "bootstrap": "^3.3.7",
     "bootstrap-loader": "^2.0.0-beta.20",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",

@@ -1519,6 +1519,55 @@ const locationHours = [
     closeTime: '06:00 PM',
     closed: null,
     LocationId: 30
+  },
+  {//Musuem of the Moving Image
+    dayOfWeek: 'Sunday',
+    openTime: '11:30 AM',
+    closeTime: '07:00 PM',
+    closed: null,
+    LocationId: 31
+  },
+  {
+    dayOfWeek: 'Monday',
+    openTime: null,
+    closeTime: null,
+    closed: 'closed',
+    LocationId: 31
+  },
+  {
+    dayOfWeek: 'Tuesday',
+    openTime: null,
+    closeTime: null,
+    closed: 'closed',
+    LocationId: 31
+  },
+  {
+    dayOfWeek: 'Wednesday',
+    openTime: '10:30 AM',
+    closeTime: '02:00 PM',
+    closed: null,
+    LocationId: 31
+  },
+  {
+    dayOfWeek: 'Thursday',
+    openTime: '10:30 AM',
+    closeTime: '02:00 PM',
+    closed: null,
+    LocationId: 31
+  },
+  {
+    dayOfWeek: 'Friday',
+    openTime: '10:30 AM',
+    closeTime: '08:00 PM',
+    closed: null,
+    LocationId: 31
+  },
+  {
+    dayOfWeek: 'Saturday',
+    openTime: '11:30 AM',
+    closeTime: '07:00 PM',
+    closed: null,
+    LocationId: 31
   }
 ];
 

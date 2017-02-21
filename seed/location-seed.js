@@ -7,7 +7,7 @@ const location = [
     state: "NY",
     zipCode: 11238,
     type: 'MUSEUM',
-    UserId:1
+    UserId: 2
   },
   {//2
     location: 'Minus Space',
@@ -137,7 +137,7 @@ const location = [
     state: "NY",
     zipCode: 10021,
     type: 'GALLERY',
-    UserId:3
+    UserId: 7
   },
   {//15
     location: 'DC Moore Gallery',
@@ -157,7 +157,7 @@ const location = [
     state: "NY",
     zipCode: 10011,
     type: 'GALLERY',
-    UserId:3
+    UserId: 6
   },
   {//17
     location: 'Totah',
@@ -297,7 +297,17 @@ const location = [
     state: "NY",
     zipCode: 10002,
     type: 'GALLERY',
-    UserId:5
+    UserId: 7
+  },
+  {//31
+    location: 'Museum of the Moving Image',
+    phoneNumber: '718-777-6888',
+    streetAddress: '36-01 35th Avenue',
+    city: 'Astoria',
+    state: 'NY',
+    zipCode: 11106,
+    type: 'MUSEUM',
+    UserId: 6
   }
 ];
 

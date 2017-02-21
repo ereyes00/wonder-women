@@ -18,7 +18,7 @@ const openingMonth = React.createClass({
         that.setState({eventMonth: data})
       }
     })  
-  },
+  }, 
   render: function(){
     if (this.state.eventMonth){
       console.log(this.state.eventMonth)

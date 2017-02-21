@@ -41,10 +41,11 @@ const Event = React.createClass({
       type: 'GET'
     })
     .done((data) => {
+      //console.log('opening',data.opening.split('', 10).join(''))
       this.setState({ 
         title: data.title, 
-        opening: data.opening, 
-        closing: data.closing, 
+        opening: data.opening.split('', 10).join(''), 
+        closing: data.closing.split('', 10).join(''), 
         location: data.Location.location,
         hours: data.Location.LocationHours, 
         price: data.price, 
@@ -76,6 +77,9 @@ const Event = React.createClass({
     }
   }, 
   render: function () {
+    var Style= {
+      listStyle: 'none'
+    };
     if(!this.state.hours)
       return null
       return(
@@ -87,31 +91,34 @@ const Event = React.createClass({
               </div>
               
               <h1 className="event">{this.state.title}</h1>                           
-              <h2>{this.state.opening} - {this.state.closing}</h2>
+              <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
 
               <button 
                 className="bookmark" 
                  onClick={this.bookmark}
                >Bookmark
               </button>
+              <div>
+                <h2>{this.state.location}</h2>
+                <p>{this.state.streetAddress}</p>
+                <p>{this.state.city}, {this.state.state}, {this.state.zipCode}</p>
+              </div>
 
-              <ul >
-                <li><h2>{this.state.location}</h2></li>
-                <li>{this.state.streetAddress}</li>
-                <li>{this.state.city}, {this.state.state} {this.state.zipCode}</li>
-              </ul> 
-
-              <ul className="hours"><strong>Location Hours:</strong> </ul>
+              <div>
+              <strong>Location Hours:</strong>
+              <br /><br />
+              <ul className="hours" style={Style}> </ul>
                   {this.state.hours.map((el,idx)=> {
                     if(el.closed){
-                      return <li key={idx}> 
+                      return <li key={idx} style={Style}> 
                         <b>{el.dayOfWeek}:</b> {el.closed}
                       </li>
                     } 
-                     return <li key={idx}> 
+                     return <li key={idx} style={Style}> 
                       <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
                      </li>
                   })}
+              </div>
    
               <p><strong>Price: </strong>{this.state.price}</p>
 
