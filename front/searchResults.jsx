@@ -56,15 +56,20 @@ const SearchResults = React.createClass({
       <center><div className="results">
         <br />
         <h2 className="resultsTitle"><i>Search Results</i></h2>
-        <br />
           {this.state.results.map((val)=> {
             return(
               <div key={val.id} className="imgDiv">
-                {val.Images.length ? 
-                  <Link to={'/events/' + val.id}><img className="image" src={val.Images[0].url} /> </Link>
-                  : null} 
-                <h2>{val.Location.location}</h2>
-                <Link to={'/events/' + val.id}><h3>{val.title}</h3></Link>
+                {
+                  val.Images.length ? 
+                  <Link to={'/events/' + val.id}>
+                    <img className="image" src={val.Images[0].url} /> 
+                  </Link>
+                  : null
+                } 
+                <Link to={'/events/' + val.id}><h2 className="extitle">{val.title}</h2></Link>
+                <h3 className="exLocate">{val.Location.location}</h3>
+
+
 
               </div>
             )
