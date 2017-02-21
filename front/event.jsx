@@ -68,7 +68,13 @@ const Event = React.createClass({
       })
       .done((data) => {
         //console.log('Event bookmarked');
-        //alert("Bookmark has been added!");
+
+        let bookmarkButton = document.getElementsByClassName("bookmark")[0];
+
+        if(bookmarkButton.innerHTML === "Bookmark"){
+          bookmarkButton.innerHTML = "Bookmarked!";
+          bookmarkButton.className = "bookmarked"
+        }
       })
     }
   }, 
