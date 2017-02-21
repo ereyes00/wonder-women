@@ -73,12 +73,9 @@ userRouter.route('/:id/createdEvents')
 
     // .then((data)=> {
     //   console.log('data from session', data)
-      db.Event.findAll({
-        where: {
-          UserId: req.session.userId
-        }
-      })
-    
+    db.Event.findAll({
+      where: {UserId: req.session.userId}
+    })
     .then((events) => {
       console.log(events)
       res.send(events)
@@ -139,13 +136,12 @@ userRouter.route('/login')
 userRouter.route('/get/bookmarks/:id')
 // Route to get all events bookmarked by one user
   .get(function(req, res) {
-    db.Bookmarks.findAll({
-      where: {
-        UserId : req.params.id
-      },
+    db.User.findById(req.params.id)
+    .then(function (user) {
+      return user.getBookmark({include:[db.Image, db.Location]});
     })
-    .then(function (data) {
-      res.send(data)
+    .then(function (bookmarks) {
+      res.send(bookmarks);
     })
     .catch(function (err) {
       res.status(500).send(err.message);

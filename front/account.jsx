@@ -39,10 +39,14 @@ const Account = React.createClass({
         this.setState({ createdEvents: events });
         //console.log("after setState")
       })
-      // .then((bookmarks) => {
-      //   //console.log(bookmarks);
-      //   this.setState({ bookmarks: bookmarks });
-      // })
+
+      $.ajax({
+        url: '/api/user/get/bookmarks/' + userId,
+      })
+      .then((bookmarks) => {
+        //console.log("BOOKMARKS", bookmarks);
+        this.setState({ bookmarks: bookmarks });
+      })
     })
   },
   userLogout: function(event){
@@ -110,7 +114,6 @@ const Account = React.createClass({
           <br />
           <button className="logout" onClick={this.userLogout}>Logout</button>
         </div>
-
       </div>
     );
   }
