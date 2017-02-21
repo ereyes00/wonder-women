@@ -68,7 +68,7 @@ let App = React.createClass({
     return (
       <div>
         <div className="logo-class">
-          <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.png')} /></Link>
+          <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.png')} alt="Art Gal" /></Link>
         </div>
 
         <nav className="navbar navbar-inverse">

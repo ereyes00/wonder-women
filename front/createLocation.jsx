@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import { browserHistory } from 'react-router';
-//import './style/createLocation.css';
+import './style/createEvent.css';
 
 const CreateLocation = React.createClass({
   getInitialState: function () {
@@ -58,19 +58,19 @@ const CreateLocation = React.createClass({
   render: function () {
     //console.log('state', this.state)
     return (
-      <center>
         <div className="createLocationForm">
           
-          <h2>Create A Location</h2>
+          <h2 className="directory">Add Location to Directory</h2>
           
+          <h4>Location</h4><br />
           <form onSubmit={this.addLocation} className='createLocation'>
-              
-            Location:
-            <br />
+            <div>
+              <div className="regularInput">
             <input 
               type="text"
               name='location'
               className="inputEvent"
+              placeholder="Location"
               onChange={this.handleChange}
             />
             <br /><br />
@@ -83,223 +83,215 @@ const CreateLocation = React.createClass({
             </select>
             <br /><br />
              
-            Phone Number:
-            <br />
             <input 
               type="text"
               name='phoneNumber'
               className="inputEvent"
+              placeholder="Phone Number"
               onChange={this.handleChange}
             />
             <br /><br />
             
-            Address:
-            <br />
             <input 
               type="text"
               name='streetAddress'
               className="inputEvent"
+              placeholder="Address"
               onChange={this.handleChange}
             />
             <br /><br />
-            
-            City:
-            <br />
+
             <input 
               type="text"
               name='city'
               className="inputEvent"
+              placeholder="City"
               onChange={this.handleChange} 
             />
             <br /><br />
-            
-            State:
-            <br />
+
             <input 
               type="text"
               name='state'
               className="inputEvent"
+              placeholder="State"
               onChange={this.handleChange} 
             />
             <br /><br />
 
-            Zip Code:
-            <br />
             <input 
               type="text"
               name='zipCode'
               className="inputEvent"
+              placeholder="Zip Code"
               onChange={this.handleChange} 
             />
             <br /><br />
-            
-            <div onClick={this.handleClick}>  
 
-              Hours:
-              <br />
-              <br />
-              
-              <div className="dayBox">
-
-                <label>Sunday</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Sunday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Sunday', false)}
-                /><br /><br />
- 
-              </div>
-
-              <div className="dayBox">
-
-                <label>Monday</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Monday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Monday', false)}
-                /><br /><br />
- 
-              </div>
-              <br /><br />
-              
-              <div className="dayBox">
-
-
-                <label>Tuesday</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Tuesday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Tuesday', false)}
-                />
-                <br /><br />
- 
-              </div>
-              <br /><br />
-              
-              <div className="dayBox">
-
-                <label>Wednesday</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Wednesday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Wednesday', false)}
-                />
-                <br /><br />
- 
-              </div>
-              <br /><br />
-
-              <div className="dayBox">
-
-                <label>Thursday</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Thursday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Thursday', false)}
-                /><br /><br />
- 
-              </div>
-              <br /><br />              
-              
-              <div className="dayBox">
-
-                <label>Friday</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Friday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Friday', false)}
-                /><br /><br />
- 
-              </div>
-              <br /><br />
-                            
-              <div className="dayBox">
-
-                <label>Saturday</label><br /><br />
-
-                <label>From</label>
-                <input 
-                  type="time" 
-                  name="openTime"
-                  onChange={this.handleHour.bind(this, 'Saturday', true)}
-                />
-
-                <label>To</label>
-                <input 
-                  type="time" 
-                  name="closeTime"
-                  onChange={this.handleHour.bind(this, 'Saturday', false)}
-                /><br /><br />
- 
-              </div>
-              <br /><br />
-              
-
-              <br /></div>
-            
-              <input 
+            <input 
                 type="submit"
                 className="button"
                 id="submit"
                 value="Submit" 
-              />
+            />
+
+            </div>
+
+            <div className="hours">
+            <div onClick={this.handleClick}>  
+
+              <h4 className="hoursHead">Hours</h4>
+              <p className="closed">Leave time blank if location will be closed.</p>
+              
+              <div className="dayBox">
+
+                <b>Sunday</b><br />
+                <input 
+                  type="time" 
+                  className="timeFromInput"
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Sunday', true)}
+                />
+
+                 &nbsp; - &nbsp; 
+                <input 
+                  type="time" 
+                  className="timeToInput"
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Sunday', false)}
+                />
+ 
+              </div>
+
+              <div className="dayBox">
+                
+                <b>Monday</b><br />                 
+                <input 
+                  type="time" 
+                  className="timeFromInput"
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Monday', true)}
+                />
+                
+                &nbsp; - &nbsp;
+                <input 
+                  type="time" 
+                  className="timeToInput"
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Monday', false)}
+                />
+ 
+              </div>
+              
+              <div className="dayBox">
+
+                <b>Tuesday</b><br />                 
+                <input 
+                  type="time" 
+                  className="timeFromInput"
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Tuesday', true)}
+                />
+
+                &nbsp; - &nbsp;
+                <input 
+                  type="time" 
+                  className="timeToInput"
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Tuesday', false)}
+                />
+              
+ 
+              </div>
+              
+              <div className="dayBox">
+
+                <b>Wednesday</b> <br />                
+                <input 
+                  type="time" 
+                  className="timeFromInput"
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Wednesday', true)}
+                />
+
+                &nbsp; - &nbsp;
+                <input 
+                  type="time" 
+                  className="timeToInput"
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Wednesday', false)}
+                />
+                
+ 
+              </div>
+             
+
+              <div className="dayBox">
+
+                <b>Thursday</b> <br />
+                <input 
+                  type="time" 
+                  className="timeFromInput"
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Thursday', true)}
+                />
+
+                &nbsp; - &nbsp;
+                <input 
+                  type="time" 
+                  className="timeToInput"
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Thursday', false)}
+                />
+ 
+              </div>            
+              
+              <div className="dayBox">
+
+                <b>Friday</b> <br />
+                <input 
+                  type="time" 
+                  className="timeFromInput"
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Friday', true)}
+                />
+
+                &nbsp; - &nbsp;
+                <input 
+                  type="time" 
+                  className="timeToInput"
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Friday', false)}
+                />
+ 
+              </div>
+
+              <div className="dayBox">
+
+                <b>Saturday</b> <br />
+                <input 
+                  type="time"
+                  className="timeFromInput" 
+                  name="openTime"
+                  onChange={this.handleHour.bind(this, 'Saturday', true)}
+                />
+
+                &nbsp; - &nbsp;
+                <input 
+                  type="time" 
+                  className="timeToInput"
+                  name="closeTime"
+                  onChange={this.handleHour.bind(this, 'Saturday', false)}/>
+ 
+              </div>
+              </div>
+
+              <br /></div>
+              
+
+            </div>
           </form>
         </div>
-      </center>
     );
   }
 });
@@ -310,4 +302,3 @@ CreateLocation.contextTypes = {
 }
 
 export default CreateLocation;
-

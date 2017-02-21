@@ -20,24 +20,25 @@
 
 /*image div*/
 .imgDiv {
-  width: 350px;
-/*  margin-left: 5%;
-  margin-right: 5%;*/
-  margin-top: 50px;
+  width: 370px;
+  margin-left: 35px;
+  margin-right: 15px;
+  margin-top: 75px;
   float: left;
 }
 
-h2 {
+.extitle {
   text-align: left;
   margin: 0;
   padding: 0;
 }
 
 
-h3 {
+.exLocate {
   color: grey;
-  margin: 0;
-  padding: 0;
+  margin-top: -15px;
+  padding-top: 0;
+  margin-bottom: 75px;
   text-align: left;
 }
 

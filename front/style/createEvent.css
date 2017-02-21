@@ -1,44 +1,83 @@
 .headerCreate {
-	font-family: 'Archivo Black', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .createEventForm {
-	margin-top: 10%;
-    margin-left: 50%;
+	margin-top: 5%;
 }
 
-
+.createLocationForm {
+	margin-top: 5%;
+	margin-left: 23%;
+/*	margin-right: 15%;*/
+}
+ 
 .inputEvent {
 	border: none;
-	border-bottom: 2px solid black;
-	width: 400px;
+	border: 2px solid black;
+	width: 300px;
 	padding: 12px 20px;
 	float: center;
 }
 
 .cal {
 	border: none;
-	border-bottom: 2px solid black;
+	border: 2px solid black;
 	width: 300px;
 	padding: 12px 20px;
 	left: 20%;
 	right: 20%;
 }
 
-/*.button {
-	background-color: blue;
-	border: none;
-	color: white;
-	padding: 10px 25px;
-	margin: 10px;
-	cursor: pointer;
-}*/
+.timeFromInput {
+	border: 2px solid black;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100px;
+	padding: 6px 10px;
+/*	margin-right: 100px;*/
+}
+
+.timeToInput {
+	border: 2px solid black;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100px;
+	padding: 6px 10px;
+/*	margin-right: 50px;*/
+}
+
 
 h2 {
-	font-family: 'Archivo Black', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.directory {
+	margin-left: 20%;
 }
 
 /* Hours form styling*/
+
+.closed {
+	margin-top: 0;
+	padding-top: 0;
+	color: #990000;
+}
+
+.hoursHead {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.regularInput {
+	float: left;
+}
+
+.hours {
+	float: left;
+	margin-top: -35px;
+	margin-left: 50px;
+}
 
 .dayBox {
 	height: 70px;
