@@ -70,7 +70,6 @@ userRouter.route('/:id/createEvent')
 userRouter.route('/:id/createdEvents')
   .get(function(req, res) {
     // db.User.findById(req.session.userId)
-
     // .then((data)=> {
     //   console.log('data from session', data)
     db.Event.findAll({
@@ -84,6 +83,39 @@ userRouter.route('/:id/createdEvents')
       res.status(500).send(err.message)
     })
   })
+
+// userRouter.route('/:id/bookmarks')
+// // Route to get all events bookmarked by one user
+//   .get(function(req, res) {
+//     db.Bookmark.findAll({
+//       where: {UserId: req.session.userId}
+//     })
+//     // .then(function (user) {
+//     //   return user.getBookmark({include:[db.Image, db.Location]});
+//     // })
+//     .then(function (bookmarks) {
+//       console.log('bookmarks', bookmarks)
+//       res.send(bookmarks);
+//     })
+//     .catch(function (err) {
+//       res.status(500).send(err.message);
+//     })
+//   });
+
+  userRouter.route('/:id/bookmarks')
+// Route to get all events bookmarked by one user
+  .get(function(req, res) {
+    db.User.findById(req.params.id)
+    .then(function (user) {
+      return user.getBookmark({include:[db.Image, db.Location]});
+    })
+    .then(function (bookmarks) {
+      res.send(bookmarks);
+    })
+    .catch(function (err) {
+      res.status(500).send(err.message);
+    })
+  });
 
 // userRouter.route('/createdBy/:id')
 // // Route to get all events created by one user
@@ -133,20 +165,7 @@ userRouter.route('/login')
   })
 });
 
-userRouter.route('/get/bookmarks/:id')
-// Route to get all events bookmarked by one user
-  .get(function(req, res) {
-    db.User.findById(req.params.id)
-    .then(function (user) {
-      return user.getBookmark({include:[db.Image, db.Location]});
-    })
-    .then(function (bookmarks) {
-      res.send(bookmarks);
-    })
-    .catch(function (err) {
-      res.status(500).send(err.message);
-    })
-  });
+
 
 
 module.exports = userRouter;
