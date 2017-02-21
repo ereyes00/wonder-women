@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import CreateEvent from './createEvent';
+import CreateLocation from './createLocation';
+import UserBookmarks from './userBookmarks';
 import {Link, browserHistory} from 'react-router';
 import './style/account.css';
 
@@ -70,50 +72,44 @@ const Account = React.createClass({
   },
   render: function () {
     return (
-      <div>
-        <h2 className="title">Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
+      <div className="acctDiv">
+        <div className="welcomeBack">
+          <div className="title">
+            <h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
+          </div>
 
+          <h3>Your Account Info:</h3>
+            <p> <b>Name:</b> 
+            {this.state.firstName}{this.state.lastName}
+            </p>
+            <p><b>Email:</b> 
+            {this.state.email}
+            </p>
 
-        <h3>Your Account Info:</h3>
-        <br /><br />
+          <hr />
 
-        <p><b>Name:</b> {this.state.firstName}{this.state.lastName}</p>
-        <p><b>Email:</b> {this.state.email}</p>
+          <UserBookmarks />
 
-        <button className="logout" onClick={this.userLogout}>Logout</button>
+          <h3>Your Created Events:</h3>
+            <ul>
+              {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
+                return(
+                  <Link to={'/events/' + val.id}><li key={idx}>{val.title}</li>
+                  </Link>)
+              })}
+            </ul>
 
-        <br /><br />
-
-        <h3>Your Bookmarks:</h3>
-        <ul>
-          {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {
-
-            let eventTitle = val.title
-
-            return (
-              <li key={idx}>{eventTitle}</li>
-            )
-          })}
-        </ul>
-
-        <h3>Your Created Events:</h3>
-        <ul>
-          {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
-            return(<Link to={'/events/' + val.id}><li key={idx}>{val.title}</li></Link>)
-
-          })}
-        </ul>
+        </div>
 
         <br /><br />
-
-        <Link to={'/createevent/'}><button className='button'>Create An Event</button></Link>
-        {
-        // <a href={"user/" + this.state.id + "/createevent" }><button className="button">
-        //  Create An Event</button>
-        // </a>
-        }
-
-        <Link to={'/createlocation/'}><button className='button'>Create A Location</button></Link>
+        <div className="acctButtons">
+          <Link to={'/createlocation/'}><button className='button'>Create A Location</button></Link>
+          <br />
+          <Link to={'/createevent/'}><button className='button'>Create An Event</button></Link>
+          <br />
+          <br />
+          <button className="logout" onClick={this.userLogout}>Logout</button>
+        </div>
 
       </div>
     );
@@ -126,3 +122,15 @@ Account.contextTypes = {
 }
 
  export default Account;
+
+          // <h3>Your Bookmarks:</h3>
+          //   <ul>
+          //     {!this.state.bookmarks ? "You do not have any bookmarks." : this.state.bookmarks.map((val, idx) => {
+
+          //       let eventTitle = val.title
+
+          //       return (
+          //         <li key={idx}>{eventTitle}</li>
+          //       )
+          //     })}
+          //   </ul>
