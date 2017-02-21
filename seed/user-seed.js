@@ -39,6 +39,22 @@ const user = [
     zipCode: 11238,
     role: 'Individual'
   },
+  {//6
+    firstName: 'Museum of the Moving Image',
+    lastName: null,
+    email: 'pr@movingimage.us',
+    password: 'password1',
+    zipCode: 11106,
+    role: 'Museum'
+  },
+  {//7
+    firstName: 'Salina',
+    lastName: 'Fu',
+    email: 'sfu.concepts@gmail.com',
+    password: 'password1',
+    zipCode: 10002,
+    role: 'Individual'
+  }
 ];
 
 module.exports = user;

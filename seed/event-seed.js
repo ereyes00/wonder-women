@@ -7,7 +7,7 @@ const events = [
     price: 'Suggested $16',
     featuredArtist: 'Marilyn Minter',
     description: 'Marilyn Minter’s sensual paintings, photographs, and videos vividly explore complex and contradictory emotions around beauty and the feminine body in American culture. She trains a critical eye on the power of desire, questioning the fashion industry’s commercialization of sex and the body. Marilyn Minter: Pretty/Dirty is the first retrospective of her work.',
-    UserId:1
+    UserId: 2
   },
   {
     title: 'Ken Weathersby: Time after Time',
@@ -91,7 +91,7 @@ const events = [
   },
   {
     title: 'Bill Jacklin 1986-2016',
-    LocationId:10,
+    LocationId:13,
     opening: '2017-02-08',
     closing: '2017-03-04',
     price: 'Free',
@@ -101,7 +101,7 @@ const events = [
   },
   {
     title: 'L.C. Armstrong: Signals at Sunset',
-    LocationId:11,
+    LocationId:13,
     opening: '2017-02-08',
     closing: '2017-03-04',
     price: 'Free',
@@ -111,7 +111,7 @@ const events = [
   },
   {
     title: 'Gareth Mason: Unruly Behavior',
-    LocationId:12,
+    LocationId:14,
     opening: '2017-02-09',
     closing: '2017-03-04',
     price: 'Free',
@@ -121,7 +121,7 @@ const events = [
   },
   {
     title: 'Robert Kushner: Portraits & Perennials',
-    LocationId:13,
+    LocationId:15,
     opening: '2017-02-09',
     closing: '2017-03-11',
     price: 'Free',
@@ -131,17 +131,17 @@ const events = [
   },
   {
     title: 'Dan Christensen: Late Calligraphic Stain Paintings',
-    LocationId:14,
+    LocationId:16,
     opening: '2017-02-09',
     closing: '2017-03-11',
     price: 'Free',
     featuredArtist: 'Dan Christensen',
     description: 'Berry Campbell is pleased to announce an exhibition of paintings by Dan Christensen (1942-2007). The exhibition, featuring nineteen paintings from his “Late Calligraphic Stain” period, opens on February 9, 2017 and runs through March 11, 2017 with an opening reception on Thursday, February 9 from 6 to 8 pm. During his forty-year career, Dan Christensen employed a painting method involving a considerable amount of improvisation and experimentation. However, his work had a logical and systematic evolution. Using the visual language of abstraction—from Abstract Expressionism through Color Field Painting and Minimalism—he pursued particular lines of inquiry until he felt he had exhausted them. He then changed the variables of his art to move in new directions. Yet, in doing so, he often doubled back, revisiting aspects of his earlier work to rework old themes and create new combinations. Like many artists before him—Picasso and Pollock come to mind—through such recycling, he gave layered resonance to his art.',
-    UserId:3
+    UserId: 7
   },
   {
     title: 'Steppenwolf',
-    LocationId:15,
+    LocationId:17,
     opening: '2017-02-09',
     closing: '2017-04-16',
     price: 'Free',
@@ -151,7 +151,7 @@ const events = [
   },
    {
     title: 'Vija Celmins',
-    LocationId:16,
+    LocationId:18,
     opening: '2017-02-10',
     closing: '2017-04-15',
     price: 'Free',
@@ -161,7 +161,7 @@ const events = [
   },
   {
     title: 'Michel Majerus Aluminum Paintings',
-    LocationId:17,
+    LocationId:18,
     opening: '2017-02-10',
     closing: '2017-04-15',
     price: 'Free',
@@ -171,7 +171,7 @@ const events = [
   },
   {
     title: 'NO EXIT',
-    LocationId:18,
+    LocationId:19,
     opening: '2017-02-11',
     closing: '2017-04-15',
     price: 'Free',
@@ -181,7 +181,7 @@ const events = [
   },
   {
     title: 'Tam Van Tran',
-    LocationId:19,
+    LocationId: 20,
     opening: '2017-02-16',
     closing: '2017-03-18',
     price: 'Free',
@@ -297,7 +297,17 @@ const events = [
     price: 'Free',
     featuredArtist: 'Alona Weiss, Ingrid Zhuang, Jung Hee Mun, Sarah Lasley',
     description: 'A Room Behind A Room: these windowless spaces or theaters which have for a century been portals to an expansive real world beyond or behind the room.  But now such portals lead us elsewhere. The ease in making motion graphics and visual effects allows many artists to move into realms of total fantasy circumventing the camera as a recording device, mixing animation with documentary footage. Even glossy images from mainstream media can be refit to poke holes at the stable and conventional images of the characters they seem to portray. The four film and video artists in this exhibition all explore the ways our sense of sight — and our bodies — have swerved in this new media environment. Opening reception is held on Sunday, February 12, 2017 from 6pm to 8pm.',
-    UserId:5
+    UserId: 7
+  },
+  {
+    title: 'Martin Scorsese',
+    LocationId:31,
+    opening: '2016-12-11',
+    closing: '2017-04-23',
+    price: '$15',
+    featuredArtist: 'Martin Scorsese',
+    description: 'Martin Scorsese is the iconic American film director. His wide-ranging body of work is at once distinctly personal and rooted in a profound understanding of the art and history of cinema. He is also a consummate New Yorker, and his movies capture the intensity and energy of his home city. Martin Scorsese, the first major exhibition about the director’s deeply intertwined career and life, explores Scorsese’s remarkable half-century of filmmaking within the context of his personal history and his love of cinema. Drawing extensively from Scorsese’s own collection, the exhibition includes production material from his key films, objects from his childhood, behind-the-scenes images, and large-scale projections of scenes from his work. It is organized thematically: Family, Brothers, Men and Women, Lonely Heroes, New York, Cinephile, Cinematography, Editing, and Music.',
+    UserId: 6
   }
 ];
 
