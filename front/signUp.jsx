@@ -21,7 +21,6 @@ var Signup = React.createClass({
 		}
 	},
 	updateRole: function(e){
-		// this.setState({type: event.target.value})
 		this.setState({[e.target.name]: e.target.value})
 	},
 	acctSignUp: function(event){
