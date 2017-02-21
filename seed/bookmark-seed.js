@@ -2,7 +2,7 @@ const user = require('./user-seed.js');
 const db = require('../models');
 
 const bookmarkSeeds = function(){
-  console.log(user[0]);
+  //console.log(user[0]);
   db.User.findById(1)
     .then(function(data) {
       //console.log(data);
