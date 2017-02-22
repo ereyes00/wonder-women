@@ -54,6 +54,14 @@ const user = [
     password: 'password1',
     zipCode: 10002,
     role: 'Individual'
+  },
+  {//8
+    firstName: 'Salina',
+    lastName: 'Fu',
+    email: 'salina@artgal.com',
+    password: 'password1',
+    zipCode: 11106,
+    role: 'Gallery'
   }
 ];
 

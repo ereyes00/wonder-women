@@ -100,7 +100,7 @@ const location = [
     UserId:2
   },
   {//11
-    location:  'Merchant'+'s House Museum',
+    location:  "Merchant's House Museum",
     phoneNumber: null,
     streetAddress: '29 East 4th Street',
     city: 'New York',
@@ -308,6 +308,16 @@ const location = [
     zipCode: 11106,
     type: 'MUSEUM',
     UserId: 6
+  },
+  {//32
+    location: "Salina's Demo Gallery",
+    phoneNumber: '718-990-7659',
+    streetAddress: '35-10 36th Avenue',
+    city: 'Astoria',
+    state: 'NY',
+    zipCode: 11106,
+    type: 'GALLERY',
+    UserId: 8
   }
 ];
 
