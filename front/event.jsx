@@ -91,57 +91,49 @@ const Event = React.createClass({
       return null
       return(
         <div>
-          <div className="EventInfo">
+          <center><h1 className="event">{this.state.title}</h1> </center>
 
-              <div className="hero">
-                 <img className="heroImg" src={this.state.images}/>
-              </div>
+          <div className="hero">
+            <img className="heroImg" src={this.state.images}/>
+          </div>
               
-              <h1 className="event">{this.state.title}</h1>                           
-              <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
+          <div className = "EventDetails">                         
+            <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
 
-              <button 
-                className="bookmark" 
-                 onClick={this.bookmark}
-               >Bookmark
-              </button>
+            <button 
+              className="bookmark" 
+              onClick={this.bookmark}>Bookmark
+            </button>
 
-              <button 
-                className="buttonAlert" 
-                 onClick={this.alerts}
-               >Receive alerts
-              </button>
+            <button 
+              className="buttonAlert" 
+              onClick={this.alerts}>Receive alerts
+            </button>
 
-              <div>
-                <h2>{this.state.location}</h2>
-                <p>{this.state.streetAddress}</p>
-                <p>{this.state.city}, {this.state.state}, {this.state.zipCode}</p>
-              </div>
+              <h2>{this.state.location}</h2>
+              <p>{this.state.streetAddress}</p>
+              <p>{this.state.city}, {this.state.state}, {this.state.zipCode}</p>
 
-              <div>
               <strong>Location Hours:</strong>
               <br /><br />
               <ul className="hours" style={Style}> </ul>
-                  {this.state.hours.map((el,idx)=> {
-                    if(el.closed){
-                      return <li key={idx} style={Style}> 
-                        <b>{el.dayOfWeek}:</b> {el.closed}
-                      </li>
-                    } 
-                     return <li key={idx} style={Style}> 
-                      <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
-                     </li>
+                {this.state.hours.map((el,idx)=> {
+                  if(el.closed){
+                    return <li key={idx} style={Style}> 
+                            <b>{el.dayOfWeek}:</b> {el.closed}
+                          </li>
+                  } 
+                    return <li key={idx} style={Style}> 
+                            <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
+                          </li>
                   })}
-              </div>
    
-              <p><strong>Price: </strong>{this.state.price}</p>
-
-              <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
-
-              <p>{this.state.description}</p>
+            <p><strong>Price: </strong>{this.state.price}</p>
+            <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
+            <p>{this.state.description}</p>
           </div>
 
-          <div>
+          <div className="map">
              <MapDisplay
                 eventId ={this.state.id}
                 locationId={this.state.locationId}

@@ -1,33 +1,23 @@
-/*.event {
-	float: right;
-}*/
- 
+
 .heroImg {
- 	height: 60%;
-	width: 500px;
+    width: 45%;
 }
  
 .hero {
-	margin: 10px;
-	/*float: left;*/
-	display: block;
-/*	margin-left: 3%;
-	margin-right: 47%;*/
-
-	/*margin-top: -85%;*/
-
-/*	margin-top: 10px;
-	margin-bottom: 10px;*/
+	margin-left: 10px;
+    margin-right: 0;
+    padding-right: 0;
+	float: left;
 }
 
-.EventInfo {
-	margin: 10px;
-	float: right;
-	text-align: justify;
-	display: block;
-	font-family: Arial, Helvetica, sans-serif;
-/*	margin-left: 47%;
-	margin-right: 3%;*/
+.EventDetails {
+    margin-top: -50px;
+    margin: 10px;
+    display: inline;
+    width: 50%;
+    float: right;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 ul {
@@ -57,11 +47,11 @@ ul {
 }
 
 .bookmarked {
-  background-color: green;
+  background-color: #990000;
     border: none;
-    color: black;
+    color: white;
     border-radius: 4px;
-    border: 2px solid #373A3B;
+    border: 2px solid #990000;
     padding: 10px 25px;
     /*margin-left: 52%;*/
     margin-bottom: 20px;
@@ -80,12 +70,18 @@ ul {
     cursor: pointer;
 }
 
+.buttonAlert:hover {
+    background-color: #990000;
+    color: white;
+    border: 2px solid #990000;
+}
+
 .buttonAlerted {
-  background-color: green;
+  background-color: #990000;
     border: none;
-    color: black;
+    color: white;
     border-radius: 4px;
-    border: 2px solid #373A3B;
+    border: 2px solid #990000;
     padding: 10px 25px;
     margin-left: 20px;
     margin-bottom: 20px;
