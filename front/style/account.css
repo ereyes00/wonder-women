@@ -3,27 +3,43 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.acctButtons {
-    /*float: right;*/
+/*.acctButtons {
+    float: right;
     width: 200px;
     height: 200px;
     margin: 10px 10px 10px 10px;
-}
+}*/
 
 .welcomeBack {
-    float: left;
+    /*float: left;*/
+    text-align: center;
+}
+
+.UserDetails {
+    background-color: #fff9f9;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.acctHr {
+    width: 95%;
 }
 
 .text{
     margin-left: 10px;
     margin-bottom: 10px;
     margin-top: 5px;
+    color: #990000;
 
 }
 
 .exhibitions-list {
     width: 100%;
     overflow: hidden;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
 /*    overflow-x: hidden;
     overflow-y: hidden;*/
     display: block;
@@ -60,3 +76,4 @@
     margin-bottom: 10px;
     line-height: 14px;
 }
+

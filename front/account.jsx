@@ -48,37 +48,54 @@ const Account = React.createClass({
   render: function () {
     return (
       <div className="welcomeBack">
+        <div className = "UserDetails">
+        <h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
 
-            <center><h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
+          <h3>Your Account Info:</h3>
+          <b>Name: </b> 
+            {this.state.firstName}{' '}{this.state.lastName}
+          <br />
+          <b>Email: </b> {this.state.email}
 
-            <h3 className="text">Your Account Info:</h3>
-            <p className="text"> <b>Name: </b> 
-              {this.state.firstName}{' '}{this.state.lastName}
-            </p>
-            <p className="text"><b>Email: </b> 
-              {this.state.email}
-            </p></center>
-
-            <hr />
+            <div className="acctButtons">
+              <Link to={'/createlocation/'}><button className='button'>Create A Location</button>
+              </Link>
+              <Link to={'/createevent/'}><button className='button'>Create An Event</button>
+              </Link>
+            </div>
+      </div>
+        <hr className="acctHr" />
+          <br />
           {
           //<UserBookmarks />
           }
-            <h3 className="text">Your Bookmarked Events: </h3>
-            <ul>
-              {!this.state.bookmarks ? "You have not Bookmarked any events." : this.state.bookmarks.map((val, idx) => {
+          <h3 className="text">Your Bookmarked Events: </h3>
+          <div className="exhibitions-list">
+            {!this.state.bookmarks ? "You have not Bookmarked any events." : this.state.bookmarks.map((val, idx) => {
                 return(
-                  <Link to={'/events/' + val.id}><li key={idx}>{val.title}</li>
+                  <Link to={'/events/' + val.id}>
+                    <span key={idx} className="box">
+                      <span className="box-text"><b>{val.title}</b> 
+                        <br />
+                        Closing: {val.closing}
+                      </span>
+                      <span className="image-container">
+                        <img src={val.Images[0].url} className="images"></img>
+                      </span>
+                    </span>
                   </Link>)
               })}
-            </ul>
+          </div>
 
+          <hr className="acctHr" />
+          <br />
           <h3 className="text">Your Created Events: </h3>
           <div className="exhibitions-list">
               {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
                 return(
                   <Link to={'/events/' + val.id} >
                     <span key={idx} className="box">
-                      <span className="box-text">{val.title}</span>
+                      <span className="box-text"><b>{val.title}</b></span>
                         <span className="image-container">
                           <img src={val.Images[0].url} className="images"></img>
                         </span>
@@ -86,13 +103,6 @@ const Account = React.createClass({
                   </Link>)
               })}
           </div>
-            <div className="acctButtons">
-              <Link to={'/createlocation/'}><button className='button'>Create A Location</button>
-              </Link>
-              <br />
-              <Link to={'/createevent/'}><button className='button'>Create An Event</button>
-              </Link>
-            </div>
       </div>
     );
   }
