@@ -3,41 +3,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.logout {
-
-	background-color: white;
-    border: none;
-    color: black;
-    border-radius: 4px;
-    border: 2px solid #373A3B;
-    padding: 10px 25px;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-.logout:hover {
-	background-color: #990000;
-	color: white;
-	border: 2px solid #990000;
-}
-
 .acctButtons {
-    float: right;
+    /*float: right;*/
+    width: 200px;
+    height: 200px;
+    margin: 10px 10px 10px 10px;
 }
 
 .welcomeBack {
     float: left;
-}
-
-.accInfo {
-    border: 1px solid ;
-}
-
-.crevents{
-    border: 1px solid ;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    margin-top: 5px;
 }
 
 .text{
@@ -47,65 +21,42 @@
 
 }
 
-.imageTitle {
-    text-align: right;
-}
-
-.listStyle {
-    display: inline;
-}
-
 .exhibitions-list {
-    width: 120%;
+    width: 100%;
     overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: hidden;
+/*    overflow-x: hidden;
+    overflow-y: hidden;*/
     display: block;
-    text-align: left;
+    /*text-align: center;*/
 }
 
 .box{
     float: left;
-    width: 379px;
-    margin-right: 10px;
-    padding-top: 10px;
-    padding-right: 10px;
-    margin-bottom: 10px;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: left;
+    width: 200px;
+    height: 100px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    /*line-height: 14px;*/
+    display: inline-block;
+    /*overflow: hidden;*/
 }
 
-.box-inside{
-    padding-bottom: 10px;
-    padding-left: 10px;
-    height: 100px;
-    display: block;
-    text-align: left;
+.image-container{
+    height: 50px;
 }
 
 .images{
-    display: block;
-    float: left;
-    padding-right: 7px;
-    line-height: 14px;
+    width: 100%;
+    /*height: 50px;*/
+    /*padding-right: 7px;*/
+    /*overflow: hidden;*/
 }
 
 .box-text {
-    height: 78px;
+    height: 50px;
     padding: 5px 5px 5px 0;
     display: block;
     margin-right: 10px;
     margin-bottom: 10px;
-}
-
-.box-title {
-    display: block;
-    padding-top: 8px;
-    /*font-size: 12px;*/
     line-height: 14px;
 }
-/*.title {
-    margin-top: -1%;
-    margin-right: 3%;
-}*/
