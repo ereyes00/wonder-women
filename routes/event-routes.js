@@ -31,7 +31,7 @@ eventRouter.route('/search')
       console.log('Type of new End date for comparison', newEndDate)
       storeEvent['closing'] = {
 
-        $lte : newEndDate
+        $gte : newEndDate
 
       }
     }

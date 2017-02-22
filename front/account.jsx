@@ -104,6 +104,7 @@ const Account = React.createClass({
 
         </div>
             <br /><br />
+
         <div className="acctButtons">
           <Link to={'/createlocation/'}><button className='button'>Create A Location</button>
           </Link>

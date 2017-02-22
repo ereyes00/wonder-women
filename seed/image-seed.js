@@ -153,6 +153,11 @@ const images = [
     title: 'Taxi Driver',
     url: 'http://www.movingimage.us/images/exhibitions/media/screen_grab_scorsese_deniro_taxidriver-detail-main.jpg',
     EventId: 31
+  },
+  {
+    title: 'Selfie',
+    url: 'http://joancornella.net/f/MjAxNS8xMi9zZWxmaWUuanBnfHw1MDB8fDgwMHx8dGh1bWJ8fDA/selfie.jpg?v2',
+    EventId: 32
   }
 ];
 

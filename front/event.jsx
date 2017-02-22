@@ -77,7 +77,12 @@ const Event = React.createClass({
         }
       })
     }
-  }, 
+  },
+  alerts: function(){
+    let alertButton = document.getElementsByClassName("buttonAlert")[0];
+
+      alertButton.className = "buttonAlerted"
+  },
   render: function () {
     var Style= {
       listStyle: 'none'
@@ -100,6 +105,13 @@ const Event = React.createClass({
                  onClick={this.bookmark}
                >Bookmark
               </button>
+
+              <button 
+                className="buttonAlert" 
+                 onClick={this.alerts}
+               >Receive alerts
+              </button>
+
               <div>
                 <h2>{this.state.location}</h2>
                 <p>{this.state.streetAddress}</p>

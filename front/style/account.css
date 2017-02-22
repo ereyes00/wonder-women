@@ -1,4 +1,10 @@
- .logout {
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logout {
+
 	background-color: white;
     border: none;
     color: black;
