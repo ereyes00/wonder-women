@@ -3,6 +3,7 @@ import './style/event.css';
 import MapDisplay from './map'
 const React = require('react');
 import { browserHistory } from 'react-router';
+var moment = require('moment');
 
 const Event = React.createClass({
   getInitialState: function () {
@@ -78,11 +79,6 @@ const Event = React.createClass({
       })
     }
   },
-  alerts: function(){
-    let alertButton = document.getElementsByClassName("buttonAlert")[0];
-
-      alertButton.className = "buttonAlerted"
-  },
   render: function () {
     var Style= {
       listStyle: 'none'
@@ -91,13 +87,14 @@ const Event = React.createClass({
       return null
       return(
         <div>
-          <center><h1 className="event">{this.state.title}</h1> </center>
-
+          {/*Hero Div is only holding the event image.*/}
           <div className="hero">
-            <img className="heroImg" src={this.state.images}/>
+            <img className="heroImg" width="475" alt={this.state.title} src={this.state.images}/>
           </div>
               
-          <div className = "EventDetails">                         
+          {/*EventDetails Div holds all details except map.*/}    
+          <div className = "EventDetails">      
+            <h1 className="event">{this.state.title}</h1>
             <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
 
             <button 
@@ -105,15 +102,11 @@ const Event = React.createClass({
               onClick={this.bookmark}>Bookmark
             </button>
 
-            <button 
-              className="buttonAlert" 
-              onClick={this.alerts}>Receive alerts
-            </button>
-
               <h2>{this.state.location}</h2>
-              <p>{this.state.streetAddress}</p>
-              <p>{this.state.city}, {this.state.state}, {this.state.zipCode}</p>
+              {this.state.streetAddress}<br />
+              {this.state.city}, {this.state.state} {this.state.zipCode}
 
+              <br /><br /><br />
               <strong>Location Hours:</strong>
               <br /><br />
               <ul className="hours" style={Style}> </ul>
