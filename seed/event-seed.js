@@ -308,6 +308,16 @@ const events = [
     featuredArtist: 'Martin Scorsese',
     description: 'Martin Scorsese is the iconic American film director. His wide-ranging body of work is at once distinctly personal and rooted in a profound understanding of the art and history of cinema. He is also a consummate New Yorker, and his movies capture the intensity and energy of his home city. Martin Scorsese, the first major exhibition about the director’s deeply intertwined career and life, explores Scorsese’s remarkable half-century of filmmaking within the context of his personal history and his love of cinema. Drawing extensively from Scorsese’s own collection, the exhibition includes production material from his key films, objects from his childhood, behind-the-scenes images, and large-scale projections of scenes from his work. It is organized thematically: Family, Brothers, Men and Women, Lonely Heroes, New York, Cinephile, Cinematography, Editing, and Music.',
     UserId: 6
+  },
+  {
+    title: 'Joan Cornellà: Unsettled',
+    LocationId: 32,
+    opening: '2017-02-22',
+    closing: '2017-03-06',
+    price: 'Free',
+    featuredArtist: 'Joan Cornellà',
+    description: "Joan Cornellà Vázquez (born 11 January 1981, Barcelona) is a cartoonist and illustrator famous for his unsettling, surreal humor and black humorous comic strips as well as artwork. Cornellà’s work has often been described as disturbing or flat-out offensive. Through simplistic visual language, he is able to use satire to comment on the sinister and often bleak side of human nature through a myriad of unconventional scenarios. Everything from our unnatural connection to social media and masturbatory selfie culture to political topics such as abortion, addiction and gender issues - no subject is off limits. Cornellà’s work revels in its absurdity and impropriety.",
+    UserId: 8
   }
 ];
 

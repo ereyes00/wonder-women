@@ -1568,6 +1568,55 @@ const locationHours = [
     closeTime: '07:00 PM',
     closed: null,
     LocationId: 31
+  },
+  {//Salina's Demo Gallery
+    dayOfWeek: 'Sunday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    closed: null,
+    LocationId: 32
+  },
+    {//Salina's Demo Gallery
+    dayOfWeek: 'Monday',
+    openTime: null,
+    closeTime: null,
+    closed: 'closed',
+    LocationId: 32
+  },
+    {//Salina's Demo Gallery
+    dayOfWeek: 'Tuesday',
+    openTime: null,
+    closeTime: null,
+    closed: 'closed',
+    LocationId: 32
+  },
+    {//Salina's Demo Gallery
+    dayOfWeek: 'Wednesday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    closed: null,
+    LocationId: 32
+  },
+    {//Salina's Demo Gallery
+    dayOfWeek: 'Thursday',
+    openTime: '11:00 AM',
+    closeTime: '06:00 PM',
+    closed: null,
+    LocationId: 32
+  },
+    {//Salina's Demo Gallery
+    dayOfWeek: 'Friday',
+    openTime: '11:00 AM',
+    closeTime: '08:00 PM',
+    closed: null,
+    LocationId: 32
+  },
+    {//Salina's Demo Gallery
+    dayOfWeek: 'Saturday',
+    openTime: '11:00 AM',
+    closeTime: '08:00 PM',
+    closed: null,
+    LocationId: 32
   }
 ];
 
