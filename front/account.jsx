@@ -12,8 +12,6 @@ const Account = React.createClass({
     };
   },
   componentWillMount: function(){
-    //debugger;
-    //console.log(currentUser)
     if(!this.context.isUserLoggedin){
       browserHistory.push('/login')
     }
@@ -43,7 +41,6 @@ const Account = React.createClass({
         type:'GET'
       })
       .then((bookmarks) => {
-        //console.log("BOOKMARKS", bookmarks);
         this.setState({ bookmarks: bookmarks });
       })
     })
@@ -52,7 +49,7 @@ const Account = React.createClass({
     return (
       <div className="welcomeBack">
 
-            <h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
+            <center><h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
 
             <h3 className="text">Your Account Info:</h3>
             <p className="text"> <b>Name: </b> 
@@ -60,7 +57,7 @@ const Account = React.createClass({
             </p>
             <p className="text"><b>Email: </b> 
               {this.state.email}
-            </p>
+            </p></center>
 
             <hr />
           {
@@ -75,11 +72,17 @@ const Account = React.createClass({
               })}
             </ul>
 
-          <h3>Your Created Events: </h3>
+          <h3 className="text">Your Created Events: </h3>
           <div className="exhibitions-list">
               {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
                 return(
-                  <Link to={'/events/' + val.id} ><span key={idx} className="box"><span className="box-text">{val.title}</span><span className="image-container"><img src={val.Images[0].url} className="images"></img></span></span>
+                  <Link to={'/events/' + val.id} >
+                    <span key={idx} className="box">
+                      <span className="box-text">{val.title}</span>
+                        <span className="image-container">
+                          <img src={val.Images[0].url} className="images"></img>
+                        </span>
+                    </span>
                   </Link>)
               })}
           </div>

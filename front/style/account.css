@@ -33,7 +33,7 @@
 .box{
     float: left;
     width: 200px;
-    height: 100px;
+/*    height: 100px;*/
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     /*line-height: 14px;*/
@@ -41,9 +41,9 @@
     /*overflow: hidden;*/
 }
 
-.image-container{
+/*.image-container{
     height: 50px;
-}
+}*/
 
 .images{
     width: 100%;
