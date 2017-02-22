@@ -66,43 +66,49 @@ let App = React.createClass({
   render: function () {
     return (
       <div>
-        <div className="logo-class">
-          <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.png')} alt="Art Gal" /></Link>
+        <div className="header">
+          <div className="logo-class">
+                  <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.png')} alt="Art Gal" /></Link>
+            </div>
+        
+            <nav className="navbar navbar-inverse">
+              <div className="container-fluid">
+                <div className="nav navbar-nav">
+                  <Link to ='events'>Opening This Month</Link>
+                  <Link to='CreateEvent'>Create Event</Link>
+                  <Link to='CreateLocation'>Create Location</Link>
+                  {
+                    this.state.isUserLoggedin ?
+                      <Link to='account'>Account</Link>
+                      :
+                      <Link to='login'>Login</Link>
+                  }
+    
+                  {
+                    this.state.isUserLoggedin ?
+                    <button className="logout" onClick={this.userLogout}>Logout</button>
+                    :
+                    null
+                  }
+    
+                </div>
+              </div>
+            </nav>
+        
+            <h2 className="homeTitle">Find your next art escape.</h2>
+    
+            <hr className="hr"/>
         </div>
 
-        <nav className="navbar navbar-inverse">
-          <div className="container-fluid">
-            <div className="nav navbar-nav">
-              <Link to ='events'>Opening This Month</Link>
-              <Link to='CreateEvent'>Create Event</Link>
-              <Link to='CreateLocation'>Create Location</Link>
-              {
-                this.state.isUserLoggedin ?
-                  <Link to='account'>Account</Link>
-                  :
-                  <Link to='login'>Login</Link>
-              }
+        <div>
+          <br></br>
+        
+          {this.props.children}
+  
+          <br></br>
+          <Footer />
+        </div>
 
-              {
-                this.state.isUserLoggedin ?
-                <button className="logout" onClick={this.userLogout}>Logout</button>
-                :
-                null
-              }
-
-            </div>
-          </div>
-        </nav>
-
-        <h2 className="homeTitle">Find your next art escape.</h2>
-
-        <hr className="hr"/>
-        <br /> <br />
-
-        {this.props.children}
-
-        <br />
-        <Footer />
       </div>
     );
   }
