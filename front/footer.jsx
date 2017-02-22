@@ -13,10 +13,6 @@ var Footer = React.createClass({
               <ul>
 
                <li>
-                <h5><a href="#">The Team:</a></h5>
-               </li>
-
-               <li>
                 <a href="https://www.linkedin.com/in/salinafu" target="_blank">Salina</a>
                </li>
 
@@ -38,7 +34,7 @@ var Footer = React.createClass({
             <div className="extra">
               <ul>
                 <li>
-                  <h5><a href="/"><b>Art Gal</b></a></h5>
+                  <a href="/">Art Gal</a>
                 </li>
 
                 <li>
@@ -50,7 +46,7 @@ var Footer = React.createClass({
                 </li>
 
                 <li>
-                  <a href="/contact">Contact</a>
+                  <a href="/contact">Contact Us</a>
                 </li>
 
                  <li>

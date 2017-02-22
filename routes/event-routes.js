@@ -190,13 +190,4 @@ eventRouter.route('/images')
       })
   });
 
-
-// // This is the route to get all events bookmarked by one user
-// eventRouter.route('/get/bookmarks/:id')
-//   .get(function (req, res) {
-//     db.Event.findById(req.params.id)
-//     .then()
-
-
-
 module.exports = eventRouter;
