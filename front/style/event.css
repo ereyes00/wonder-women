@@ -67,3 +67,27 @@ ul {
     margin-bottom: 20px;
     cursor: pointer;
 }
+
+.buttonAlert {
+  background-color: white;
+    border: none;
+    color: black;
+    border-radius: 4px;
+    border: 2px solid #373A3B;
+    padding: 10px 25px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.buttonAlerted {
+  background-color: green;
+    border: none;
+    color: black;
+    border-radius: 4px;
+    border: 2px solid #373A3B;
+    padding: 10px 25px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
