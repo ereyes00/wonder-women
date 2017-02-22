@@ -53,7 +53,7 @@ const MapDisplay = React.createClass({
   render: function () {
     var mapStyle= {
       height: "400px",
-      width: '100%'
+      width: '99%'
     };
     return(
          <div onScroll={(e)=>{e.stopPropagation()

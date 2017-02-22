@@ -3,6 +3,7 @@ import './style/event.css';
 import MapDisplay from './map'
 const React = require('react');
 import { browserHistory } from 'react-router';
+var moment = require('moment');
 
 const Event = React.createClass({
   getInitialState: function () {
@@ -78,11 +79,6 @@ const Event = React.createClass({
       })
     }
   },
-  alerts: function(){
-    let alertButton = document.getElementsByClassName("buttonAlert")[0];
-
-      alertButton.className = "buttonAlerted"
-  },
   render: function () {
     var Style= {
       listStyle: 'none'
@@ -91,57 +87,46 @@ const Event = React.createClass({
       return null
       return(
         <div>
-          <div className="EventInfo">
-
-              <div className="hero">
-                 <img className="heroImg" src={this.state.images}/>
-              </div>
+          {/*Hero Div is only holding the event image.*/}
+          <div className="hero">
+            <img className="heroImg" width="475" alt={this.state.title} src={this.state.images}/>
+          </div>
               
-              <h1 className="event">{this.state.title}</h1>                           
-              <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
+          {/*EventDetails Div holds all details except map.*/}    
+          <div className = "EventDetails">      
+            <h1 className="event">{this.state.title}</h1>
+            <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
 
-              <button 
-                className="bookmark" 
-                 onClick={this.bookmark}
-               >Bookmark
-              </button>
+            <button 
+              className="bookmark" 
+              onClick={this.bookmark}>Bookmark
+            </button>
 
-              <button 
-                className="buttonAlert" 
-                 onClick={this.alerts}
-               >Receive alerts
-              </button>
+              <h2>{this.state.location}</h2>
+              {this.state.streetAddress}<br />
+              {this.state.city}, {this.state.state} {this.state.zipCode}
 
-              <div>
-                <h2>{this.state.location}</h2>
-                <p>{this.state.streetAddress}</p>
-                <p>{this.state.city}, {this.state.state}, {this.state.zipCode}</p>
-              </div>
-
-              <div>
+              <br /><br /><br />
               <strong>Location Hours:</strong>
               <br /><br />
               <ul className="hours" style={Style}> </ul>
-                  {this.state.hours.map((el,idx)=> {
-                    if(el.closed){
-                      return <li key={idx} style={Style}> 
-                        <b>{el.dayOfWeek}:</b> {el.closed}
-                      </li>
-                    } 
-                     return <li key={idx} style={Style}> 
-                      <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
-                     </li>
+                {this.state.hours.map((el,idx)=> {
+                  if(el.closed){
+                    return <li key={idx} style={Style}> 
+                            <b>{el.dayOfWeek}:</b> {el.closed}
+                          </li>
+                  } 
+                    return <li key={idx} style={Style}> 
+                            <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
+                          </li>
                   })}
-              </div>
    
-              <p><strong>Price: </strong>{this.state.price}</p>
-
-              <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
-
-              <p>{this.state.description}</p>
+            <p><strong>Price: </strong>{this.state.price}</p>
+            <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
+            <p>{this.state.description}</p>
           </div>
 
-          <div>
+          <div className="map">
              <MapDisplay
                 eventId ={this.state.id}
                 locationId={this.state.locationId}
