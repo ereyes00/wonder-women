@@ -18,6 +18,7 @@ import {withRouter, Router, Route, Link, browserHistory, IndexRoute} from 'react
 import './style/home.css';
 import $ from 'jquery';
 
+
 // make sure Route paths do not duplicate those on the back end '/api/user' and '/api/event'
 
 let App = React.createClass({
@@ -36,22 +37,12 @@ let App = React.createClass({
     .done((email)=> {
       //console.log('email', email)
       if(email){
-        console.log(email + 'is logged in.')
+        console.log(email + ' is logged in.')
         this.setState({email: email})
       } else {
         console.log("No one is logged in.")
       }
     })
-  },
-  onUserSignUp: function(userData){
-    this.setState({currentUser: userData, isUserLoggedin:true})
-  },
-  // onUserLogOut: function(userData){
-  //   this.setState({currentUser: null, isUserLoggedin:false})
-  // },
-  getChildContext: function() {
-    return {currentUser: this.state.currentUser, 
-      onSignUp: this.onUserSignUp, isUserLoggedin: this.state.isUserLoggedin};
   },
   userLogout: function(event){
     event.preventDefault()
@@ -62,7 +53,15 @@ let App = React.createClass({
     .done(() => {
       console.log("You have logged out.");
       browserHistory.push('/')
+      this.setState({currentUser: null,isUserLoggedin:false })
     })
+  },
+  onUserSignUp: function(userData){
+    this.setState({currentUser: userData, isUserLoggedin:true})
+  },
+  getChildContext: function() {
+    return {currentUser: this.state.currentUser, 
+      onSignUp: this.onUserSignUp, isUserLoggedin: this.state.isUserLoggedin};
   },
   render: function () {
     return (
@@ -77,22 +76,18 @@ let App = React.createClass({
               <Link to ='events'>Opening This Month</Link>
               <Link to='CreateEvent'>Create Event</Link>
               <Link to='CreateLocation'>Create Location</Link>
-
-
               {
-
                 this.state.isUserLoggedin ?
                   <Link to='account'>Account</Link>
                   :
-                  //browserHistory.push('/login')
                   <Link to='login'>Login</Link>
-
               }
+              
               {
-                // this.state.onUserLogOut ?
-                //  <Link to='login'>Login</Link>
-                //  :
-                //  <Link to='account'>Account</Link>
+                this.state.isUserLoggedin ?
+                <button className="logout" onClick={this.userLogout}>Logout</button>
+                :
+                null
               }
 
             </div>
@@ -104,9 +99,7 @@ let App = React.createClass({
         <hr className="hr"/>
         <br /> <br />
 
-
         {this.props.children}
-
 
         <br />
         <Footer />

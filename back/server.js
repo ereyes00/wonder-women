@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../front/style/images')));
 
 app.use(session({
 	secret: 'whose line is it anyway?',

@@ -4,7 +4,6 @@ import MapDisplay from './map'
 const React = require('react');
 import { browserHistory } from 'react-router';
 
- 
 const Event = React.createClass({
   getInitialState: function () {
     return ({
@@ -69,7 +68,13 @@ const Event = React.createClass({
       })
       .done((data) => {
         //console.log('Event bookmarked');
-        alert("Bookmark has been added!");
+
+        let bookmarkButton = document.getElementsByClassName("bookmark")[0];
+
+        if(bookmarkButton.innerHTML === "Bookmark"){
+          bookmarkButton.innerHTML = "Bookmarked!";
+          bookmarkButton.className = "bookmarked"
+        }
       })
     }
   }, 

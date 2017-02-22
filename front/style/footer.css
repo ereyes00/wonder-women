@@ -1,13 +1,26 @@
 .github {
-	height: 20px;
+	height: 14.5px;
+	padding-left: 3px;
 }
 
 .team {
 	float: left;
+	padding-top: 0;
+	margin-top: 0;
+	font-family: "Helvetica";
+	font-size: 14px;
+}
+
+div ul {
+	margin-top: 0;
 }
 
 .extra {
 	float: right;
+	padding-top: 0;
+	margin-top: 0;
+	font-family: "Helvetica";
+	font-size: 14px;
 }
 
 h4 {
