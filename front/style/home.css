@@ -1,3 +1,8 @@
+/*to clear nav bar*/
+.header{
+  overflow: auto;
+}
+
 .logo{
   width: 12%;
   margin-top: 2%;
