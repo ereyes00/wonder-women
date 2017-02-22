@@ -2,25 +2,14 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
-// var passport = require('passport');
-// var LocalStrategy = require('passport-local').Strategy
 const Sequelize = require('sequelize');
 var session = require('express-session')
 var db = require('../models')
 var router = require('../routes/index.js')
-// var accountSid = 'ACc1141fe39a99e10c7afd363c7c11a936';
-// var authToken = '9a83f71db175beff8848856ad13e971a';
+var account = require('./apiKey.js');
 
-// var client = require('twilio')(accountSid, authToken);
 
-// client.messages.create({
-// 	to: "+13472836315",
-// 	from: "+13475274222",
-// 	body: "Checking to see if I am able to send message through twillo api for second time",
-// 	mediaUrl: "https://climacons.herokuapp.com/clear.png",
-// }, function(err, message) {
-// 	console.log(message.sid)
-// });
+var client = require('twilio')(account.accountSid, account.authToken);
 
 
 
@@ -38,6 +27,13 @@ app.use(session({
 
 app.listen('8888', () => console.log("Listening to port 8888"));
 
+
+	
+	
+
+
+
+
 app.get('/auth', (req, res) => {
 	console.log(req.session);
 	if(req.session.email) {
@@ -52,6 +48,21 @@ app.get('/logout', (req, res) => {
 	req.session.destroy();
 	res.send('You are logged out.')
 });
+
+
+app.post('/reminder', (req, res) => {
+	var num = '+1' + req.body.phoneNumber
+	client.messages.create({
+	to: num,
+	from: "+13475274222",
+	body: "Art Gal wants to remind you that one of your bookmarked events is closing soon.",
+ // mediaUrl: "https://climacons.herokuapp.com/clear.png",
+}, function(err, message) {
+	console.log(message.sid)
+});
+	res.send('Your message was successully sent out')
+})
+
 
 db.sequelize.sync().then(() => {
 	app.use('/api', require('../routes'))
