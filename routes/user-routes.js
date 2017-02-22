@@ -73,7 +73,8 @@ userRouter.route('/:id/createdEvents')
     // .then((data)=> {
     //   console.log('data from session', data)
     db.Event.findAll({
-      where: {UserId: req.session.userId}
+      where: {UserId: req.session.userId},
+      include: [db.Image]
     })
     .then((events) => {
       console.log(events)

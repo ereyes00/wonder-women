@@ -8,7 +8,7 @@ import './style/account.css';
 
 const Account = React.createClass({
   getInitialState: function () {
-    return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null, //id: 0 
+    return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null, image: null,//id: 0 
     };
   },
   componentWillMount: function(){
@@ -23,9 +23,9 @@ const Account = React.createClass({
     $.ajax({
       url: '/api/user/'+ userId,
       type: 'GET',
-      //data: this.state,
     })
     .then((user) => {
+      console.log('user', user)
       this.setState({ firstName: user.firstName, lastName: user.lastName, email: user.email, //id: user.id 
       })
 
@@ -34,10 +34,8 @@ const Account = React.createClass({
         type: 'GET'
       })
       .then((events) => {
-        //console.log("before setState")
-        //console.log('events',events);
-        this.setState({ createdEvents: events });
-        //console.log("after setState")
+        //console.log('image', events[0].Images[0].url);
+        this.setState({ createdEvents: events, image: events[0].Images[0].url });
       })
 
       $.ajax({
@@ -50,31 +48,6 @@ const Account = React.createClass({
       })
     })
   },
-  // userLogout: function(event){
-  //   event.preventDefault()
-  //   $.ajax({
-  //       url: '/logout',
-  //       type: 'GET'
-  //   })
-  //   .done(() => {
-  //     console.log("You have logged out.");
-  //     browserHistory.push('/')
-
-  //   })
-  // },
-  // userCreatesEvent: function(event){
-  //   event.preventDefault()
-  //   var toSend = Object.assign({}, this.state, {userId:this.context.currentUser.id})
-  //   $.ajax({
-  //     url: '/api/event',
-  //     type: 'POST',
-  //     data: toSend
-  //   })
-  //   .done(() => {
-  //     console.log("Event created.")
-  //     browserHistory.push('/account')
-  //   })
-  // },
   render: function () {
     return (
       <div className="acctDiv">
@@ -83,19 +56,21 @@ const Account = React.createClass({
             <h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
           </div>
 
-          <h3>Your Account Info:</h3>
-            <p> <b>Name:</b> 
-            {this.state.firstName}{this.state.lastName}
+          <div className="">
+            <h3 className="text">Your Account Info:</h3>
+            <p className="text"> <b>Name: </b> 
+              {this.state.firstName}{' '}{this.state.lastName}
             </p>
-            <p><b>Email:</b> 
-            {this.state.email}
+            <p className="text"><b>Email: </b> 
+              {this.state.email}
             </p>
-
+          </div>
           <hr />
-          {//<UserBookmarks />
+          {
+          //<UserBookmarks />
           }
-
-          <h3>Your Bookmarked Events:</h3>
+          <div className="">
+            <h3 className="text">Your Bookmarked Events:</h3>
             <ul>
               {!this.state.bookmarks ? "You have not Bookmarked any events." : this.state.bookmarks.map((val, idx) => {
                 return(
@@ -103,30 +78,40 @@ const Account = React.createClass({
                   </Link>)
               })}
             </ul>
+          </div>
           
+          {
+          // <div className="">
+          //   <h3>Your Created Events:</h3>
+          //   <ul className="listStyle">
+          //     {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
+          //       return(
+          //         <Link to={'/events/' + val.id}><li key={idx} className="listStyle"><img src={val.Images[0].url} width="205" height="auto"></img><div className="imageTitle">{val.title}</div></li>
+          //         </Link>)
+          //     })}
+          //   </ul>
+          // </div>
+          }
 
           <h3>Your Created Events:</h3>
-            <ul>
+          <div className="exhibitions-list">
               {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
                 return(
-                  <Link to={'/events/' + val.id}><li key={idx}>{val.title}</li>
+                  <Link to={'/events/' + val.id} className="box"><span key={idx} className="box-inside"><img src={val.Images[0].url} width="205" height="auto" className="images"></img><span className="box-text"><p className="box-title">{val.title}</p></span></span>
                   </Link>)
               })}
-            </ul>
           </div>
+
+        </div>
             <br /><br />
         <div className="acctButtons">
-        
-          <Link to={'/createlocation/'}><button className='button'>Create A Location</button></Link>
+          <Link to={'/createlocation/'}><button className='button'>Create A Location</button>
+          </Link>
           <br />
-          <Link to={'/createevent/'}><button className='button'>Create An Event</button></Link>
-        
-
+          <Link to={'/createevent/'}><button className='button'>Create An Event</button>
+          </Link>
           <br />
           <br />
-          {
-            //<button className="logout" onClick={this.userLogout}>Logout</button>
-          }
         </div>
       </div>
     );

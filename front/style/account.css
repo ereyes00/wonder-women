@@ -1,4 +1,4 @@
-.logout {
+ .logout {
 	background-color: white;
     border: none;
     color: black;
@@ -23,6 +23,82 @@
     float: left;
 }
 
+.accInfo {
+    border: 1px solid ;
+}
+
+.crevents{
+    border: 1px solid ;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.text{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+
+}
+
+.imageTitle {
+    text-align: right;
+}
+
+.listStyle {
+    display: inline;
+}
+
+.exhibitions-list {
+    width: 120%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: block;
+    text-align: left;
+}
+
+.box{
+    float: left;
+    width: 379px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+}
+
+.box-inside{
+    padding-bottom: 10px;
+    padding-left: 10px;
+    height: 100px;
+    display: block;
+    text-align: left;
+}
+
+.images{
+    display: block;
+    float: left;
+    padding-right: 7px;
+    line-height: 14px;
+}
+
+.box-text {
+    height: 78px;
+    padding: 5px 5px 5px 0;
+    display: block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.box-title {
+    display: block;
+    padding-top: 8px;
+    /*font-size: 12px;*/
+    line-height: 14px;
+}
 /*.title {
     margin-top: -1%;
     margin-right: 3%;
