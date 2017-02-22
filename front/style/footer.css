@@ -5,20 +5,24 @@
 
 .team {
 	float: left;
-	padding-top: 0;
-	margin-top: 0;
+	/*padding-top: 0;*/
+	/*margin-top: 0;*/
 	font-family: "Helvetica";
 	font-size: 14px;
 }
 
 div ul {
-	margin-top: 0;
+/*	margin-top: 0;*/
+}
+
+div ul li {
+	display: inline;
 }
 
 .extra {
 	float: right;
-	padding-top: 0;
-	margin-top: 0;
+	/*padding-top: 0;*/
+	/*margin-top: 0;*/
 	font-family: "Helvetica";
 	font-size: 14px;
 }
