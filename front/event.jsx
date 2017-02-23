@@ -97,7 +97,7 @@ const Event = React.createClass({
               </div>
             </div>
           </div>
-              
+               
           {/*EventDetails Div holds all details except map.*/}    
           <div className = "EventDetails">      
             <h1 className="event">{this.state.title}</h1>
