@@ -7,7 +7,7 @@
   width: 33%;
   height: 40%;
   height: 400px;
-  float: left;
+  float: left; 
   margin-top: 35px;
   margin-bottom: 35px;
 }*/
@@ -66,7 +66,6 @@
 .openingMonth {
   text-align: right;
   margin-right: 3%;
-  margin-top: -1%;
 }
 
 a:link {

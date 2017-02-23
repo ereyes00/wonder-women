@@ -53,7 +53,7 @@ const SearchResults = React.createClass({
       dateEnd={query.dateEnd}
       />
 
-      <center><div className="results">
+      <center><div className="pageContent">
         <br />
         <h2 className="resultsTitle"><i>Search Results</i></h2>
           {this.state.results.map((val)=> {

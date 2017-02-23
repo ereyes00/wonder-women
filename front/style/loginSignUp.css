@@ -34,21 +34,21 @@
 }
 
 .signUpForm {
-    margin-top: 5%;
+  clear: both;
 }
 
 .loginForm {
-    margin-top: 5%;
+  clear: both;
 }
 
 .tagline {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .new {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 select {
