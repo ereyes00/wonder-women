@@ -131,7 +131,7 @@ const Event = React.createClass({
             <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
             <p>{this.state.description}</p>
           </div>
-
+ 
           <div >
              <MapDisplay
                 eventId ={this.state.id}
