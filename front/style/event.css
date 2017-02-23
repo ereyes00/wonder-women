@@ -4,7 +4,20 @@
 /*    margin-top: 7%;*/
     padding-left: 0;
     display: inline-block;
-	float: left;
+    width: 48%;
+    vertical-align: top;
+	/*float: left;*/
+} 
+
+.content {
+    position: absolute;
+    top: 0;  bottom: 0;  left: 0;  right: 0;
+    padding-bottom: 75%;
+}
+
+.image-wrapper{
+    position:relative;
+    width: 100%;
 }
 
 .heroImg {

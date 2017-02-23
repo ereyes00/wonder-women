@@ -93,7 +93,7 @@ const Event = React.createClass({
           <div className="hero">
             <img className="heroImg" width="475" alt={this.state.title} src={this.state.images}/>
           </div>
-              
+               
           {/*EventDetails Div holds all details except map.*/}    
           <div className = "EventDetails">      
             <h1 className="event">{this.state.title}</h1>
