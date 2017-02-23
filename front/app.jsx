@@ -76,7 +76,8 @@ let App = React.createClass({
                 <div className="nav navbar-nav">
                   <Link to ='events'>Opening This Month</Link>
                   <Link to='CreateEvent'>Create Event</Link>
-                  <Link to='CreateLocation'>Create Location</Link>
+                  {//<Link to='CreateLocation'>Create Location</Link>
+                  }
                   {
                     this.state.isUserLoggedin ?
                       <Link to='account'>Account</Link>
