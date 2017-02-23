@@ -49,12 +49,18 @@ const Account = React.createClass({
     return (
       <div className="pageContent">
         <div className = "UserDetails">
-          <h2 className="userName">Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
+          <h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
+          Join Art Gal in creating a more inclusive and vibrant community <br />by creating and sharing events.
+          <br /><br />
+          <button className="button acctCreate">Create Event</button>
         </div>
-          <br />
-          {
-          //<UserBookmarks />
-          }
+
+        <div className="paintDiv">
+          <img className="paintImg" src="http://downloads.capta.org/images/ref/VisualArts.jpg" />
+        </div>
+
+          <br /><br />
+
           <h3 className="text">Your Bookmarked Events</h3>
           <div className="exhibitions-list">
             {!this.state.bookmarks ? "You have not Bookmarked any events." : this.state.bookmarks.map((val, idx) => {
@@ -75,6 +81,7 @@ const Account = React.createClass({
 
           <hr className="acctHr" />
           <br />
+
           <h3 className="text">Your Created Events</h3>
           <div className="exhibitions-list">
               {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {

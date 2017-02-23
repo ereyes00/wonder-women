@@ -2,13 +2,12 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.welcomeBack {
-    /*float: left;*/
-    text-align: center;
-}
-
 .acctHr {
     width: 95%;
+}
+
+.acctCreate {
+    margin-left: 0;
 }
 
 .text{
@@ -20,9 +19,20 @@
 
 }
 
-.userName {
-    text-align: right;
-    margin-right: 2.5%;
+.UserDetails {
+/*    text-align: right;*/
+    margin-left: 20%;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+.paintDiv {
+    display: inline-block;
+    margin-right: 20%;
+}
+
+.paintImg {
+    height: 150px;
+    margin-left: 150px;
 }
 
 .exhibitions-list {
