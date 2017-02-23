@@ -9,6 +9,10 @@
   /*float: left;*/
 }  
 
+.mapImg {
+    margin-top: 20px;
+}
+
 .content {
     position: absolute;
     top: 0;  bottom: 0;  left: 0;  right: 0;
@@ -21,10 +25,8 @@
 } 
 
 .heroImg {
-    margin-left: 0;
-    padding-left: 0;
-    width: 100%;
-  
+    margin-left: 10%;
+    width: 80%;
 }
 
 .EventDetails h1{
@@ -36,6 +38,7 @@
     width: 48%;
     margin-left: 2%;
     margin-right: 1%;
+    margin-bottom: 15px;
     display: inline-block;
     vertical-align: top;
    /* float: right;*/

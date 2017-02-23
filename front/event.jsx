@@ -5,7 +5,7 @@ const React = require('react');
 import { browserHistory } from 'react-router';
 var moment = require('moment');
 
-
+ 
 const Event = React.createClass({
   getInitialState: function () {
     return ({
