@@ -52,7 +52,7 @@ const Account = React.createClass({
           <h2>Welcome back, {this.state.firstName ? this.state.firstName : null}</h2>
           Join Art Gal in creating a more inclusive and vibrant community <br />by creating and sharing events.
           <br /><br />
-          <button className="button acctCreate">Create Event</button>
+          <Link to = '/createEvent'><button className="button acctCreate">Create Event</button></Link>
         </div>
 
         <div className="paintDiv">

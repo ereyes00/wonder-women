@@ -52,13 +52,13 @@ const MapDisplay = React.createClass({
   },
   render: function () {
     var mapStyle= {
-      height: "400px",
-      width: '99%'
+      height: "350px",
+      width: '100%'
     };
     return(
          <div onScroll={(e)=>{e.stopPropagation()
           e.preventDefault()
-         }} className={'text'} style={mapStyle} ref={(el)=>{if(el)
+         }} className={'mapImg'} style={mapStyle} ref={(el)=>{if(el)
           this.mapDiv = el}}></div>
     )
   }
