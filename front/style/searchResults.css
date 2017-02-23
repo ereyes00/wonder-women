@@ -1,0 +1,88 @@
+.resultsTitle {
+  margin-right: 2%;
+  text-align: center;
+}
+/* 
+.eventResult {
+  width: 33%;
+  height: 40%;
+  height: 400px;
+  float: left; 
+  margin-top: 35px;
+  margin-bottom: 35px;
+}*/
+
+/*image class*/
+.image {
+  width: 90%;
+  /*float: left;*/
+}
+
+.columnContainer {
+  display: flex;
+}
+
+.column {
+  width: 32%;
+  margin-left: 1%;
+  display: inline-block;
+}
+
+@media (max-width: 800px) {
+  .column {
+    width: 49%;
+  }
+}
+@media (max-width: 500px) {
+  .column {
+    width: 99%;
+  }
+}
+
+/*image div*/
+.imgDiv {
+  /*width: 30%;*/
+  margin-left: 1em;
+  margin-right: 1em;
+  /*margin-top: 75px;*/
+  /*float: lelft;*/
+}
+
+.extitle {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+
+.exLocate {
+  color: grey;
+  margin-top: -15px;
+  padding-top: 0;
+  /*margin-bottom: 75px;*/
+  text-align: left;
+}
+
+.openingMonth {
+  text-align: right;
+  margin-right: 3%;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #990000;
+}
+
+a:active {
+    text-decoration: none;
+}
