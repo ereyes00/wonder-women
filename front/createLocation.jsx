@@ -58,7 +58,7 @@ const CreateLocation = React.createClass({
   render: function () {
     //console.log('state', this.state)
     return (
-        <div className="createLocationForm">
+        <div className="createLocationForm pageContent">
           
           <h2 className="directory">Add Location to Directory</h2>
           

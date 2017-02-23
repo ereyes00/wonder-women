@@ -11,7 +11,7 @@ var Footer = React.createClass({
 
             <div className="team">
               <ul>
-
+ 
                <li>
                 <a href="https://www.linkedin.com/in/salinafu" target="_blank">Salina</a>
                </li>

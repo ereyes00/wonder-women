@@ -57,7 +57,7 @@ const CreateEvent = React.createClass({
   render: function () {
     return (
       <center>
-        <div className="createEventForm">
+        <div className="createEventForm pageContent">
           
           <h2 className='headerCreate'>Create An Event</h2>
           
