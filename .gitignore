@@ -7,3 +7,5 @@ public
 *.DS_Store
 
 apiKey.js
+
+mapKey.js
