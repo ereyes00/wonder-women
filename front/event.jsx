@@ -5,6 +5,7 @@ const React = require('react');
 import { browserHistory } from 'react-router';
 var moment = require('moment');
 
+
 const Event = React.createClass({
   getInitialState: function () {
     return ({
@@ -42,8 +43,8 @@ const Event = React.createClass({
       //console.log('opening',data.opening.split('', 10).join(''))
       this.setState({ 
         title: data.title, 
-        opening: data.opening.split('', 10).join(''), 
-        closing: data.closing.split('', 10).join(''), 
+        opening: (moment(data.opening.split('', 10).join(''))._d).toString().split('', 15).join(''), 
+        closing:(moment(data.closing.split('', 10).join(''))._d).toString().split('', 15).join('') , 
         location: data.Location.location,
         hours: data.Location.LocationHours, 
         price: data.price, 
@@ -56,6 +57,7 @@ const Event = React.createClass({
         type:data.Location.type,
         images: data.Images[0].url
       });
+      //console.log('opening', (moment(this.state.opening)._d).toString().split('', 15).join(''))
     })
   },
   bookmark: function(){

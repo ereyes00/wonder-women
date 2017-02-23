@@ -68,9 +68,10 @@ let App = React.createClass({
       <div>
         <div className="header">
           <div className="logo-class">
-                  <Link to='/'><img className="logo" src={require('./style/images/artgal-logo.png')} alt="Art Gal" /></Link>
+                  <Link to='/'><img className="logo" src={'/' + require('./style/images/artgal-logo.png')} alt="Art Gal" /></Link>
             </div>
-        
+
+            <div>
             <nav className="navbar navbar-inverse">
               <div className="container-fluid">
                 <div className="nav navbar-nav">
@@ -87,7 +88,7 @@ let App = React.createClass({
     
                   {
                     this.state.isUserLoggedin ?
-                    <button className="logout" onClick={this.userLogout}>Logout</button>
+                    <Link to="#" onClick={this.userLogout}>Logout</Link>
                     :
                     null
                   }
@@ -97,12 +98,13 @@ let App = React.createClass({
             </nav>
         
             <h2 className="homeTitle">Find your next art escape.</h2>
+            </div>
+
     
             <hr className="hr"/>
         </div>
 
         <div>
-          <br></br>
         
           {this.props.children}
   

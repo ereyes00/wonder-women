@@ -9,7 +9,9 @@ var Home = React.createClass({
 	    <div >
 	    	<SearchBar />		
 	    	
-	    	<NukaCarousel />
+	    	<div className="pageContent">
+	    		<NukaCarousel />
+	    	</div>
 	    </div>
     )
   }

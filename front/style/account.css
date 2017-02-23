@@ -1,38 +1,38 @@
-
 * {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-/*.acctButtons {
-    float: right;
-    width: 200px;
-    height: 200px;
-    margin: 10px 10px 10px 10px;
-}*/
-
-.welcomeBack {
-    /*float: left;*/
-    text-align: center;
-}
-
-.UserDetails {
-    background-color: #fff9f9;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
 }
 
 .acctHr {
     width: 95%;
 }
 
+.acctCreate {
+    margin-left: 0;
+}
+
 .text{
-    margin-left: 10px;
+    margin-left: 2.5%;
     margin-bottom: 10px;
     margin-top: 5px;
-    color: #990000;
+/*    color: #990000;*/
+/*    text-align: center;*/
 
+}
+
+.UserDetails {
+/*    text-align: right;*/
+    margin-left: 20%;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+.paintDiv {
+    display: inline-block;
+    margin-right: 20%;
+}
+
+.paintImg {
+    height: 150px;
+    margin-left: 150px;
 }
 
 .exhibitions-list {
@@ -49,23 +49,13 @@
 .box{
     float: left;
     width: 200px;
-/*    height: 100px;*/
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
-    /*line-height: 14px;*/
     display: inline-block;
-    /*overflow: hidden;*/
 }
-
-/*.image-container{
-    height: 50px;
-}*/
 
 .images{
     width: 100%;
-    /*height: 50px;*/
-    /*padding-right: 7px;*/
-    /*overflow: hidden;*/
 }
 
 .box-text {
