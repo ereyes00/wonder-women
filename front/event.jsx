@@ -115,16 +115,18 @@ const Event = React.createClass({
               <br /><br /><br />
               <strong>Location Hours:</strong>
               <br /><br />
-              <ul className="hours" style={Style}> </ul>
+              <table className="hours" style={Style}> </table>
                 {this.state.hours.map((el,idx)=> {
                   if(el.closed){
-                    return <li key={idx} style={Style}> 
-                            <b>{el.dayOfWeek}:</b> {el.closed}
-                          </li>
+                    return <tr key={idx} style={Style}> 
+                            <td><b>{el.dayOfWeek}: </b></td>
+                            <td>{el.closed}</td>
+                          </tr>
                   } 
-                    return <li key={idx} style={Style}> 
-                            <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
-                          </li>
+                    return <tr key={idx} style={Style}> 
+                            <td><b>{el.dayOfWeek}:</b></td> 
+                            <td>{el.openTime} - {el.closeTime}</td>
+                          </tr>
                   })}
    
             <p><strong>Price: </strong>{this.state.price}</p>
