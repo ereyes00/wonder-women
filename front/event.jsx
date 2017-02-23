@@ -88,12 +88,16 @@ const Event = React.createClass({
     if(!this.state.hours)
       return null
       return(
-        <div>
+        <div className="pageContent">
           {/*Hero Div is only holding the event image.*/}
           <div className="hero">
-            <img className="heroImg" width="475" alt={this.state.title} src={this.state.images}/>
+            <div className="image-wrapper">
+              <div className="content">
+                <img className="heroImg" alt={this.state.title} src={this.state.images}/>
+              </div>
+            </div>
           </div>
-              
+               
           {/*EventDetails Div holds all details except map.*/}    
           <div className = "EventDetails">      
             <h1 className="event">{this.state.title}</h1>
@@ -127,8 +131,8 @@ const Event = React.createClass({
             <p><strong>Featured Artist(s):</strong> {this.state.featuredArtist}</p>
             <p>{this.state.description}</p>
           </div>
-
-          <div className="map">
+ 
+          <div >
              <MapDisplay
                 eventId ={this.state.id}
                 locationId={this.state.locationId}
@@ -143,7 +147,7 @@ const Event = React.createClass({
       )
   }
 });
-
+ 
 Event.contextTypes = {
   currentUser: React.PropTypes.object,
   isUserLoggedin: React.PropTypes.boolean
