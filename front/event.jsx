@@ -91,7 +91,11 @@ const Event = React.createClass({
         <div>
           {/*Hero Div is only holding the event image.*/}
           <div className="hero">
-            <img className="heroImg" width="475" alt={this.state.title} src={this.state.images}/>
+            <div className="image-wrapper">
+              <div className="content">
+                <img className="heroImg" alt={this.state.title} src={this.state.images}/>
+              </div>
+            </div>
           </div>
               
           {/*EventDetails Div holds all details except map.*/}    
@@ -128,7 +132,7 @@ const Event = React.createClass({
             <p>{this.state.description}</p>
           </div>
 
-          <div className="map">
+          <div >
              <MapDisplay
                 eventId ={this.state.id}
                 locationId={this.state.locationId}
