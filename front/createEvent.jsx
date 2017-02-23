@@ -76,7 +76,9 @@ const CreateEvent = React.createClass({
             <select  name="location" 
             placeholder=""
             onChange={this.handleLocation}>
+              <option></option>
               <option>Create a new location</option>
+
               {
               this.state.location ?
               this.state.location.map((ele, idx)=> (<option value={ele.id}>{ele.location}</option>)) : <option></option>
