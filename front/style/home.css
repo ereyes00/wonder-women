@@ -1,6 +1,6 @@
-/*to clear nav bar*/
-.header{
-  overflow: auto;
+.pageContent {
+  clear: both;
+  margin-top: 50px;
 }
 
 .logo{
@@ -8,7 +8,7 @@
   margin-top: 2%;
   margin-left: 2%;
   margin-right:2%;
-  margin-bottom: 0;
+  margin-bottom: 2%;
   padding-bottom: 0;
   display: inline-block;
   float: left
@@ -22,7 +22,7 @@ a:link {
 }
 
 a:hover {
-  color: #990000;
+  color: #990000; 
 }
 
 a:visted {
@@ -57,24 +57,3 @@ a:visted {
   left: 0;
 }
 
-.homeTitle {
-
-}
-
-.logout {
-
-  background-color: white;
-    border: none;
-    color: black;
-    border-radius: 4px;
-    border: 2px solid #373A3B;
-    padding: 10px 25px;
-    margin-bottom: 20px;
-    cursor: pointer;
-}
-
-.logout:hover {
-  background-color: #990000;
-  color: white;
-  border: 2px solid #990000;
-}
