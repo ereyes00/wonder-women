@@ -38,7 +38,7 @@ var Footer = React.createClass({
                 </li>
 
                 <li>
-                  <a href="www.c4q.nyc">C4Q</a>
+                  <a href="http://www.c4q.nyc">C4Q</a>
                 </li>
 
                 <li>
