@@ -26,7 +26,7 @@ const NukaCarousel = React.createClass({
       <center>
         <div>
           <div className="Carousel">
-            <h2 className="featuredEvents"><i>Featured Events</i></h2>
+            <h2 className="featuredEvents"><i>Art Gal Favorites</i></h2>
             <br />
               <Carousel 
               width={"95%"} 
@@ -37,37 +37,37 @@ const NukaCarousel = React.createClass({
               autoplayInterval={2500}>
 
               <div className="eventItem">
-                <p><i>"Blue Poles"</i></p>
+                <p className="fontStyles">Blue Poles</p>
                 <Link to={'/events/1'}><img className="caroImg" src={this.state.image1}/> </Link>
               </div>
 
               <div className="eventItem">
-              <p><i>"Jones Street"</i></p>
+              <p className="fontStyles">Jones Street</p>
                 <Link to={'/events/24'}><img className="caroImg" src={this.state.image2}/> </Link>              
               </div>
 
               <div className="eventItem">
-              <p><i>"Body Meets Dress - Dress Meets Body"</i></p>
+              <p className="fontStyles">Body Meets Dress - Dress Meets Body</p>
                 <Link to={'/events/3'}><img className="caroImg" src={this.state.image3}/></Link>   
               </div>
 
               <div className="eventItem">
-               <p><i>"Dyslexia"</i></p>
+               <p className="fontStyles">Dyslexia</p>
                 <Link to={'/events/4'}><img className="caroImg" src={this.state.image4}/></Link>
               </div>
 
               <div className="eventItem">
-              <p><i>"Steppenwolf"</i></p>
+              <p className="fontStyles">Steppenwolf</p>
                 <Link to={'/events/15'}><img className="caroImg" src={this.state.image5}/></Link>
               </div>
 
               <div className="eventItem">
-                <p><i>"Hattie_McDaniel"</i></p>
+                <p className="fontStyles">Hattie_McDaniel</p>
                 <Link to={'/events/6'}><img className="caroImg" src={this.state.image6}/></Link>
               </div>
 
               <div className="eventItem">
-              <p><i>"Cotton Candy"</i></p>
+              <p className="fontStyles">Cotton Candy</p>
                 <Link to={'/events/22'}><img className="caroImg" src={this.state.image7}/></Link>
               </div>
 
