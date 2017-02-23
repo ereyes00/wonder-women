@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router'
 import {browserHistory} from 'react-router';
 import SearchResults from './searchResults.jsx';
+var moment = require('moment');
 import './style/searchBar.css';
 
 const SearchBar = React.createClass({
@@ -11,6 +12,9 @@ const SearchBar = React.createClass({
     return ({zipCode: props.zipCode, dateStart: props.dateStart, dateEnd: props.dateEnd, type: props.type})
   },
   getDefaultProps: function(){
+    // var currentDate = new Date()
+    // var momentDate = moment(currentDate).format('MM/DD/YYYY')
+    // console.log(momentDate)
     return ({zipCode: '', dateStart: '', dateEnd: '', type: 'SearchAll'})
   },
   updateType: function(event){
