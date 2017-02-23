@@ -128,7 +128,9 @@ const Event = React.createClass({
             <p>{this.state.description}</p>
           </div>
 
-          <div className="map">
+ 
+          <div >
+
              <MapDisplay
                 eventId ={this.state.id}
                 locationId={this.state.locationId}
