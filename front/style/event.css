@@ -4,24 +4,61 @@
 /*    margin-top: 7%;*/
     padding-left: 0;
     display: inline-block;
-	float: left;
+    width: 48%;
+    vertical-align: top;
+	/*float: left;*/
+}
+
+.content {
+    position: absolute;
+    top: 0;  bottom: 0;  left: 0;  right: 0;
+    padding-bottom: 75%;
+}
+
+.image-wrapper{
+    position:relative;
+    width: 100%;
 }
 
 .heroImg {
     margin-left: 0;
     padding-left: 0;
+    width: 100%;
+  
+}
+
+.EventDetails h1{
+    margin-top: 0;
 }
 
 .EventDetails {
     position: relative;
-    width: 50%;
-    margin-left: 50px;
-    margin-right: 20px;
-    float: right;
+    width: 48%;
+    margin-left: 2%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top;
+   /* float: right;*/
 /*    text-align: justify;*/
     font-family: Arial, Helvetica, sans-serif;
 }
+@media (max-width: 800px){
+    .EventDetails{
+      width: 100%;
+    }
 
+    .hero {
+        width: 100%;
+    }
+    .heroImg {
+        width: auto;
+        max-width: 100%;
+    }
+    .content {
+        position: static;
+        padding: 0;
+    }
+}
 ul {
 	list-style-type: none;
 }
