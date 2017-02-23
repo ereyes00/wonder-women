@@ -14,7 +14,7 @@ const CreateEvent = React.createClass({
     if(!this.context.isUserLoggedin){
       browserHistory.push('/login')
     }
-  }, 
+  },
   componentDidMount: function(){
     var userId = this.context.currentUser.id
     //console.log('userid from createEventForm', userId)
@@ -44,7 +44,11 @@ const CreateEvent = React.createClass({
   },
   handleLocation: function(e){
     console.log('EVENT', e.target.value);
+    if(e.target.value === "Create a new location"){
+      browserHistory.push('/createlocation')
+    } else {
     this.setState({chosenLocationId: e.target.value})
+    }
   },
   handleChange(e) {
     //console.log('event from handleChange', e)
@@ -71,7 +75,8 @@ const CreateEvent = React.createClass({
             
             <select  name="location" 
             placeholder=""
-            onChange={this.handleLocation}>    
+            onChange={this.handleLocation}>
+              <option>Create a new location</option>
               {
               this.state.location ?
               this.state.location.map((ele, idx)=> (<option value={ele.id}>{ele.location}</option>)) : <option></option>
