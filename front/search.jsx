@@ -33,7 +33,7 @@ const SearchBar = React.createClass({
       <div className="Search">
         <form className="SearchForm" >
           <div className="searchContent">
-          <div className="Zip_Locate">
+          <div className="Zip_Locate Input">
             <label className="SearchForm_Label">
                 <span>Where</span>
             </label>
@@ -46,7 +46,7 @@ const SearchBar = React.createClass({
             </div>
           </div>
 
-          <div className="DateStartPicker">
+          <div className="DateStartPicker Input">
             <label className="SearchForm_Label">
               <span>Start Date</span>
             </label>
@@ -58,7 +58,7 @@ const SearchBar = React.createClass({
             </div>
           </div>
 
-          <div className="DateEndPicker">
+          <div className="DateEndPicker Input">
             <label className="SearchForm_Label">
               <span>End Date</span>
             </label>
@@ -70,7 +70,7 @@ const SearchBar = React.createClass({
             </div>
           </div>
 
-          <div className="LocationType">
+          <div className="LocationType Input">
             <label className="SearchForm_Label">
               <span>Type</span>
             </label>
@@ -92,7 +92,7 @@ const SearchBar = React.createClass({
               dateEnd: this.state.dateEnd
             }
           }}>
-            <button className="button">Search</button>
+            <button className="button searchButton">Search</button>
           </Link>
           </div>
         </form>

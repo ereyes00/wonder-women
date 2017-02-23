@@ -1,31 +1,29 @@
 .SearchForm_Label {
   font-family: Helvetica;
   font-size: 15px;
-  float: left;
-  margin:5px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .selectType {
-  float:left;
   border: none;
-  margin:5px;
-  margin-top: 15px;
-  width: 10%;
+  width: 152px;
   font-size: 16px;
-/*  padding: 12px 20px;*/
+  height: 39px;
+}
+
+.Input {
+  float: left;
+  margin-right: 8px;
 }
  
 .Zip_Input {
-  margin:5px;
-  float:left;
   font-size: 12px; 
   padding: 10px ;
   border-radius: 2px;
 }
 
 .Date_Input {
-  margin:5px;
-  float:left;
   font-size: 12px; 
   padding: 8.5px;
   border-radius: 2px;
@@ -35,20 +33,10 @@
   display: block;
 }
 
-.searchContent {
-  margin-left: 35px;
-}
-
-.SearchForm {
-  margin-top: -6%;
-  margin-right: 2%;
-  margin-left: 16%;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px 0 #dce0e0;
-  border: 1px solid #dce0e0;
-}
-
 .searchHr {
- /* width: 75%;
-  margin-right: 10%;*/
+  margin-right: 2.5%;
+}
+
+.searchButton {
+  margin-top: 27px !important;
 }
