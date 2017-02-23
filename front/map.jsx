@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import {apiKey} from './mapKey.js';
 
 const React = require('react');
 
@@ -20,7 +21,7 @@ const MapDisplay = React.createClass({
   	} 
   	console.log('drawing map')
     $.ajax({
-      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + streetAddress +','+ city +','+ state + '&' + 'key=AIzaSyDcWNv7pwJQQuPEeMdAXALbn-xbRVd8yIo'
+      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + streetAddress +','+ city +','+ state + '&' + 'key='+ apiKey
     })
     .done((data) => {
       var lat = data.results[0].geometry.location.lat;
