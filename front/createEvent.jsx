@@ -53,7 +53,7 @@ const CreateEvent = React.createClass({
   handleChange(e) {
     //console.log('event from handleChange', e)
     this.setState({[e.target.name]: e.target.value})
-  }, 
+  },
   render: function () {
     return (
       <center>

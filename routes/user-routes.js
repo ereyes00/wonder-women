@@ -166,7 +166,20 @@ userRouter.route('/login')
   })
 });
 
-
-
+// Route that will be used send messages
+userRouter.route('/send/message')
+  .post(function(req, res) {
+    db.Message.create({ 
+      name: req.body.fullName,
+      email: req.body.email,
+      messageBody: req.body.message,
+   })
+  .then(function (user) {
+    res.status(401).send("Thanks for contacting us. We'll get back to you soon!")
+  })
+  .catch(function (err) {
+    res.status(err);
+  })
+});
 
 module.exports = userRouter;
