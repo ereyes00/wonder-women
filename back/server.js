@@ -6,10 +6,6 @@ const Sequelize = require('sequelize');
 var session = require('express-session')
 var db = require('../models')
 var router = require('../routes/index.js')
-var account = require('./apiKey.js');
-
-
-var client = require('twilio')(account.accountSid, account.authToken);
 
 
 
@@ -50,18 +46,6 @@ app.get('/logout', (req, res) => {
 });
 
 
-app.post('/reminder', (req, res) => {
-	var num = '+1' + req.body.phoneNumber
-	client.messages.create({
-	to: num,
-	from: "+13475274222",
-	body: "Art Gal wants to remind you that one of your bookmarked events is closing soon.",
- // mediaUrl: "https://climacons.herokuapp.com/clear.png",
-}, function(err, message) {
-	console.log(message.sid)
-});
-	res.send('Your message was successully sent out')
-})
 
 
 db.sequelize.sync().then(() => {

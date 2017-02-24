@@ -6,6 +6,30 @@ import UserBookmarks from './userBookmarks';
 import {Link, browserHistory} from 'react-router';
 import './style/account.css';
 
+const range = num => {
+  var retVal = []
+  for (var i = 0; i < num; i++) {
+    retVal.push(i)
+  }
+  return retVal
+}
+
+const partition = (num, arr) => {
+  const size = Math.floor(arr.length / num)
+  const buckets = range(num).map(i => {
+    const offset = i * size
+    return arr.slice(offset, offset + size)
+  })
+  const numRemaining = arr.length - (size * num)
+  if (numRemaining) {
+    let lastBucket = buckets[buckets.length-1]
+    buckets[buckets.length-1] = lastBucket.concat(arr.slice(-numRemaining))
+  }
+  return buckets
+}
+
+
+
 const Account = React.createClass({
   getInitialState: function () {
     return { createdEvents: null, firstName: '', lastName: '', email: '', bookmarks: null, image: null,//id: 0 
@@ -45,7 +69,25 @@ const Account = React.createClass({
       })
     })
   },
+
+  renderEvent: function(val) {
+    return (
+      <div key={val.id} className="picDiv">              
+        <Link to={'/events/' + val.id}>
+          <img className="pic" src={val.Images[0].url} />
+        </Link>   
+
+        <Link to={'/events/' + val.id}>
+          <h4 className="extitle">{val.title}</h4><br/>
+        </Link>
+      </div>
+    )
+  },
+
   render: function () {
+      if (this.state.bookmarks){
+      //console.log('bookmarks: ', this.state.bookmarks)
+      //console.log('partition: bookmarks: ', partition(3, this.state.bookmarks))
     return (
       <div className="pageContent">
         <div className = "UserDetails">
@@ -62,42 +104,75 @@ const Account = React.createClass({
           <br /><br />
 
           <h3 className="text">Your Bookmarked Events</h3>
-          <div className="exhibitions-list">
-            {!this.state.bookmarks ? "You have not Bookmarked any events." : this.state.bookmarks.map((val, idx) => {
-                return(
-                  <Link to={'/events/' + val.id}>
-                    <span key={idx} className="box">
-                      <span className="box-text"><b>{val.title}</b> 
-                        <br />
-                        Closing: {val.closing}
-                      </span>
-                      <span className="image-container">
-                        <img src={val.Images[0].url} className="images"></img>
-                      </span>
-                    </span>
-                  </Link>)
-              })}
+          
+          <div className="columnContainer"> {
+            !this.state.bookmarks ? "You have not Bookmarked any events." : 
+                partition(3, this.state.bookmarks).map((bucket, i) => {
+                  return (
+                    <div className="bucket" key={'bucket' + i}>
+                     {bucket.map(this.renderEvent)}
+                    </div>              
+                  )
+                })
+             }
           </div>
+
+          {
+          // <div className="exhibitions-list">
+          //   {!this.state.bookmarks ? "You have not Bookmarked any events." : this.state.bookmarks.map((val, idx) => {
+          //       return(
+          //         <Link to={'/events/' + val.id}>
+          //           <span key={idx} className="box">
+          //             <span className="box-text"><b>{val.title}</b> 
+          //               <br />
+          //               Closing: {val.closing}
+          //             </span>
+          //             <span className="image-container">
+          //               <img src={val.Images[0].url} className="images"></img>
+          //             </span>
+          //           </span>
+          //         </Link>)
+          //     })}
+          // </div>
+          }
 
           <hr className="acctHr" />
           <br />
 
           <h3 className="text">Your Created Events</h3>
-          <div className="exhibitions-list">
-              {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
-                return(
-                  <Link to={'/events/' + val.id} >
-                    <span key={idx} className="box">
-                      <span className="box-text"><b>{val.title}</b></span>
-                        <span className="image-container">
-                          <img src={val.Images[0].url} className="images"></img>
-                        </span>
-                    </span>
-                  </Link>)
-              })}
+
+          <div className="columnContainer"> {
+            !this.state.createdEvents ? "You have not created any events." :
+                partition(3, this.state.createdEvents).map((bucket, i) => {
+                  return (
+                    <div className="column" key={'bucket' + i}>
+                     {bucket.map(this.renderEvent)}
+                    </div>              
+                  )
+                })
+             }
           </div>
+          
+          {
+          // <div className="exhibitions-list">
+          //     {!this.state.createdEvents ? "You have not created any events." : this.state.createdEvents.map((val, idx) => {
+          //       return(
+          //         <Link to={'/events/' + val.id} >
+          //           <span key={idx} className="box">
+          //             <span className="box-text"><b>{val.title}</b></span>
+          //               <span className="image-container">
+          //                 <img src={val.Images[0].url} className="images"></img>
+          //               </span>
+          //           </span>
+          //         </Link>)
+          //     })}
+          // </div>
+          }
       </div>
     );
+        } else {
+      return (<div>Loading...</div>)
+    }
   }
 });
 

@@ -92,7 +92,7 @@ var Signup = React.createClass({
 						  <br /><br />
 							<button
 								className="button"
-								type="submit">Create Account
+								type="submit">Sign Up
 							</button>
 					  </form>
 				  </div>

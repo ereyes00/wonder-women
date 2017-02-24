@@ -77,11 +77,11 @@ const openingMonth = React.createClass({
                   return (
                     <div className="column" key={'bucket' + i}>
                      {bucket.map(this.renderEvent)}
-                    </div>                  
+                    </div>              
                   )
                 })
                }
-                </div>
+          </div>
         </div>
       )
     } else {

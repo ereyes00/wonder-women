@@ -101,7 +101,8 @@ const Event = React.createClass({
           {/*EventDetails Div holds all details except map.*/}    
           <div className = "EventDetails">      
             <h1 className="event">{this.state.title}</h1>
-            <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
+            <h2 className="onView">On View:</h2> <h3 className="onView">{this.state.opening} -  {this.state.closing}</h3>
+            <br />
 
             <button 
               className="bookmark" 
@@ -115,16 +116,18 @@ const Event = React.createClass({
               <br /><br /><br />
               <strong>Location Hours:</strong>
               <br /><br />
-              <ul className="hours" style={Style}> </ul>
+              <table className="hours" style={Style}> </table>
                 {this.state.hours.map((el,idx)=> {
                   if(el.closed){
-                    return <li key={idx} style={Style}> 
-                            <b>{el.dayOfWeek}:</b> {el.closed}
-                          </li>
+                    return <tr key={idx} style={Style}> 
+                            <td><b>{el.dayOfWeek}: </b></td>
+                            <td>{el.closed}</td>
+                          </tr>
                   } 
-                    return <li key={idx} style={Style}> 
-                            <b>{el.dayOfWeek}:</b> {el.openTime} - {el.closeTime}
-                          </li>
+                    return <tr key={idx} style={Style}> 
+                            <td><b>{el.dayOfWeek}:</b></td> 
+                            <td>{el.openTime} - {el.closeTime}</td>
+                          </tr>
                   })}
    
             <p><strong>Price: </strong>{this.state.price}</p>
