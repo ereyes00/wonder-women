@@ -101,7 +101,8 @@ const Event = React.createClass({
           {/*EventDetails Div holds all details except map.*/}    
           <div className = "EventDetails">      
             <h1 className="event">{this.state.title}</h1>
-            <h2>Opening: {this.state.opening} - Closing: {this.state.closing}</h2>
+            <h2 className="onView">On View:</h2> <h3 className="onView">{this.state.opening} -  {this.state.closing}</h3>
+            <br />
 
             <button 
               className="bookmark" 

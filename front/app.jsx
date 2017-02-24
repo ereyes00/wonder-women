@@ -75,7 +75,7 @@ let App = React.createClass({
             <nav className="navbar navbar-inverse">
               <div className="container-fluid">
                 <div className="nav navbar-nav">
-                  <Link to ='events'>Opening This Month</Link>
+                  <Link to ='events'>Openings This Month</Link>
                   <Link to='CreateEvent'>Create Event</Link>
                   {//<Link to='CreateLocation'>Create Location</Link>
                   }
