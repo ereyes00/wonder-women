@@ -2,7 +2,7 @@
 
 module.exports = function (sequelize, DataTypes) {
   const Message = sequelize.define('Message', {
-    fullNAme: {
+    fullName: {
       type: DataTypes.STRING,
       allowNull: false,
     },

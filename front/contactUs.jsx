@@ -8,19 +8,20 @@ const ContactUs = React.createClass({
     return {  fullName: '', email: '', message: '', msg: '',
     }
   },
-  addMessage: function (e) {
+  sendMessage: function (e) {
     e.preventDefault();
     $.ajax({
-      url: '/api/user/send/message',
+      url: '/api/message/send',
       method: 'POST',
       data: this.state,
     })
     .done((data) => {
-      this.setState({msg: data.responseText})
+      this.setState({msg: data});
     });
   },
-  handleChange(e) {
-    this.setState({[e.target.name]: e.target.value})
+  saveChange(e) {
+    e.preventDefault();
+    this.setState({[e.target.name]: e.target.value});
   },
   render: function () {
     return (
@@ -34,7 +35,7 @@ const ContactUs = React.createClass({
               name="fullName"
               className="inputContact" 
               placeholder="Full Name" 
-              onChange={this.handleChange} />
+              onChange={this.saveChange} />
             <br /><br />
 
             <input
@@ -42,7 +43,7 @@ const ContactUs = React.createClass({
               name="email"
               className="inputContact"
               placeholder="Email" 
-              onChange={this.handleChange}  />
+              onChange={this.saveChange}  />
             <br /><br />
 
             <input
@@ -50,7 +51,7 @@ const ContactUs = React.createClass({
               name="message"
               className="inputContact"
               placeholder="Message"
-              onChange={this.handleChange}  />
+              onChange={this.saveChange}  />
 
             <br /><br />
 
@@ -58,7 +59,8 @@ const ContactUs = React.createClass({
                 type="submit"
                 className="button"
                 id="submit"
-                value="Submit" 
+                value="Submit"
+                onClick={this.sendMessage}
             />
 
           </form>
