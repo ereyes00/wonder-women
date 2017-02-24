@@ -67,7 +67,7 @@
     line-height: 14px;
 }
 
-.imgDiv {
+.picDiv {
   /*width: 30%;*/
   margin-left: 1em;
   margin-right: 1em;
@@ -87,7 +87,7 @@
 }
 
 .bucket {
-  width: 32%;
+  width: 33%;
   margin-left: 1%;
   display: inline-block;
 }

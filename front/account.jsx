@@ -72,7 +72,7 @@ const Account = React.createClass({
 
   renderEvent: function(val) {
     return (
-      <div key={val.id} className="imgDiv">              
+      <div key={val.id} className="picDiv">              
         <Link to={'/events/' + val.id}>
           <img className="pic" src={val.Images[0].url} />
         </Link>   

@@ -1,3 +1,9 @@
+
+.onView{
+    display: inline-block;
+}
+
+
 .hero {
   margin-left: 0;
     margin-right: 0;
