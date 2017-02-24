@@ -26,7 +26,7 @@ const NukaCarousel = React.createClass({
       <center>
         <div>
           <div className="Carousel">
-            <h2 className="featuredEvents"><i>Art Gal Favorites</i></h2>
+            <h2 className="featuredEvents">Experience and Be a Part of New York City's Art Scene</h2>
             <br />
               <Carousel 
               width={"95%"} 
