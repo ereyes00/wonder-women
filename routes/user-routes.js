@@ -166,7 +166,4 @@ userRouter.route('/login')
   })
 });
 
-
-
-
 module.exports = userRouter;

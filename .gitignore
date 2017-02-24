@@ -6,7 +6,6 @@ public
 
 *.DS_Store
 
+back/apiKey.js
 
-
-back/mapKey.js
 front/mapKey.js
