@@ -76,7 +76,7 @@ const CreateEvent = React.createClass({
             <select  name="location" 
             placeholder=""
             onChange={this.handleLocation}>
-              <option></option>
+              <option>Choose location</option>
               <option>Create a new location</option>
 
               {
