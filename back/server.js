@@ -21,7 +21,9 @@ app.use(session({
 	saveUninitialized: false,
 })) 
 
-app.listen('8888', () => console.log("Listening to port 8888"));
+const port = process.env.PORT || '8888'
+
+app.listen(port, () => console.log("Listening to port " + port));
 
 
 	
