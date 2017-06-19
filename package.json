@@ -75,8 +75,5 @@
     "url-loader": "^0.5.7",
     "webpack-livereload-plugin": "^0.10.0"
   },
-  "engines": {
-  "node": "7.4.0"
-  },
   "keywords": []
 }
