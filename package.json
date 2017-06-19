@@ -15,6 +15,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ereyes00/wonder-women/issues"
+  }, 
+  "engines": {
+    "node": "6.7.0",
+    "npm": "3.10.7"
   },
   "homepage": "https://github.com/ereyes00/wonder-women#readme",
   "dependencies": {
@@ -70,9 +74,6 @@
     "sass-loader": "^4.1.1",
     "url-loader": "^0.5.7",
     "webpack-livereload-plugin": "^0.10.0"
-  },
-  "engines": {
-  "node": "7.4.0"
   },
   "keywords": []
 }

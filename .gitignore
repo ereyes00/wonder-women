@@ -2,8 +2,6 @@ node_modules
 
 config
 
-public
-
 *.DS_Store
 
 back/apiKey.js
