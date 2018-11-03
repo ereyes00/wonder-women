@@ -1,5 +1,7 @@
 # Art Gal
 
+Visit https://artgal2.herokuapp.com/
+
 With our app, we hope to provide a resource for those who are searching for art-related activities in New York City. The app will allow users to create events for museums, galleries and schools and also give them the opportunity to bookmark the ones that interest them. <br/><br/>
 Art Gal allows site visitors to discover events through three channels: Art Gal's curated list of featured events on the home page, the 'Openings This Month' link that will offer a broader take on the newest events, and also through our search bar which users can refine their searches by zip code, date range and location type.
 <br/>
